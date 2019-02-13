@@ -1,0 +1,239 @@
+<% if @change_leader_invitation && @change_leader_invitation.is_valid? %>
+  <div class="center-block">
+    <p class="bg-info lead text-center">
+      You were invited as a leader for this project. Please review the project and accept.
+      <br/>
+      <%= link_to "Accept", accept_change_leader_invitation_path(@change_leader_invitation), method: :put, :class => "btn btn-primary btn-sm"%>
+      <%= link_to "Reject", reject_change_leader_invitation_path(@change_leader_invitation), method: :put, :class => "btn btn-primary btn-sm"%>
+    </p>
+  </div>
+<% end %>
+
+
+<%= render 'project_top_banner' %>
+
+<div class="project-detail-wrapper">
+  <div class="project-tab-wrapper">
+    <ul class="nav nav-pills nav-justified">
+      <li><a href="javascript:void(0)" class="tablinks border-right-none" onclick="openTab(event, 'plan')">Plan</a></li>
+      <li><a href="javascript:void(0)" class="tablinks border-right-none" onclick="openTab(event, 'tasks')">Tasks <small>(353)</small></a></li>
+      <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'team')">Team <small>(434)</small></a></li>
+    </ul>
+
+    <div class="tabs-wrapper">
+      <div id="Plan" class="tabcontent">
+        <div class="btns-group">
+          <div class="btn-wrapper">
+              <%= link_to edit_project_path(@project), :class => "btn-edit" do %>
+                  <i class="icon-edit"></i>&nbsp;&nbsp;
+                  Edit
+              <% end %>
+          </div>
+
+          <div class="btn-wrapper">
+            <a href="javascript:void(0)" class="btn-fund">
+              <i class="fa fa-credit-card-alt" aria-hidden="true"></i>&nbsp;&nbsp;Fund
+            </a>
+          </div>
+
+          <div class="btn-wrapper">
+            <a href="javascript:void(0)" class="btn-task">
+              <i class="fa fa-tasks" aria-hidden="true"></i>&nbsp;&nbsp;Do a Task
+            </a>
+          </div>
+
+          <div class="btn-wrapper">
+            <a href="javascript:void(0)" class="btn-follow">
+              <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>&nbsp;&nbsp;Follow
+            </a>
+            <% if @project.user_id != @current_user_id %>
+              <%= link_to follow_project_path(@project, follow: !@followed), class: 'btn-follow', method: :post do %>
+                  <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>&nbsp;&nbsp;
+                  <%= @followed ? "Unfollow" : "Follow" %>
+              <% end %>
+            <% end %>
+          </div>
+
+          <div class="btn-wrapper">
+            <div class="rank-group">
+              <input type="hidden" id="stars" name="stars">
+              <% for i in 1..5 %>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="btn-wrapper">
+            <div class="social-sharelinks">
+              <a href="javascript:void(0)" data-site="facebook" title="Share to Facebook" onclick="return SocialShareButton.share(this);">
+                <i class="fa fa-facebook"></i>
+              </a>
+              <a href="javascript:void(0)" data-site="twitter" title="Share to Twitter" onclick="return SocialShareButton.share(this);">
+                <i class="fa fa-twitter"></i>
+              </a>
+              <a href="javascript:void(0)" data-site="google_plus" class="social-share-button-google_plus" onclick="return SocialShareButton.share(this);" title="Share to Google+" >
+                <i class="fa fa-google-plus" ></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-details">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+              <div class="project-summary">
+                <p>
+                  <%= @project.description%>
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+              <div class="tasks-summary">
+                <div class="summary-header">
+                  <strong>TASKS</strong>
+                  <a href="javascript:void(0)" class="pull-right">View All</a>
+                </div>
+
+                <div id="tasks_cards">
+                  <% for i in 1..5 %>
+                    <div class="summary-cards pr-card" >
+                      <div class="card-wrapper">
+                        <div class="card-title">
+                          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam eras volutpat.</p>
+                        </div>
+                        <div class="progress">
+                          <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 70%;">
+                          </div>
+                        </div>
+                        <div class="report-banner-table">
+                          <table>
+                            <tr class="value">
+                              <td>70</td>
+                              <td>70</td>
+                              <td>70</td>
+                              <td>70</td>
+                            </tr>
+                            <tr class="items">
+                              <td>Funded</td>
+                              <td>Tasks</td>
+                              <td>Teamates</td>
+                              <td>Raised</td>
+                            </tr>
+                          </table>
+                        </div>
+                        <div class="fund-do-btns">
+                          <button type="button" class="btn-root" title="FUND"><i class="fa fa-credit-card-alt" aria-hidden="true"></i>&nbsp;&nbsp;FUND</button>
+                          <button type="button" class="btn-root _dark" title="DO"><i class="fa fa-tasks" aria-hidden="true"></i>&nbsp;&nbsp;DO</button>
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="Tasks" class="tabcontent">
+        <div class="trello-board">
+          <div class="row">
+
+            <div class="col-lg-3 col-md-3 col-sm-3">
+              <div class="trello-section">
+                <div class="section-header">
+                  <a href="javascript:void(0)">
+                    Funding / Sourcing
+                  </a>
+                </div>
+
+                <div class="section-content">
+                </div>
+
+                <div class="section-add-task">
+                  <a href="<%= new_project_task_path(@project) %>" data-no-turbolink="true" class=""><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add a Task</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-3">
+              <div class="trello-section">
+                <div class="section-header">
+                  <a href="javascript:void(0)">
+                    Doing
+                  </a>
+                </div>
+
+                <div class="section-content">
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-3">
+              <div class="trello-section">
+                <div class="section-header">
+                  <a href="javascript:void(0)">
+                    Reviewing
+                  </a>
+                </div>
+
+                <div class="section-content">
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-3">
+              <div class="trello-section">
+                <div class="section-header">
+                  <a href="javascript:void(0)">
+                    Done
+                  </a>
+                </div>
+
+                <div class="section-content">
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div id="Team" class="tabcontent">
+        <div class="row">
+          <% @project.team.team_memberships.each do |team_membership| %>
+              <%= render "projects/cards/team_membership", team_membership: team_membership %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  // todo look like this view newer used
+  function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+
+  $(function(){
+    $('#tasks_cards').slimScroll({
+      height: '500px'
+    });
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+</script>

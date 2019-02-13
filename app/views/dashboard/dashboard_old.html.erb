@@ -1,0 +1,198 @@
+<!-- This is a  complete copy of old dashboard.html.erb. As Tendai said, there is a lot of useful functionality, but it's questionable-->
+
+  <div class="row">
+    <div class="column small-6">
+<br>
+    <% if current_user.picture? %>
+        <%= image_tag(current_user.picture, size: "100x100") %>
+    <% else %>
+        <%= gravatar_for_user(current_user)%>
+    <%end%>
+        <br>
+  <%= current_user.display_name %><br><br>
+
+
+</div>
+
+<div class="column small-6">
+  <h4>My Completed Assignments</h4>
+
+    <% @assignments.each do |assignment| %>
+
+       <% if assignment.user == current_user && assignment.confirmed?  %>
+       <div class="vcard">
+        <%=link_to assignment.task.title, assignment.task %> | <%= link_to assignment.task.project.title, assignment.task.project %><br>
+        Assigned at:  <%= assignment.created_at.to_date %><br>
+        Was due at:     <%= (assignment.task.deadline).to_date %><br>
+        Confirmed at
+
+
+       </div>
+
+
+       <%end%>
+
+
+
+    <%end%>
+</div>
+</div>
+
+<div class="row">
+
+  <div class= "column small-4">
+    <h4> My Pending Requests</h4>
+
+
+
+     <% @assignments.each do |assignment| %>
+
+       <% if assignment.user == current_user && assignment.pending? %>
+       You have been assigned to do task <%=link_to assignment.task.title, assignment %><br>
+         <%= link_to "Reject", reject_assignment_path(assignment.id), :method => :put, :data => { :confirm => "Are you sure?" }, class: "button radius tiny alert right" %>
+         <%= link_to "Accept",accept_assignment_path(assignment.id), :method => :put, class: "button radius success tiny" %> <hr>
+         <%end%>
+
+         <% if assignment.completed? && (current_user == assignment.task.project.user || current_user.admin?)%>
+            <%= link_to assignment.user.display_name, assignment.user %> wants you to verify and confirm his completion of task <%= link_to assignment.task.title, assignment.task %><br>
+            <%= link_to "Reject", confirmation_rejected_assignment_path(assignment.id), :data => { :confirm => "Are you sure?" }, class: "button radius tiny alert right" %>
+            <%= link_to "Accept",confirmed_assignment_path(assignment.id), :method => :put, class: "button radius success tiny" %> <hr>
+         <%end%>
+         <%end%>
+
+
+
+
+
+         <% @proj_admins.each do |proj_admin| %>
+         <% if proj_admin.user == current_user && proj_admin.pending? %>
+
+           You have been added as auxiliary Admin in project <%= link_to proj_admin.project.title, proj_admin.project %><br>
+         <%= link_to "Reject", reject_proj_admin_path(proj_admin.id), :method => :put, :data => { :confirm => "Are you sure?" }, class: "button radius tiny alert right" %>
+         <%= link_to "Accept",accept_proj_admin_path(proj_admin.id), :method => :put, class: "button radius success tiny" %> <hr>
+         <%end%>
+         <%end%>
+
+
+
+
+
+
+
+
+
+
+
+  <% @projects.each do |project| %>
+
+         <% if project.pending? && user_signed_in? && (project.user == current_user) && !current_user.admin? %>
+
+         <% if project.picture? %><%= link_to (image_tag project.picture.url, :size => "30x30"), project  %>
+  <%else%>
+  <%= gravatar_for_project(project) %>
+    <%end%>
+         Your request to create Project <%= link_to project.title, project %> is pending for Admin aproval.<br><em><h6 class="subheader">Requested at <%= project.created_at.to_date %></h6></em>
+
+
+
+        <%= link_to "Cancel Request", project_path(project.id), :method => :delete, :data => { :confirm => "Are you sure?" }, class: "button radius tiny alert right" %><%= link_to "Edit Request", edit_project_path(project), class: "button radius tiny" %>
+         <hr>
+
+         <%end%>
+
+
+
+         <% if project.pending? && user_signed_in? && current_user.admin? %>
+
+         <% if project.user.picture? %><%= link_to (image_tag project.user.picture, :size => "30x30"), project.user  %>
+  <%else%>
+  <%= gravatar_for_user(project.user) %>
+    <%end%>
+
+          <%= link_to project.user.display_name, project.user %> has requested to create project <%= link_to project.title, project %><br>
+<em><h6 class="subheader">Requested at <%= project.created_at.to_date %></h6></em>
+          <br>
+
+
+
+        <%= link_to "Reject", reject_project_path(project.id), :method => :put, :data => { :confirm => "Are you sure?" }, class: "button radius tiny alert right" %>
+        <%= link_to "Accept", accept_project_path(project.id), :method => :put, class: "button radius success tiny" %> <hr>
+
+         <%end%>
+  <%end%>
+
+
+  <% @do_requests.each do |req| %>
+  <% if req.pending? && req.user == current_user && !current_user.admin?%>
+    Your request to do task <%=link_to req.task.title, req.task %> is pending for Admin aproval. <br><br>
+       <%= link_to "Cancel Request",do_request_path(req.id), :method => :delete, :data => { :confirm => "Are you sure?" }, class: "button radius tiny alert right" %>
+    <hr>
+    <%end%>
+
+
+
+
+
+    <% if req.pending? && (current_user == req.task.user || current_user == req.task.project.user) %>
+        <%= link_to req.user.display_name, req.user %> has requested to do task <%= link_to req.task.title, req.task %><br><br>
+        <%= link_to "Accept", accept_do_request_path(req.id), :method => :put, class: 'button success tiny radius' %>
+        <%= link_to 'Reject', reject_do_request_path(req.id), :method => :put, :data => { :confirm => "Are you sure?" }, class: 'button radius alert tiny right' %><hr>
+    <%end%>
+
+  <%end%>
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  <div class="column small-4">
+    <h4> My Current Assignments</h4>
+    <% @assignments.each do |assignment| %>
+
+       <% if assignment.user == current_user && (assignment.accepted? || assignment.unconfirmed?) %>
+       <div class="vcard">
+        <%=link_to assignment.task.title, assignment.task %> | <%= link_to assignment.task.project.title, assignment.task.project %><br>
+        Assigned at:  <%= assignment.created_at.to_date %><br>
+        Due date:     <%= (assignment.task.deadline).to_date %><br>
+
+        <%= link_to "Completed ?", completed_assignment_path(assignment.id), :method => :put, class:'button radius tiny' %>
+
+       </div>
+
+
+       <%end%>
+
+
+
+    <%end%>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+

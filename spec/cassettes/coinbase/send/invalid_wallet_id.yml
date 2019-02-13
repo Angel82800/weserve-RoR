@@ -1,0 +1,107 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.coinbase.com/v2/accounts/invalid-wallet-id
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - coinbase/ruby/4.1.0
+      Content-Type:
+      - application/json
+      Cb-Access-Key:
+      - COINBASE_API_KEY
+      Cb-Access-Sign:
+      - 5a35aa18461aaa32c4611fa47b6ddb5153d376bcfe18c157caea591c799d420f
+      Cb-Access-Timestamp:
+      - '1490763432'
+      Cb-Version:
+      - '2015-06-16'
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Wed, 29 Mar 2017 04:57:14 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '74'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d8d6e4df8045d7bdbea876359d5db07ad1490763433; expires=Thu, 29-Mar-18
+        04:57:13 GMT; path=/; domain=.coinbase.com; HttpOnly
+      - _coinbase=TDVLZzhVaGtBT2ZyNENjSDVteFlxV1Njc3RzZlQ1YTNvY1d1dUNOcGFLRzJBbFpkbERya1dkc1lUM28xQktQZkRPcmhQdldwNDRvd0Q2OEFCeTRGRDQrNWQ4Y2ZwL1htUmUxa0kvZncrRndJLzZnQjBSdlAyMC9Ha0t0RURqem1qQ2R1U1JUUlNGQ0ZFYlVOOXE1czRBPT0tLXR0c2FjMnFrWUw4R0hJdE1nME1xWHc9PQ%3D%3D--85aba03c4c2b2efc5cfe7d4c047ecc68a8793531;
+        path=/; secure; HttpOnly
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Content-Disposition:
+      - attachment; filename=response.json
+      Content-Security-Policy:
+      - 'default-src ''self'' https://www.coinbase.com; child-src ''self'' https://www.coinbase.com
+        https://*.olark.com https://*.online-metrix.net https://*.wpstn.com https://netverify.com
+        https://platform.twitter.com https://www.google.com/recaptcha/ blob:; connect-src
+        ''self'' https://www.coinbase.com https://api.coinbase.com https://api.mixpanel.com
+        https://*.online-metrix.net https://api.cloudinary.com https://*.olark.com
+        static.coinbase.com wss://ws.coinbase.com wss://ws.coinbase.com:443; font-src
+        ''self'' https://www.coinbase.com static.coinbase.com; img-src ''self'' data:
+        https://www.coinbase.com https://images.coinbase.com https://exceptions.coinbase.com
+        https://coinbase-uploads.s3.amazonaws.com https://maps.gstatic.com https://ssl.google-analytics.com
+        https://www.google.com https://maps.googleapis.com https://csi.gstatic.com
+        https://www.google-analytics.com https://*.olark.com https://res.cloudinary.com
+        https://secure.gravatar.com https://i2.wp.com https://*.online-metrix.net
+        https://hexagon-analytics.com https://api.mixpanel.com blob: static.coinbase.com
+        https://www.facebook.com/tr; media-src ''self'' https://www.coinbase.com https://*.olark.com
+        blob:; object-src ''self'' data: https://www.coinbase.com https://cdn.siftscience.com
+        https://*.online-metrix.net https://www.gstatic.com https://www.google.com/recaptcha/api/;
+        script-src ''self'' ''unsafe-inline'' ''unsafe-eval'' https://www.coinbase.com
+        https://*.olark.com https://cdn.siftscience.com https://*.newrelic.com https://bam.nr-data.net
+        https://*.google-analytics.com https://www.google.com https://www.gstatic.com
+        https://*.online-metrix.net https://code.jquery.com https://chart.googleapis.com
+        https://maps.googleapis.com https://maps.gstatic.com https://netverify.com
+        https://ajax.cloudflare.com static.coinbase.com; style-src ''self'' ''unsafe-inline''
+        https://www.coinbase.com https://static.olark.com static.coinbase.com; report-uri
+        /csp-report'
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Pragma:
+      - no-cache
+      Public-Key-Pins:
+      - max-age=5184000; pin-sha256="r/mIkG3eEpVdm+u/ko/cwxzOMo1bk4TyHIlByibiA5E=";
+        pin-sha256="WoiWRyIOVNa9ihaBciRSC7XHjliYS9VwUGOIud4PB18="; pin-sha256="JbQbUG5JMJUoI6brnx0x3vZF6jilxsapbXGVfjhN8Fg="
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      Vary:
+      - Origin,Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - DENY
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Powered-By:
+      - Proof-of-Work
+      X-Request-Id:
+      - b17a84b6-c57e-43ce-a166-cf1de4321ba9
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - cloudflare-nginx
+      Cf-Ray:
+      - 34703f44db4e1bbb-SEA
+    body:
+      encoding: ASCII-8BIT
+      string: '{"errors":[{"id":"not_found","message":"Not found"}]}'
+    http_version:
+  recorded_at: Wed, 29 Mar 2017 04:57:14 GMT
+recorded_with: VCR 3.0.3

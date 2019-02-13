@@ -1,0 +1,14 @@
+<div class="m-social">
+  <div class="m-social__item facebook">
+    <i class="fa fa-facebook" aria-hidden="true"></i>
+    <%= link_to t('commons.sign_in_with_fb'), user_facebook_omniauth_authorize_path %>
+  </div>
+  <div class="m-social__item twitter">
+    <i class="fa fa-twitter" aria-hidden="true"></i>
+    <%= link_to t('commons.sign_in_with_twitter'),  user_twitter_omniauth_authorize_path %>
+  </div>
+  <div class="m-social__item google">
+    <i class="fa fa-google-plus" aria-hidden="true"></i>
+    <%= link_to t('commons.sign_in_with_gplus'),  user_google_oauth2_omniauth_authorize_path %>
+  </div>
+</div>

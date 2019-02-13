@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= content_for?(:title) ? yield(:title) : "WeServe.io" %></title>
+  <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "WeServe.io" %>">
+  <%= render "layouts/google_tag_manager_head" %>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArO4kJXYuWNWA47l20aDlstpi1oFA9f7A&&libraries=places"></script>
+  <%= csrf_meta_tags %>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="fb:app_id" content="<%= ENV["facebook_app_id"] %>"/>
+  <meta name="og:title" content="<%= @task.title %>"/>
+  <meta name="og:description" content="<%= @task.condition_of_execution %>"/>
+  <% if @task.project.picture.present? %>
+      <meta name="og:image" content="<%= @task.project.picture_url %>"/>
+  <% end %>
+  <meta name="og:url" content="<%= @url %>"/>
+</head>
+<body>
+<br>
+<br>
+<br>
+<%= link_to '', url_for(controller: 'projects', action: 'taskstab', id: params[:project_id], tab: 'tasks', taskId: params[:id], :only_path => false), id: 'get' %>
+<script>
+    document.getElementById('get').click();
+</script>
+</body>
+</html>

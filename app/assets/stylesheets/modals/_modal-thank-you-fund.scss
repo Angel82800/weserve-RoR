@@ -1,0 +1,14 @@
+.modal-thank-you-fund {
+  font-size: 14px;
+  .modal-default-content {
+    max-width: 720px;
+  }
+  .modal-default-title {
+    letter-spacing: 3px;
+  }
+
+  &__message {
+    color: #525252;
+    text-align: center;
+  }
+}

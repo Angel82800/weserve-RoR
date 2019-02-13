@@ -1,0 +1,200 @@
+---
+fr:
+  commons:
+    not_enough_permissions: Vous n'avez pas assez d'autorisations pour effectuer l'action
+    rating_blank: vous devez donner une note
+    status: statut
+    actions: actes
+    created_at: Créé à
+    application: candidature
+    user: Utilisateur
+    deny: Nier
+    approved: Approuvé
+    unblock: Débloquer
+    block: Bloc
+    chars_remaining: caractères restants
+    logo_text: Pacte Finance-Climat
+    logo_default_text: ""
+    task_details_start: Commencer cette tâche
+    trello_doing: En cours
+    trello_reviewing: En cours d'examen
+    trello_done: Félicitations
+    start_a_project: Lancer un projet
+    development_project_link: http://weserve.io/projects/1/taskstab?tab=plan
+    improve_the_platform: Améliorer la plateforme
+    about: À propos
+    default_user_pic: user_pic.jpg
+    average_rating: La note moyenne de l'utilisateur est %{value}/5
+    faq: FAQ
+    knowledge_base_landing_link: https://weservesupport.zendesk.com/hc/en-us/categories/115000785867-Knowledge-Base
+    login: Connexion
+    logout: Déconnexion
+    hi: Bonjour, %{name}!
+    register: S'inscrire
+    task: tâche
+    article: article
+    project: Projet
+    projects: Projets
+    privacy_policy: Politique de confidentialité
+    term_of_use: Conditions d'utilisation
+    copy_right: '%{year} WeServe.io Beta'
+    accept: Accepter
+    reject: Rejeter
+    loading: Chargement...
+    loading_please_wait: Chargement, veuillez patienter.
+    share_or_invite: Partager/Inviter
+    invite: Inviter
+    follow: Suivre
+    unfollow: Ne plus suivre
+    by: par
+    apply: Envoyer votre candidature
+    edit: Modifier
+    bio: Bio
+    history: Historique
+    no_reviews: Il n'y a encore aucun examen.
+    delete: Supprimer
+    fund: FINANCER
+    funded: Financé
+    teammates: Équipiers
+    completed: Réalisé
+    raised: Levés
+    change: Changer
+    title: Titre
+    budget: Budget
+    min: min
+    do: RÉALISER
+    or: ou
+    ok: Ok
+    save: Enregistrer
+    cancel: Annuler
+    send: Envoyer
+    enter: Entrer
+    usd: '%{currency}'
+    sign_in: Identifiez-vous
+    sign_up: S'inscrire
+    sign_in_as: Se connecter en tant que
+    not_you?: Ce n'est pas vous ?
+    btc_wallet: Portefeuille BTC
+    my_wallet: Mon portefeuille
+    anonymous: Anonyme
+    message: Message
+    my_profile: Mon profil
+    tax_deduction: Profil de déduction d'impôt
+    my_projects: Mes projets
+    no_projects: Vous n'avez pas encore de projet
+    deadline: Date limite
+    create_task: Créer une tâche
+    explore: Explorer
+    find_receipt: Reçu pour la déduction d'impôt disponible sur cette page
+    active_projects: Explorer les projets
+    search_placeholder: Rechercher une cause, un lieu ou un mot-clé
+    transactions: Historique des transactions
+    make_transaction: Réaliser une transaction
+    available: Disponible
+    save_changes: Enregistrer les modifications
+    general: Informations générales
+    first_name: Prénom
+    last_name: Nom
+    city: Ville
+    select_language: Choisir la langue
+    state: État
+    social: Réseaux sociaux
+    linkedin: Linkedin
+    facebook: Facebook
+    twitter: Twitter
+    contacts: Contact
+    contacts_privacy: Vos coordonnées sont uniquement visibles par vos équipiers
+    email: E-mail
+    phone: Téléphone
+    skype: Skype
+    download: Télécharger
+    no_messages: Aucun message
+    add_attachment: Ajouter une pièce jointe
+    link: lien
+    congratulations: Félicitations
+    sign_in_to: Se connecter à
+    donot_have_account?: Vous n'avez pas encore de compte ?
+    sign_in_with_fb: Se connecter avec Facebook
+    sign_in_with_gplus: Se connecter avec Google +
+    sign_in_with_twitter: Se connecter avec Twitter
+    error: Erreur
+    needed: requis
+    left: Restant, USD
+    update: Mettre à jour
+    approve: Approuver
+    start: Commencer
+    open: Ouvrir
+    create: Créer
+    remove: Supprimer
+    are_you_sure: Êtes-vous sûr ?
+    "no": Non
+    sign_up_for_weserve: Inscrivez-vous sur WeServe.io
+    sign_up_with_fb: Inscrivez-vous avec Facebook
+    sign_up_with_gplus: Inscrivez-vous avec Google +
+    sign_up_with_twitter: Inscrivez-vous avec Twitter
+    lead_project_invitation: Vous avez été invité pour le projet %{link}. Veuillez
+      examiner le projet et accepter.
+    full_history: Historique complet des transactions
+    balance: Solde
+    platform_balance: Solde de la plate-forme
+    config_payout_method: Vous n'avez pas encore sélectionné de moyen de paiement,
+      veuillez en %{link} un.
+    setup: Paramètres
+    payout_conf: Sélectionner un moyen de paiement
+    payout_us_card: Seules les cartes Visa et Mastercard non prépayées et délivrées
+      aux USA sont actuellement acceptées.
+    payout_desc: Vous trouverez ci-dessous la liste des moyens de paiement acceptés.
+      Veuillez sélectionner au moins un moyen de paiement afin de pouvoir effectuer
+      des retraits sur votre compte.
+    payout_card_desc: Pour transférer un retrait en monnaie fiduciaire sur votre carte
+      bancaire ou votre compte bancaire, une vérification de votre identité ou des
+      informations supplémentaires peuvent vous être demandées
+    payout_coinbase_desc: Pour transférer un retrait en monnaie fiduciaire sur votre
+      compte Coinbase, vous devez possédez un compte Coinbase.
+    payout_details_desc: Sélectionner un moyen de paiement (carte bancaire / compte
+      bancaire)
+    payout_info: Pour transférer des fonds sur votre compte bancaire ou votre carte
+      bancaire, vous devez suivre une procédure qui ne vous prendra que quelques instants.
+      Veuillez remplir le formulaire ci-dessous. Tous les champs sont requis.
+    success_payout: Merci, votre demande a été envoyée ! Vous allez bientôt recevoir
+      une mise à jour. Vous pouvez également suivre l'évolution de votre statut sur
+      Mon portefeuille.
+    hold_balance: Une période de sécurité de 7 jours est nécessaire avant que vous
+      puissiez effectuer un retrait.
+    unverified: Votre compte n'a pas encore été vérifié, ce qui peut réduire le montant
+      des fonds traités. Vous pouvez continuer jusqu'à ce que nous vous demandions
+      des informations supplémentaires ou bien procéder auparavant à la vérification.
+    do_task_desc: 'Vous allez envoyer une demande de candidature pour cette tâche.
+      Une fois envoyée, elle sera examinée par l''équipe du projet. Vous serez informé
+      du statut de votre candidature. Veuillez remplir les champs ci-dessous pour
+      continuer :'
+    task_budget: Budget de la tâche
+    fee_apply: Frais appliqués
+    fee_apply_detail: '%{donation_fee_percent}% + %{currency}%{donation_fee_fixed}
+      par donation, %{fee}% retrait'
+    task_placeholder: Veuillez soumettre votre candidature avec une brève lettre de
+      motivation
+    information_about_fee: 'Informations sur les frais:'
+    fees_info: 'Vous pouvez lever une somme d''argent supérieure à l''objectif, mais
+      si l''objectif n''est pas atteint, aucune somme d''argent ne sera collectée.
+      L''objectif doit correspondre au montant minimum nécessaire à la réalisation
+      de la tâche.\nSi le financement de la tâche est obtenu, les frais suivants seront
+      prélevés sur le montant total levé :  les frais de %{weserve_fee} de WeServe
+      et les frais de traitement du paiement ($%{donation_fee_ui} + %{donation_fee_percent}).
+      Si le financement échoue, la somme obtenue sera remboursée aux donneurs.'
+    verify_cus_acc: Montant %{link} obligatoire, veuillez fournir des informations
+      supplémentaires pour permettre des retraits.
+    withdrawal_error: Nous rencontrons un problème avec votre demande de retrait et
+      nous cherchons actuellement une solution
+    delete_project_title: Supprimer le projet
+    confirm: Confirmer
+    users_list: Liste des utilisateurs
+    set_as_new_leader: Nommer comme nouveau leader
+    free: Gratuit
+    connecting_payment_service_error: ""
+    some_error: ""
+    unauthorized_access: ""
+    not_implemented_error: ""
+    coinbase_api_error: ""
+    invalid_card_number: 'Erreur: Ceci n''est pas un numero de carte bancaire valide. '
+...

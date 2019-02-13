@@ -1,0 +1,25 @@
+<div id="side-menu-id" class="side-menu m-cabinet">
+
+  <ul class="side-nav">
+    <li class="m-cabinet__item <%= active_class(my_projects_path(current_user)) %>">
+      <%= link_to t('commons.my_projects'), my_projects_path %>
+    </li>
+
+    <!--<li class="m-cabinet__item <%#= active_class(group_messages_path) %>">-->
+      <!--<i class="fa fa-envelope-o" aria-hidden="true"></i>-->
+      <!--<a href="/group_messages">Messages</a>-->
+    <!--</li>-->
+
+    <li class="m-cabinet__item <%= active_class("/users/#{current_user.id}/my_wallet") %>">
+      <a href="/users/<%= current_user.id %>/my_wallet"><%= t('commons.my_wallet') %></a>
+    </li>
+    <li class="m-cabinet__item <%= active_class(user_path(current_user)) %>">
+      <%= link_to t('commons.my_profile'), user_path(current_user) %>
+    </li>
+    <%- if ENV['tax_deduction_enabled'].present? %>
+      <li class="m-cabinet__item <%= active_class(tax_deduction_index_path) %>">
+        <%= link_to t('commons.tax_deduction'), tax_deduction_action_link %>
+      </li>
+    <% end %>
+  </ul>
+</div>

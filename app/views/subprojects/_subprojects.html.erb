@@ -1,0 +1,12 @@
+<div class='content-details subprojects-wrapper'>
+	<div class="create-subproject-btn">
+		<% if user_signed_in? %>
+		<%= link_to t('projects.tabcontent.plan.create_sub_project'), '#', class: "btn btn-theme-green btn-root create-sub-project", id: "create-sub-project", data: { project_id: @project.id, modal: "#startProjectModal"} %>
+		<% else %>
+		<%= link_to t('projects.tabcontent.plan.create_sub_project'), '#', class: "btn btn-theme-green btn-root create-sub-project sign_up_a", data: { modal: "#registerModal"} %>
+		<% end %>
+	</div>
+  <ul class="l-project-cards__list">
+    <%= render partial: 'project', collection: @projects %>
+  </ul>
+</div>

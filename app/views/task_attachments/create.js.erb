@@ -1,0 +1,12 @@
+$("#task-related-messages").html("");
+$("#task-related-messages").html("<%= escape_javascript(@notice) %>");
+$('a[data-task-id="<%=@task.id%>"]').find(".task_attachment").html("<i class='fa fa-paperclip' aria-hidden='true'></i>&nbsp;<%= @task.task_attachments.count%>")
+<% if @task_attachment.persisted? %>
+    $("#task-related-messages").removeClass('_error').addClass('_success');
+    $("#task-attachments-div").append("<%= escape_javascript(render :partial => 'upload_task_attachement', locals: {task_attachment: @task_attachment}) %>");
+<% else %>
+    $("#task-related-messages").removeClass('_success').addClass('_error');
+<% end %>
+
+$("#task-related-messages").addClass("task-messages");
+$("input[id^=file]").val(' ');

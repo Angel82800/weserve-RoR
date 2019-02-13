@@ -1,0 +1,5 @@
+<%= simple_form_for(AdminRequest.new) do |f| %>
+  <%= f.input :user_id, as: :hidden, input_html: { value: user.id } %>
+  <%= f.input :project_id, as: :hidden, input_html: { value: project.id } %>
+  <%= f.submit "Apply as admin", class: "button round" %>
+<% end %>

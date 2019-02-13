@@ -1,0 +1,5 @@
+$('#Revision').html('');
+$('#Revision').html("<%= escape_javascript(render partial: 'projects/tabcontent/revision', locals: {histories: @histories, project: @project}) %>");
+
+// Revision selector input initialization for loaded via AJAX Revisions tab
+window.revisionSelectorInstance = new window.revisionSelector('.revision-compare-custom-radio');

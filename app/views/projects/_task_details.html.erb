@@ -1,0 +1,754 @@
+<!-- todo FD need to be separated to few files -->
+
+<div id="InviteModel" class="modal modal-invite modal-default" tabindex="-1">
+
+  <!-- Modal content -->
+  <div class="modal-content2 yes modal-default__content">
+    <button id="inviteclose" class="modal-default__close"></button>
+    <h4 class="modal-default__title"><%= t('.title') %></h4>
+    <h6 class="modal-invite__subtitle"><%= t('.invite_subtitle') %></h6>
+    <%= form_tag(:controller => "tasks", :action => "send_email") do %>
+      <div class="f-default__joined">
+        <div class="f-default__joined-col _wide">
+          <input type="hidden" name="task_id" value="<%= @task.id %>">
+          <input type="email" name="email" placeholder="<%= t('.email_placeholder') %>" class="f-default__field _joined-left">
+        </div>
+        <div class="f-default__joined-col _narrow">
+          <button class="btn-root _joined-right _dark"><%= t('.invite_button') %></button>
+        </div>
+      </div>
+
+      <span class="modal-invite__or">
+        <%= t('commons.or') %>
+      </span>
+
+      <div class="l-share" data-title="<%= @task.title %> :" data-url="<%= task_url(@task.id) %>" data-img="" data-desc="" data-popup="" data-via="">
+        <ul class="l-share__list">
+          <li class="l-share__item" data-title="<%= @task.title %> :" get-url-from-location="true">
+            <a class="btn-share" href="#" data-site="facebook" title="<%= t('.share_fb') %>" onclick="return SocialShareButton.share(this);">
+              <i class="fa fa-facebook"></i>
+              <span><%= t('.share_fb') %></span>
+            </a>
+          </li>
+          <li class="l-share__item" data-title="<%= @task.title %> :" get-url-from-location="true">
+            <a class="btn-share" rel="nofollow " data-site="twitter" title="<%= t('.share_twitter') %>" href="#" onclick="return SocialShareButton.share(this);">
+              <i class="fa fa-twitter"></i>
+              <span><%= t('.share_twitter') %></span>
+            </a>
+          </li>
+          <li class="l-share__item" data-title="<%= @task.title %>" get-url-from-location="true">
+            <a class="btn-share" rel="nofollow " data-site="google_plus" class="social-share-button-google_plus" onclick="return SocialShareButton.share(this);" title="<%= t('.share_gplus') %>" href="#">
+              <i class="fa fa-google-plus"></i>
+              <span><%= t('.share_gplus') %></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<% if @task.free? %>
+<div id="myModal" class="modal-task modal-default _free-task" tabindex="-1">
+<% else %>
+<div id="myModal" class="modal-task modal-default" tabindex="-1">
+<% end %>
+  <!-- Modal content -->
+<%
+  metamagic og: {
+      title: @task.title,
+      description: @task.id,
+      image: @task.project.picture
+  }
+%>
+  <div class="modal-content modal-task__content edit_task_modal_content">
+    <button id="task-popup-close" type="button" class="modal-default__close"></button>
+    <div class="task-details" data-free="<%= can_make_request_free?(@task) %>" data-id="<%= @task.id %>" data-leader="<%= @leader %>" data-progress="<%= @task.in_progress? %>">
+        <% display = @task.change.blank? ? 'none' : 'block' %>
+        <% if @leader || @assignment %>
+          <div class="modal-badge-informing clearfix" style="display:<%= display %>">
+            <% if @leader %>
+              <%= t('tasks.preview.leader-badge_task_edited').html_safe %>
+            <% elsif @assignment %>
+              <%= t('tasks.preview.assignee-badge_task_edited').html_safe %>
+            <% end %>
+          </div>
+
+          <!-- Modal -->
+          <div class="modal fade" id="myModalWarning" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document" style="margin: 27vh auto;">
+              <div class="modal-content" style="text-align: center; padding-bottom: 40px; font-size: 17px;">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Warning</h4>
+                </div>
+                <div class="modal-body">
+                  <%= t('.warning-message')%>
+                </div>
+                <button type="button" class="btn btn-default center" data-dismiss="modal">Acknowledged</button>
+              </div>
+            </div>
+          </div>
+    <% end %>
+        <div class="modal-task_title-contols-wrap clearfix">
+          <div class="modal-task__title-wrap">
+            <% if can?(:update, @task) || can?(:update_task_in_progress, @task) %>
+              <h2 class="modal-default__title js-toggleForm" id="task-title"><%= @task.title %></h2>
+              <span class="btn-edit glyphicon glyphicon-pencil" aria-hidden="true" id="budget-pencil"></span>
+              <%= form_for @task, :remote => true, html: {id: "task-update-title-form", class: "modal-task__form _hide"} do |f| %>
+                <%= f.text_field :title, id: "input-task-title", class: "_no-empty" %>
+                <% id = can?(:update, @task) ? "task-update-title" : "update-task_in_progress" %>
+                <button name="button" class="btn btn-theme-green btn-root task-details__save-btn" data-value="title" data-param="title" type="submit" id="<%= id %>"><%= t('commons.save') %></button>
+                <button class="btn btn-theme-green btn-root task-details__close-btn"><%= t('commons.cancel') %></button>
+              <% end %>
+            <% else %>
+              <h2 class="modal-default__title" id="task-title"><%= @task.title %></h2>
+            <% end %>
+          </div>
+          <div class="modal-tasks_controls">
+            <ul class="clearfix">
+              <% if user_signed_in? %>
+                <li>
+                  <div class="approve-block mb20">
+                    <%= render 'projects/task_state_transition_dropdown', task: @task %>
+                  </div>
+                </li>
+                <% if can? :update, @task %>
+                  <li>
+                  <%= form_for @task, :remote => true, html: {class: "modal-task__form"} do |f| %>
+                    <div class="select-board">
+                      <%= f.select :board_id, @boards, {include_blank: false}, onchange: '$(this).trigger("submit.rails")' %>
+                    </div>
+                  <% end %>
+                  </li>
+                <% end %>
+              <% end %>
+              <% if user_signed_in? && (can? :destroy, @task) %>
+                <%= link_to @task, method: :delete, data: {confirm: 'Are you sure?'} do %>
+                    <li>
+                      <a class='delete-task' href="javascript: void(0)" title="Delete" data-delete-url='<%= task_path(@task) %>' data-modal="#removeTask">
+                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+
+        <div class="modal-task__flex">
+          <div class="modal-task__content-side">
+            <% if can?(:update, @task) || can?(:update_task_in_progress, @task) %>
+                <div class="task-desc">
+
+                  <div class="task-desc-left">
+                    <div class="condition-and-proof">
+                      <%= render ("projects/condition_and_proof_of_execution"), task: @task %>
+                    </div>
+                    <% if can? :manage_requests, @task.project %>
+                      <%= render "projects/task_related_do_requests", task: @task, pending_apply_requests: @pending_apply_requests %>
+                    <% end %>
+                    <% if can? :create_task_comment, @task %>
+                      <div class="modal-task__activities">
+                          <%= render ("projects/task_comment") %>
+                          <div class="f-comment-post">
+                              <%= form_for [@task.project, @task, @task.task_comments.build], remote: true, html: {class: 'f-comment-post__form'} do |f| %>
+                                  <div class="textarea_wr">
+                                    <a href="javascript:void(0);" class="f-comment-post__add-attachment" id="task-comment-attachment-icon"><i class="fa fa-paperclip" aria-hidden="true"></i></a>
+                                    <%= f.text_area :body %>
+                                  </div>
+                                  <%= f.hidden_field :task_id, value: @task.id %>
+                                  <%= f.file_field :attachment, id: 'task-comment-attachment', style: "display: none" %>
+                                  <%= f.hidden_field :user_id, value: current_user.id %>
+                                  <div class="f-comment-post__action-wrapper">
+                                      <button class="btn btn-theme-transparent f-comment-post__send-btn btn-root" type="submit" name="commit" value="<%= t('commons.send') %>"> <%= t('commons.send') %></button>
+                                      <!-- <a href="#" class="f-comment-post__add-attachment" id="task-comment-attachment-icon"><i class="fa fa-paperclip" aria-hidden="true"></i></a> -->
+                                  </div>
+                                  <div id="attachment-div"></div>
+                              <% end %>
+                          </div>
+                      </div>
+                    <% end %>
+
+                  </div>
+
+                  <div class="task-desc-right">
+
+                    <div class="modal-task__controls-side">
+                      <div class="fund">
+                        <div class="call_to_action_btns">
+                         <% if user_signed_in? %>
+                          <% if @task.suggested_task? && !@task.enough_teammembers? %>
+                              <button type="button" title="<%= t('commons.do') %>" class="btn btn btn-theme-blue btn-root _dark _do-popup-button do-button" id="<%= @task.id %>" onclick="doPopup(<%= @task.id %>, <%= can_make_request_free?(@task) %>, <%= format_currency(@task.budget) %>)" data-modal="#taskDoModal"><%= t('commons.do') %></button>
+                          <% elsif @task.accepted? || @task.incompleted? %>
+                              <% if !@task.free? %>
+                                  <button type="button" title="<%= t('commons.fund') %>" class="btn btn-theme-salat btn-root fund-button" onclick="fundPopup(<%= @task.id %>)" id="<%= @task.id %>" data-modal="#taskFundModal"><%= t('commons.fund') %></button>
+                              <% end %>
+                            <% unless @task.enough_teammembers? %>
+                              <button type="button" title="<%= t('commons.do') %>" class="btn btn btn-theme-blue btn-root _dark _do-popup-button do-button" id="<%= @task.id %>" onclick="doPopup(<%= @task.id %>, <%= can_make_request_free?(@task) %>, <%= format_currency(@task.budget) %>)" data-modal="#taskDoModal"><%= t('commons.do') %></button>
+                              <% end %>
+                          <% end %>
+                         <% end %>
+                        </div>
+
+                          <% if !@task.free? %>
+                              <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: <%= @task.funded %>">
+                                </div>
+                              </div>
+                          <% end %>
+
+                          <div class="modal-task__card">
+                            <% if !@task.free? %>
+                              <div class="modal-task__card_line">
+                                <span class="modal-task__usd-value b_font js-toggleForm" id="task-budget" style="display: inline-block;"><%= ENV['symbol_currency'] %><%= format_currency(@task.current_fund) %></span> raised out of <%= ENV['symbol_currency'] %><span class="b_bold"><%= format_currency(@task.budget) %></span> goal
+                                <% if user_signed_in? && can?(:update_budget_task, @task) %>
+                                    <span class="btn-edit glyphicon glyphicon-pencil" aria-hidden="true" id="budget-pencil" style="display: block; position: absolute; margin-top: 5px; margin-left: 5px; right: 0;"></span>
+                                <%= form_for @task, :remote => true, html: {id: "task-update-budget-form", class: "modal-task__form _hide", style: 'position: absolute'} do |f| %>
+                                    <%= f.number_field :budget, value: balance_in_usd(f.object.budget), id: "input-task-budget", class: "_no-empty input-task-budget no-spinners", min: 20 %>
+                                    <button name="button" class="btn btn-theme-green btn-root task-details__save-btn" type="submit" id="task-update-budget">Save</button>
+                                    <button class="btn btn-theme-green btn-root task-details__close-btn" id="cancel-budget">Cancel</button>
+                                <% end %>
+                                <% end %>
+                              </div>
+                            <% end %>
+                            <div class="modal-task__card_line teamate-needed">
+                              <% unless @task.enough_teammembers? %>
+                                  <span class="b_font" id="number-of-teamate"><%= @task.target_number_of_participants %></span> teammate needed
+                              <% end %>
+                            </div>
+
+                          </div>
+
+
+                          <div class="team-block mb30">
+                            <h5 class="title-inline"><%= t('.team') %></h5>
+                            <% if can?(:add_assignee, @task) %>
+                              <a href="javascript:void(0)" class="add-assignee title-inline"><%= t('.add_assignees') %></a>
+                              <%= render "projects/add_assignees", task: @task %>
+                            <% end %>
+                            <%= render "projects/task_teammate" %>
+                          </div>
+                          <div class="deadline-block">
+                            <h5><%= t('commons.deadline') %></h5>
+                            <% if can?(:update_deadline, @task) %>
+                              <div class="deadline-group">
+                                <div class="form-group">
+                                  <div class="modal-task__desc-block" style="position:relative">
+                                    <p class="modal-default__title js-toggleForm" id="task-deadline"><%= l(@task.deadline.localtime, format: :long) %></p>
+                                    <span class="btn-edit glyphicon glyphicon-pencil" aria-hidden="true" id="budget-pencil"></span>
+                                    <%= form_for @task, :remote => true, html: {id: "task-update-deadline-form",  class: "modal-task__form _hide deadline-input"} do |f| %>
+                                      <div class='input-group date deadline_picker'>
+                                        <span class="input-group-addon ">
+                                          <i class="fa fa-calendar"></i>
+                                        </span>
+                                        <%= f.text_field :deadline, id: "input-task-deadline", class: "_no-empty", value: @task.deadline.strftime("%Y-%m-%d") %>
+
+                                      </div>
+                                      <button name="button" class="btn btn-theme-green btn-root task-details__save-btn" type="submit" id="task-update-deadline"><%= t('commons.update') %></button>
+                                      <button class="btn btn-theme-green btn-root task-details__close-btn"><%= t('commons.cancel') %></button>
+                                      <% end %>
+                                  </div>
+                                </div>
+                              </div>
+                            <% else %>
+                              <p id="task-deadline"><%= l(@task.deadline, format: :long) %></p>
+                            <% end %>
+                          </div>
+                            <%= render 'share_buttons' %>
+                            <script type="text/javascript">
+                              DateTimePickerModule.init($(document));
+                            </script>
+                        </div>
+
+                        <div class="button-group">
+                          <div class="btn-left">
+                            <% if user_signed_in? && (can? :create_or_destroy_task_attachment, @task) %>
+                                <div id="task-related-messages" class="modal-task__attachment-error"></div>
+                                <%= form_for @task_attachment, :url => url_for(:controller => 'task_attachments', :action => 'create'), :remote => true, html: {multipart: true} do |f| %>
+                                    <%= f.hidden_field :task_id, :value => @task.id %>
+                                    <!--<input type="file" name="task_attachment[attachment]" id="file1" style="display: none;">-->
+                                    <input type="file" name="task_attachment[attachment]" id="file1"/>
+                                    <button type="button" class="attachment">
+                                      <i class="fa fa-paperclip" aria-hidden="true"></i><%= t('commons.add_attachment') %>
+                                    </button>
+                                    <%= f.submit "upload", class: "btn btn-primary", id: "upload-button" %>
+                                <% end %>
+                            <% end %>
+
+                      <% if user_signed_in? %>
+
+                          <!-- <% if current_user.can_submit_task?(@task) %>
+                              <%= link_to reviewing_task_path(@task.id), :method => :put do %>
+                                  <button>
+                                    <i class="fa fa-check" aria-hidden="true"></i><%= t('.submit_review') %>
+                                  </button>
+                              <% end %>
+                          <% end %>
+                          <% if can? :incomplete, @task %>
+                              <button data-modal="#taskIncompleteModal">
+                                <i class="fa fa-times" aria-hidden="true"></i><%= t('.mark_incomplete') %>
+                              </button>
+                          <% end %>
+                          <% if can? :completed, @task %>
+                              <%= link_to completed_task_path(@task.id), :method => :put, data: {confirm: t('.mark_completed_confirmation')} do %>
+                                  <button>
+                                    <i class="fa fa-check" aria-hidden="true"></i><%= t('.mark_completed') %>
+                                  </button>
+                              <% end %>
+                          <% end %> -->
+                      <% end %>
+
+                            <% if @task.free? %>
+                              <% if @task.state == 'suggested_task' || @task.state == 'accepted' %>
+                                <button class="modal-task__free-btn">
+                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                      <%= t('.make_non_free') %>
+                                </button>
+                              <% end %>
+                            <% elsif @task.not_any_funding? %>
+                              <button class="modal-task_rm-budget-btn">
+                                  <i class="fa fa-check" aria-hidden="true"></i>
+                                    <%= t('.remove_budget') %>
+                              </button>
+                            <% end %>
+                            <% if @task.state == 'completed' %>
+                              <% if @task.task_review %>
+                                  <div class='rating_block'>
+                                    <fieldset class="rating" title="<%= @task.task_review.rating %>/5">
+                                      <%- [1,2,3,4,5].each do |i| %>
+                                          <%- klass = @task.task_review.rating < i ? 'star-grey' : 'star-gold' %>
+                                          <label class = "<%= klass %>"></label>
+                                      <% end %>
+                                    </fieldset>
+                                    <span><%= " #{@task.task_review.rating}/5" %></span>
+                                    <%= link_to t('.full_review'), user_path(@task.assignments.first.user.id)%>
+                                  </div>
+                              <% else %>
+                                  <button class="modal-task_submit-review-btn">
+                                    <%= t('.submit_a_review') %>
+                                  </button>
+                                  <%= render partial: 'modal/submit_review' %>
+                              <% end %>
+                            <% end %>
+                            <!-- Disable refund feature for now -->
+                            <% if false && user_signed_in?  && @task.current_fund > 0 && current_user.id == @task.project.user_id  %>
+                                <%= link_to refund_task_path(@task), :method => :put do %>
+                                    <button>
+                                      <i class="fa fa-bitcoin" aria-hidden="true"></i>
+                                      <%= t('.make_non_free') %>
+                                    </button>
+                                <% end %>
+                            <% end %>
+                          </div>
+                        </div>
+                        <% if !@task.suggested_or_accepted_task? %>
+                          <div class="task-already-started-desc">
+                            <i class='fa fa-info-circle' aria-hidden='true'></i>
+                            <span><%= t('.cannot_edit_delete_task_started_html') %></span>
+                          </div>
+                        <% end %>
+                        <div class="attachments" id="task-attachments-div">
+                          <h5><%= t('.attachments') %></h5>
+                          <% @task_attachments.each do |attachment| %>
+                            <%= render partial: 'task_attachments/upload_task_attachement', locals: {task_attachment: attachment} %>
+                          <% end %>
+                        </div>
+
+                        <div class="activity" id="task-activity">
+                          <%= render "projects/task_activities" %>
+                        </div>
+
+                      </div>
+
+                  </div>
+
+                </div>
+            <% else %>
+                <div class="task-desc">
+
+                  <div class="task-desc-left">
+                    <div class="modal-task__desc-block spec">
+                      <h4><%= t('.specifications') %></h4>
+                      <p class="task-condition"><%= auto_link(@task.condition_of_execution, html:{ target: '_blank' })%></p>
+                    </div>
+                    <div class="modal-task__desc-block">
+                        <h4><%= t('.proof_of_execution') %></h4>
+                        <p class="task-proof"><%= auto_link(@task.proof_of_execution, html:{ target: '_blank' }) %></p>
+                    </div>
+
+                    <% if can? :manage_requests, @task.project %>
+                      <%= render "projects/task_related_do_requests", task: @task, pending_apply_requests: @pending_apply_requests %>
+                    <% end %>
+                    <%= render ("projects/task_comment") %>
+
+                      <% if can? :create_task_comment, @task %>
+                          <div class="modal-task__activities">
+                              <div class="f-comment-post">
+                                  <%= form_for [@task.project, @task, @task.task_comments.build], remote: true, html: {class: 'f-comment-post__form'} do |f| %>
+                                      <div class="textarea_wr">
+                                        <a href="javascript:void(0);" class="f-comment-post__add-attachment" id="task-comment-attachment-icon"><i class="fa fa-paperclip" aria-hidden="true"></i></a>
+                                        <%= f.text_area :body %>
+                                      </div>
+                                      <%= f.hidden_field :task_id, value: @task.id %>
+                                      <%= f.file_field :attachment, id: 'task-comment-attachment', style: "display: none" %>
+                                      <%= f.hidden_field :user_id, value: current_user.id %>
+                                      <div class="f-comment-post__action-wrapper">
+                                          <button class="btn btn-theme-transparent f-comment-post__send-btn btn-root" type="submit" name="commit" value="<%= t('commons.send') %>"> <%= t('commons.send') %></button>
+                                          <!-- <a href="#" class="f-comment-post__add-attachment" id="task-comment-attachment-icon"><i class="fa fa-paperclip" aria-hidden="true"></i></a> -->
+                                      </div>
+                                      <div id="attachment-div"></div>
+                                  <% end %>
+                              </div>
+                          </div>
+                      <% else %>
+                          <div class="modal-task__invite">
+                              <%= t('.login_or_signup_html') %>
+                          </div>
+                      <% end %>
+                  </div>
+
+                  <div class="task-desc-right">
+                    <div class="modal-task__controls-side">
+                        <div class="fund">
+                          <div class="call_to_action_btns">
+                          <% if user_signed_in? %>
+                            <% if @task.suggested_task? && !@task.enough_teammembers? %>
+                              <button type="button" title="<%= t('commons.do') %>" class='btn btn btn-theme-blue btn-root _dark _do-popup-button do-button' id="<%= @task.id %>" onclick="doPopup(<%= @task.id %>, <%= can_make_request_free?(@task) %>, <%= format_currency(@task.budget) %>)" data-modal="#taskDoModal"><%= t('commons.do') %></button>
+                            <% elsif @task.accepted? || @task.incompleted? %>
+                                <% if !@task.free? %>
+                                    <button type="button" title="<%= t('commons.fund') %>" class="btn btn-theme-salat btn-root fund-button" onclick="fundPopup(<%= @task.id %>)" id="<%= @task.id %>" data-modal="#taskFundModal"><%= t('commons.fund') %></button>
+                                <% end %>
+                                <% unless @task.enough_teammembers? %>
+                                  <button type="button" title="<%= t('commons.do') %>" class="btn btn-theme-blue btn-root _dark _do-popup-button do-button" id="<%= @task.id %>" onclick="doPopup(<%= @task.id %>, <%= can_make_request_free?(@task) %>, <%= format_currency(@task.budget) %>)" data-modal="#taskDoModal"><%= t('commons.do') %></button>
+                                <% end %>
+                            <% end %>
+                          <% else %>
+                                <button type="button" title="<%= t('commons.fund') %>" class="btn btn-theme-salat btn-root sign_up_a" data-modal="#registerModal"><%= t('commons.fund') %></button>
+                                <% unless @task.enough_teammembers? %>
+                                  <button type="button" title="<%= t('commons.do') %>" class="btn btn-theme-blue btn-root _dark do-button sign_up_a" data-modal="#registerModal"><%= t('commons.do') %></button>
+                                <% end %>
+                          <% end %>
+                          </div>
+
+                          <% if !@task.free? %>
+                              <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: <%= @task.funded %>">
+                                </div>
+                              </div>
+                          <% end %>
+
+                          <div class="modal-task__card">
+                            <% if !@task.free? %>
+                              <div class="modal-task__card_line">
+                                <span class="modal-task__usd-value b_font js-toggleForm" id="task-budget" style="display: inline-block;"><%= ENV['symbol_currency'] %><%= format_currency(@task.current_fund) %></span> raised out of <%= ENV['symbol_currency'] %><span class="b_bold"><%= format_currency(@task.budget) %></span> goal
+                              </div>
+                            <% end %>
+                            <div class="modal-task__card_line">
+                              <% unless @task.enough_teammembers? %>
+                                  <span class="b_font"><%= @task.target_number_of_participants %></span> teammate needed
+                              <% end %>
+                            </div>
+
+                          </div>
+
+                          <div class="team-block mb30">
+                            <h5 class="title-inline"><%= t('.team') %></h5>
+                            <% if can?(:add_assignee, @task) %>
+                              <a href="javascript:void(0)" class="add-assignee title-inline"><%= t('.add_assignees') %></a>
+                              <%= render "projects/add_assignees", task: @task %>
+                            <% end %>
+                            <%= render 'projects/task_teammate' %>
+                          </div>
+                          <div class="deadline-block">
+                              <h5><%= t('commons.deadline') %></h5>
+                              <% if can?(:update_deadline, @task) %>
+                                  <div class="deadline-group">
+                                      <div class="form-group">
+                                          <%= form_for @task, :remote => true, html: {id: "task-update-deadline-form"} do |f| %>
+                                              <div class='input-group date deadline_picker'>
+                                                  <span class="input-group-addon">
+                                                      <i class="fa fa-calendar"></i>
+                                                  </span>
+                                                  <input type='text' name="task[deadline]" class="form-control" id="deadline_field" required="required" aria-required="true" placeholder='<%= l(@task.deadline.localtime, format: :long) %>' />
+                                              </div>
+                                              <button class="btn btn-theme-green btn-root" name="button" type="submit" id="task-update-deadline"><%= t('commons.update') %></button>
+                                          <% end %>
+                                      </div>
+                                  </div>
+                              <% else %>
+                                <p><%= l(@task.deadline, format: :long) %></p>
+                              <% end %>
+                              <% if @task.state == 'completed' && @task.task_review %>
+
+                                  <div class='rating_block'>
+                                    <fieldset class="rating" title="<%= @task.task_review.rating %>/5">
+                                      <%- [1,2,3,4,5].each do |i| %>
+                                          <%- klass = @task.task_review.rating < i ? 'star-grey' : 'star-gold' %>
+                                          <label class = "<%= klass %>"></label>
+                                      <% end %>
+                                    </fieldset>
+                                    <span><%= " #{@task.task_review.rating}/5" %></span>
+                                    <%= link_to t('.full_review'), user_path(@task.assignments.first.user.id)%>
+                                  </div>
+                              <% end %>
+                          </div>
+                          <%= render 'share_buttons' %>
+                            <script type="text/javascript">
+                                DateTimePickerModule.init($(document));
+                            </script>
+                        </div>
+
+                        <hr>
+
+                        <div class="approve-block mb20">
+                          <% if can? :accept, @task %>
+                              <a href="javascript:void(0)" class="btn btn-theme-dark-blue approve-link btn-root mb10" id="approveTaskPopover" tabindex="0" data-trigger="focus" data-placement="top">
+                                <%= t('commons.approve') %>
+                                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                              </a>
+                          <% end %>
+                        </div>
+
+                        <div class="button-group">
+                          <div class="btn-left">
+                            <% if user_signed_in? && (can? :create_or_destroy_task_attachment, @task) %>
+                                <div id="task-related-messages" class="modal-task__attachment-error"></div>
+                                <%= form_for @task_attachment, :url => url_for(:controller => 'task_attachments', :action => 'create'), :remote => true, html: {multipart: true} do |f| %>
+                                    <%= f.hidden_field :task_id, :value => @task.id %>
+                                    <!--<input type="file" name="task_attachment[attachment]" id="file1" style="display: none;">-->
+                                    <input type="file" name="task_attachment[attachment]" id="file1"/>
+                                    <button type="button" class="attachment">
+                                      <i class="fa fa-paperclip" aria-hidden="true"></i><%= t('commons.add_attachment') %>
+                                    </button>
+                                    <%= f.submit "upload", class: "btn btn-primary", id: "upload-button" %>
+                                <% end %>
+                            <% end %>
+                            <% if user_signed_in? && @task.free && (@task.state == 'suggested_task' || @task.state == 'accepted') && (current_user.id == @task.project.user_id || current_user.id === @task.user_id || current_user.admin?) %>
+                              <button class="modal-task__free-btn">
+                                  <i class="fa fa-check" aria-hidden="true"></i>
+                                    <%= t('.make_non_free') %>
+                              </button>
+                            <% end %>
+
+                            <!-- Disable refund feature for now -->
+                            <% if false && user_signed_in?  && @task.current_fund > 0 && current_user.id == @task.project.user_id  %>
+                                <%= link_to refund_task_path(@task), :method => :put do %>
+                                    <button>
+                                      <i class="fa fa-bitcoin" aria-hidden="true"></i>
+                                      <%= t('.make_non_free') %>
+                                    </button>
+                                <% end %>
+                            <% end %>
+                          </div>
+                        </div>
+
+                        <div class="attachments" id="task-attachments-div">
+                          <h5><%= t('.attachments') %></h5>
+                          <% @task_attachments.each do |attachment| %>
+
+                            <%= render partial: 'task_attachments/upload_task_attachement', locals: {task_attachment: attachment} %>
+
+                          <% end %>
+                        </div>
+
+                        <div class="activity" id="task-activity">
+                            <%= render "projects/task_activities" %>
+                        </div>
+
+                      </div>
+                  </div>
+
+                </div>
+            <% end %>
+          </div>
+            </div> <!--row ends -->
+        </div>
+
+    </div>
+    </div>
+  </div>
+
+</div>
+<div id="share" class="modal modal-share modal-default" tabindex="-1">
+  <div class="modal-content2 yes modal-default__content">
+    <button type="button" class="modal-default__close"></button>
+    <h2 class="modal-default__title">
+      <%= t('.share_invite_title') %>
+    </h2>
+    <div class="l-share-task-link">
+      <input type="text" id="l-share-task-link" class="form-control" value="<%= show_task_projects_url(id: @task.id) %>" />
+    </div>
+    <div class="l-share" data-title="<%= @task.title %> :" data-url="<%= task_url(@task.id) %>" data-img="" data-desc="" data-popup="" data-via="">
+      <h5 class="l-share__title">
+        <%= t('.share_invite_subtitle') %>
+      </h5>
+      <ul class="l-share__list">
+        <li class="l-share__item" data-title="<%= @task.title %> :" get-url-from-location="true" data-url="<%= show_share_project_task_url(@task.project.id, @task.id)%>">
+          <a class="btn-share" href="#" data-site="facebook" title="<%= t('.share_fb') %>" onclick="return SocialShareButton.share(this);">
+            <i class="fa fa-facebook"></i>
+            <span><%= t('.share_fb') %></span>
+          </a>
+        </li>
+        <li class="l-share__item" data-title="<%= @task.title %> :" get-url-from-location="true" data-url="<%= show_share_project_task_url(@task.project.id, @task.id)%>">
+          <a class="btn-share" rel="nofollow " data-site="twitter" title="<%= t('.share_twitter') %>" href="#" onclick="return SocialShareButton.share(this);">
+            <i class="fa fa-twitter"></i>
+            <span><%= t('.share_twitter') %></span>
+          </a>
+        </li>
+        <li class="l-share__item" data-title="<%= @task.title %>" get-url-from-location="true" data-url="<%= show_share_project_task_url(@task.project.id, @task.id)%>" >
+          <a class="btn-share" rel="nofollow " data-site="google_plus" class="social-share-button-google_plus" onclick="return SocialShareButton.share(this);" title="<%= t('.share_gplus') %>" href="#">
+            <i class="fa fa-google-plus"></i>
+            <span><%= t('.share_gplus') %></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <span class="modal-invite__or">
+      <%= t('commons.or') %>
+    </span>
+    <div class="modal-default__text modal-share__response" id="response"></div>
+    <%= form_tag(tasks_send_email_path, remote: true, id: 'send-task-email', :class => 'invite-email-wrapper mb30') do %>
+        <input type="hidden" name="task_id" value="<%= @task.id rescue nil %>">
+        <div class="f-default__joined">
+            <div class="f-default__joined-col _wide">
+              <% session[:idd] = @task.id %>
+              <input type="email" class="f-default__field _joined-left" name="email" id="guest-email" placeholder="E-mail address" required>
+              <!-- <a onclick="document.getElementById('send-project-email-button1').click()" class="btn-invite" id="send-project-email-button">Invite</a> -->
+            </div>
+            <div class="f-default__joined-col _narrow">
+              <%= submit_tag t('commons.invite'), :class => 'btn-root _joined-right _dark' %>
+            </div>
+        </div>
+    <% end %>
+
+    <div id="contacts">
+      <div class="contact-importers" id ="tab">
+        <p class="modal-default__text">
+          <%= t('.import_contact_from') %>
+        </p>
+        <span class="contact-importer">
+          <span class="loading-trigger" data-source="gmail"  id="gmail-icon">
+            <%= link_to image_tag("gmail.png", :alt => t('.gmail_contacts')), contacts_gmail_path %>
+          </span>
+        </span>
+        <span class="contact-importer">
+          <span class="loading-trigger" data-source="yahoo" id="yahoo">
+            <%= link_to image_tag("yahoo.png", :alt => t('.yahoo_contacts')), contacts_yahoo_path %>
+          </span>
+        </span>
+        <button class="btn-invite" id="send-project-email-button1" style="margin-left:60%; display: none">
+          <%= t('commons.invite') %>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <% if can? :accept, @task %>
+
+        <div id="approveTaskPopoverTitle" class="hidden">
+          <b><%= t('commons.are_you_sure') %></b>
+        </div>
+
+        <div id="approveTaskPopoverContent" class="hidden">
+          <div class="popover-content">
+            <%= t('.approve_task_description_html') %>
+            <div class="approve-btns mt10">
+              <%= link_to accept_task_path(@task.id), :method => :put, class: 'approve-btn', title: 'approve' do %>
+                <i class="fa fa-check"></i>
+                <%= t('.accept_approvation') %>
+              <% end %>
+              <a class="approve-btn _close-modal" title="cancel">
+                <%= t('commons.no') %>
+              </a>
+            </div>
+          </div>
+        </div>
+        <script>
+          $("#approveTaskPopover").popover({
+            html: true,
+            content: function () {
+              return $("#approveTaskPopoverContent").html();
+            },
+            title: function () {
+              return $("#approveTaskPopoverTitle").html();
+            }
+          });
+        </script>
+    <% end %>
+    <script type="text/javascript">
+      JsonFormsHelper.InitializeTaskMembersControls();
+    </script>
+<%= render 'modal/warring_pop_up' %>
+
+<!--modal for add deadline and start incomplete -->
+<% if can? :incomplete, @task %>
+    <%= render "modal/task_incomplete_modal" %>
+<%end%>
+
+<script>
+    $(document).ready(function() {
+        $("#l-share-task-link").bind("focus", function(e) {
+          $(this).select();
+        });
+        $(document).off('click.toggleBudget', '#task-budget');
+        $(document).off('click.hideEditIcon', '.page-wrapper');
+        $(document).off('click.preventSavingForm', '.task-details__close-btn');
+        $('[data-toggle="tooltip"]').tooltip();
+        $(document)
+            .on('click.hideEditIcon', '.page-wrapper', function(e) {
+                if (!$(e.target).parent().hasClass('_budget')) {
+                    $(this).find('.btn-edit').show();
+                }
+            })
+            .on('ajax:success', '.budget-edit', function(e) {
+                var taskId = '<%= @task.id %>',
+                    taskCard = $('[data-task-id="' + taskId + '"]');
+                    // **removing btc **
+
+                    // currentBtc = '<%#=  Payments::BTC::Converter.current_btc_rate  %>',
+                    // btcValue = parseFloat($(this).text())
+                    // usdValue = parseFloat((btcValue * currentBtc).toFixed(2));
+
+                  // $('.modal-task__usd-value').html('$ ' + usdValue);
+                // taskCard.find('.card-report__data._usd').html('$ ' + usdValue);
+            })
+            .on('ajax:error', '.budget-edit', function(e) {
+                ModalResponse.showMessage('Minimal value is <%= min_fund_budget_in_usd %>', true);
+            })
+            .on('click.closeModal', '.approve-btn._close-modal', function(e) {
+                e.preventDefault();
+            })
+            .on('click.toggleBudget', '#task-budget', function() {
+                $(this).find('.btn-edit').toggle();
+            })
+            .on('click.preventSavingForm', '.task-details__close-btn', function(event) {
+                event.preventDefault();
+            })
+            .on('input.preventSavingEmptyData', '._no-empty', function() {
+                var $this = $(this),
+                    $saveBtn = $this.parent().find('.task-details__save-btn');
+
+                if ($this.val().trim()) {
+                    $saveBtn.removeClass('_disable');
+                } else {
+                    $saveBtn.addClass('_disable');
+                }
+
+            })
+            .on('click.saveDiffInBudget', '.modal-task__controls-side .fund-button', function() {
+                var $this = $(this),
+                    $card = $this.parent(),
+                    amountLeftUSD = parseFloat($card.find('._amount-left-usd').text(), 10);
+
+                $('.modal-fund__needed._usd').text('( ' + amountLeftUSD.toFixed(2).toString() + '<%= ENV['symbol_currency'] %> needed )');
+            })
+
+        $(".add-assignee, #cancel-assignee").click(function() {
+          $(".team-memberships-group").toggleClass("hide");
+          $(".add-task-assignee").toggleClass("hide");
+        });
+    })
+</script>

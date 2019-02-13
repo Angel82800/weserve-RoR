@@ -1,0 +1,19 @@
+
+<% content_for :title do %>
+  <%= @user.display_name %>
+<% end %>
+<div class="expanded margin-none dashboard-wrapper">
+	<% if current_user && current_user?(@user) %>
+    <% dashboard_cl = 'dashboard-content' %>
+    <%= render 'layouts/sidebar_navigation' %>
+	<% else %>
+    <% dashboard_cl = 'dashboard-content visitor_view' %>
+  <% end %>
+	<div class="<%= dashboard_cl %>">
+		<div id="tabcontentdiv">
+		  <div id="profile" data-id="<%= @user.id%>">
+		    <%= render "profile" %>
+		  </div>
+		</div>
+	</div>
+</div>

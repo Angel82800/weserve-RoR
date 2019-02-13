@@ -1,0 +1,14 @@
+fr:
+  request_mailer:
+    apply_to_get_involved_in_project:
+      mailjet_template_id: 319658
+    positive_response_in_project_involvement:
+      mailjet_template_id: 319664
+    negative_response_in_project_involvement:
+      mailjet_template_id: 319671
+    to_do_task:
+      mailjet_template_id: 319675
+    accept_to_do_task:
+      mailjet_template_id: 319682
+    reject_to_do_task:
+      mailjet_template_id: 319686

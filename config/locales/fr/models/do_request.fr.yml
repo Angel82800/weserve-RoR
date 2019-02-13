@@ -1,0 +1,7 @@
+---
+fr:
+  do_request:
+    your_application_cannot_be_processed: Votre demande de candidature ne peut pas
+      être traitée, car vous avez peut-être déjà soumis votre candidature pour cette
+      tâche et votre demande est en cours d'examen par le leader du projet.
+...

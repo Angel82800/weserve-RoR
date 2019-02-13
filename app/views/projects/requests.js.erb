@@ -1,0 +1,16 @@
+<% if user_signed_in? %>
+  <% if can? :manage_requests, @project %>
+  $(".tabs-wrapper__requests").html("<%= escape_javascript(render partial: 'projects/tabcontent/requests', locals: { project: @project, do_requests: @do_requests, apply_requests: @apply_requests }) %>");
+  if (!UrlModule.checkIsCardClicked()) {
+    UrlModule.getTaskParam() && $('[data-task-id="' + UrlModule.getTaskParam() + '"]').trigger('click');
+  }
+  <% else %>
+  toastr.info("<%= t('commons.not_enough_permissions') %>");
+  $('[data-tab="tasks"]').trigger('click');
+  <% end %>
+<% else %>
+  $('[data-tab="tasks"]').trigger('click');
+  $('.modal-sign').addClass('_sign-in').removeClass('_sign-up');
+  $("#registerModal").show();
+  $("html").addClass("_open-modal");
+<% end %>

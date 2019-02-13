@@ -1,0 +1,12 @@
+pt:
+  projects:
+    taskstab:
+      plan_tab_title: "Wiki"
+      tasks_tab_title: "Tarefas"
+      requests_tab_title: "Solicitações"
+      donors_tab_title: "Doadores"
+      sub_projects: "Subprojetos"
+      team_tab:
+        title: "Equipe"
+        description: "Abaixo estão os companheiros de equipe existentes para este\
+          \ projeto. Você pode escolher juntar-se ao time abaixo."

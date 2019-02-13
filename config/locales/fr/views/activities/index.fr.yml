@@ -1,0 +1,26 @@
+---
+fr:
+  activities:
+    index:
+      title: Flux d'activités
+      wiki:
+        created: a créé un %{href}
+        deleted: a supprimé un article
+        updated: a modifié un %{href}
+      task:
+        created: a créé un %{href}
+        deleted: a supprimé une tâche
+        updated: a modifié un %{href}
+      task_comment:
+        created: a commenté sur un %{href}
+        deleted: a supprimé un commentaire sur une tâche.
+        updated: a modifié son commentaire sur un %{href}
+      project:
+        created: a créé un %{href}
+        deleted: a supprimé un projet
+        updated: a modifié un %{href}
+      project_comment:
+        created: a commenté sur %{href}
+        deleted: a supprimé un commentaire sur un projet.
+        updated: a modifié son commentaire sur %{href}
+...

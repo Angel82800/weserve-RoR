@@ -1,0 +1,42 @@
+<div id="taskSubmitReview" class="modal-default modal-submit-review" role="dialog" tabindex="-1">
+  <div class="modal-default__content">
+    <%= form_tag review_task_path(@task.id), method: :post do %>
+      <div class="modal-review-task__wrapper">
+        <div class="modal-review-task__row">
+          <h4><%= t('.please_submit') %></h4>
+          <%- text = t('.text')%>
+          <span class="modal-review-task__description"><%= text %></span>
+        </div>
+        <div>
+          <div class='modal-review-task_stars'>
+            <%= render partial: 'users/stars' %>
+            <span class="stars"><%= " 0/5" %></span>
+            <p><%= t("commons.rating_blank") %></p>
+          </div>
+          <div class='modal-review-task_info'>
+            <%= link_to @task.title, show_task_projects_path(id: @task.id), format: :js %>
+            <div>
+              <% user = @task.assignments.first.user %>
+              <% if user.picture? %>
+                <%= image_tag user.picture, class: 'modal-review-user_pict' %>
+              <% else %>
+                <%= image_tag t('commons.default_user_pic'), class: 'modal-review-user_default_pict' %>
+              <% end %>
+              <%= link_to user.username, user_path(user.id) %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-feedback clearfix">
+        <h4><%= t('.feedback') %></h4>
+        <p><%= t('.short_feedback') %></p>
+        <p><%= t('.feedback_posted') %></p>
+        <%= text_area_tag 'feedback', nil, placeholder: t('.placeholder'), required: true %>
+      </div>
+      <div class="modal-footer">
+        <%= link_to t('.postpone_later'), '#', class:'later'%>
+        <%= submit_tag t('.submit'), class: 'modal-review-task_submit' %>
+      </div>
+    <% end %>
+  </div>
+</div>

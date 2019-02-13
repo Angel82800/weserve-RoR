@@ -1,0 +1,157 @@
+<%
+  metamagic og: {
+      title: @project.title,
+      description: @project.short_description,
+      image: @project.picture
+  }
+%>
+
+<div class="welcome-banner new_version clearfix">
+  <div class="project_headline_wrapper clearfix" data-id="<%= @project.id%>">
+    <div class="project_author">
+      <% if @project.user.picture? %>
+          <%= image_tag(@project.user.picture) %>
+      <% else %>
+          <%= gravatar_for_user(@project.user) %>
+      <% end %>
+      <p><%= link_to @project.user.display_name, user_path(@project.user) %></p>
+    </div>
+    <div class="project_title">
+      <div class="b-project-info__title">
+        <%= best_in_place_if user_signed_in? && can?(:update, @project), @project, :title, :ok_button => t('commons.save'), :cancel_button => t('commons.cancel'), :class => "project-title", :activator => '#title-pencil' %>
+        <% if user_signed_in? && can?(:update, @project) %>
+            <i class="fa fa-pencil btn-edit" aria-hidden="true" id="title-pencil"></i>
+        <% end %>
+      </div>
+    </div>
+    <div class="project-archived">
+      <% if can? :archive, @project %>
+        <button type="button" class="btn-reset" title="<%= t('commons.delete_project_title') %>" data-modal="#modalRemoveProject" onclick="removeProject(<%= @project.id %>)">
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+        </button>
+        <%= render 'projects/remove_project_modal', project_id: @project.id %>
+      <% end %>
+    </div>
+  </div>
+  <div class="project_info_wrapper">
+    <div class="left">
+      <% if @project.picture? %>
+        <div class="project_picture have_image">
+          <%= image_tag(@project.picture, data: {'object-fit': "cover"}) %>
+          <% if user_signed_in? && can?(:update, @project) %>
+            <a class="btn btn-theme-black-overlap btn-edit btn-edit-image" onclick="projectImgEdit();"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;&nbsp;<%= t('.edit_project_image') %></a>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="project_picture">
+          <% if user_signed_in? && can?(:update, @project) %>
+            <a class="btn btn-theme-black-overlap btn-edit btn-edit-image" onclick="projectImgEdit();"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;&nbsp;<%= t('.edit_project_image') %></a>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div class="right">
+      <div class="welcome-banner__idea">
+        <p class="b-project-info__user-name">
+          <% if user_signed_in? && can?(:update, @project) %>
+            <%= best_in_place @project, :short_description, as: :textarea, ok_button: 'SAVE', cancel_button: 'CANCEL', activator: '#sd_pencil', html_attrs: { maxlength: Project::PROJECT_PAGE_SHORT_DESCRIPTION_LIMIT } %>
+            <i class="fa fa-pencil" aria-hidden="true" id="sd_pencil"></i>
+          <% else %>
+            <%= @project.short_description %>
+          <% end %>
+        </p>
+      </div>
+      <div class="project_activities">
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: <%= @project.funded_percentages %>"></div>
+        </div>
+        <div class="project_stats">
+          <% if !@project.funded_budget.zero? %>
+            <div class="project_stats-cell">
+              <p><span class="green"><%= ENV['symbol_currency'] %><%= number_with_precision(balance_in_usd(@project.funded_budget), :precision => 2) %></span></p>
+              <p><%= t('tasks.banner.raised_of') %> <%= ENV['symbol_currency'] %><span id="project-budget"><%= number_with_precision(balance_in_usd(@project.needed_budget), :precision => 0) %></span> <%= t('tasks.banner.goal') %></p>
+            </div>
+          <% end %>
+          <div class="project_stats-cell">
+            <p><span class="grey"><%= @project.completed_tasks.size %></span></p>
+            <p><%= t('tasks.banner.tasks_completed') %></p>
+          </div>
+          <div class="project_stats-cell">
+            <p><span class="aqua"><%= @project.to_dos_tasks.size %></span></p>
+            <p><%= t('tasks.banner.to_dos') %></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="abs_wrap">
+
+      <!-- <div class="scroll_navi_location clearfix">
+        <div class="left">
+          <button type="button" id="scroll_project_details" class="btn btn-theme-green big"><%= t('tasks.banner.back_this_project') %></button>
+        </div>
+        <div class="right">
+          <div class="city_wr">
+            <a class="b-project-info__city">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <%= best_in_place_if user_signed_in? && can?(:update, @project), @project, :country, :ok_button => t('commons.save'), :cancel_button => t('commons.cancel'), :activator => '#country-pencil' %>
+              <% if user_signed_in? && can?(:update, @project) %>
+                <i class="fa fa-pencil btn-edit" aria-hidden="true" id="country-pencil"></i>
+              <% end %>
+            </a>
+          </div>
+        </div>
+      </div> -->
+
+      <div class="project_controls project-btn-group">
+        <div class="project-btn-group-left">
+          <ul class="clearfix">
+            <% if user_signed_in? %>
+              <li>
+                <%= link_to follow_project_path(@project, follow: !@followed), class: 'btn btn-theme-transparent btn-root follow-unfollow', method: :post do %>
+                  <%= @followed ? t('commons.unfollow') : t('commons.follow') %>
+                <% end %>
+              </li>
+            <% end %>
+            <li class="sharing-block">
+              <%= render 'projects/share_buttons' %>
+            </li>
+          </ul>
+        </div>
+        <div class="project-btn-group-right">
+          <a class="b-project-info__city">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <%= best_in_place_if user_signed_in? && can?(:update, @project), @project, :country, :ok_button => t('commons.save'), :cancel_button => t('commons.cancel'), :activator => '#country-pencil' %>
+            <% if user_signed_in? && can?(:update, @project) %>
+              <i class="fa fa-pencil btn-edit" aria-hidden="true" id="country-pencil"></i>
+            <% end %>
+          </a>
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        var $bProjectInfo = $('.b-project-info__city');
+
+        $('.b-project-info__title .btn-edit').on('click', function() {
+          projectTitle = $(this).parent().find('.project-title').data('bip-value');
+        });
+
+        $bProjectInfo
+            .on('click.addEditClass', '.btn-edit', function () {
+                $bProjectInfo.find('input[type="text"]').prop('required', true);
+                $(this).parent().toggleClass('_open-edit-form').parents('.b-project-info').addClass('_form-opened');
+                var $buttons = $bProjectInfo.find('[type="submit"],[type="button"]');
+                var $input_country = $bProjectInfo.find('input[name=country]');
+                $input_country.geocomplete();
+                $buttons.on('click.removeEditClass', function () {
+                    $('._open-edit-form').removeClass('_open-edit-form').parents('.b-project-info').removeClass('_form-opened');
+                    $buttons.off('click.removeEditClass');
+                });
+            });
+    });
+</script>

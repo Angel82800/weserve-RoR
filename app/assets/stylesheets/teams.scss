@@ -1,0 +1,34 @@
+// Place all the styles related to the Teams controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.team-member a:visited {
+  color: #39c0ff;
+}
+
+.renderingpoint .team-buttons {
+  margin-bottom: 15px;
+}
+
+.delete-team-member {
+  cursor: pointer;
+  font-size: 2.5rem;
+  float: right;
+  margin-top: -15px;
+}
+
+.team-buttons .columns {
+  padding-bottom: 0;
+}
+
+.delete-role {
+  font-size: 22px;
+  cursor: pointer;
+  color: #666;;
+  vertical-align: sub;
+
+  &:hover, &:focus{
+    text-decoration: none;
+    color: #666;;
+  }
+}

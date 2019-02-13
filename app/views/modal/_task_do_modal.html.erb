@@ -1,0 +1,58 @@
+<div id="taskDoModal" class="modal-default modal-do-task" role="dialog" tabindex="-1">
+    <div class="modal-default__content">
+        <button type="button" class="modal-default__close"></button>
+        <div class="modal-do-task__wrapper _border-bottom">
+            <div class="modal-do-task__row _task">
+                <h1 class="modal-do-task__task text-center"></h1>
+            </div>
+            <div class="modal-do-task__row _description">
+                <span class="modal-do-task__description"><%= t('commons.do_task_desc') %></span>
+            </div>
+            <div class="modal-do-task__row _task_budget">
+                <%= t('commons.task_budget') %>: <span class="modal-do-task__task_budget"></span>
+            </div>
+            <div class="modal-do-task__row _fee_apply">
+                <%= t('commons.fee_apply') %>: <span><%= t('commons.fee_apply_detail', currency: ENV['symbol_currency'],donation_fee_percent: (ENV['donation_fee_percent_ui'].to_f * 100).round(1), donation_fee_fixed: ENV['donation_fee_fixed_ui'], fee: (ENV['weserve_service_fee'].to_f * 100).round(1)) %></span>
+            </div>
+        </div>
+        <div class="modal-do-task__wrapper">
+            <%= form_for @do_request=DoRequest.new, :remote => true, html: {id: 'Do-request-form', multipart: true}, method: :post do |form| %>
+              <div align='left' class="do_request_free">
+                <%= form.check_box :free, value: false %>
+                <label for='do_request_free'><%= t('.want_to_task_for_free') %></label>
+              </div>
+              <div class="modal-do-task__subtitle"><%= t('.why_right_person?') %></div>
+                <%= form.hidden_field :task_id, value:'' , id:'task-do-request-popup'%>
+                <%= form.text_area :application, class:'f-default__textarea', placeholder: t("commons.task_placeholder") %>
+                 <br/>
+                 <div class="checkbox-input">
+                    <input type="checkbox" id="check_term" value="" required>
+                    <label>I agree with <u><%= link_to 'Term of contents', pages_terms_of_use_path %></u> and fees</label>
+                 </div>
+                <% if user_signed_in? %>
+                  <button type="submit" id="do-request-button" class="btn btn-theme-green big btn-root to-do-apply"><%= t('commons.apply') %></button>
+                <% else %>
+                  <a href="/users/sign_in" class="btn btn-theme-green big btn-root"><%= t('commons.login') %></a>
+                <% end %>
+            <% end %>
+
+            <div class="modal-do-task__question">
+                <%= t('.read_our') %>
+                <%= link_to t('commons.faq'), 'https://weservesupport.zendesk.com/hc/en-us/categories/115000785847-FAQ' %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#check_term").on("click", function(){
+      if($("#check_term").is(":checked")){
+        $("#do-request-button").removeClass("to-do-apply")
+      }
+      else{
+        $("#do-request-button").addClass("to-do-apply")
+      }
+    })
+  })
+</script>

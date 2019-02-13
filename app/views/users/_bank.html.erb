@@ -1,0 +1,26 @@
+
+<p class="head-para"><%= t('commons.payout_conf') %></p>
+<form action="/users/<%= current_user.id %>/bank" method="post" id="bank-form" class="wallet-bank-form" >
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token, id: 'bank_token' %>
+  <div class="form-row">
+    <label>Country</label>
+    <%= select_tag "country", options_for_select(stripe_available_country), {:prompt => "--Select county--", required: true, name: "bank[country]"}%>
+  </div>
+  <div class="form-row payout">
+    <label>Checking Bank Account Number</label>
+    <input type="text" maxlength="30" autocomplete="off" id="bank-account" name="bank[account_number]" />
+  </div>
+  <div class="form-row payout-for-us">
+    <label>Routing Number</label>
+    <input type="text" maxlength="20" autocomplete="off" id="bank-routing" class="required" name="bank[routing_number]" />
+  </div>
+  <div class="form-row">
+    <label>Account Currency</label>
+    <%= select_tag "currency", options_for_select(stripe_available_currency), {:prompt => "--Select currency--", required: true, name: "bank[currency]"}%>
+  </div>
+
+  <div class="form-row">
+    <a href= <%= payout_method_user_path %> class="cancel-btn-txt" >Cancel</a>
+    <button type="submit" class="add-btn-root">Submit</button>
+  </div>
+</form>

@@ -1,0 +1,21 @@
+<div id="taskIncompleteModal" class="modal-default modal-incomplete" role="dialog" tabindex="-1">
+  <div class="modal-content2 yes modal-default__content">
+    <button type="button" class="modal-default__close"></button>
+    <h2 class="modal-default__title"><%= t('projects.task_details.mark_incomplete')%> <%= @task.title %> </h2>
+
+    <%= form_tag  incomplete_task_path(@task.id), method: :put, class: 'simple_form' do %>
+        <p> <%= t('projects.task_details.choose_deadline')%></p>
+
+        <div class="form-inputs">
+          <div class='input-group date deadline_picker'>
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+            <%= text_field_tag 'task_deadline', nil, class: 'form-control', required: true%>
+          </div>
+        </div>
+
+        <%= submit_tag "OK", class: "btn-root"%>
+    <%end %>
+  </div>
+</div>

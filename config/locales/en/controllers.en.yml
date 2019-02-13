@@ -1,0 +1,72 @@
+---
+en:
+  controllers:
+    cancan_access_denied: Ooops. Seems you are not authorized for this action
+    active_record_not_found: Sorry we cannot find what you are looking for!
+    unauthorized_message: You are not authorized to do this operation
+    admin_only_mode:
+      admin_mode_activated: Admin only mode activated.
+    payments:
+      thanks_you: Thanks for your payment
+      invalid_parameters: Submitted form parameters are invalid
+  task_comments:
+    create:
+      success: Comment submitted
+      fail: Error While Saving this comment please comment again
+  user_wallet_transactions:
+    send_to_any_address:
+      success: '%{amount} BTC has been successfully sent to %{transfer_address}.'
+    send_to_task_address:
+      success: '%{amount} BTC has been successfully sent to task''s balance'
+    send_to_personal_coinbase:
+      success: '%{amount} BTC has been successfully sent to %{transfer_address}.'
+      error_wallet: User's wallet was not found
+  users:
+    update:
+      fail: Unable to update user.
+      file_type_fail: 'Selected file is invalid. Allowed types: %{allowed_types}'
+    destroy:
+      success: User deleted.
+  task_attachments:
+    create:
+      success: The Task Attachment has been uploaded.
+      fail: Failed to uploaded Task Attachment.
+  project_comments:
+    create:
+      success: Your comment has been submitted
+    update:
+      success: Comment updated
+    destroy:
+      success: Comment deleted
+  group_messages:
+    create:
+      fail: 'Failed to uploaded attachment. Allowed types: %{allowed_types}'
+  do_requests:
+    new:
+      fail: You can not apply for suggested task
+    create:
+      success_and_sent: Request sent to Project Admin
+      success_and_will_notify_back: Your application to perform this task was submitted
+        successfully. The project leader will notify you once it has been received
+        and a decision is made.
+      fail_cannot_apply_twice: You can not apply twice
+    destroy:
+      success: Task assignment request was successfully destroyed.
+    accept:
+      success: Task has been assigned
+      fail: Task was not assigned to user
+      cannot_approve: You cannot approve the do request for a task that has some fundings
+    reject:
+      success: Request rejected
+      fail: Was not able to reject request
+  change_leader_invitation:
+    accept:
+      success: Congratulations! You are project leader of %{project_title}!
+  admin_invitations:
+    accept:
+      success: Invitation has been accepted.
+      fail: There were some problems preventing invitation from being accepted.
+    reject:
+      success: Invitation has been rejected.
+      fail: There were some problems preventing invitation from being rejected.
+...

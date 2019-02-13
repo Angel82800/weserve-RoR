@@ -1,0 +1,12 @@
+---
+en:
+  projects:
+    task_activities:
+      member_removed_from_task: '%{member} was removed from this task by'
+      reason: 'Reason: %{reason}'
+      task_commented_by: This task was commented by
+      task_edited_by: This task was edited by
+      task_proposed_by: This task was proposed by
+      task_reviewed_and_rejected_by: This task was reviewed and rejected by
+      title: '  Activity'
+...

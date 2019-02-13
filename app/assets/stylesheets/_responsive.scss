@@ -1,0 +1,27 @@
+html, body {
+  font-size: 16px;
+}
+
+.mobile-only {
+  display: none;
+}
+
+@media(max-width: 640px) {
+  html, body {
+    font-size: 14px;
+  }
+
+  .hide-mobile {
+    display: none;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+}
+
+@media(max-width: 420px) {
+  html, body {
+    font-size: 13px;
+  }
+}

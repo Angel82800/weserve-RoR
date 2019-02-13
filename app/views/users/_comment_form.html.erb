@@ -1,0 +1,18 @@
+<%= simple_form_for(ProfileComment.new, :remote => true) do |f| %>
+  <div class="form-errors"></div>
+  <div class="form-inputs">
+    <%= f.input :commenter_id, as: :hidden, input_html: { value: current_user.try(:id) } %>
+    <%= f.input :receiver_id, as: :hidden, input_html: { value: @user.id } %>
+    <%= f.input :comment_text, placeholder: "Type a comment" %>
+  </div>
+<% end %>
+
+<script>
+  $('#new_profile_comment textarea').keypress(function(e) {
+    if (e.which === 13 && !e.shiftKey) {
+      e.preventDefault();
+      $(this).blur();
+      $(this).closest('form').submit();
+    }
+  });
+</script>

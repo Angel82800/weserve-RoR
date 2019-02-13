@@ -1,0 +1,24 @@
+pt:
+  activities:
+    index:
+      title: "Feed de atividade"
+      wiki:
+        created: "Criou um %{href}"
+        deleted: "Apagou um artigo"
+        updated: "Editou um %{href}"
+      task:
+        created: "Criou um %{href}"
+        deleted: "Apagou uma tarefa"
+        updated: "Editou um %{href}"
+      task_comment:
+        created: "Comentou sobre %{href}"
+        deleted: "Apagou um comentário em uma tarefa."
+        updated: "Editou seu comentário em um %{href}"
+      project:
+        created: "Criou um %{href}"
+        deleted: "Aapagou um projeto"
+        updated: "Editou um %{href}"
+      project_comment:
+        created: "Comentou sobre %{href}"
+        deleted: "Apagou um comentário sobre um projeto."
+        updated: "Editou seu comentário sobre %{href}"

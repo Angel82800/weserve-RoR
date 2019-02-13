@@ -1,0 +1,43 @@
+<div class="row row-custom">
+  <div class="register-form">
+    <div class="alert-box round alert _hidden">
+      <span></span>
+      <a class="close">x</a>
+    </div>
+    <div class="sign-up-form">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class => 'form-registration'}) do |f| %>
+        <%= devise_error_messages! %>
+
+        <div class="form-group">
+          <%= f.label :username %><br />
+          <%= f.text_field :username, autofocus: true, class: 'register-form__username', required: 'required' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, class: 'register-form__email', required: 'required' %>
+        </div>
+
+        <div class="form-group b-tooltip">
+          <%= f.label :password %>
+          <span class="b-tooltip__element">?
+            <div class="b-tooltip__content">
+              <%= t('devise.registrations.new.min_password_length') %>
+            </div>
+          </span>
+          <br />
+          <%= f.password_field :password, autocomplete: "off", class: 'register-form__password', required: 'required' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label t('devise.registrations.new.repeat_password') %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: 'register-form__password-confirm', required: 'required' %>
+        </div>
+
+        <%= hidden_field_tag :locale, params[:locale] %>
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token, class: 'register-form__token' %>
+        <button type="submit" class="btn btn-theme-green normal-button"><%= t('devise.registrations.new.sign_up') %></button>
+      <% end %>
+    </div>
+  </div>
+</div>

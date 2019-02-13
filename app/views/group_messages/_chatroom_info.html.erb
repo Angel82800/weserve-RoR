@@ -1,0 +1,10 @@
+<div class="row margin-none" >
+  <% if @chatroom.present? %>
+      <%= @chatroom.get_display_title %>
+      <% participant = @chatroom.get_other_messaging_user(current_user) %>
+      <%= link_to participant.display_name, user_path(participant) %>
+  <% end %>
+  <div id="message-load-image" style="text-align: center; display: none">
+    <%= image_tag 'loading.gif' %>
+  </div>
+</div>

@@ -1,0 +1,159 @@
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.available-cards-radio-button').click(function () {
+      $('.new-card-subform').hide();
+      $('.select-new-card-row').show();
+      $('.select-new-card-row').removeClass('hide');
+      $('#payment-form').attr('id','payment-form-stripe-no-submit');
+
+      // disable validation as they will not be used for a saved card
+      $('#payment-form-stripe-no-submit').validate({
+            ignore: "#payment-form-stripe-no-submit *"
+        });
+
+      // hide any possible errros from failed attempt to add a new credit card
+      $('.modal-fund__payment-errors').hide();
+
+    });
+
+    $('.select-new-card-row').click(function () {
+      event.preventDefault();
+
+      $("input:radio").attr("checked", false);
+      $('.new-card-subform').show();
+      $('.select-new-card-row').hide();
+      $('#payment-form-stripe-no-submit').attr('id','payment-form');
+      // bring back validations
+      $("#payment-form").validate();
+    });
+  });
+
+
+</script>
+
+ <!--If You want a new page for card payment then use  <%#= card_payment_project_task_path %> in action instead of / on popup
+ i call JQuery function to fill the action path  -->
+<!-- <%#= card_payment_project_task_path %> -->
+
+<form id="payment-form" class="card-payment">
+
+  <input type="hidden" class="payment-form__amount js-amount" name="amount" id="payment-form__amount"/>
+
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token, id: 'stripe_token' %>
+
+    <div class="modal-fund__stripe-bottom">
+      <br class="modal-fund__stripe-bottom-inner">
+
+      <!-- Available cards are disabled for now due to errors in JS -->
+      <!-- If you want to uncomment it, then do not forget about -->
+      <!-- lines below with 'Save' checkbox -->
+      <% if @available_credit_cards.present? %>
+        <label class="f-default__label"><%= t('payments.saved_cards') %>:</label>
+        <br>
+      <div class="f-default__row">
+        <div class="f-default__label-wrap">
+          <div class="f-default__radio-label available-cards-radio">
+          <% @available_credit_cards.each do |card| %>
+              <input type="radio" class="available-cards-radio-button" name="card_id" value="<%= card[:id] %>" id="card-<%= card[:last4] %>">
+                <span class="modal-fund__last4"><%= t('payments.last_four_digits') %>: <%= card[:last4] %></span>
+              <br>
+          <% end %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+
+      <div class="f-default__row select-new-card-row hide">
+        <%= link_to('New Card', '#', class: 'new-card-link') %>
+      </div>
+
+
+      <div class="new-card-subform">
+        <div class="f-default__row">
+          <div class="f-default__label-wrap">
+            <label class="f-default__label" for="card_number"><%= t('payments.card_number') %></label>
+            <div class="js-hidden_card"></div>
+            <input type="tel" autocomplete="off" id="card_number" data-stripe="number" class="f-default__field" placeholder="•••• •••• •••• ••••" required/>
+
+            <span class="f-default__card-wrap">
+              <%= image_tag('payments/dc-pay@2x.png', class: "_dc") %>
+              <%= image_tag('payments/jcb-pay@2x.png', class: "_jcb") %>
+              <%= image_tag('payments/discover-pay@2x.png', class: "_discover") %>
+              <%= image_tag('payments/ae-pay@2x.png', class: "_ae") %>
+              <%= image_tag('payments/mc-pay@2x.png', class: "_mc") %>
+              <%= image_tag('payments/visa-pay@2x.png', class: "_visa") %>
+              <!--<svg focusable="false" version="1.1" class="svg-visa">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-visa"></use>
+              </svg>-->
+            </span>
+          </div>
+        </div>
+        <div class="f-default__row _flex">
+          <div class="f-default__label-wrap _grow">
+            <label class="f-default__label" for="card_expiry"><%= t('payments.expiry') %></label>
+            <input type="tel" autocomplete="off" id="card_expiry" data-stripe="exp" maxlength="9" class="f-default__field" placeholder="MM/YYYY" required/>
+          </div>
+          <div class="f-default__label-wrap">
+            <label class="f-default__label" for="card_code"><%= t('payments.card_code') %></label>
+            <input type="tel" autocomplete="off" id="card_code" class="f-default__field _cvc" placeholder="CVV" maxlength="4" data-stripe="cvc" required/>
+            <a href="https://www.strategicprofitsinc.com/cvv_info/cvv_info.html" target="_blank" class="modal-fund__cvc-info btn-reset"><%= t('payments.what_is_cvv') %></a>
+          </div>
+        </div>
+        <!-- Available cards are disabled for now due to errors in JS -->
+        <!-- If you want to uncomment it, then do not forget about -->
+        <!-- lines above with saved cards rendering -->
+        <div class="f&#45;default__row _flex">
+          <label class="f&#45;default__checkbox&#45;label">
+            <input class="f&#45;default__checkbox&#45;field payment&#45;form__save&#45;card" name="save_card" type="checkbox" value="1"/>
+            <span class="f&#45;default__checkbox&#45;pseudo"></span>
+            <span class="f&#45;default__checkbox&#45;text"><%= t('payments.save_this_card') %></span>
+          </label>
+        </div>
+      </div>
+
+        <!--Commented this may be we use this in future -->
+        <!--<br/>-->
+        <label class="f-default__checkbox-label">
+            <input class="f-default__checkbox-field payment-form__method" id="accept-term" name="method" type="checkbox" />
+            <span class="f-default__checkbox-pseudo"></span>
+            <span class="f-default__checkbox-text">
+                <%= t('payments.read_accept_terms') %>
+                <a href="/pages/terms_of_use">
+                    <b><%= t('payments.terms_and_conditions') %></b>
+                </a>
+            </span>
+        </label>
+
+        <span class="modal-fund__payment-errors"></span>
+
+        <script>
+          // https://github.com/jessepollak/card
+          new Card({
+            // a selector or DOM element for the form where users will
+            // be entering their information
+            form: '#taskFundModal', // *required*
+            // a selector or DOM element for the container
+            // where you want the card to appear
+            container: '.js-hidden_card', // *required*
+
+            formSelectors: {
+                numberInput: '[data-stripe="number"]',
+                expiryInput: '[data-stripe="exp"]',
+                cvcInput: '[data-stripe="cvc"]'
+            }
+          });
+        </script>
+      </div>
+    </div>
+
+  <button class="btn-root _donate _dark js-submit-cc _disable"><%= t('payments.donate_btn') %></button>
+</form>
+
+
+<script>
+    $(document).ready(function() {
+        $("#payment-form").on('submit.ignoreSubmit', function(event) {
+            event.preventDefault();
+        })
+    })
+</script>

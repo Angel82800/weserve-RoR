@@ -1,0 +1,9 @@
+<div class="content edit-wrapper">
+  <h1 class="title-default text-center">Edit "<%= @project.title %>"</h1>
+
+  <%= render 'form' %>
+
+  <div class="button-wrapper">
+    <%= link_to 'Back to project', @project, :class => "back-button text-default" %>
+  </div>
+</div>

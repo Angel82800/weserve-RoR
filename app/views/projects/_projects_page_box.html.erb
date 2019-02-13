@@ -1,0 +1,89 @@
+<li class="l-project-cards__item">
+
+  <div class="b-project-card" data-link="<%= taskstab_project_path(project, tab: 'tasks') %>">
+
+    <div class="b-project-card__top">
+
+      <% if project.picture.url %>
+          <%= link_to taskstab_project_path(project, tab: 'tasks'), class: 'b-project-card__img-wrap', data: {no_turbolink: false} do %>
+              <%= image_tag(project.picture.url, data: { 'object-fit': "cover" }) %>
+          <% end %>
+      <% else %>
+          <%= link_to taskstab_project_path(project, tab: 'tasks'), class: 'b-project-card__img-wrap _no-img', data: {no_turbolink: false} do %>
+          <% end %>
+      <% end %>
+      <div class="b-project-card_abs_title">
+        <%= link_to project.title, taskstab_project_path(project, tab: 'tasks'), data: {no_turbolink: false}, class: "b-project-card__title" %>
+      </div>
+
+      <% if defined?(subprojects) && can?(:destroy, project) %>
+        <div class="b-project-card__remove-subproject-link">
+          <%= link_to project_subproject_path(project_id: params[:project_id], id: project.id), method: :delete,
+                      remote: true, title: t('.remove'), data: { confirm: t('.confirm') } do %>
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div class="b-project-card__middle">
+      <div class="b-project-card__user-link">
+        <% if project.user %>
+        <div class="b-project-card__user-avatar">
+          <% if project.user.picture? %>
+            <%= image_tag(project.user.picture) %>
+          <% else %>
+            <%= gravatar_for_user(project.user)%>
+          <%end%>
+        </div>
+        <div class="b-project-card__user-info">
+          <p><%= link_to project.user.display_name, user_path(project.user)%></p>
+          <div class="b-project-card__location">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <%= project.country %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <p class="b-project-card__description">
+        <%= project.short_description %>
+      </p>
+      <div class="b-project-card__description_sep"></div>
+    </div>
+    <div class="b-project-card__bottom">
+      <div class="progress-banner">
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: <%= project.funded_percentages %>">
+          </div>
+        </div>
+      </div>
+
+      <div class="progress-report">
+        <table>
+          <tr class="value">
+            <% if !project.funded_budget.zero? %>
+              <td class="price"><span><%= ENV['symbol_currency'] %></span><%= number_with_precision(balance_in_usd(project.funded_budget), :precision => 2) %></td>
+            <% end %>
+            <td class="todo"><%= project.completed_tasks.size %></td>
+            <td class="tasks"><%= project.to_dos_tasks.size %></td>
+          </tr>
+          <tr class="items">
+            <% if !project.funded_budget.zero? %>
+              <td><%= t('tasks.banner.raised_of') %> <%= ENV['symbol_currency'] %><%= number_with_precision(balance_in_usd(project.needed_budget), :precision => 0) %> <%= t('tasks.banner.goal') %></td>
+            <% end %>
+            <td><%= t('tasks.banner.tasks_completed') %></td>
+            <td><%= t('tasks.banner.to_dos') %></td>
+          </tr>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</li>
+
+<script>
+$(function () {
+    $('.b-project-card').bind("click", function(e) {
+      location.href = $(this).data("link");
+    });
+});
+</script>

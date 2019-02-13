@@ -1,0 +1,59 @@
+<div class='welcome-banner'>
+  <%= image_tag(@project.picture) %>
+  <div class="welcome-banner__content">
+
+    <div class="row">
+      <center class="project-intro">
+
+        <div class="row">
+          <div class="col-lg-5 col-md-5 col-sm-5 col-custom">
+            <div class="text-right">
+              <h4 class="text-white">By: <%= @project.user.display_name %></h4>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-2 col-sm-2 col-custom">
+            <div class="text-center">
+              <% if @project.user.picture? %>
+                <%= image_tag(@project.user.picture, size: "50x50") %>
+              <% else %>
+                <%= gravatar_for_user(@project.user)%>
+              <%end%>
+            </div>
+          </div>
+          <div class="col-lg-5 col-md-5 col-sm-5 col-custom">
+            <div class="text-left">
+              <h4 class="text-white"><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @project.user.city %></h4>
+            </div>
+          </div>
+        </div>
+
+        <h2><%= @project.title %></h2>
+      </center>
+    </div>
+
+    <div class="row">
+      <center>
+        <div class="task-progress-wrapper">
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: <%= @project.funded_percentages %>">
+            </div>
+          </div>
+
+          <table>
+            <tr class="value">
+              <td><%= @project.funded_percentages%> %</td>
+              <td><%= @project.team_relations_string %></td>
+              <td><%= ENV['symbol_currency'] %> <%= number_with_precision(balance_in_usd(project.funded_budget), :precision => 2) %></td>
+            </tr>
+            <tr class="items">
+              <td>Funded</td>
+              <td>Tearmates</td>
+              <td>Raised</td>
+            </tr>
+          </table>
+        </div>
+      </center>
+    </div>
+
+  </div>
+</div>

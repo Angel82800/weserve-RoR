@@ -1,0 +1,19 @@
+.s-projects {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 25px 0;
+  &__container {
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  &__title {
+    font-family: 'Roboto', sans-serif;
+    color: #000;
+    margin: 0 0 10px;
+    font-size: 31px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+}

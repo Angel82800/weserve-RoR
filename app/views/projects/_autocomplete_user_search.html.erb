@@ -1,0 +1,8 @@
+<% @results.each do |item| %>
+  <li class="search-result__item">
+    <%= link_to item[:path], title: item[:type].titleize, class: 'search-result__link' do %>
+      <i class="<%= autocomplete_class_for(item[:type]) %>" />
+      <%= item[:title] %>
+    <% end %>
+  </li>
+<% end %>

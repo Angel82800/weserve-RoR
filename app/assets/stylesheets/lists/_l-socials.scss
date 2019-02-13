@@ -1,0 +1,50 @@
+.l-socials {
+  position: absolute;
+  bottom: 1px;
+  left: 100%;
+  display: flex;
+  list-style: none;
+  margin: 0 0 0 9px;
+  &__link {
+    width: 41px;
+    height: 40px;
+    position: relative;
+    display: block;
+    &:before {
+      border-radius: 50%;
+      content: '';
+      width: 30px;
+      height: 30px;
+      border: 1px solid #4a4a4a;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      margin: auto;
+      background: #fff;
+      position: absolute;
+      display: block;
+    }
+  }
+  svg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    fill: #4a4a4a;
+  }
+  .svg-twitter {
+    width: 14px;
+    height: 12px;
+  }
+  .svg-facebook {
+    width: 14px;
+    height: 12px;
+  }
+  .svg-linkedin {
+    width: 14px;
+    height: 12px;
+  }
+}

@@ -1,0 +1,12 @@
+JsonFormsHelper.InitializeNotificationsControls();
+$('.load-older-notifications-link').remove();
+
+<% unless @last_page %>
+$('.s-notifications__content').prepend("<%= escape_javascript(render partial: "load_older_link", locals: { notifications: @notifications } ) %>");
+<% end %>
+
+<% if @notifications.any? %>
+  var scrollHeight = $(".s-notifications__content .l-notifications").height();
+  $(".s-notifications__content .l-notifications").append("<%= escape_javascript(render partial: "notification", collection: @notifications) %>");
+  $("html, body").animate({ scrollTop: scrollHeight }, "slow");
+<% end %>

@@ -1,0 +1,282 @@
+// header utilize styles goes here
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Libre+Franklin');
+
+@import 'variables';
+
+.mt10 {
+  margin-top: 10px;
+}
+.mt20 {
+  margin-top: 20px;
+}
+
+.ml10 {
+  margin-left: 10px;
+}
+.ml20 {
+  margin-left: 20px;
+}
+.ml30 {
+  margin-left: 30px !important;
+}
+
+.mb10 {
+  margin-bottom: 10px !important;
+}
+.mb20 {
+  margin-bottom: 20px !important;
+}
+.mb30 {
+  margin-bottom: 30px !important;
+}
+
+.mr10 {
+  margin-right: 10px;
+}
+.mr20 {
+  margin-right: 20px;
+}
+.mr30 {
+  margin-right: 30px;
+}
+
+.mt20 {
+  margin-top: 20px !important;
+}
+.mt80 {
+  margin-top: 80px !important;
+}
+.mt100 {
+  margin-top: 100px !important;
+}
+
+.pr10 {
+  padding-right: 10px;
+}
+.pl10 {
+  padding-left: 10px !important;
+}
+.pb10 {
+  padding-bottom: 10px;
+}
+
+.pt15 {
+  padding-top: 15px !important;
+}
+.pt20 {
+  padding-top: 20px !important;
+}
+.pt30 {
+  padding-top: 30px !important;
+}
+
+.padding-none {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+.margin-none {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+.border-right {
+  border-right: 1px solid $grey-clr;
+}
+.border-top {
+  border-top: 1px solid #ddd;
+}
+
+.text-blue {
+  color: $alt-clr !important;
+  font-weight: bold;
+}
+.text-white {
+  color: #fff !important;
+}
+
+.border-right-none {
+  border-right: none !important;
+}
+
+h2:before {
+  border: none;
+}
+
+.slimScrollBar {
+  height: 100px !important;
+  width: 5px !important;
+  background-color: rgba(145, 145, 145, 0.5) !important;
+}
+
+.row {
+  max-width: none !important;
+}
+
+.normal-button {
+  height: 40px;
+  background-color: #fff !important;
+  font-weight: 600 !important;
+  border-radius: 40px !important;
+  border: 2px solid #000 !important;
+  font-family: 'Roboto';
+  color: #000 !important;
+  text-transform: uppercase;
+}
+
+.col-custom {
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+}
+.row-custom {
+  margin: 0 !important;
+}
+
+.success {
+  color: green;
+}
+
+.danger {
+  color: red;
+}
+
+.suspend {
+  color: $grey-clr;
+}
+
+
+h2:before {
+  border-top: none !important;
+}
+
+.form-group {
+  width: 100%;
+}
+
+.text-default {
+  font-family: 'Libre Franklin';
+  font-size: 1em;
+  font-weight: normal;
+  color: #555;
+}
+
+.title-default {
+  font-family: 'Roboto';
+  font-size: 1em;
+  font-weight: bold;
+  color: #000;
+}
+
+.btn-default-weserve,
+.btn-alt-weserve {
+  display: inline-block;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 20px;
+  margin: 0;
+  border: 2px solid #000 !important;
+  border-radius: 100px !important;
+  font-family: 'Roboto';
+  font-size: 1em;
+  font-weight: normal;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+.btn-default-weserve {
+  background-color: #fff !important;
+  color: #000 !important;
+
+  &:hover,
+  &:focus {
+    background-color: #000 !important;
+    border: 2px solid #000;
+    color: #fff !important;
+  }
+}
+
+.btn-alt-weserve {
+  background-color: #000 !important;
+  color: #fff;
+
+  &:hover,
+  &:focus {
+    background-color: #fff !important;
+    border: 2px solid #000;
+    color: #000 !important;
+  }
+}
+
+
+.position-relative {
+  position: relative;
+}
+
+.display-none {
+  display: none;
+}
+
+.hover-default {
+  &:hover {
+    background-color: #000 !important;
+    color: #fff !important;
+    border-color: #000 !important;
+    transition: background-color 0.2s linear;
+    text-decoration: none;
+
+    i {
+      color: #fff !important;
+      border-color: #000 !important;
+    }
+  }
+}
+
+.hover-alt {
+  &:hover {
+    background-color: #fff !important;
+    color: #000 !important;
+    transition: background-color 0.2s linear;
+    text-decoration: none;
+
+    i {
+      color: #000 !important;
+    }
+  }
+}
+
+.hover__border-bottom {
+  &:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    bottom: -4px;
+    left: 0;
+    background-color: #000;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+            transition: all 0.3s ease-in-out 0s;
+  }
+
+  &:hover:before {
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+}
+

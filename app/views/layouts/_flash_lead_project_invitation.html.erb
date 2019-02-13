@@ -1,0 +1,11 @@
+<% if @change_leader_invitation && @change_leader_invitation.is_valid? %>
+  <% project = @change_leader_invitation.project %>
+  <div class="center-block">
+    <p class="bg-info lead text-center">
+      <%== t('commons.lead_project_invitation', link: link_to(project.title, project_path(project))) %>
+      <br/>
+      <%= link_to t('commons.accept'), accept_change_leader_invitation_path(@change_leader_invitation), method: :put, :class => "btn btn-primary btn-sm" %>
+      <%= link_to t('commons.reject'), reject_change_leader_invitation_path(@change_leader_invitation), method: :put, :class => "btn btn-primary btn-sm" %>
+    </p>
+  </div>
+<% end %>

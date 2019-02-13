@@ -1,0 +1,38 @@
+<td>
+	<% if user.picture %>
+	<%=link_to (image_tag user.picture, size: "100x100"), user, data: { no_turbolink: true } %>
+
+    <%else%>
+
+    <%= link_to gravatar_for_user(user, 100), user, data: { no_turbolink: true } %>
+    <%end%>
+
+	<br>
+  <center><%= link_to user.display_name, user, data: { no_turbolink: true } %></center>
+</td>
+
+
+<td><%= user.city %></td>
+
+<td><%= user.country %></td>
+
+<td><%= mail_to user.email%></td>
+
+<td><%= user.role %></td>
+
+
+
+
+<% if current_user.admin? %>
+  <td>
+    <% unless user.admin? %>
+      <%= form_for(user) do |f| %>
+        <%= f.select(:role, User.roles.keys.map {|role| [role.titleize,role]}) %>
+        <%= f.submit 'Change Role', :class => 'button-xs' %>
+      <% end %>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to("Delete user", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'button-xs') unless user == current_user %>
+  </td>
+<%end%>

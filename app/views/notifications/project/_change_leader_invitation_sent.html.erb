@@ -1,0 +1,15 @@
+<div class="b-notification__text">
+  You send an invitation to &nbsp <%= notification.origin_user.display_name %> &nbsp to take  leader role of &nbsp
+  <%= link_to source_model.title, project_path(source_model) %>
+  &nbsp Project
+</div>
+
+<div class="b-notification__actions">
+  <% if source_model.change_leader_invitations.pending.first %>
+    <a class="btn-notify _accept">
+      <svg focusable="false" version="1.1" class="svg-check">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-check"></use>
+      </svg>Cancel
+    </a>
+  <% end %>
+</div>

@@ -1,0 +1,34 @@
+<tr class="do-request-item-<%= do_request.id %> <%= 'table-info' if do_request.free? %>">
+  <td><%= do_request.id %></td>
+  <td>
+    <% if do_request.free? %>
+      <div class="note-free"><%= t('commons.free') %></div>
+    <% end %>
+    <%= link_to show_task_projects_path(id: do_request.task_id), class:'dr-card', data: { task_id: do_request.task_id, task_board_id: do_request.task_board_id }, remote: true do %>
+      <%= do_request.task.title %>
+    <% end %>
+  </td>
+  <td><%= do_request.user.display_name %> (<%= do_request.user.email %>)</td>
+  <td><%= do_request.application %></td>
+  <td><%= do_request.created_at %></td>
+  <td>
+    <% if is_pending_table %>
+      <div class="buttons_group">
+        <%= link_to accept_do_request_path(do_request.id), :method => :put, class: 'btn btn-theme-green btn-notify _accept', data: {confirm: t('projects.task_details.accept_application_confirmation')} do %>
+          <svg focusable="false" version="1.1" class="svg-check">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-check"></use>
+          </svg>
+          <%= t('commons.approve') %>
+        <% end %>
+        <%= link_to reject_do_request_path(do_request.id), :method => :put, class: 'btn btn-theme-green btn-notify _reject', title: "Delete", data: {confirm: t('projects.task_details.reject_application_confirmation')} do %>
+          <svg focusable="false" version="1.1" class="svg-times">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-times"></use>
+          </svg>
+          <%= t('commons.deny') %>
+        <% end %>
+      </div>
+    <% else %>
+      <%= do_request.state&.capitalize %>
+    <% end %>
+  </td>
+</tr>

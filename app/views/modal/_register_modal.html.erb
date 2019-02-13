@@ -1,0 +1,137 @@
+
+<div id="registerModal" class="modal-default modal-sign" role="dialog" tabindex="-1">
+  <div class="modal-default__content">
+    <button type="button" class="modal-default__close"></button>
+    <h2 class="modal-default__title _sign-up"><%= t('.join_weserve_today') %></h2>
+    <h2 class="modal-default__title _sign-in"><%= t('commons.sign_in') %></h2>
+
+    <div class="modal-sign__col-wrap">
+      <div class="modal-sign__col _sign-up">
+        <%= render "modal/social_register" %>
+      </div>
+      <div class="modal-sign__col _sign-in">
+        <%= render "modal/social_sign_in" %>
+      </div>
+
+      <div class="modal-sign__col">
+        <div class="_sign-up" id="sign_up_show">
+          <%= render 'devise/registrations/form' %>
+        </div>
+        <div class="_sign-in" id="sign_in_show">
+          <%= render 'devise/sessions/form' %>
+        </div>
+      </div>
+    </div>
+    <p hidden><%= t('.password_not_match') %></p>
+    <div class="_sign-up">
+      <p class="modal-default__text"><%= t('.agree_term_html').html_safe %></p>
+      <p class="modal-default__text"><%= t('.already_have_account?') %> <a href="javascript:void(0)" class="sign_in_a"><%= t('commons.sign_in') %></a></p>
+    </div>
+    <p class="modal-default__text _sign-in"><%= t('.donot_have_account?') %> <a href="javascript:void(0)" class="sign_up_a"><%= t('commons.sign_up') %></a></p>
+  <br>
+    <p class="modal-default__text _sign-in"><a href="/users/confirmation/new" > <%= t('.not_receive_confirmation?') %></a></p>
+  </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $document
+            .on('click.hideAlert', '.alert-box .close', function() {
+                $('.alert-box').fadeOut(1000);
+            })
+            .on('submit.login', 'form.form-signin', function(e) {
+                e.preventDefault();
+
+                var url = '<%= session_path(resource_name) %>';
+                var loginData = {
+                    utf8: "✓",
+                    authenticity_token: $('.sign-in-form__token').val(),
+                    user: {
+                        email: $('.sign-in-form__email').val(),
+                        password: $('.sign-in-form__password').val(),
+                        remember_me: $('.sign-in-form__remember').is(":checked")
+                    }
+                };
+
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data: loginData,
+                    dataType: 'JSON',
+                    success: function() {
+                      sessionStorage.setItem('showMessageAfterSignedIn', JSON.stringify(true));
+                      if (['/', '/users/sign_in'].includes(window.location.pathname))
+                        window.location.replace(window.location.origin + "/home?locale=<%= I18n.locale %>")
+                      else
+                        window.location.replace(window.location.href)
+                    },
+                    error: function(e) {
+                        $('.alert-box').css({ display: 'block' });
+                        $('.alert-box').removeClass('_hidden');
+                        $('.alert-box span').text(JSON.parse(e.responseText).error);
+                        var timeout = setTimeout(function() {
+                            $('.alert-box').fadeOut(1000);
+                            clearTimeout(timeout);
+                        }, 10000);
+                    }
+                })
+
+
+            })
+    })
+</script>
+
+<script>
+    $(document).ready(function() {
+        $document
+            .on('submit.login', 'form.form-registration', function(e) {
+                e.preventDefault();
+
+                var url = '<%= registration_path(resource_name) %>';
+                var registerData = {
+                    utf8: "✓",
+                    authenticity_token: $('.sign-in-form__token').val(),
+                    user: {
+                        username: $('.register-form__username').val(),
+                        email: $('.register-form__email').val(),
+                        password: $('.register-form__password').val(),
+                        password_confirmation: $('.register-form__password-confirm').val()
+                    }
+                };
+
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    dataType: 'JSON',
+                    data: registerData,
+                    success: function() {
+                        sessionStorage.setItem('showMessageAfterRegister', JSON.stringify(true));
+                        if (['/', '/users/sign_in'].includes(window.location.pathname))
+                          window.location.replace(window.location.origin + "/home?locale=<%= I18n.locale %>")
+                        else
+                          window.location.replace(window.location.href)
+                    },
+                    error: function(e) {
+                        var errors = JSON.parse(e.responseText).errors,
+                            error = '';
+
+                        for (var errorType in errors) {
+                            if (errors[errorType].length) {
+                                error += errorType[0].toUpperCase() + errorType.slice(1) + ' ' + errors[errorType][0] + ' <br /> ';
+                            }
+                        }
+
+                        $('.alert-box').css({ display: 'block' });
+                        $('.alert-box').removeClass('_hidden');
+                        $('.alert-box span').html(error);
+                        var timeout = setTimeout(function() {
+                            $('.alert-box').fadeOut(1000);
+                            clearTimeout(timeout);
+                        }, 10000);
+                    }
+                })
+
+
+            })
+    })
+</script>

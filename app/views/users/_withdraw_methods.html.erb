@@ -1,0 +1,33 @@
+<% if current_user.bank.present? || current_user.credit_card.present? %>
+  <div class="row">
+    <div class="add-account">
+      <p> You are going to withdraw <%= ENV['symbol_currency'] %> <%= balance_in_usd(current_user.balance.amount)%> please select a target account for the transaction </p>
+      <div class="col-md-12">
+        <% if current_user.bank.present? %>
+          <p><i class="fa fa-money"></i> Bank Account
+            <label class="remove-option">
+              <i class="fa fa-check-circle-o" aria-hidden="true">
+                Active(ending <%= current_user.bank.last4 %>)
+              </i>
+              <%= link_to "Select", payout_external_user_path(id: current_user, source_type: "bank_account"), method: :post, class: "add-btn-root" %>
+            </label>
+         </p>
+        <% end %>
+
+        <% if current_user.credit_card.present? %>
+          <p><i class="fa fa-credit-card"></i> Credit Card
+            <label class="remove-option">
+              <i class="fa fa-check-circle-o" aria-hidden="true">
+                Active(ending <%= current_user.credit_card.last4 %>)
+              </i>
+              <%= link_to "Select", payout_external_user_path(id: current_user, source_type: "card"), method: :post, class: "add-btn-root" %>
+            </label>
+          </p>
+        <% end %>
+      </div>
+    </div>
+    <%= link_to "Back to My Wallet", my_wallet_user_path%>
+  </div>
+<% else %>
+  <h1>No External Account neither Bank nor Card , Please add external account to withdraw</h1>
+<% end %>

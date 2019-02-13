@@ -1,0 +1,41 @@
+pt:
+  users:
+    my_projects:
+      leader: "Líder"
+      fund_and_needed: "Financiado e necessário"
+      team_needed_html: "Equipe / <br>necessário"
+      task_reviewed_html: "Tarefas para <br>revisão"
+      task_completed_html: "Tarefas <br>concluídas"
+      change_role_confirmation: "A quem gostaria de dar a posição de líder?"
+      enter_email: "Digite o e-mail"
+      delete_project_confirmation: "Tem certeza de que deseja excluir este projeto?"
+    my_wallet:
+      title: "Minha carteira"
+      no_wallet_message: "Estamos criando uma carteira para você. Por favor, verifique\
+        \ novamente em alguns minutos."
+    user_receive_address_section:
+      title: "Receber endereço"
+      show_qrcode: "Ver o Código QR"
+    user_transactions:
+      date: "Data"
+      description: "Descrição"
+      status: "Estado"
+      amount: "Montante"
+      received_from: "Recebido de"
+      sent_to: "Enviado para"
+      no_transaction: "Nenhuma transação"
+    user_make_transaction:
+      bitcoin_address: "Endereço ou etiqueta de Bitcoin"
+      enter_wallet_address: "Digite o endereço da carteira do destinatário"
+      enter_amount: "Insira o valor"
+      optional_memo: "Nota interna opcional"
+    profile:
+      edit_bg_img: "Modificar a minha imagem de fundo"
+      edit_profile_img: "Modificar a minha imagem de perfil"
+      project_leads: "Projetos"
+      completed_task: "Tarefas concluídas"
+      project_funded: "Projetos financiados"
+    profile_edit_dialog:
+      edit_profile_img: "Modificar a imagem de perfil"
+    profile_edit_bcg_dialog:
+      edit_bg_img: "Modificar a imagem de fundo"

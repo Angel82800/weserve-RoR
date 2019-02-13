@@ -1,0 +1,6 @@
+en:
+  chat_mailer:
+    invite_receiver:
+      mailjet_template_id: 317135
+    send_summary:
+      mailjet_template_id: 317148

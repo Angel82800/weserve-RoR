@@ -1,0 +1,7 @@
+---
+en:
+  projects:
+    projects_page_box:
+      remove: Remove as parent project
+      confirm: Are you sure you want to delete this sub-project?
+...

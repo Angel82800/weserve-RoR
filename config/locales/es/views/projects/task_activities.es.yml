@@ -1,0 +1,10 @@
+es:
+  projects:
+    task_activities:
+      member_removed_from_task: "%{member} fue removido de esta tarea por"
+      reason: 'Razón: %{reason}'
+      task_commented_by: 'Esta tarea fue comentada por'
+      task_edited_by: 'Esta tarea fue editada por'
+      task_proposed_by: 'Esta tarea fue propuesta por'
+      task_reviewed_and_rejected_by: 'Esta tarea fue revisada y rechazada por'
+      title: '  Actividad'

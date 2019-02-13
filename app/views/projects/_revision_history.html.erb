@@ -1,0 +1,117 @@
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th><%= t('.edit_revision') %></th>
+        <th>
+            <%= t('.select_revisions') %>
+            <a class="btn-default-weserve revisions-compare-button"><%= t('.compare') %></a>
+        </th>
+        <th><%= t('.time') %></th>
+        <th><%= t('.contributors') %></th>
+        <th class="revisions__col _hide-mobile"></th>
+        <th></th>
+        <th><%= t('.approved_version') %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% histories.each_with_index do |history, index| %>
+        <tr class="<%= "unapproved" if history['status'] == 'approved' %>"
+          data-revision="<%= history['revision_id'] %>"
+          data-revision-date="<%= history["datetime"] %>"
+          data-revision-user-picture="<%= history['user'] ? history['user'].picture ? history['user'].picture : gravatar_image_url(history['user'].email) : '' %>"
+          data-revision-user="<%= (history['user']) ? history['user'].display_name : 'Anonymous' %>"
+          data-revision-user-id="<%= (history['user']) ? history['user'].id : '' %>"
+          data-revision-user-link="<%= history['user'] ? user_path(history['user']) : '' %>"
+          data-revision-user-blocked="<%= history['is_blocked'] %>"
+          data-revision-username="<%= history['username'] %>"
+        >
+          <td>
+            <a class="revisions-compare-edit-link" data-revision="<%= history['revision_id'] %>" href="<%= mediawiki_api_base_url %>index.php?title=<%= URI.escape(project.wiki_page_name.gsub(' ', '_')) %>&useskin=weserve&veaction=edit&redirect=<%= URI.encode(taskstab_project_url(project.id)) %>&oldid=<%= history['revision_id'] %>">
+              <i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;<%= t('commons.edit') %>
+            </a>
+          </td>
+          <td class="revisions-compare">
+            <label class="revision-compare-custom-radio" for="input_revision_<%= history['revision_id'] %>">
+              <input type="checkbox" value="<%= history['revision_id'] %>" id="input_revision_<%= history['revision_id'] %>" />
+            </label>
+          </td>
+          <td>
+            <%= history["datetime"] %>
+          </td>
+          <td class="contributer">
+            <% if history['user'] %>
+              <% if history['user'].picture? %>
+                <%= image_tag(history['user'].picture, size: "30x30") %>
+              <% else %>
+                <%= gravatar_for_user(history['user'])%>
+              <%end%>
+              <%= link_to history['user'].display_name, user_path(history['user']) %>
+            <% else %>
+              <%= link_to t('commons.anonymous') , '' %>
+            <% end %>
+          </td>
+          <td class="revisions__col _hide-mobile">
+            <% if history['user'].present? %>
+              <%= link_to group_messages_path(user_id: history['user'].id) do %>
+                <i class="fa fa-comment-o" aria-hidden="true"></i>&nbsp;<%= t('commons.message') %>
+              <% end %>
+            <% else %>
+              <a href=""><i class="fa fa-comment-o" aria-hidden="true"></i>&nbsp;<%= t('commons.no_messages') %></a>
+            <% end %>
+          </td>
+          <td>
+            <% if history['is_blocked'] == 0 %>
+              <a class='block-user' data-modal="#blockUserModal">
+                <i class="fa fa-ban" aria-hidden="true"></i>&nbsp;<%= t('commons.block') %>
+              </a>
+            <% else %>
+              <a data-username="<%= history['username'] %>" data-project-id="<%= project.id %>" class='revision-status-btn unblock-user'>
+                <i class="fa fa-ban" aria-hidden="true"></i>&nbsp;<%= t('commons.unblock') %>
+              </a>
+            <% end %>
+          </td>
+          <td class="revision-history__mark">
+            <% if history['status'] == 'approved' %>
+              <button data-revision-id="<%= history['revision_id'] %>" class="revision-history__mark-btn _approve">
+                <span class="revision-history__mark-title"><%= t('commons.unblock') %><%= t('commons.approved') %></span>
+              </button>
+            <% else %>
+              <button data-revision-id="<%= history['revision_id'] %>" class="revision-history__mark-btn">
+                <span class="revision-history__mark-title"></span>
+              </button>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $(document).off('click.toggleApprove', '.revision-history__mark button');
+        $(document)
+            .on('click.toggleApprove', '.revision-history__mark button', function(e) {
+                e.preventDefault();
+                var $this = $(this),
+                    revisionId = $this.data('revision-id'),
+                    isCurrentStateApproved = $this.hasClass('_approve'),
+                    url = isCurrentStateApproved ? "/projects/<%= project.id %>/revision_action?type=unapprove&rev=" + revisionId:
+                                                   "/projects/<%= project.id %>/revision_action?type=approve&rev=" + revisionId;
+
+                $.ajax({
+                    url: url,
+                    method: 'PUT',
+                    success: function() {
+                        $this.toggleClass('_approve');
+                        if (isCurrentStateApproved) {
+                            $this.find('span').html('');
+                        } else {
+                            $this.find('span').text('Approved');
+                        }
+                    }
+                })
+            })
+    })
+</script>

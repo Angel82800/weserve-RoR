@@ -1,0 +1,20 @@
+<section class="my-wallet">
+  <div class="head">
+    <p><%= t('commons.payout_details_desc')%></p>
+  </div>
+  <p class="mb-40"><%= t('commons.payout_info')%></p>
+  <%= form_tag(verify_user_path, method: :post, class: "payout-form", multipart: true )do %>
+    <%= hidden_field_tag 'token' %>
+    <div class="row">
+       <%= needed_fields %>
+    </div>
+    <ul>
+      <li><a href= <%= payout_method_user_path %> >Cancel</a></li>
+      <li><button type="submit" class="btn-root">Submit</button></li>
+    </ul>
+  <% end %>
+</section>
+<script type="text/javascript" src="https://js.stripe.com/v3/"></script>
+<script>
+  createToken("<%= Rails.configuration.stripe[:publishable_key] %>");
+</script>

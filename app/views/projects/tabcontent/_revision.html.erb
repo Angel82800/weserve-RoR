@@ -1,0 +1,63 @@
+<div class="content-details revision-wrapper">
+  <h4 class="mb20"><%= t('.revision_for') %> "<%= project.title %>"</h4>
+  <div class="row">
+    <div class="col-md-12">
+      <span class="approval-help">
+        ?
+        <div class="approval-help__tooltip">
+            <p><%= t('.approval_help_tooltip_1') %></p>
+            <p><%= t('.approval_help_tooltip_2') %></p>
+        </div>
+      </span>
+      <div class="approval-switch">
+        <label class="switch">
+          <input type="checkbox" <%= project.is_approval_enabled? ? "checked='checked'" : "" %>>
+          <div class="slider round"></div>
+        </label>
+      </div>
+      <h4 class="approval-title"><%= t('.manual_verification') %></h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+        <span class="msg-error"><%= t('.revision_error') %></span>
+    </div>
+  </div>
+
+  <div class="revision-histories-body">
+    <%= render partial: "projects/revision_history", locals: {histories: histories, project: project, mediawiki_api_base_url: mediawiki_api_base_url } %>
+  </div>
+</div>
+
+<div id="modalVerification" class="modal-default modal-verification" tabindex="-1">
+  <div class="modal-default__content" style="max-width: 900px;">
+    <button type="button" class="modal-default__close"></button>
+    <h4 class="modal-default__title"></h4>
+    <button type='button' class='btn-root _agree'>Ok</button>
+    <button type='button' class='btn-root _decline'>Cancel</button>
+  </div>
+</div>
+
+<script type="text/javascript">
+    var $modalVerification = $('#modalVerification'),
+        $switch = $('.approval-switch input');
+
+    function updateInputState() {
+        if ($switch.is(':checked')) {
+            $switch.prop("checked", "");
+        } else {
+            $switch.prop("checked", "checked")
+        }
+    }
+
+    $switch.on('click.switchApproval', function(e) {
+        e.preventDefault();
+        var confirmContent = "Are you sure you want to turn manual verification on? You will have to review every user's contribution in order for them to be implemented.";
+        if ($switch.is(':checked') == false) {
+            confirmContent = "Are you sure you want to turn manual verification off? Users will be able to edit your project without your approval. You will still be able to edit text, cancel contributions, and block users.";
+        }
+        $('html').addClass('_open-modal');
+        $modalVerification.fadeIn().find('.modal-default__title').text(confirmContent);
+    });
+</script>

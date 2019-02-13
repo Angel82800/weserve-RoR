@@ -1,0 +1,10 @@
+<% if Project.where(hidden: false).count > Project::default_per_page && Project.count != nil%>
+    <div class="load-more hide">
+      <div class="lds-css ng-scope" style="width:100%;height:65px;">
+        <div class="lds-dual-ring">
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>  
+<% end %>

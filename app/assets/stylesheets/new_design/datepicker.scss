@@ -1,0 +1,45 @@
+
+// custom bootstrap datetime picker styles goes here
+
+.bootstrap-datetimepicker-widget {
+  table td.active,
+  table td.active:hover {
+    color: #fff !important;
+    background-color: #777 !important;
+    border-radius: 3px !important;
+    font-weight: bold !important;
+  }
+
+  .datepicker-days table tr td.day.disabled {
+    background: none;
+    color: #777777 !important;
+    cursor: not-allowed;
+  }
+
+  table th {
+    font-family: 'Roboto';
+    font-size: 16px;
+    color: #000;
+  }
+
+  table td span.glyphicon {
+    color: #777 !important;
+  }
+
+  button[data-action] {
+    background-color: #777;
+    border-color: #777;
+    font-family: 'Roboto';
+    font-weight: bold;
+  }
+
+  .picker-switch td span {
+    font-size: 18px;
+    background-color: #eee;
+  }
+
+  table td span.active {
+    background-color: #777 !important;
+    font-weight: bold;
+  }
+}

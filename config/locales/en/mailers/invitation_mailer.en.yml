@@ -1,0 +1,12 @@
+en:
+  invitation_mailer:
+    invite_leader:
+      mailjet_template_id: 317481
+    invite_user_for_project:
+      mailjet_template_id: 317479
+    invite_user:
+      mailjet_template_id: 317477
+    notify_previous_leader_for_new_leader:
+      mailjet_template_id: 317483
+    welcome_user:
+      mailjet_template_id: 316944

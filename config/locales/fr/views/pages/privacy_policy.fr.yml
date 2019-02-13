@@ -1,0 +1,244 @@
+---
+fr:
+  pages:
+    privacy_policy:
+      heading: Politique de confidentialité
+      updated: Dernière mise à jour
+      description_html: Chez Weserve.io, nous avons créé cette Politique de Confidentialité
+        car nous savons que vous vous souciez de comment vos informations nous sont
+        fournies, comment elles sont utilisées, et partagées. Cette Politique de Confidentialité
+        porte sur la collecte d’information et les pratiques d’usage de Weserve.io,
+        pour notre Site web et nos Services. En visitant notre Site ou en utilisant
+        nos Services, les Visiteurs et les Utilisateurs inscrits approuvent les termes
+        de cette Politique de Confidentialité, ainsi que nos Conditions d’utilisation.
+        Les termes en majuscule non définis dans cette Politique de Confidentialité
+        auront la signification indiquée dans nos Conditions d’utilisation.
+      collected_information:
+        heading: Les informations que nous collectons
+        description: Dans le but d’exploiter le Site web, et de fournir nos Services,
+          nous pouvons collecter (et/ou recevoir) les informations suivantes. Vous
+          nous autorisez à collecter et/ou recevoir ces informations.
+      contact_information:
+        heading: Contact
+        description: Dans le but d’exploiter le Site web, et de fournir nos Services,
+          nous pouvons collecter (et/ou recevoir) les informations suivantes. Vous
+          nous autorisez à collecter et/ou recevoir ces informations.
+      other_information:
+        heading: Autres informations
+        description_html: En plus des informations précisées ci-dessus, nous pouvons
+          être amenés à en collecter d’autres informations  (appelées “Autres informations”).
+          Ces dernières peuvent inclure :\n
+        from_you:
+          heading: De Vous
+          description: Des informations supplémentaires à votre sujet, que vous nous
+            aurez fournies volontairement, comme votre poste, la taille de votre entreprise
+            et votre chiffre d’affaires annuel, vos préférences en termes de services
+            et de produits, et d’autres informations ne vous identifiant pas précisément.
+        from_your_activities:
+          heading: Concernant votre activité
+          description: 'Des informations que nous collectons automatiquement quand
+            vous utilisez le Site ou nos Services, c’est-à-dire, sans restrictions
+            :'
+          ip_address: Adresses IP, pouvant consister en une adresse IP statique, ou
+            dynamique, et parfois pointant vers un ordinateur ou un périphérique identifiable;
+            le type de navigateur et le langage utilisé; les pages d’entrée/de sorties
+            et leurs URLs; la date et l’heure; le temps passé sur certaines pages;
+            quelles sections du Site vous visitez; et des données similaires;
+          device: 'Des informations sur votre équipement, incluant le type d’équipement;
+            universally unique ID (“UUID”); advertising identifier (“IDFA”); adresse
+            MAC; système d’exploitation et version (i.e IOS, Android ou Windows);
+            opérateur et emplacement géographique; matériel informatique et informations
+            sur le processeur (i.e stockage, vitesse de la puce, résolution de la
+            caméra, activation du NFC); type de réseau (WiFi, 3G, 4G, LTE); et informations
+            similaires. '
+        from_cookies:
+          heading: Par le biais des cookies
+          description: Il s’agit des informations que nous collectons en utilisant
+            la technologie des “cookies”. Les cookies sont de petits groupements de
+            données qu’un site web stocke dans la mémoire de votre ordinateur, ou
+            votre téléphone portable, afin que votre périphérique se “souvienne” d’informations
+            sur votre visite. Nous pouvons utiliser à la fois des cookies de session
+            (qui expirent quand vous fermez votre navigateur web) et les cookies permanents
+            (qui restent sur votre ordinateur jusqu’à ce que vous les supprimiez)
+            pour nous aider à collecter les Autres informations, et pour améliorer
+            votre expérience en tant qu’utilisateur. Si vous ne souhaitez pas installer
+            de cookie sur votre disque dur, vous pouvez désactiver cette fonctionnalité
+            sur votre ordinateur/téléphone portable. Veuillez consulter la documentation
+            de votre navigateur web pour pour plus d’informations sur comment désactiver
+            les cookies et supprimer les cookies permanents. Toutefois, si vous décidez
+            de ne pas accepter les cookies venant de nous, le Site ou nos Services
+            sont susceptibles de ne pas fonctionner correctement.
+        third_party_analytic:
+          heading: Analyse de tiers
+          description: 'Nous pouvons utiliser des services d''analyse de tiers (comme
+            Google Analytics) pour évaluer l''utilisation du Site et des Services,
+            éditer des rapports d''activité, collecter des informations démographiques,
+            analyser les indicateurs de performance, et collecter/évaluer d''autres
+            informations relatives au Site et aux Services, ainsi qu''à leur usage
+            mobile et Internet. Ces tiers utilisent des cookies et d''autres technologies
+            pour faciliter l''analyse, et nous fournir des données. En accédant et
+            en utilisant ce Site ou ses Services, vous consentez à l''analyse de ces
+            données personnelles par ces tiers, dans les règles et pour les buts fixés
+            par cette Politique de confidentialité. '
+        more_info_about_analytic: 'Pour plus d''informations sur Google Analytics,
+          notamment sur comment se retirer de certaines collectes de données, merci
+          de consulter HTTPS://WWW.GOOGLE.COM/ANALYTICS. Merci de noter qu''en vous
+          retirant d''un service, vous pourriez ne plus pouvoir utiliser toutes les
+          fonctionnalités du Site ou des Services. '
+      billing_information:
+        heading: DETAILS DE FACTURATION
+        description: Si vous souhaitez faire une donation, vous devez fournir quelques
+          informations à nos gestionnaires de paiement, conformément à leurs leurs
+          politiques de confidentialité et conditions d'utilisation (ces informations
+          sont les "Détails de facturation"). Vous autorisez nos gestionnaires de
+          paiement tiers à collecter, exploiter, et stocker vos Informations de paiement.
+          Weserve.io ne stocke pas, ou n'exploite pas vos données bancaires.
+      ads_collected_information:
+        heading: INFORMATIONS COLLECTEES PAR LES PUBLICITAIRES TIERS
+        description: 'Nous pouvons partager d''Autres information à propos de votre
+          activité sur le Site ou nos Services avec des tiers dans le but de d''adapter,
+          d''analyser, de gérer, et d''optimiser les publicités que vous voyez sur
+          le Site, les Services, ou ailleurs. Ces tiers peuvent utiliser des cookies,
+          des balises pixel, et/ou d''autres technologies pour collecter d''Autres
+          informations dans le même but. Les balises pixel nous permettent, à nous
+          et aux publicitaires tiers de reconnaître un cookie de navigateur quand
+          un navigateur visite le site sur lequel la balise pixel est implantée, dans
+          le but de découvrir quelle publicité conduit un utilisateur à visiter un
+          site web particulier. '
+      access_and_modify_contact:
+        heading: ACCES ET MODIFICATION DES INFORMATIONS DE CONTACT ET DES PREFERENCES
+          DE COMMUNICATION
+        description: Si vous êtes un Utilisateur inscrit, vous pouvez accéder, examinez
+          et modifiez vos informations de contact et certaines Autres informations,
+          en suivant les instructions figurant sur le site. En outre, vous pouvez
+          gérer votre réception de communications marketing et non-transactionnelles
+          en cliquant sur le lien "désabonnement" situé en bas de tout e-mail marketing
+          Weserve.io. Les Utilisateurs inscrits ne peuvent pas refuser de recevoir
+          des emails transactionnels, en lien avec leur compte. Nous ferons les efforts
+          commerciaux appropriés pour traiter ces demandes en temps opportun. Toutefois,
+          veuillez noter qu'il n'est pas toujours possible de supprimer ou de modifier
+          complètement les informations de nos bases de données d'abonnement.
+      how_your_information_shared:
+        heading: COMMENT NOUS UTILISONS ET PARTAGEONS LES INFORMATIONS
+        main_description: 'Nous utilisons les Informations de Contact et les Autres
+          informations (en somme, les "INFORMATIONS") pour fournir les Services, pour
+          entretenir et améliorer notre Site et nos Services, pour solliciter votre
+          avis, et pour vous informer sur nos produits et services, et ceux de nos
+          partenaires marketing tiers. '
+        more_description:
+          into: Nous pouvons également utiliser et/ou partager les informations de
+            la façon suivante.
+          access: 'Weserve.io accède, utilise et partage les données comme il est
+            nécessaire de le faire pour vous fournir une assistance. '
+          share: Dans le but de fournir nos Services, nous pouvons être amenés à partager
+            des données avec nos partenaires marketing tiers, y compris, sans limitation,
+            les entreprises participants à nos divers programmes.
+          analyse: Dans un effort continu pour mieux comprendre nos Visiteurs, nos
+            Utilisateurs inscrits, et et nos Services, nous pouvons analyser les données
+            de façon globale. Cette vision d'ensemble ne vous identifie pas personnellement.
+            Nous pouvons partager ces données générales avec nos associés, nos agents,
+            et nos partenaires, y compris, sans limitation, nos fournisseurs. Nous
+            pouvons également divulguer des statistiques d'utilisateurs globales afin
+            de décrire notre site et nos services à des partenaires commerciaux actuels
+            et potentiels, et à d'autres tiers à d'autres fins légales.
+          share_with_partners: Nous pouvons partager certaines, ou toutes vos données
+            avec n'importe laquelle de nos sociétés mères. filiales, coentreprises
+            ou autres sociétés sous contrôle commun. Au fur et à mesure que nous développons
+            nos activités, nous pourrions vendre ou acheter des entreprises ou des
+            actifs. Dans le cas d'une vente, d'une fusion, d'une réorganisation, d'une
+            vente d'actifs, d'une dissolution ou d'un événement similaire, les données
+            peuvent faire partie des actifs transférés.
+          law_and_safety: 'Dans la mesure permise par la loi, nous pouvons également
+            divulguer les Informations: (i) lorsqu''elles sont exigées par la loi,
+            une ordonnance judiciaire, ou une autre autorité publique ou répressive
+            ou un organisme de réglementation; ou (ii) chaque fois que nous croyons
+            que la divulgation de ces Informations est nécessaire ou souhaitable,
+            par exemple, pour protéger les droits, la propriété ou la sécurité de
+            Weserve.io ou d''autres.'
+      information_you_share:
+        heading: LES DONNEES QUE VOUS PARTAGEZ
+        description: Veuillez garder à l'esprit que chaque fois que vous mettez volontairement
+          vos informations de contact ou votre contenu d'utilisateur enregistré à
+          la disposition de tiers - par exemple sur des forums ou des journaux Web;
+          par e-mail; ou dans les zones de commentaire ou de discussion - cette information
+          et ce contenu peuvent être vus, recueillis, entendus et / ou utilisés par
+          d'autres personnes que nous. Nous ne pouvons être tenus responsables de
+          toute utilisation non autorisée par des tiers de ces informations ou contenus,
+          et cette Politique de confidentialité ne s'applique pas aux Informations
+          que vous partagez de l'une des manières précédentes.
+      protection:
+        heading: 'COMMENT NOUS PROTEGEONS LES DONNEES '
+        description: Nous prenons des mesures commercialement raisonnables pour protéger
+          vos Informations contre la perte, l'utilisation abusive et l'accès non autorisé,
+          la divulgation, l'altération ou la destruction. Veuillez comprendre, cependant,
+          qu'aucun système de sécurité est impénétrable. Nous ne pouvons pas garantir
+          la sécurité de nos bases de données, et nous ne pouvons pas non plus garantir
+          que les Informations que vous fournissez ne seront pas interceptées lors
+          de leur transmission vers, et depuis Internet. En particulier, les e-mails
+          envoyés vers ou depuis le site peuvent ne pas être sécurisés et vous devez
+          donc prendre des précautions particulières pour décider quelles informations
+          vous nous envoyez par e-mail.
+      notice_to_non_us_residents:
+        heading: INFORMATION IMPORTANTE POUR LES RESIDENTS HORS ETATS-UNIS
+        description: Il est important de noter que le Site et ses serveurs sont exploités
+          aux États-Unis et dans d'autres pays. Si vous résidez dans l'Union européenne,
+          toutes les informations que vous nous fournissez, y compris, sans limitation,
+          toute information de contact, seront stockées sur les serveurs situés dans
+          l'Union européenne. Si vous êtes situé en dehors de l'Union européenne,
+          toutes les informations que vous nous fournissez, y compris, sans limitation,
+          les informations de contact, seront stockées sur les serveurs situés aux
+          États-Unis ou dans d'autres pays. En utilisant le site ou en nous fournissant
+          des informations lors de l'utilisation des services, vous consentez irrévocablement
+          à ce transfert et à notre utilisation des informations et données fournies,
+          conformément à la présente politique de confidentialité.
+      children:
+        heading: ENFANTS
+        description: Nous ne collectons pas sciemment des informations d'enfants de
+          moins de 13 ans sur le site. Si vous avez moins de 13 ans, veillez à ne
+          nous donner aucune information. Nous encourageons les parents et les tuteurs
+          légaux à surveiller l'utilisation d'Internet de leurs enfants et à aider
+          à faire respecter notre politique de confidentialité en demandant à leurs
+          enfants de ne jamais fournir d'informations de contact via le site sans
+          leur permission. Si vous avez des raisons de croire qu'un enfant de moins
+          de 13 ans nous a fourni des informations, veuillez nous contacter, et nous
+          nous efforcerons de supprimer ces informations de nos bases de données.
+      califonia_residents:
+        heading: RESIDENTS DE CALIFORNIE
+        description: 'En vertu de la section 1798.83 du code civil californien, les
+          résidents californiens ayant une relation commerciale établie avec Weserve.io
+          peuvent choisir de ne pas partager nos informations de contact avec des
+          tiers à des fins de marketing direct. Si vous êtes un résident de la Californie
+          et (1) vous souhaitez vous exclure; ou (2) vous souhaitez demander certaines
+          informations concernant la divulgation de vos informations de contact à
+          des tiers à des fins de marketing direct, veuillez envoyer un e-mail à info@weserve.io
+          avec "POLITIQUE DE CONFIDENTIALITÉ" dans la ligne objet ou écrivez à nous
+          à:'
+        more: Weserve.io ne surveille pas, ne reconnaît pas toute désactivation de
+          la publicité, ou les mécanismes anti-suivi, y compris les paramètres et
+          / ou les signaux «Do Not Track» du navigateur Web.
+      external_website:
+        heading: SITES EXTERNES
+        description: Le site peut contenir des liens vers des sites Web de tiers.
+          Nous n'avons aucun contrôle sur les pratiques de confidentialité ou le contenu
+          de nos partenaires commerciaux, annonceurs, sponsors ou autres sites Web
+          auxquels nous fournissons des liens. En tant que tel, nous ne sommes pas
+          responsables du contenu ou des politiques de confidentialité de ces sites
+          Web tiers. Vous devriez vérifier la politique de confidentialité et les
+          conditions d'utilisation des tiers applicables lors de la visite de tout
+          autre site Web.
+      changes_to_this_pollicy:
+        headign: CHANGEMENTS DE CETTE POLITIQUE DE CONFIDENTIALITE
+        description: Cette Politique de Confidentialité est effective à compter de
+          la date indiquée en haut de la page. Nous sommes susceptibles d'y apporter
+          des changements occasionnellement. En accédant au Site et/ou en utilisant
+          nos services après que nous ayons effectué ces changements, vous êtes supposé(e)
+          avoir accepté de tels changements. Veuillez noter que, dans la mesure permise
+          par la loi applicable, notre utilisation de l'information est régie par
+          la politique de confidentialité en vigueur au moment où nous recueillons
+          l'information. Veuillez vous reporter régulièrement à cette politique de
+          confidentialité.
+      contact_us:
+        heading: COMMENT NOUS CONTACTER
+        description: Si vous avez des questions au sujet de la Politique de confidentialité,
+          envoyez nous un email à info@weserve.io, avec en sujet "Politique de confidentialité"
+...

@@ -1,0 +1,10 @@
+---
+en:
+  boards:
+    board:
+      title: Edit Board
+      title_field: Title
+      remove_board_link: Remove Board
+      edit_board_link: Edit Board
+      delete_confirmation: Are you sure you want to delete this board?
+...

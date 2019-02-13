@@ -1,0 +1,526 @@
+<div id="taskFundModal" class="modal-default modal-fund" role="dialog" tabindex="-1">
+  <div id="fund-loading"><%= t('commons.loading') %><%= image_tag("loading.gif", :alt => "rss feed") %> </div>
+  <div class="modal-fund__inner">
+    <div id="3dsecure" ></div>
+    <div class="modal-fund__content">
+      <div class="modal-fund__top">
+        <button type="button" class="modal-default__close"></button>
+        <h4 class="modal-default__title"><%= t('.title') %></h4>
+
+        <div class="modal-fund__form-wrap" id="user-btc-view">
+            <div class="f-default__row">
+              <%= form_tag("/user_wallet_transactions/send_to_task_address", method: "post", remote: true , class: 'f-default f-donate') do %>
+                <input type="hidden" id="wallet_transaction_task_id" name="task_id"  required class="form-control"/>
+                <label class="f-default__label" for="wallet_transaction_amount">
+                    <%= t('commons.enter') %>
+                    <span class="js-current-currency"><%= t('commons.usd', currency: ENV['currency']) %></span>
+                    <%= t('.amount_to_send') %>
+                    <span class="modal-fund__needed _usd _active"></span>
+                </label>
+                <input type="number" step="0.01" min="<%= min_fund_budget_in_usd %>" autocomplete="off" id="wallet_transaction_amount" name="amount" class="f-default__field modal-fund__input" required/>
+                <span id="wallet_btc" class="modal-fund__convert"></span>
+                <span class="modal-fund__min-donation"></span>
+
+                <div class="modal-fund__fees _hide">
+                    <div class="modal-fund__fees-row">
+                        <span class="modal-fund__fees-value _current"></span>
+                        % processing fee =
+                        <span class="modal-fund__fees-value _fee"></span>
+                    </div>
+                    <div class="modal-fund__fees-row">
+                        <span class="modal-fund__fees-value _final"></span>
+                        will be credited to the task balance
+                    </div>
+                </div>
+              <% end %>
+            </div>
+            <div class="f-default__row modal-fund__tabs-wrapper center">
+                <!--<button type="button" class="modal-fund__tab js-change-payment-type _wallet _bitcoin" id="save-wallet-teansaction" value="save"><span>Donate</span> with bitcoin</button>-->
+                <button type="button" class="modal-fund__tab js-change-payment-type _active _credit" style="margin: 0 auto;" id="donate-with-credit-card" value="save"><%= t('.donate_with_credit_card'); %></button>
+            </div>
+        </div>
+      </div>
+
+      <div class="modal-fund__bottom">
+        <div class="modal-fund__bottom-content">
+          <div class="modal-fund__tabs">
+            <div class="modal-fund__tab-wrap">
+              <!--<button class="modal-fund__tab" type="button"><#%= t('.use_weserve_wallet') %></button>-->
+            <!--</div>-->
+
+          <!--<%# if user_signed_in? %>-->
+              <!--<div class="modal-fund__content-wrap">-->
+                <!--<div class="modal-fund__tab-content">-->
+<!---->
+                  <!--<div class="modal-fund__signed">-->
+                    <!--<div class="modal-fund__signed-label">-->
+                        <!--<span><#%= t('commons.sign_in_as') %></span>-->
+                        <!--<span class="modal-fund__user-name"><#%= current_user.display_name %></span>-->
+                        <!--<%#= link_to t('commons.not_you?'), destroy_user_session_path, :method => 'delete', :class => 'modal-fund__wrong-user btn-reset' %>-->
+                    <!--</div>-->
+                    <!--<#% if current_user.picture? %>-->
+                        <!--<#%= image_tag(current_user.picture, class: "modal-fund__avatar") %>-->
+                    <!--<#% else %>-->
+                        <!--<#%= gravatar_for_user(current_user, 44) %>-->
+                    <!--<#% end %>-->
+                    <!--<div class="modal-fund__field-wrap">-->
+                      <!--<div class="modal-fund__balance"><#%= t('commons.btc_wallet') %> (<#%= balance_in_usd(current_user.current_wallet_balance) %>)</div>-->
+                      <!--<svg focusable="false" version="1.1" class="svg-wallet" aria-hidden="true">-->
+                        <!--<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-wallet"></use>-->
+                      <!--</svg>-->
+                    <!--</div>-->
+
+                    <!--<a class="modal-fund__wallet" href="/users/<#%= current_user.id %>/my_wallet"><#%= t('commons.my_wallet') %></a>-->
+                  <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<button type="button" class="btn-root _donate _dark _disable"><%= t('.donate') %></button>-->
+          <%# else %>
+            <!--<button type="button" class="btn-root _sign-in _dark"><%= t('commons.sign_in') %></button>-->
+          <%# end %>
+            </div>
+          </div>
+        </div>
+        <div class="modal-fund__bottom-content _active">
+          <div class="modal-fund__stripe">
+            <% if user_signed_in? %>
+              <%= render :template => '/payments/stripe/new' %>
+            <% else %>
+              <button type="button" class="btn btn-theme-green big btn-root _sign-in _dark"><%= t('commons.sign_in') %></button>
+            <% end %>
+          </div>
+        </div>
+
+
+      </div>
+
+      <!-- todo BE: do you need this?
+      <h4 class="modal-title" id="wallet-address"></h4>
+      <span class="modal-fund__current-fund">Current Fund: <span id="task-balance"></span></span>
+      <div class="modal-fund__wallet-response" style="background-color: darkorange;font-size: large ;margin:0 3%"  id="response-from-wallet"></div>
+      <div id="coin-base-widget"> </div>  -->
+
+
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script>
+
+  $(document).ready(function() {
+    var MIN_DONATION_USD = <%= min_donation_size_in_usd %>;
+
+    Stripe.setPublishableKey('<%= Rails.configuration.stripe[:publishable_key] %>');
+
+    var $walletTransactionAmount = $('#wallet_transaction_amount'),
+        $cardNumber = $('#card_number'),
+        $cardExpiry = $('#card_expiry'),
+        $cardCvv = $('#card_code'),
+        $jsCardNumber = $('.js-card-number'),
+        $donateBtn = $('.btn-root._donate'),
+        $jsAmount = $('.js-amount'),
+        $creditCardTab = $('.js-change-payment-type._credit'),
+        $bitcoinTab = $('.js-change-payment-type._bitcoin'),
+        $errorFundModal = $('#errorFundModal'),
+        $paymentForm = $('#payment-form'),
+        donationObj = {
+          amount: {
+            usd: 0,
+            btc: 0
+          },
+          isUSD: true
+        };
+
+    function stripe3DSecureResponseHandler(status, response) {
+      if (response.error) {
+        handleError(response);
+        return;
+      }
+
+      // check the 3DS source's status
+      if (response.status == 'chargeable') {
+        sendCreditCardDonate(response.id);
+        return;
+      } else if (response.status != 'pending') {
+        var message = "Unexpected 3D Secure status: " + response.status;
+        handleError({ responseJSON: { error: message}});
+        return;
+      }
+
+      // start polling the source (to detect the change from pending
+      // to either chargeable or failed)
+      Stripe.source.poll(
+        response.id,
+        response.client_secret,
+        stripe3DSStatusChangedHandler
+      );
+
+      $('#3dsecure').html('<iframe style="width:100%; height: 800px;" frameborder="0" src="' + response.redirect.url + '"></iframe>');
+      $('.modal-fund__content').addClass('hidden');
+    }
+
+    function stripe3DSStatusChangedHandler(status, source) {
+      if ( source.status == 'pending') {
+        return;
+      }
+
+      $('.modal-fund__content').removeClass('hidden');
+      $('#3dsecure').html('');
+
+      if (source.status == 'chargeable') {
+        sendCreditCardDonate(source.id);
+      } else if (source.status === 'failed'){
+        handleError({ responseJSON: { error: 'Payment Authorization Failed '}});
+        Stripe.source.cancelPoll(source.id)
+      }
+    }
+
+    function stripeResponseHandler(status, response) {
+      // Grab the form:
+      var $form = $('#payment-form');
+      if (response.error) { // Problem!
+        // Show the errors on the form:
+        $form.find('.modal-fund__payment-errors').text(response.error.message);
+        $form.find('.modal-fund__payment-errors').show();
+        $form.find('.js-submit-cc').prop('disabled', false); // Re-enable submission
+        $('.btn-root._donate').removeClass('_disable');
+        return;
+      }
+      if (response.status == 'chargeable' && response.card.three_d_secure !== 'required') {
+        sendCreditCardDonate(response.id);
+        return;
+      }
+      var returnURL = "<%= request.original_url %>"
+      // create the 3DS source from the card source
+      Stripe.source.create({
+        type: 'three_d_secure',
+        amount: getCurrencyInSmallestUnit($('#wallet_transaction_amount').val()),
+        currency: '<%= (ENV['currency'] || 'Eur').downcase %>',
+        three_d_secure: {
+          card: response.id
+        },
+        redirect: {
+          return_url: returnURL
+        }
+      }, stripe3DSecureResponseHandler)
+    };
+
+    function stripeTokenResponseHandler(status, response) {
+      if (response.error) {
+        handleError({ responseJSON: { error: response.error.message}});
+        return;
+      };
+
+      Stripe.source.create({
+        type: 'card',
+        token: response.id
+      }, stripeResponseHandler);
+
+    }
+
+    function getCurrency() {
+      return donationObj.isUSD ? <%= ENV['currency'] %> : '฿';
+    }
+
+    function getConvertedCurrency() {
+      return !donationObj.isUSD ? <%= ENV['currency'] %> : '฿';
+    }
+
+    function getCurrencyInSmallestUnit(amount) {
+      return parseInt((parseFloat(amount) || 0)*100)
+    }
+
+    function getProcessingFee(currentValue) {
+      var percents = [0.029, 0.005, 0.0149],
+          usdConstant = 0.3,
+          firstValue = (currentValue - currentValue * percents[0]) - usdConstant,
+          secondValue = firstValue - percents[1] * firstValue,
+          fee = secondValue - percents[2] * secondValue;
+
+      return fee;
+    }
+
+
+    function CopyToClipboard(containerid) {
+      if (document.selection) {
+        var range = document.body.createTextRange();
+        range.moveToElementText(document.getElementById(containerid));
+        range.select().createTextRange();
+        document.execCommand("Copy");
+      } else if (window.getSelection) {
+        var selection = window.getSelection();
+        var range = document.createRange();
+        range.selectNode(document.getElementById(containerid));
+        selection.removeAllRanges();
+        window.getSelection().addRange(range);
+        document.execCommand("Copy");
+      }
+    }
+
+    function disableEnableDonate () {
+      var acceptTermCheckbox = $('#accept-term'),
+        donateValue = checkFields(),
+        $donateBtn = $('.btn-root._donate');
+
+      if (donateValue && acceptTermCheckbox.is(':checked') && $paymentForm.valid()) {
+        $donateBtn.removeClass('_disable');
+      } else {
+        $donateBtn.addClass('_disable');
+      }
+    }
+    // listen changing form to disableEnableDonation
+    $paymentForm.change( function () {
+      disableEnableDonate();
+    });
+
+    $walletTransactionAmount.on('change', function () {
+      disableEnableDonate();
+    });
+
+    $(document)
+      .on('click.copyWallet', '._copy-address', function () {
+        CopyToClipboard('wallet_address');
+      })
+      .on('click.changePaymentType', '.js-change-payment-type', function () {
+        var $that = $(this),
+            index = $that.index();
+
+        $that.addClass('_active').siblings().removeClass('_active');
+        donationObj.isUSD = index === 1;
+
+        if (donationObj.isUSD && $walletTransactionAmount.val()) {
+          $('.modal-fund__fees').removeClass('_hide');
+        } else {
+          $('.modal-fund__fees').addClass('_hide');
+        }
+
+        $walletTransactionAmount.trigger('keyup');
+
+        $('.modal-fund__bottom-content').removeClass('_active').eq(index).addClass('_active');
+        $('.js-btc-amount').html('');
+        $('.modal-fund__min-donation').html('');
+        $donateBtn.addClass('_disable');
+      })
+      .on('input.inputAmount', '.modal-fund__input', function() {
+         var currentValue = $(this).val(),
+           $donateBtn = $('.btn-root._donate'),
+           isTermOfUseChecked = $('.payment-form__method').is(':checked'),
+           $minDonation = $('.modal-fund__min-donation'),
+           valueAfterFee = null;
+
+
+        if (donationObj.isUSD && (parseFloat(currentValue) < parseFloat(MIN_DONATION_USD))) {
+          $minDonation.html('Min. donation is ' + parseFloat(MIN_DONATION_USD) + "<%= ENV['symbol_currency'] %>");
+        } else {
+          $minDonation.html('');
+        }
+
+          // if (donationObj.isUSD && currentValue) {
+          //     valueAfterFee = getProcessingFee(currentValue);
+
+          //     $('.modal-fund__fees').removeClass('_hide');
+
+          //     $('.modal-fund__fees-value._current').text(currentValue + ' USD, ');
+          //     $('.modal-fund__fees-value._fee').text((currentValue - valueAfterFee).toFixed(2) + ' USD');
+          //     $('.modal-fund__fees-value._final').text(valueAfterFee.toFixed(2) + ' USD');
+          // } else {
+          //     $('.modal-fund__fees').addClass('_hide');
+          // }
+
+          // if (currentValue && (!donationObj.isUSD || isTermOfUseChecked)) {
+          //     $donateBtn.removeClass('_disable');
+          // } else {
+          //     $donateBtn.addClass('_disable');
+          // }
+      })
+        <% if user_signed_in? %>
+          .on('click.sendForm', '.btn-root._donate', function () {
+            var val = checkFields(),
+                $donateBtn = $('.btn-root._donate'),
+                isTermOfUseChecked = $('.payment-form__method').is(':checked');
+
+            if (donationObj.isUSD && !isTermOfUseChecked) {
+                $('.f-default__checkbox-pseudo').addClass('_error');
+                return;
+            } else {
+                $('.f-default__checkbox-pseudo').removeClass('_error');
+            }
+
+            if (val && (!donationObj.isUSD || isTermOfUseChecked)) {
+                $donateBtn.addClass('_disable');
+                if ($creditCardTab.hasClass('_active')) {
+                    setTimeout(function() {
+                      if ($('#payment-form-stripe-no-submit').length > 0) {
+                        sendCreditCardDonate(null);
+                      }
+                      else if ($('#payment-form').length > 0) {
+                          createStripeToken();
+                      }
+
+                    }, 0);
+                } else {
+                    sendBitcoinDonate();
+                }
+            }
+          })
+        <% end %>
+
+        function createStripeToken() {
+            Stripe.card.createToken($("#payment-form"), stripeTokenResponseHandler);
+        }
+
+        function checkFields(){
+          var status =  null;
+          if($("input[name='card_id']").is(':checked')){
+            status = $('.modal-fund__input').val().length > 0
+          }
+          else{
+            status = $('.modal-fund__input').val().length > 0 && $cardNumber.val().length > 0
+            && $cardExpiry.val().length > 0 && $cardCvv.val().length > 0
+          }
+          return status
+        }
+
+        function sendCreditCardDonate(token) {
+          $.ajax({
+              url: $('form.card-payment').attr('action'),
+              method: 'POST',
+              data: {
+                  stripeToken: token,
+                  amount: $('#wallet_transaction_amount').val(),
+                  card_id: $('input.available-cards-radio-button[name=card_id]:checked').val(),
+                  save_card: $('.payment-form__save-card').is(":checked"),
+                  method: $('.payment-form__method').val()
+              }
+          })
+          .success(function(res) {
+              handleSuccess(res);
+          })
+          .error(function(error) {
+              handleError(error);
+          })
+        }
+
+      function sendBitcoinDonate() {
+        $.ajax({
+          url: '/user_wallet_transactions/send_to_task_address',
+          method: 'POST',
+          data: {
+            task_id: $('#wallet_transaction_task_id').val(),
+            amount: $('#wallet_transaction_amount').val()
+          }
+        })
+        .success(function(res) {
+          handleSuccess(res);
+        })
+        .error(function(error) {
+          handleError(error);
+        })
+      }
+
+      function handleSuccess(response) {
+        $('.download_receipt a').attr('href', "/download_tax_receipt/" + response.id + ".pdf");
+        $('.download_receipt').show();
+        $walletTransactionAmount.val('');
+        $('.btn-root._donate').addClass('_disable');
+        $errorFundModal.addClass('success-fund-transfer');
+        $errorFundModal.find('.error-fund-modal__message').text(response.success);
+        $errorFundModal.find('.error-fund-modal__title').removeClass('_error').addClass('_success').text('Success!');
+        showFundModal();
+        onCloseSuccessMessage();
+      }
+
+      function handleError(response) {
+        $('.download_receipt').hide();
+        $('.btn-root._donate').removeClass('_disable');
+        $errorFundModal.removeClass('success-fund-transfer');
+        $errorFundModal.find('.error-fund-modal__message').text(response.responseJSON.error);
+        $errorFundModal.find('.error-fund-modal__title').removeClass('_success').addClass('_error').text('Error');
+        showFundModal();
+      }
+
+      function showFundModal() {
+        $errorFundModal.fadeIn();
+        $('html').addClass('_open-modal');
+      }
+
+      function onCloseSuccessMessage() {
+        $('.success-fund-transfer .modal-default__close').click(function () {
+          $('#taskFundModal').fadeOut();
+          location.reload();
+        })
+      }
+
+      // todo FD: check all this js, do we need this after fund modal will be implemented?
+      $walletTransactionAmount
+        // this part is when left part of number is deleted and leaves a . in the leftmost position. For example, 33.25, then 33 is deleted
+        .on('keyup', function(eve) {
+          var currentVal = $(this).val();
+          if(currentVal.indexOf('.') == 0) {
+            $(this).val(currentVal.substring(1));
+          }
+          $jsAmount.val(currentVal);
+        });
+      $cardNumber
+        .on('keyup', function() {
+          var currentVal = $(this).val().replace(/\s/g, '');
+          $jsCardNumber.val(currentVal);
+          detectCard(currentVal);
+        });
+      $cardExpiry
+        .on('keyup', function() {
+          var valArr = $(this).val().split('');
+          $('[data-stripe="exp_month"]').val(valArr[0] + valArr[1]);
+          $('[data-stripe="exp_year"]').val(valArr[5] + valArr[6]+valArr[7] + valArr[8]);
+        });
+
+      $('#save-wallet-teansaction').click(function () {
+        if ($("#wallet_transaction_task_id").val() != '' && $("#wallet_transaction_task_id").val() != '') {
+          $('#save-wallet-teansaction').disabled = true;
+          $('#response-from-wallet').html("");
+          $('#response-from-wallet').html("Requesting ... please Wait ");
+        }
+      });
+
+      $(".close-reveal-modal").click(function () {
+        $('#response-from-wallet').html("");
+      });
+      $("#donate-with-credit-card").click(function () {
+        $('#stripe-view').show();
+      });
+
+
+      var $cardWrap = $('.f-default__card-wrap');
+
+      function detectCard(str) {
+        var firstLetter = +str[0];
+        var twoFirstLetters = +(firstLetter + '' + str[1]);
+        var threeFirstLetters = +(twoFirstLetters + '' + str[2]);
+        var fourFirstLetters = +(threeFirstLetters + '' + str[3]);
+        var sixFirstLetters = +(fourFirstLetters + '' + str[4] + str[5]);
+        console.log(twoFirstLetters, threeFirstLetters, fourFirstLetters, sixFirstLetters);
+
+        if (twoFirstLetters == 34 || twoFirstLetters == 37) {
+            $cardWrap.find('img').removeClass('_active').filter('._ae').addClass('_active');
+        } else if (twoFirstLetters >= 50 && twoFirstLetters <= 55) {
+            $cardWrap.find('img').removeClass('_active').filter('._mc').addClass('_active');
+        } else if (firstLetter == 4) {
+            $cardWrap.find('img').removeClass('_active').filter('._visa').addClass('_active');
+        } else if (fourFirstLetters >= 3528 && fourFirstLetters <= 3589) {
+            $cardWrap.find('img').removeClass('_active').filter('._jcb').addClass('_active');
+        } else if (twoFirstLetters == 65 ||
+                   fourFirstLetters == 6011 ||
+                   threeFirstLetters >= 644 && threeFirstLetters <= 649 ||
+                   sixFirstLetters >= 62216 && sixFirstLetters <= 622925) {
+            $cardWrap.find('img').removeClass('_active').filter('._discover').addClass('_active');
+        } else if (twoFirstLetters == 36 || twoFirstLetters == 38 || twoFirstLetters == 39 ||
+                   fourFirstLetters == 6011 ||
+                   threeFirstLetters >= 300 && threeFirstLetters <= 305 || threeFirstLetters == 309) {
+            $cardWrap.find('img').removeClass('_active').filter('._dc').addClass('_active');
+        } else {
+            $cardWrap.find('img').removeClass('_active');
+        }
+      }
+  })
+</script>

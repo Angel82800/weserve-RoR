@@ -1,0 +1,11 @@
+.modal-response {
+  z-index: 1100;
+  .modal-default__content {
+    max-width: 640px;
+  }
+  &._error {
+    .modal-response__title {
+      color: red;
+    }
+  }
+}

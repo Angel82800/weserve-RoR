@@ -1,0 +1,47 @@
+
+
+
+
+<%= simple_form_for(@wiki) do |f| %>
+  <%= f.error_notification %>
+
+   <%= render 'shared/error_messages', object: f.object %>
+
+  <div class="form-inputs">
+
+    <div class="form-group">
+    <%= f.input :title %>
+    <%= f.input :description %>
+  </div>
+
+
+    <div class="form-group">
+     Picture1: <%= f.file_field :pictureone %><br>
+   </div>
+
+     <div class="form-group">
+     Picture2: <%= f.file_field :picturetwo %><br>
+   </div>
+
+    <div class="form-group">
+     Picture3: <%= f.file_field :picturethree %><br>
+   </div>
+
+    <div class="form-group">
+     Picture4: <%= f.file_field :picturefour %><br>
+   </div>
+
+    <div class="form-group">
+     Picture5: <%= f.file_field :picturefive %><br>
+   </div>
+    <%= f.hidden_field :project_id, value: params[:project_id]%>
+ 
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+
+

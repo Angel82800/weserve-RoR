@@ -1,0 +1,194 @@
+@import 'colors';
+@import 'fonts';
+
+// Frameworks got me like :/
+
+header {
+  background-color: $white;
+  height: 60px;
+  text-align: center;
+  width: 100%;
+
+  &.landing {
+    background-color: transparent;
+    background-image: linear-gradient(rgba(255,255,255,0.25), rgba(0,0,0,0));
+    height: 100px; // trust me
+
+    .header-wrapper .top-bar {
+      max-width: 900px;
+      padding: 2rem 4rem 1rem;
+    }
+
+    .top-bar-section ul li > a {
+      color: $white !important;
+
+      &:hover {
+        border-bottom: 2px solid $white;
+        color: $white !important;
+      }
+    }
+
+    .name a {
+      color: $white !important;
+    }
+  }
+}
+
+.top-bar {
+  background: none !important;
+  height: 60px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0.5rem 4rem;
+
+  .top-bar-section > ul li, ul > li {
+    background: none !important;
+    padding: 0.5rem 1rem 0;
+  }
+
+  .top-bar-section ul li > a {
+    background: none !important;
+    border-bottom: 2px solid transparent;
+    // font-family: $sans;
+    font-size: 0.85rem;
+    line-height: 2rem !important;
+    padding: 0 !important;
+
+    &:hover {
+      border-bottom: 2px solid $sky-blue-hover;
+      color: $sky-blue-hover !important;
+      transition: 0.2s ease all;
+    }
+  }
+
+  .name {
+    line-height: 40px;
+    padding: 2px 0 !important;
+
+    a {
+      color: $dark-gray;
+      font-family: $display;
+      font-size: 2rem;
+      font-weight: 800;
+      padding-right: 15px;
+    }
+  }
+}
+
+.top-bar-section ul li a.sign-up-nav {
+  background-color: $orange !important; //ugh
+  border-bottom: 0 !important;
+  border-radius: 3px;
+  color: $white !important;
+  margin-left: 5px;
+  padding: 5px 20px !important;
+  transform: translateY(-5px);
+  transition: 0.15s ease all;
+
+  &:hover {
+    background-color: $orange-hover !important; //UGH
+    border-bottom: 0 !important;
+    color: $white !important;
+  }
+}
+
+
+// ~~~~~~~~~~~~~~~~~~~~
+//    Media queries
+// ~~~~~~~~~~~~~~~~~~~~
+
+@media(max-width: 640px) {
+  .top-bar .toggle-topbar.menu-icon a {
+    color: $sky-blue;
+    line-height: 2rem;
+    padding: 0 !important;
+  }
+
+  .landing .top-bar .toggle-topbar.menu-icon a {
+    color: $white;
+  }
+
+  .landing .top-bar.expanded {
+    background-color: $medium-gray !important;
+    background-image: linear-gradient(rgba(255,255,255,0.75), rgba(0,0,0,0));
+  }
+
+  .top-bar.expanded .toggle-topbar a {
+    color: $white;
+    transform: translateX(30%);
+
+    &:before {
+      color: $white;
+      content: 'close';
+      padding-right: 5px;
+    }
+  }
+
+  .landing .top-bar.expanded .toggle-topbar a {
+    color: $sky-blue-hover;
+
+    &:before {
+      color: $sky-blue-hover;
+    }
+  }
+
+  .top-bar .name {
+    text-align: left;
+
+    a {
+     padding: 0;
+    }
+  }
+
+  .top-bar .top-bar-section ul li > a {
+    color: $sky-blue;
+
+    &:hover {
+      border-bottom: 2px solid transparent !important;
+      color: $sky-blue-hover;
+    }
+  }
+
+  .top-bar.expanded .toggle-topbar.menu-icon a { // oh god
+    border-bottom: 2px solid transparent !important;
+    line-height: 2rem;
+    padding: 0;
+  }
+
+  .top-bar.expanded {
+    background-color: $opaque-white !important;
+    z-index: 1;
+
+    .title-area {
+      background: transparent;
+    }
+  }
+
+  .top-bar-section ul li > a {
+    padding: 12px 0;
+  }
+
+  .top-bar-section ul li a.sign-up-nav {
+    border-bottom: 2px solid transparent !important;
+    margin: 0.5rem auto 1rem;
+    padding: 12px 0;
+    width: 100px;
+  }
+
+  .top-bar.expanded .toggle-topbar a {
+    color: $sky-blue-hover;
+    transform: translateX(30%);
+
+    &:before {
+      color: $sky-blue-hover;
+      content: 'close';
+      padding-right: 5px;
+    }
+  }
+}
+
+@media(max-width: 420px) {
+  .top-bar .toggle-topbar.menu-icon a {
+    line-height: 2.5rem;
+  }
+}

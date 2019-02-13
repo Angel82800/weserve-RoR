@@ -1,0 +1,236 @@
+/* Place all the styles related to the Messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+/*utils styles*/
+
+.tabs-content {
+    padding-top: 0 !important;
+}
+
+#messages {
+  padding: 0 !important;
+}
+
+.messages-page-row {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  overflow-x: hidden; 
+  max-width: none;
+  margin: 0;
+}
+
+.profile-image{
+  height: auto;
+  width: 40px;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 0;
+  margin: 1.5%;
+}
+
+.full-page {
+  height: 100%;
+}
+
+.main {
+  height: calc(100% - 2.8125rem);
+  position: static;
+}
+
+.messages-page-row .columns {
+  padding-bottom: 0;
+}
+
+i {
+  cursor: pointer;
+}
+/*utils*/
+/*new message form styles */
+
+.new-message-form div {
+  padding: 0;
+}
+
+.new-message-form textarea {
+  resize: none;
+  height: 60px;
+}
+
+.send-hint {
+  float: left; 
+  font-size: 0.85rem;
+}
+/*end*/
+/*single message styles */
+
+.conversation_message {
+  height: auto;
+}
+
+#conversation_messages .conversation_message {
+  margin: 15px;
+}
+
+.conversation_message div {
+  padding: 0;
+}
+
+.conversation_message div.message-content {
+  padding-right: 1%;
+}
+
+h4.message-break {
+   width: 100%; 
+   text-align: center; 
+   border-bottom: 1px solid #dddddd; 
+   line-height: 0.1em;
+   margin: 30px 0 30px; 
+} 
+
+h4.message-break span { 
+  font-size: 1rem;
+  background:#fff; 
+  padding:0 10px; 
+}
+
+.message-date {
+  color: rgb(156, 154, 150);
+  font-style: italic;
+}
+/*end*/
+/* messages box styles*/
+
+#conversation_messages {
+  height: calc(65% - 60px);
+  overflow-y: auto;
+}
+
+/* end */
+/*messages page main content styles*/
+
+#page-message-content {
+  width: 60%; 
+  height: 90%; 
+  float: left;
+}
+
+#page-message-content h4 {
+  color:#2098d1;
+}
+
+/*end*/
+
+#left-nav {
+  width: 15%;
+  background-color: #0D3D56;  
+  padding-right: 0;
+  padding-left: 0;
+}
+
+#left-nav a {
+  color: #FFFFFF;
+}
+
+
+/* messages nav styles */
+
+#messages-nav {
+  width: 20%;
+  background-color: #f0f5f7;
+  padding: 0;
+}
+
+.messages-nav-title {
+  margin-bottom: 8%;
+  margin-left: 15%;
+}
+
+.messages-nav-title i {
+  color: #2098d1;
+}
+
+.messages-nav-title span {
+  font-weight: bold; 
+  font-size: x-large;
+}
+
+
+.messages-menu {
+  color: grey;
+}
+
+.messages-menu a {
+  color: grey;
+}
+
+.messages-submenu ul {
+  list-style-position: inside;
+  margin: 0;
+}
+
+.messages-submenu li.active {
+  background: #008cba;
+  border-right: 7px solid blue;
+  color: white;
+}
+
+.messages-submenu li {
+  padding-left: 15%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.messages-submenu li.active a {
+  color: white;
+}
+
+.submenu-title {
+  padding-left: 15%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.submenu-title i {
+  float: right;
+  padding-top: 2%;
+  padding-right: 10%;
+}
+/*end*/
+
+/*side nav styles*/
+.side-nav li {
+  padding-left: 15%;
+}
+
+.side-nav li.active {
+  background: rgba(6, 10, 62, 0.44);
+  border-right: 7px solid #2098d1;
+}
+
+.side-nav li.pre-active {
+  background: rgba(36, 50, 82, 0.44);
+  border-right: 7px solid #2098d1;
+}
+
+.message-form-div {
+  padding-left: 0 !important;
+}
+
+#new-message-form .attach-file-icon {
+  padding: 0;
+}
+
+#uploaded-file-name {
+  float: right;
+}
+
+.new-message-form textarea {
+  border-width: 1px;
+  border-style: solid;  
+  border-color: #cccccc;
+}
+
+.red {
+  color: red;
+}

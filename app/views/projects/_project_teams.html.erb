@@ -1,0 +1,15 @@
+<div class="row">
+
+  <% @project.uniq_team_members.each do |team_member| %>
+    <%= render "projects/cards/team_membership", team_member: team_member, team_memberships: team_member.team_memberships.where(team: @project.team) %>
+  <% end %>
+
+</div>
+
+<script>
+  $(function() {
+    $('.team-member .box').matchHeight();
+    JsonFormsHelper.InitializeAdminRequestsControls();
+    JsonFormsHelper.InitializeTeamMembersControls();
+  });
+</script>

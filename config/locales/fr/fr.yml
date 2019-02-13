@@ -1,0 +1,214 @@
+---
+fr:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'Echec de la validation : %{errors}'
+        restrict_dependent_destroy:
+          has_one: Impossible de supprimer l'enregistrement en raison d'un %{record}
+            subordonné
+          has_many: Impossible de supprimer le dossier en raison d'un %{record} subordonné
+  date:
+    abbr_day_names:
+    - Dim
+    - Lun
+    - Mar
+    - Mer
+    - Jeu
+    - Ven
+    - Sam
+    abbr_month_names:
+    - "~"
+    - Jan
+    - Fév
+    - Mar
+    - Avr
+    - Mai
+    - Jui
+    - Jui
+    - Aoû
+    - Sep
+    - Oct
+    - Nov
+    - Dec
+    day_names:
+    - Dimanche
+    - Lundi
+    - Mardi
+    - Mercredi
+    - Jeudi
+    - Vendredi
+    - Samedi
+    formats:
+      default: '%Y-%m-%d'
+      long: '%B %d,%Y'
+      short: '%b %d'
+    month_names:
+    - "~"
+    - Janvier
+    - Février
+    - Mars
+    - Avril
+    - Mai
+    - Juin
+    - Juillet
+    - Août
+    - Septembre
+    - Octobre
+    - Novembre
+    - Décembre
+    order:
+    - :année
+    - :mois
+    - :jour
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: environ 1 heure
+        other: environ %{count} heures
+      about_x_months:
+        one: environ 1 mois
+        other: environ %{count} mois
+      about_x_years:
+        one: environ 1 an
+        other: environ %{count} ans
+      almost_x_years:
+        one: presque 1 an
+        other: presque %{count} ans
+      half_a_minute: 30 secondes
+      less_than_x_minutes:
+        one: moins d'1 minute
+        other: moins de %{count} minutes
+      less_than_x_seconds:
+        one: moins d'1 seconde
+        other: moins de %{count} secondes
+      over_x_years:
+        one: plus d'1 an
+        other: plus de %{count} ans
+      x_days:
+        one: 1 jour
+        other: '%{count} jours'
+      x_minutes:
+        one: 1 minute
+        other: '%{count} minutes'
+      x_months:
+        one: 1 mois
+        other: '%{count} mois'
+      x_years:
+        one: 1 an
+        other: '%{count} ans'
+      x_seconds:
+        one: 1 seconde
+        other: '%{count} secondes'
+    prompts:
+      day: Jour
+      hour: Heure
+      minute: Minute
+      month: Mois
+      second: Secondes
+      year: An
+  errors:
+    format: '%{attribute}%{message}'
+    messages:
+      accepted: doit être accepté
+      blank: ne peut pas être vide
+      present: doit être vide
+      confirmation: ne correspond pas à %{attribute}
+      empty: ne peut pas être vide
+      equal_to: doit être égal à %{count}
+      even: doit être un nombre pair
+      exclusion: est réservé
+      greater_than: doit être supérieur à %{count}
+      greater_than_or_equal_to: doit être supérieur ou égal à %{count}
+      inclusion: n'apparaît pas dans la liste
+      invalid: est invalide
+      less_than: doit être inférieur à %{count}
+      less_than_or_equal_to: doit être inférieur ou égal à %{count}
+      model_invalid: 'Échec de la validation : %{errors}'
+      not_a_number: n'est pas un nombre
+      not_an_integer: doit être un nombre entier
+      odd: doit être un nombre impair
+      required: doit exister
+      taken: a déjà été pris
+      too_long:
+        one: est trop long (maximum 1 caractère)
+        other: est trop long (maximum %{count} caractères)
+      too_short:
+        one: est trop court (minimum 1 caractère)
+        other: est trop court (minimum %{count} caractères)
+      wrong_length:
+        one: n'a pas la longueur requise (doit contenir 1 caractère)
+        other: n'a pas la longueur requise (doit contenir %{count} caractères)
+      other_than: doit être différent de %{count}
+    template:
+      body: 'Des problèmes ont été rencontrés dans les champs suivants :'
+      header:
+        one: 1 erreur a empêché l'enregistrement de ce %{model}
+        other: '%{count} erreurs ont empêché l''enregistrement de ce %{model}'
+  helpers:
+    select:
+      prompt: Veuillez sélectionner
+    submit:
+      create: Créer %{model}
+      submit: Enregistrer %{model}
+      update: Mettre à jour %{model}
+  number:
+    currency:
+      format:
+        delimiter: ""
+        format: '%u%n'
+        precision: 2
+        separator: .
+        significant: faux
+        strip_insignificant_zeros: faux
+        unit: €
+    format:
+      delimiter: ','
+      precision: 3
+      separator: .
+      significant: faux
+      strip_insignificant_zeros: faux
+    human:
+      decimal_units:
+        format: '%n %u'
+        units:
+          billion: Milliard
+          million: Million
+          quadrillion: Billiard
+          thousand: Mille
+          trillion: Billion
+      format:
+        precision: 3
+        significant: correct
+        strip_insignificant_zeros: correct
+      storage_units:
+        format: '%n %u'
+        units:
+          byte:
+            one: Octet
+            other: Octets
+          gb: Go
+          kb: Ko
+          mb: Mo
+          tb: To
+    percentage:
+      format:
+        format: '%n%'
+  support:
+    array:
+      last_word_connector: ', et'
+      two_words_connector: et
+      words_connector: ','
+  time:
+    am: suis
+    formats:
+      default: '%a, %d %b %Y %H:%M:%S %z'
+      long: '%B %d, %Y %I:%M'
+      short: '%d %b %H:%M'
+    pm: pm
+  boards:
+    boards_with_tasks:
+      new_board_link: Créer un nouveau tableau
+      title: Créer un nouveau tableau
+      title_field: Titre
+...

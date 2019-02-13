@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" content="text/html" http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= t('.greeting', receiver_name: @receiver.display_name) %></h1>
+    <p>
+      <%= t('.body', amount: @amount, currency: ENV['symbol_currency']) %>
+    </p>
+  </body>
+</html>

@@ -1,0 +1,478 @@
+<%= stylesheet_link_tag 'social-share' %>
+<!-- <%= javascript_include_tag 'social-share' %> -->
+
+<%= render 'layouts/flash_lead_project_invitation' %>
+
+<div id="loading-mask1">
+  <div class="modal-content2">
+    <center><h3><%= t('commons.loading') %></h3></center>
+    <center>
+        <svg focusable="false" version="1.1" class="svg-loading" aria-hidden="true">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-loading"></use>
+        </svg>
+    </center>
+  </div>
+</div>
+
+
+<div class="project-page-container">
+  <div id="product-modal"></div>
+
+  <div class="md-overlay"></div>
+
+  <div class="tasks_banner_wrapper">
+    <div class="container">
+      <div class="row">
+        <%= render "tasks/banner" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-detail-wrapper" id="project-detail-wrapper">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+
+          <div class="project-tab-wrapper">
+            <div class="row tabs-menu">
+              <div class="tabs-menu__inner" >
+                <ul class="nav nav-pills nav-left m-tabs">
+                  <li>
+                    <%= link_to plan_project_path(id: @project.id), data: {tab: 'plan'}, remote: true, class: "tablinks border-right-none m-tabs__link", id: "tab-plan" do %>
+                      <%= t('.plan_tab_title') %>
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to project_boards_path(@project.id, board: params[:board]),
+                                data: {tab: 'tasks'}, remote: true, class: "tablinks border-right-none active m-tabs__link", id: "tab-tasks" do %>
+                      <%= t('.tasks_tab_title') %><span class="count"><%= @tasks_count %></span>
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to show_all_teams_projects_path(id: @project.id), data: {tab: 'team'}, remote: true, class: "tablinks border-right-none m-tabs__link" do %>
+                      <%= t('.team_tab.title')%><span class="count"><%= @team_memberships_count %></span>
+                    <% end %>
+                  </li>
+                  <% if can? :manage_requests, @project %>
+                  <li>
+                    <%= link_to requests_project_path(@project), id: 'requests-tab-link', data: {tab: 'requests'}, remote: true, class: "tablinks border-right-none m-tabs__link" do %>
+                      <%= t('.requests_tab_title')%><span class="count"><%= @pending_requests_count %></span>
+                    <% end %>
+                  </li>
+                  <% else %>
+                  <li class="hidden">
+                    <%= link_to requests_project_path(@project), id: 'requests-tab-link', data: {tab: 'requests'}, remote: true, class: "tablinks border-right-none m-tabs__link" do %>
+                      <%= t('.requests_tab_title')%><span class="count"><%= @pending_requests_count %></span>
+                    <% end %>
+                  </li>
+                  <% end %>
+                  <li>
+                    <%= link_to project_subprojects_path(@project), id: 'subprojects-tab-link', data: {tab: 'subprojects'}, remote: true, class: "tablinks border-right-none m-tabs__link" do %>
+                      <%= t('.sub_projects')%>
+                      <span class="count"><%= @project.children.count %></span>
+                    <% end %>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="tabs-wrapper">
+              <div class="tabs-wrapper__plan tabcontent">
+                <%= render partial: 'projects/tabcontent/plan', locals: {project: @project, is_blocked: @is_blocked, mediawiki_api_base_url: @mediawiki_api_base_url, contents: @contents, sourcing_tasks: @sourcing_tasks, tasks_count: @tasks_count, apply_requests: @apply_requests} %>
+              </div>
+
+              <div class="tabs-wrapper__tasks tabcontent">
+                <div class="center">
+                  <%= image_tag("loading.gif", :alt => "rss feed") %>
+                </div>
+              </div>
+
+
+              <div class="tabs-wrapper__team tabcontent">
+                <div clas="row">
+                    <div class="team-tab__title">
+                      <% if !user_signed_in? %>
+                        <button class='btn btn-theme-green big sign_up_a apply-leader-coordinator' data-modal="#registerModal"><%=  t('.team_tab.apply_leader_coordinator')%></button>
+                      <% elsif !current_user.is_admin_for?(@project) %>
+                        <button class='btn btn-theme-green big apply-leader-coordinator' data-modal="#welcomeToTeamModal"><%=  t('.team_tab.apply_leader_coordinator')%></button>
+                      <% end %>
+
+                      <% if @project.followers.any? %>
+                        <span class="follower-badge right">
+                          <%= pluralize(@project.followers.size, 'follower') %>
+                        </span>
+                      <% end %>
+                    </div>
+
+                </div>
+                <div class="team-content">
+                    <div class="center">
+                      <%= image_tag("loading.gif", :alt => "rss feed") %>
+                    </div>
+                </div>
+              </div>
+              <% if can? :manage_requests, @project %>
+              <div class="tabs-wrapper__requests tabcontent"></div>
+              <% end %>
+              <div class="tabs-wrapper__subprojects tabcontent"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<%= render "projects/source_edit" %>
+
+<%= render "modal/task_fund_modal" %>
+<%= render "modal/thank_you_fund_modal" %>
+<%= render 'modal/error_create_task_modal' %>
+<%= render "modal/task_do_modal" %>
+<%= render "modal/welcome_to_team_modal" if user_signed_in? %>
+<%= render "modal/error_fund_modal" %>
+
+
+<%= render "modal/project_invite_modal" %>
+<%= render "modal/edit_project_img_modal" %>
+
+<%= render "modal/revisions_diff_modal" %>
+<%= render "modal/block_user_modal" %>
+<%= render 'modal/task_delete_members' %>
+<% if check_permisstion_cancel_task?(params[:cancel_confirm], params[:task_id]) %>
+  <%= render 'modal/cancel_confirm', task: params[:task_id], assignee_id: params[:assignee_id] %>
+<% end %>
+<script>
+
+  window.onload = function () {
+    $('#project-url').html(window.location.href);
+    document.getElementById("loading-mask1").style.display = "none";
+
+    function scrollToBoards() {
+      if(typeof(scrollToTasks) !== 'undefined' && scrollToTasks ==='true') {
+        var scroll_position = $("#project-detail-wrapper").offset().top;
+        $('body, html').animate({ scrollTop: scroll_position });
+      }
+    };
+    scrollToBoards();
+  };
+
+  <% if user_signed_in? && can?(:update, @project) %>
+    $('.welcome-banner').addClass('_signed-in');
+  <% end %>
+</script>
+
+<script>
+  // There are lot of javascript behaviors on site, so we should think about exposing
+  // necessary information into global javascript objects accessible to the client
+  // This code below is ugly, please feel free to rework it in a better way:
+  window.weserve_user = {};
+  window.weserve_user.isLoggedIn = false;
+  window.weserve_user.isProjectOwner = false;
+  <% if user_signed_in? %>
+  window.weserve_user.isLoggedIn = true;
+  <% if @project.user_id == current_user.id %>
+  window.weserve_user.isProjectOwner = true;
+  <% end %>
+  <% end %>
+</script>
+
+
+<script type="text/javascript">
+  function projectImgEdit(e) {
+    $('#project-img-edit').fadeIn();
+    $('html').addClass('_open-modal');
+    if (!e) var e = window.event;
+    e.cancelBubble = true;
+    if (e.stopPropagation) e.stopPropagation();
+  }
+
+  $(function () {
+    $('#tasks_cards').slimScroll({
+      height: '500px'
+    });
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+
+  // $('#editSource').click(function (event) {
+  //   if (window.weserve_user.isProjectOwner) {
+  //     openTab({
+  //       'currentTarget': $('.tab-revisions').get(0)
+  //     }, 'Revision');
+  //   } else {
+  //     showSourceEditor();
+  //   }
+  // });
+
+  $('#save-content').click(function () {
+    $.ajax({
+      type: "POST",
+      url: "/projects/<%= @project.id %>/write_to_mediawiki",
+      data: {"data": $("#sourceEditor #textarea-editor").val()},
+      dataType: "script"
+    });
+  });
+
+  $('._do-popup-button').on('click', function () {
+    $('#task-do-request-popup').val($(this).data('task-id'));
+  });
+
+  var invitePeople = localStorage.getItem("invite_people");
+  if (invitePeople == "true") {
+    $('#projectInviteModal').fadeIn();
+    $('html').addClass('_open-modal');
+    localStorage.removeItem('invite_people');
+  }
+
+  // Disable Source Editor
+  // $(document).on('click', '.revisions-compare-edit-link', function() {
+  //   var revision = $(this).data('revision');
+  //   showSourceEditor( revision );
+  // });
+
+  // Compare revisions button click handler
+  var revisionModalShownEvent = $.Event("revisionModalShown");
+  $(document).on('click', '.revisions-compare-button', function (e) {
+    var selectedRevisions = window.revisionSelectorInstance.getValues().sort();
+    if (selectedRevisions.length > 1) {
+      populateModalRevisionInfo(selectedRevisions[0], '#revisionsDiffModal .modal-revision-info--left');
+      populateModalRevisionInfo(selectedRevisions[1], '#revisionsDiffModal .modal-revision-info--right');
+
+      $('#revisionsDiffModal .modal-body-diff').html('Loading, please wait..');
+      $('#revisionsDiffModal').fadeIn().trigger(revisionModalShownEvent);
+      $('html').addClass('_open-modal');
+      $('.msg-error').removeClass('_visible');
+    } else {
+        $('.msg-error').addClass('_visible');
+    }
+  });
+
+  $(document).on('click.openModal', '.block-user', function(e) {
+    var $that = $(this),
+        $parent = $that.parent().parent(),
+        revision = {
+            userId: $parent.data("revision-user-id"),
+            userLink: $parent.data("revision-user-link"),
+            user: $parent.data("revision-user"),
+            userName: $parent.data("revision-username")
+        },
+        $blockUserModal = $('#blockUserModal');
+
+     revision.userId
+        ? $blockUserModal.find('.modal-default__title a').attr('href', revision.userLink).text(revision.user)
+        : $blockUserModal.find('.modal-default__title a').attr('href', '#').text('Anonymous');
+
+      $blockUserModal.find('.btn-root._agree')
+        .data('project-id', "<%= @project.id %>")
+        .data('username', revision.userName);
+  });
+
+  // Compare revisions button click handler
+  // $(document).on('click', '#revisionsDiffModal a.modal-revision-edit-link', function (e) {
+  //   var revision = $(this).parents('.modal-revision-info').data('revision');
+  //   if (revision) {
+  //     $('#revisionsDiffModal').fadeOut();
+  //     showSourceEditor(revision);
+  //   }
+  // });
+
+  function populateModalRevisionInfo(revision_id, selector) {
+    var revisionTr = $('.tabs-wrapper__plan tr[data-revision="' + revision_id + '"]');
+    var rDate = $(revisionTr).data('revision-date');
+    var rUser = $(revisionTr).data('revision-user');
+    var rUserPic = $(revisionTr).data('revision-user-picture');
+    var rUserLink = $(revisionTr).data('revision-user-link');
+    var rUserId = $(revisionTr).data('revision-user-id');
+    var rEditLink = "<%= @mediawiki_api_base_url %>index.php?title=<%= URI.escape(@project.wiki_page_name.gsub(' ', '_')) %>&useskin=weserve&veaction=edit&redirect=<%= URI.encode(taskstab_project_url(@project.id)) %>&oldid=" + revision_id;
+
+    $(selector).data('revision', revision_id);
+    $(selector).data('revision-user-id', rUserId);
+
+    $(selector).find('.modal-revision-edit-link').attr('href', rEditLink);
+    $(selector).find('.modal-revision-title span').html(rDate);
+
+    if (rUserPic) {
+      $(selector).find('.modal-revision-user img').attr('src', rUserPic);
+      $(selector).find('.modal-revision-user img').show();
+    } else {
+      $(selector).find('.modal-revision-user img').attr('src', '');
+      $(selector).find('.modal-revision-user img').hide();
+    }
+
+    $(selector).find('.modal-revision-user .modal-revision-user-link').attr('href', rUserLink);
+    $(selector).find('.modal-revision-user .modal-revision-user-link').html(rUser);
+
+    $(selector).find('.modal-revision-user .modal-revision-user-message').attr('href', "/group_messages?user_id=" + rUserId);
+  }
+
+  function showSourceEditor(revision_id) {
+
+    $('.tab-revisions').removeClass('active');
+    $('.tabcontent').hide();
+
+    var rev = null;
+    if (revision_id != undefined) {
+      rev = revision_id;
+    }
+
+    $.ajax({
+      type: "GET",
+      url: "/projects/<%= @project.id %>/read_from_mediawiki?rev=" + rev,
+      dataType: "script"
+    });
+
+  }
+
+</script>
+
+<!-- RevisionSelector input -->
+<script>
+  $(function () {
+
+    function RevisionSelector(selector) {
+      this.$nodes = $(selector);
+      this.values = [];
+      this.init();
+    }
+
+    RevisionSelector.prototype.init = function () {
+      var self = this;
+      this.$nodes.each(function (index, element) {
+        self.prepareInput($(element));
+      });
+    };
+
+    RevisionSelector.prototype.prepareInput = function ($input) {
+      $input.find('input').change(this.onChange.bind(this));
+    };
+
+    RevisionSelector.prototype.onChange = function (e) {
+      if ($(e.currentTarget).is(':checked')) {
+        $(e.currentTarget).parent().addClass('revision-compare-custom-radio--checked');
+      } else {
+        $(e.currentTarget).parent().removeClass('revision-compare-custom-radio--checked');
+      }
+      this.updateValues();
+      this.updateStates();
+    };
+
+    RevisionSelector.prototype.updateStates = function () {
+      if (this.values.length > 1) {
+        this.$nodes.each(function (index, element) {
+          if (!$(element).find('input').is(':checked')) {
+            $(element).addClass('revision-compare-custom-radio--disabled');
+            $(element).find('input').attr('disabled', true);
+          }
+        });
+      } else {
+        this.$nodes.each(function (index, element) {
+          if (!$(element).find('input').is(':checked')) {
+            $(element).removeClass('revision-compare-custom-radio--disabled');
+            $(element).find('input').attr('disabled', false);
+          }
+        });
+      }
+    };
+
+    RevisionSelector.prototype.updateValues = function () {
+      var self = this;
+      this.values = [];
+      this.$nodes.each(function (index, element) {
+        if ($(element).find('input').is(':checked')) {
+          self.values.push($(element).find('input').val());
+        }
+      })
+    };
+
+    RevisionSelector.prototype.getValues = function () {
+      return this.values;
+    };
+
+    window.revisionSelector = RevisionSelector;
+
+  });
+</script>
+
+<!-- Revision selector input initialization for rendered Revisions tab -->
+<script>
+  //This is ugly, but, there is no other way to initialize inputs because Revision tab contents
+  //gets both loaded via AJAX and rendered on page load
+  $(function () {
+    window.revisionSelectorInstance = new window.revisionSelector('.revision-compare-custom-radio');
+  });
+</script>
+
+<!-- Diff modal scripts -->
+<script>
+  $(function () {
+    $('#revisionsDiffModal').on('revisionModalShown', function () {
+      var selectedRevs = window.revisionSelectorInstance.getValues().sort(); // Note, we're sorting revs to make diff in incremental direction
+      // Not so elegant, duplication, but at least we already know that there are 2 revisions are selected
+      var origin = window.location.protocol + '//' + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
+      $.get('<%= @mediawiki_api_base_url %>api.php?action=compare&fromrev=' + selectedRevs[0] + '&torev=' + selectedRevs[1] + '&format=json&origin=' + origin, function (data) {
+        var $diffTable = $('<table>' + data.compare['*'] + '</table>');
+        // We will receive table contents from API, so wrap it into table
+        $('#revisionsDiffModal .modal-body-diff').html('').append($diffTable);
+      });
+    });
+  });
+</script>
+<script>
+  function getSearchParams(k) {
+     var p = {};
+     location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(s,k,v){p[k]=v});
+     return k?p[k]:p;
+  }
+  var scrollToTasks = getSearchParams('scrollToTasks');
+
+  window.onload = function () {
+    $('#project-url').html(window.location.href);
+    // <% if  session[:project_id] != nil %>
+
+    // <%end%>
+
+    document.getElementById("loading-mask1").style.display = "none";
+  }
+  function doPopup(id, canFreeTask, budget) {
+    $('#task-do-request-popup').val(id);
+
+    // Do not allow to send "free" do requests
+    // if there is some funds already donated to the task
+    var display = canFreeTask ? 'block' : 'none',
+        projectTitle = $('.project-title').text(),
+        elementSelected = 'a[data-task-id=' + id + ']';
+        taskTitle = $(elementSelected).find('.trello-cards .card-wrapper .card-title h5').text(),
+        taskBudget = "<%= ENV['symbol_currency'] %>" + budget;
+    canFreeTask ?  $('.modal-do-task__task_budget').text(taskBudget) && $('._task_budget, ._fee_apply').show() : $('._task_budget, ._fee_apply').hide();
+    $('.modal-do-task__project').text(projectTitle);
+    $('.modal-do-task__task').text(taskTitle);
+    $('#Do-request-form .do_request_free').css('display', display);
+  }
+  function fundPopup(id) {
+    $("#fund-loading").show();
+    $.ajax({
+
+      url: "/tasks/task_fund_info",
+      type: "get", //send it through get method
+      data: {id: id},
+      success: function (response) {
+        $("#fund-loading").hide();
+
+        $('.modal-fund__user-name').text(response.user_name);
+        $('#wallet_transaction_task_id').val(response.task_id);
+        $('#task-balance').html(response.balance + " <%= ENV['symbol_currency'] %>");
+        $('.modal-fund__needed._usd').text('( ' + response.fund_required + '<%= ENV['symbol_currency'] %> needed )');
+        url = "/projects/" +  response.project_id + "/tasks/" + response.task_id + '/card_payment';
+        $("#card-payment-url").attr("href",url  );
+        $('#payment-form').attr('action', url);
+        $('.modal-fund__inner').show();
+      },
+      error: function (xhr) {
+      }
+    });
+    // document.getElementsById('task-do-request-popup').val(id);
+  }
+</script>

@@ -1,0 +1,24 @@
+<div class ="nested-fields discussion-edit">
+  <%= f.hidden_field :project_id, value: f.object.project_id%>
+  <div class="form-group ">
+    <div class="control-group" style="float: left;  width: 50%;">
+      <%= f.label :title, required: true %>
+      <%= f.text_field :discussed_title, required: true, class: 'form-control'%>
+    </div>
+    <%if f.object.new_record? || f.object.parent_id%>
+      <div class="control-group" style="float: right; width: 49%;">
+        <%= f.label :parent %>
+        <%if f.object.persisted?%>
+          <%= f.text_field :parent_title, value: f.object.parent.title, disabled:true, class: 'form-control'%>
+        <%else%>
+          <%= f.select(:parent_id, @project.section_details.completed.ordered.collect{|s|[s.title, s.id]}, {include_blank: true}, { })%>
+        <%end%>
+      </div>
+    <%end%>
+  </div>
+  <div class="form-group">
+    <%= f.text_area :discussed_context, required: true, class: 'tinymce section-detail-context', rows: 5, cols: 60 %>
+  </div>
+  <%= link_to_remove_association("Remove section", f, class:'btn-default-weserve', data: { confirm: "Are you sure you want to permanently remove the section section-title? If you remove the section, it will be permanently lost." }) if f.object.new_record? || current_user.is_admin_for?(@project)%>
+  <hr/>
+</div>

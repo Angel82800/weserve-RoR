@@ -1,0 +1,10 @@
+---
+fr:
+  boards:
+    board:
+      title: Modifier le tableau
+      title_field: Titre
+      remove_board_link: Supprimer le tableau
+      edit_board_link: Modifier le tableau
+      delete_confirmation: Êtes-vous sûr de vouloir supprimer ce tableau ?
+...

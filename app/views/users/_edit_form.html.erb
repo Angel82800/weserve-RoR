@@ -1,0 +1,99 @@
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :role => 'form', :multipart => true}) do |f| %>
+  <%= f.error_notification %>
+
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div class="form-inputs">
+    <div class="form-group">
+      <%= f.input :name %>
+    </div>
+
+    <div class="form-group">
+      <%= f.input :email %>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+    </div>
+
+    <fieldset>
+      <p>Leave these fields blank if you don't want to change your password.</p>
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, :autocomplete => 'off', class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+      </div>
+    </fieldset>
+    <fieldset>
+      <p>You must enter your current password to make changes.</p>
+      <div class="form-group">
+        <%= f.label :current_password %>
+        <%= f.password_field :current_password, class: 'form-control' %>
+      </div>
+    </fieldset>
+
+
+
+    <div class="form-group">
+      <%= f.text_field :city %>
+    </div>
+    <div class="form-group">
+      <%= f.label :country %>
+      <%= country_select(resource_name, "country")%>
+    </div>
+    <div class="form-group">
+     <%= f.label :phone_number %>
+     <%= f.number_field :phone_number %>
+   </div>
+   <div class="form-group">
+     <%= f.label :first_link, "My LinkedIn profile" %>
+     <%= f.text_field :first_link%>
+   </div>
+
+    <div class="form-group">
+     <%= f.label :second_link, "My Website"%>
+     <%= f.text_field :second_link%>
+   </div>
+
+   <div class="form-group">
+    <%= f.label :facebook_url, "My Facebook Link" %>
+    http://<%= f.text_field :facebook_url%>
+   </div>
+
+   <div class="form-group">
+    <%= f.label :twitter_url, "My Twitter Link" %>
+    <%= f.text_field :twitter_url%>
+   </div>
+
+   <div class="form-group">
+    <%= f.label :linkedin_url, "My LinkedIn Link" %>
+    <%= f.text_field :linkedin_url%>
+   </div>
+
+   <div class="form-group">
+    <%= f.label :bio,"Bio" %>
+    <%= f.text_field :bio%>
+   </div>
+
+    <div class="form-group">
+     <%= f.label :fourth_link, "My facebook" %>
+     <%= f.text_field :fourth_link%>
+   </div>
+
+    <div class="form-group">
+     <%= f.label :description, "Intro" %>
+     <%= f.text_area :description, class: 'form-control', cols: "30", rows: "10" %>
+   </div>
+
+
+   <%= f.label :picture %>
+   <%= f.file_field :picture %>
+   <%= f.hidden_field :picture_cache %>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

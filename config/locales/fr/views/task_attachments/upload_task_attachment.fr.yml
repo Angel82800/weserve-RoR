@@ -1,0 +1,6 @@
+---
+fr:
+  task_attachments:
+    upload_task_attachement:
+      added: Ajouté le %{date}
+...

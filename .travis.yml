@@ -1,0 +1,122 @@
+language: ruby
+dist: trusty
+sudo: required
+
+# Enable bundler cache to speed up booting
+cache:
+  bundler: true
+  directories:
+    - vendor/bundle
+    - public/assets
+    # Experimental, cache Mediawiki vendor
+    - mediawiki_vendor
+
+sudo: required
+
+rvm:
+  - 2.3.1
+
+# safelist
+#branches:
+#  only:
+#    - master
+#    - fork_climate
+
+env:
+  global:
+    - secure: "KPT8po/RMIF6Iuos2hMB/+uqCVQTLLtQjIJC3SqG1JvQo35dw+6uuUpluLgynVw4paW5ANR2R4SBdVsJsj2KLr0b2OoNyrlCx8kpTeTr8OyDXNHMirNYaxvyptYp48L6qggsb3rbkJRZgG03KQ6zOLUcuDoNymJAeWvBKwjMLfHBlPqAmeTjpp+CmoRpOLxk3hHklKivnpUIbdfb1Y0vzeZDd3rRl8mKHwRM+ZzhKBjSaFLGTFi/eODCYMs3HaufvCv5ooxSMCvZRV2fC0b8i6uL7xoOM0VauVaBemQOK35JS3mt8hXyKPk7M4or1cqwq1iCqn9q1LvySM67sDLX9RR/Q0fx2Yz2p3Rd0zQBSjWUKdNXpYRJhEqxeUEqYzJiG5yL4tuxvEW39QZXZRow7nq1lYU6vO9RLoZTeUnLcwCKwtO3eWnGlPKsxvk9Ab1traAorI7pCAFcsuQsFyoxkL7CQYOHB791bmDusJUMP+cMaNUXwWAsq5VnqLJdW1wt4YbJALIGU89/xC31cc5TMXehzNE0tqB4hyd8X7ddI3P9XBQzE6J5XGuOUfuooezuY6a6BdTWj317KpT9WY8rSZSlWXBoo+c4J1+egP0LTSOA1ckffy2FSFZNQzaHhqUpOfy81i+r+jDTR2jgiS6wUXWZGqw9cDDGQKiVi9oUZUc="
+    - admin_notification_email=admin@weserve.io
+    - mailjet_subject_prefix=WeServe
+    - symbol_currency='$'
+  matrix:
+    - RAILS_ENV=test
+
+services:
+  - postgresql
+  - mysql
+  - memcached
+
+addons:
+  code_climate:
+    repo_token: 025dd6c1d37a12854e97e5ef01c8599f8573f111aaddc5024d6306e911be37ce
+
+#bundler_args: --without development
+
+before_install:
+  # Mediawiki
+  - sudo apt-get install curl
+  - openssl aes-256-cbc -k "$travis_wiki_deploy_key" -in travis-wiki.deploy.key.enc -out travis-wiki.deploy.key -d
+  - sudo chmod 400 travis-wiki.deploy.key
+  - sudo apt-get remove apache2
+  - sudo apt-get remove apache2*
+  - sudo apt-get purge apache2
+  - sudo apt-get autoremove
+  - sudo LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php -y
+  - sudo LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/apache2 -y
+  - sudo apt-get update -q
+  - sudo apt-get install php5.6 # test
+  - sudo apt-get install php5.6-mbstring
+  - sudo apt-get install php5.6-xml
+  - sudo apt-get install php5.6-mysql
+  - sudo apt-get install php5.6-mcrypt
+  - sudo a2enmod actions
+  - sudo a2enmod rewrite
+  - sudo service apache2 restart
+  - sudo chmod 777 -R /var/www
+  - mv /var/www/html /var/www/html_old
+  - ssh-agent bash -c 'ssh-add travis-wiki.deploy.key; git clone -b master --single-branch git@github.com:YouServe/MediaWiki.git /var/www/html'
+  - mkdir -p mediawiki_vendor
+  - cp -r mediawiki_vendor/ /var/www/html/vendor
+  - cd /var/www/html
+  - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+  - php composer-setup.php
+  - php -r "unlink('composer-setup.php');"
+  - sudo mv composer.phar /usr/local/bin/composer
+  - sudo chmod +x /usr/local/bin/composer
+  - composer install --prefer-source # --quiet --no-interaction
+  - >
+        php maintenance/install.php traviswiki
+        --admin WeServeBot
+        --pass q1w2e3r4
+        --dbtype "mysql"
+        --dbname traviswiki
+        --dbuser root
+        --dbpass ""
+        --scriptpath ""
+  - cat $TRAVIS_BUILD_DIR/wiki.travis.config >> LocalSettings.php
+  - php maintenance/update.php --quick
+  - php maintenance/runJobs.php -v
+  - cd extensions/VisualEditor/ && npm install
+  - cd $TRAVIS_BUILD_DIR
+  # Application
+  - openssl aes-256-cbc -K $encrypted_1f12d85304e2_key -iv $encrypted_1f12d85304e2_iv -in config/application.travis.yml.enc -out config/application.travis.yml -d
+  - wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
+  - tar -xjf phantomjs-2.1.1-linux-x86_64.tar.bz2
+  - sudo rm -rf /usr/local/phantomjs/bin/phantomjs
+  - sudo mv phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/phantomjs/phantomjs #/usr/local/phantomjs/bin/phantomjs
+
+before_script:
+  # Copy Travis application config
+  # Temporary application.yml update, I am not sure if we're going to deploy this right away, so I did not touch original file
+  - |
+    sed -i '/mediawiki_domain: ".weserve.io"/c\mediawiki_domain: ".localhost"' config/application.travis.yml
+  - |
+    sed -i '/mediawiki_api_base_url: "http:\/\/wikidev.weserve.io\/"/c\mediawiki_api_base_url: "http:\/\/localhost\/"' config/application.travis.yml
+  - |
+    sed -i '/mediawiki_secret: "3eab6c8832c64bf66904f38c9978801c3f0b5deb144ac262ccc9312e4f35c150"/c\mediawiki_secret: "FE79A0302274D30B35690EDB598AC5591E588692046D36FC002F31788D870632"' config/application.travis.yml
+  - cp config/application.travis.yml config/application.yml
+  # Create database and run migrations, seed
+  - bundle exec rake db:create db:schema:load db:migrate # db:seed
+  - bundle exec rake assets:precompile
+
+after_success:
+  - bundle exec codeclimate-test-reporter
+
+script:
+  - bundle exec yaml-lint config/locales/ && bundle exec rspec --format documentation
+  # - cat log/test.log
+
+notifications:
+  slack:
+    rooms:
+      - youserve:LZx9PuGbnpt7asZw8Kej4f2B#travis_report

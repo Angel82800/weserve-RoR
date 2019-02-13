@@ -1,0 +1,8 @@
+---
+en:
+  activerecord:
+    board:
+      default_title: Main Board
+      errors:
+        title_not_main_error: can't be "Main Board"
+...

@@ -1,0 +1,47 @@
+es:
+  projects:
+    send_project_invite_email:
+      success: "¡El vínculo del proyecto ha sido compartido exitosamente con sus amigos!"
+    send_project_email:
+      fail: "ERROR: por favor inicie sesión para continuar."
+      success: "El vínculo del proyecto ha sido enviado a %{email}"
+      please_provide_email: "Por favor indique el correo electrónico del recipiente."
+    failure:
+      message: "¡No, el correo electrónico de invitación al proyecto no fue enviado\
+        \ a sus amigos!"
+    unfollow:
+      success: "Ha dejado de seguir el proyecto %{project_title}"
+    taskstab:
+      success: "¡El vínculo del proyecto ha sido compartido exitosamente con sus amigos!"
+      fail: "¡No, el correo electrónico de invitación al proyecto no fue enviado a\
+        \ sus amigos!"
+    create:
+      success: "El proyecto ha sido creado con éxito"
+      request_sent: "La solicitud del proyecto fue enviada."
+    update:
+      success: "El proyecto ha sido actualizado con éxito."
+    change_leader:
+      email_not_found: "No se puede encontrar a un usuario con la dirección de correo\
+        \ electrónico que ha ingresado. Por favor introduzca una dirección de correo\
+        \ electrónico válida."
+      already_invited: "Ya ha invitado a un nuevo líder para este proyecto."
+      cannot_invite_non_team_member: "El usuario no es un miembro del equipo del proyecto.\
+        \ Sólo puede invitar miembros del equipo para que sean los nuevos líderes."
+      success: "Ha enviado una invitación para el rol de líder a %{email}"
+    saveEdit:
+      success: "El proyecto ha sido actualizado con éxito."
+    updateEdit:
+      success: "El proyecto ha sido actualizado con éxito."
+    accept:
+      success: "Solicitud del proyecto aceptada"
+      fail: "El proyecto no pudo ser aceptado"
+    reject:
+      success: "Proyecto rechazado"
+      fail: "El proyecto no pudo ser rechazado"
+    get_in:
+      already_lead_editor: "Usted ya es el Editor Líder de este proyecto."
+      already_coordinator: "YUsted ya es el Coordinador de este proyecto."
+      already_submitted_request: "Ya ha hecho una solicitud para este proyecto."
+      success: "Su solicitud ha sido efectuada"
+    destroy:
+      success: "El proyecto fue destruido con éxito."

@@ -1,0 +1,24 @@
+<div id="welcomeToTeamModal" class="modal-default welcome-to-team" role="dialog" tabindex="-1">
+    <div class="modal-default__content">
+        <button type="button" class="modal-default__close"></button>
+
+        <ul class="welcome-to-team__options _two-column">
+            <li class="welcome-to-team__item">
+                <div class="welcome-to-team__subtitle"><%= t('.become_lead_editor') %></div>
+                <div class="welcome-to-team__info"><%= t('.lead_editor_description') %></div>
+                <% if !current_user.is_admin_for?(@project) %>
+                    <%= link_to t('commons.apply'), get_in_projects_path(type: "0", id: @project.id), :class => "btn-root", data: { confirm: t('.apply_lead_editor_confirmation') } %>
+                <% end %>
+            </li>
+            <li class="welcome-to-team__item">
+                <div class="welcome-to-team__subtitle"><%= t('.become_coordinator') %></div>
+                <div class="welcome-to-team__info">
+                  <%= t('.coordinator_description').html_safe %>
+                </div>
+                <% if !current_user.is_admin_for?(@project) %>
+                    <%= link_to t('commons.apply'), get_in_projects_path(type: "1", id: @project.id), :class => "btn-root", data: { confirm: t('.apply_coordinator_confirmation') } %>
+                <% end %>
+            </li>
+        </ul>
+    </div>
+</div>

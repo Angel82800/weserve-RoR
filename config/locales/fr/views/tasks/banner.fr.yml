@@ -1,0 +1,15 @@
+---
+fr:
+  tasks:
+    banner:
+      edit_project_image: Modifier l'image du projet
+      funded: Financé
+      teammates: 'Équipiers '
+      raised: Levés
+      get_involved: Impliquez-vous
+      raised_of: levés sur
+      goal: objectif
+      tasks_completed: Tâches réalisées
+      to_dos: A faire
+      back_this_project: Soutenir ce projet
+...

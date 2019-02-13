@@ -1,0 +1,16 @@
+<div class="forgot-pwd-wrapper">
+  <div class="forgot-pwd-form">
+    <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+        <h3><%= t('devise.shared.links.didn_t_receive_confirmation_instructions') %></h3>
+        <p class="text-center"><%= t('.we_will_confirmation_instructions') %></p>
+        <%= devise_error_messages! %>
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.email_field :email, :autofocus => true, class: 'form-control', value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+        </div>
+        <div class="text-center">
+          <%= f.submit t('.resend_confirmation_instructions'), :class => 'btn-default-weserve' %>
+        </div>
+    <% end %>
+  </div>
+</div>

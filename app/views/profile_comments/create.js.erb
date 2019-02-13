@@ -1,0 +1,8 @@
+<% if @profile_comment.valid? %>
+  $('.profile-comments').prepend('<%= escape_javascript(render @profile_comment) %>');
+  $('#new_profile_comment textarea').val("");
+  $('#new_profile_comment .form-errors').hide();
+<% else %>
+  $('#new_profile_comment .form-errors').html("Comment text can't be blank.")
+  $('#new_profile_comment .form-errors').show();
+<% end %>

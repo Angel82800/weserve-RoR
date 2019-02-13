@@ -1,0 +1,27 @@
+<% content_for :title do %>
+  WeServe > User Profile
+<% end %>
+
+<div class="row expanded collapse" data-equalizer data-equalizer-mq="large-up">
+  <%= render 'users/sidebar' %>
+  <div class="small-12 medium-10 columns" data-equalizer-watch>
+    <div class="tabs-content" id="tabcontentdiv">
+      
+      <section role="tabpanel" aria-hidden="false" class="content active" id="profile">
+        <%= render "users/profile" %>
+      </section>
+      
+      <section role="tabpanel" aria-hidden="true" class="content" id="projects">
+        <%= render 'projects' %>
+      </section>
+
+      <section role="tabpanel" aria-hidden="true" class="content" id="notifications">
+        <%= render 'notifications' %>
+      </section>
+      
+      <section role="tabpanel" aria-hidden="true" class="content" id="messages">
+        <h2>Comming soon.</h2>
+      </section>
+    </div>
+  </div>
+</div>

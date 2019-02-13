@@ -1,0 +1,99 @@
+<section class="my-wallet">
+  <div class="head">
+    <p><%= t('commons.payout_details_desc')%></p>
+  </div>
+  <p class="mb-40"><%= t('commons.payout_info')%></p>
+  <%= form_tag(payout_user_path, method: :post,  multipart: true, class: "payout-form") do %>
+    <%= hidden_field_tag 'state_value', @form_params['state']  %>
+    <%= hidden_field_tag 'city_value', @form_params['city']  %>
+    <%= hidden_field_tag 'token' %>
+    <div class="row">
+      <div class="col-sm-6 col-xs-12">
+        <div class="form-group">
+          <label>Country</label>
+          <%= select_tag 'country', options_for_select(stripe_available_country, @form_params['country']), {prompt: '--Select county--', required: true}%>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-xs-12">
+        <div class="form-group">
+          <label>State (if applicable)</label>
+          <%= select_tag 'state', nil, {prompt: '--Select state--', required: true, disabled: true}%>
+        </div>
+      </div>
+      <div class="col-sm-6 col-xs-12">
+        <div class="form-group">
+          <label>City</label>
+          <%= select_tag 'city', nil, {prompt: '--Select city--', required: true, disabled: true}%>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-xs-12">
+        <div class="form-group">
+          <label>Address</label>
+          <%= text_field_tag 'address', @form_params['address'], placeholder: 'New York', class: 'form-control', required: true %>
+        </div>
+      </div>
+      <div class="col-sm-6 col-xs-12">
+        <div class="form-group">
+          <label>Postal code</label>
+          <%= number_field_tag 'postal_code', @form_params['postal_code'], placeholder: '123456', class: 'form-control', required: true %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-xs-12">
+        <div class="form-group">
+          <label>First Name</label>
+          <%= text_field_tag 'first_name', @form_params['first_name'], placeholder: 'First Name', class: 'form-control', required: true %>
+        </div>
+      </div>
+      <div class="col-sm-6 col-xs-12">
+        <div class="form-group">
+          <label>Last Name</label>
+          <%= text_field_tag 'last_name', @form_params['last_name'], placeholder: 'Last Name', class: 'form-control', required: true %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-xs-12">
+        <label>Date of birth</label>
+        <div class='input-group date dob_picker'>
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar">
+                </span>
+            </span>
+          <%= text_field_tag 'dob', @form_params['dob'], placeholder:'1999-01-01', class: 'default__field', required: true %>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-xs-12">
+        <div class="form-group" id="us-snn">
+        </div>
+      </div>
+    </div>
+
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" value="" required>
+        <p>I am accepting <u><%= link_to 'Term of contents', pages_terms_of_use_path %></u> by submiting this form</p>
+      </label>
+    </div>
+
+    <ul>
+      <li><a href= <%= payout_method_user_path %> >Cancel</a></li>
+      <li><button type="submit" class="btn-root">Submit</button></li>
+    </ul>
+  <% end %>
+</section>
+
+<script type="text/javascript" src="https://js.stripe.com/v3/"></script>
+<script>
+  createToken("<%= Rails.configuration.stripe[:publishable_key] %>");
+</script>

@@ -1,0 +1,48 @@
+admin_notification_email:                       # Weserve email which is used to receive critical notifications
+app_secret_key:                                 # Application secret key, generate by `rake secret`
+aws_access_key_id:                              # AWS access key ID for S3 service
+aws_secret_access_key:                          # AWS access key secret for S3 service
+bucket_name: "youserve"                         # S3 bucket name
+coinbase_api_key:                               # specify coinbase api key
+coinbase_api_secret:                            # specify coinbase api secret
+consider_all_requests_local:                    # set to 'true' if you want to display backtrace at production env
+default_url:                                    # Default url for application, eg: "localhost:3000" (?)
+domain_name:                                    # Application domain name, eg "example.com"
+email_provider_password:                        # AWS access secret key for email service
+email_provider_username:                        # AWS access ID for email service
+facebook_app_id:                                # Facebook app ID
+facebook_secret_key:                            # Facebook app secret
+gapp_id:                                        # Google app ID
+gapp_secret_key:                                # Google app secret
+mediawiki_api_base_url:                         # base url of mediawiki API, eg "http://mediawiki.local/"
+mediawiki_cookie_prefix:                        # mediawiki cookie prefix
+mediawiki_domain:                               # mediawiki domain for cookies in wide format, eg ".example.com"
+mediawiki_password:                             # mediawiki API password
+mediawiki_secret:                               # local mediawiki installation secret
+mediawiki_username:                             # mediawiki API username
+newrelic_key:                                   # key for Newrelic service
+PUBLISHABLE_KEY_STRIPE:                         # Stripe publishable key
+pusher_app_id:                                  # Pusher app Id
+pusher_key:                                     # Pusher key
+pusher_secret:                                  # Pusher secret
+rollbar_key:                                    # key for Rollbar service
+rollbar_post_client_item:                       # key for Rollbar service (client-side)
+s3_bucket_region: "us-east-1"                   # S3 bucket region, eg "us-east-1"
+secret_key_base:                                # RoR secret key
+SECRET_KEY_STRIPE:                              # Stripe secret key
+# mocked_payments: "true"                       # Use this only if you want your server to use mocked payments insead of regular ones
+service_provider: "AWS"                         # Service to store uploads
+twitter_app_id:                                 # Twitter app ID
+twitter_secret_key:                             # Twitter app secret
+weserve_from_email:                             # Default email that will be used in a 'from' field when sending emails
+mailjet_subject_prefix:                         # Prefix for subject in mailjet email
+mailjet_apikey:                                 # Mailjet apikey
+mailjet_secretkey:                              # Mailjet secretkey
+weserve_service_fee: "0.05"                     # Weserve commission rate
+weserve_wallet_address:                         # Weserve commission wallet to accept fees
+logo_link: ''                                   # App logo link
+symbol_currency: '€'                            # Project currency symbol
+currency: 'EUR'                                 # Project currency
+prefix-receipt-number: 'CLIMAT'                 # Receipt number prefix in tax deduction
+tax_deduction_enabled: 'true'                   # Enables work with tax form ('true' or '')
+jira_reporter_enabled:                          # Flag to enable JIRA on-site bug reporter script

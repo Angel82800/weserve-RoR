@@ -1,0 +1,14 @@
+.modal-verification {
+  padding: 50px 30px;
+  .modal-default__title {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+  .modal-default__content {
+    max-width: 800px;
+  }
+  .btn-root+.btn-root {
+    margin-left: 30px;
+  }
+}
+

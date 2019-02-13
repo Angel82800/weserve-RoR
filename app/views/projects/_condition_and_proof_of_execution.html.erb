@@ -1,0 +1,23 @@
+<div class="modal-task__desc-block spec">
+  <h4><%= t('projects.task_details.specifications') %></h4>
+  <span class="btn-edit glyphicon glyphicon-pencil" aria-hidden="true" id="budget-pencil"></span>
+  <p class="modal-task__task-info js-toggleForm" id="task-condition"><%= sanitize(task.condition_of_execution) %></p>
+  <%= form_for task, :remote => true, html: {id: "task-update-condition-form", class: "modal-task__form _hide"} do |f| %>
+      <%= text_area_tag 'task[condition_of_execution]', nl2br(task.condition_of_execution), id: "input-task-condition", required: true, data: {content_p: 'task-condition'} %>
+      <% id = can?(:update, @task) ? "task-update-condition" : "update-task_in_progress" %>
+      <button name="button" class="btn btn-theme-green btn-root task-details__save-btn" type="submit" id="<%= id %>" data-value="condition" data-param="condition_of_execution"><%= t('commons.save') %></button>
+      <button class="btn btn-theme-green btn-root task-details__close-btn" id="cancel-condition"><%= t('commons.cancel') %></button>
+  <% end %>
+</div>
+
+<div class="modal-task__desc-block">
+  <h4><%= t('projects.task_details.proof_of_execution') %></h4>
+  <span class="btn-edit glyphicon glyphicon-pencil" aria-hidden="true" id="budget-pencil" style="display: inline-block;"></span>
+  <p class="modal-task__task-info js-toggleForm" id="task-proof"><%= sanitize(task.proof_of_execution) %></p>
+  <%= form_for task, :remote => true, html: {id: "task-update-proof-form", class: "modal-task__form _hide"} do |f| %>
+      <%= text_area_tag 'task[proof_of_execution]', nl2br(task.proof_of_execution), id: "input-task-proof", class: "_no-empty", required: true, data: {content_p: 'task-proof'} %>
+      <% id = can?(:update, @task) ? "task-update-proof" : "update-task_in_progress" %>
+      <button name="button" class="btn btn-theme-green btn-root task-details__save-btn" type="submit" id="<%= id %>" data-value="proof" data-param="proof_of_execution"><%= t('commons.save') %></button>
+      <button class="btn btn-theme-green btn-root task-details__close-btn" id="cancel-proof"><%= t('commons.cancel') %></button>
+  <% end %>
+</div>

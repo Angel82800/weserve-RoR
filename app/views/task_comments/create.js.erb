@@ -1,0 +1,8 @@
+<% if @comment.persisted? %>
+  $(".l-comments__list").append("<%= escape_javascript(render('task_comments/new_comment')) %>");
+<% end %>
+$('a[data-task-id="<%=@task.id%>"]').find(".task_comment").html("<i class='fa fa-comment-o' aria-hidden='true'></i>&nbsp;<%= @task.task_comments.count%>")
+
+$('#task_comment_body').val('');
+$('#task-comment-attachment').val('');
+$('#attachment-div').html(' ');

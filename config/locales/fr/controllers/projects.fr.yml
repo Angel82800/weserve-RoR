@@ -1,0 +1,61 @@
+---
+fr:
+  projects:
+    send_project_invite_email:
+      success: Le lien du projet a bien été partagé avec vos amis !
+    send_project_email:
+      fail: 'ERREUR : Veuillez vous identifier pour continuer.'
+      success: Le lien du projet a été envoyé à %{email}
+      please_provide_email: Veuillez indiquer l'adresse e-mail du destinataire.
+    failure:
+      message: Non, l'email d'invitation au projet a été envoyé à vos amis !
+    unfollow:
+      success: Vous avez cessé de suivre le projet %{project_title}
+    taskstab:
+      success: Le lien du projet a bien été partagé avec vos amis !
+      fail: Non, l'e-mail d'invitation au projet n'a pas été envoyé à vos amis !
+    create:
+      success: Le projet a bien été créé
+      request_sent: La demande de projet a été envoyée.
+      new_project: ""
+    update:
+      success: Le projet a bien été mis à jour.
+    change_leader:
+      email_not_found: Impossible de trouver l'utilisateur avec l'adresse e-mail que
+        vous avez indiquée. Veuillez saisir une adresse e-mail valide.
+      already_invited: Vous avez déjà invité un nouveau leader pour ce projet.
+      cannot_invite_non_team_member: L'utilisateur n'est pas un équipier de ce projet.
+        Seul le nouveau leader peut inviter des équipiers.
+      success: Vous avez envoyé une invitation pour le rôle de leader à %{email}
+    saveEdit:
+      success: Le projet a bien été mis à jour.
+    updateEdit:
+      success: Le projet a bien été mis à jour.
+    accept:
+      success: Demande de projet acceptée
+      fail: Le projet n'a pas pu être accepté
+    reject:
+      success: Projet rejeté
+      fail: Le projet n'a pas pu être rejeté
+    get_in:
+      already_lead_editor: Vous êtes déjà éditeur principal de ce projet.
+      already_coordinator: Vous êtes déjà coordonnateur de ce projet.
+      already_submitted_request: Vous avez déjà envoyé une demande pour ce projet.
+      success: Votre demande a été envoyée
+    destroy:
+      success: Le projet a bien été supprimé.
+    user_search:
+      blank: Désolé, aucun résultat ne correspond à votre recherche.
+    task_teammate_item:
+      remove: Retirer
+    change_leader_by_admin:
+      success: Le changement de leader a bien été effectué
+    change_user_role:
+      success: Le changement de rôle de l'utilisateur a bien été effectué
+    follow_project:
+      notification: ""
+    create_project:
+      notification: ""
+    update_project:
+      notification: ""
+...

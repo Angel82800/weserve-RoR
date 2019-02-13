@@ -1,0 +1,8 @@
+---
+fr:
+  activerecord:
+    board:
+      default_title: Tableau principal
+      errors:
+        title_not_main_error: ne peut pas être le "Tableau principal"
+...

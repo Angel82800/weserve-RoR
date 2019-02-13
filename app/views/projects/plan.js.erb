@@ -1,0 +1,1 @@
+$(".tabs-wrapper__plan").html("<%= escape_javascript(render partial: 'projects/tabcontent/plan', locals: {project: @project, is_blocked: @is_blocked, mediawiki_api_base_url: @mediawiki_api_base_url, contents: @contents, sourcing_tasks: @sourcing_tasks, tasks_count: @tasks_count, apply_requests: @apply_requests}) %>");

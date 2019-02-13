@@ -1,0 +1,14 @@
+<% @task ||= task %>
+<% if can?(:remove_assignee, @task) %>
+  <%= link_to remove_assignee_task_path( @task.id, membership.id), class: "remove-assignee", method: :delete, data: { confirm: t("commons.are_you_sure") } do %>
+    <div class="team-block__item-delete remove-assignee-button"></div>
+  <% end %>
+<% end %>
+<a class="team-block__item" href="/users/<%= membership.team_member.id %>">
+  <% if membership.team_member.picture? %>
+    <%= image_tag(membership.team_member.picture) %>
+  <% else %>
+    <%= gravatar_for_user(membership.team_member) %>
+  <% end %>
+  <div class="team-block__item-name"><%= membership.team_member.display_name %></div>
+</a>

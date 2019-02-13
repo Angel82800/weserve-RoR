@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Libre+Franklin');
+
+@import '../new_design/variables';
+@import '../new_design/utils';
+
+.edit-budget {
+  text-align: center;
+  margin-bottom: 35px;
+
+    form {
+      input[type="text"] {
+        box-shadow: none;
+        margin-top: 10px;
+        //border-bottom: 2px solid #fff;
+        font-style: italic;
+        text-align: center;
+        color: #000;
+      }
+      input[type="submit"],
+      input[type="button"] {
+        height: 40px;
+        line-height: 40px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        margin:0 10px;
+        padding: 0;
+        width: 100px;
+        border: 2px solid #000;
+        border-radius: 60px;
+        text-transform: uppercase;
+      }
+      input[type="submit"] {
+        background-color: #fff;
+        color: #000;
+        @extend .hover-default;
+      }
+      input[type="button"] {
+        background-color: #000;
+        color: #fff;
+        @extend .hover-alt;
+      }
+    }
+
+}

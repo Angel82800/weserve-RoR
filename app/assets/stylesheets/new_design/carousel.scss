@@ -1,0 +1,120 @@
+
+.carousel-banner_1 {
+  position: relative;
+}
+
+.hero-rotator {
+  opacity: 1;
+  height: 50vw;
+  background-color: #000;
+  backface-visibility: hidden;
+}
+.hero-rotator__slide:first-child {
+  z-index: 4;
+}
+.hero-rotator__slide:nth-child(2) {
+  z-index: 3;
+}
+.hero-rotator__slide:nth-child(3) {
+  z-index: 2;
+}
+.hero-rotator__slide:last-child {
+  z-index: 1;
+}
+.hero-rotator__slide {
+  top: 0;
+  left: 0;
+  position: fixed;
+  overflow: hidden;
+  height: 50vw;
+  width: 100%;
+  backface-visibility: hidden;
+  background-size: cover;
+  
+  &.red {
+    background-color: #a31c3f;
+  }
+  &.green {
+    background-color: #fdb789;
+  }
+  &.blue {
+    background-color: #97e2ef; 
+  }
+  
+  &.active {
+    position: absolute !important;
+  }
+}
+
+.hero-pager{
+  height: 100px;
+  border: 2px solid white;
+  width: 50px;
+  z-index: 10;
+  text-align: center;
+  right: 5%;
+  position: absolute;
+  top: -150px;
+
+  .fa {
+    color: white;
+    display: block;
+    width: 100%;
+    height: 50%;
+    background-color: transparent;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    
+    &:hover {
+      color: #404341;
+    }
+    
+    &:last-child {
+      border-top: 2px solid white;
+    }
+
+    &::before {
+      top: 30%;
+      position: relative;
+    }
+  }
+  
+  .js-hero-pager--up,
+  .js-hero-pager--down {
+    &.cover {
+      color: #404341;
+    }
+  }
+  
+  .hero-pager__progress {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #0067a0;
+    width: 100%;
+    height: 0%;
+    max-height: 100px;
+    overflow: hidden;
+  }
+}
+
+.content--rel {
+  background-color: #fff;
+  position: relative;
+  z-index: 50;
+  backface-visibility: hidden;
+  top: 0;
+}
+
+.content--fixed {
+  background-color: #fff;
+  position: fixed;
+  top: 50vw;
+  width: 100%;
+  z-index: 60;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+

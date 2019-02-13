@@ -1,0 +1,229 @@
+
+@import 'variables';
+@import 'utils';
+
+body {
+  font-family: 'Libre Franklin';
+  font-size: 100%;
+}
+
+.flash-messages {
+  position: relative;
+  .alert-box {
+    display: block;
+    text-align: center;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+
+    font-family: 'Roboto';
+    font-size: 1em;
+    z-index: 5;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.alert-box {
+  position: relative;
+
+  > div {
+    padding: 0;
+    padding-right: 20px;
+  }
+
+  .close {
+    background: transparent;
+    opacity: 0.5;
+    font-size: 24px;
+    color: #000;
+    border: none;
+    vertical-align: middle;
+    padding: 0;
+    margin: 0;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    border-radius: 50%;
+    position: absolute;
+    right: 5px;
+    top: 10px;
+
+    &:hover,
+    &:focus {
+      color: #000;
+      opacity: 0.7;
+    }
+  }
+}
+
+.alert-box.alert {
+  margin-bottom: 10px;
+  width: 100%;
+  border-radius: 0;
+  padding: 10px;
+  font-family: 'Libre Franklin';
+  font-size: 1em;
+  font-weight: bold;
+  background-color: $alert-bg-clr;
+  color: $alert-clr;
+  border-color: $alert-boder-clr;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"] {
+  height: 35px;
+  line-height: 35px;
+  padding: 0 10px;
+  font-family: 'Libre Franklin';
+  font-size: 1em;
+  color: #333;
+  box-shadow: none;
+
+  &:hover,
+  &:focus {
+    border: 1px solid #000;
+    box-shadow: none;
+  }
+
+  &.error {
+    border: 1px solid red !important;
+  }
+}
+
+textarea {
+  font-family: 'Libre Franklin' !important;
+  font-size: 1em;
+  color: #333;
+
+  &:hover,
+  &:focus {
+    border: 1px solid #000 !important;
+    box-shadow: none !important;
+  }
+
+  &.error {
+    border: 1px solid red !important;
+  }
+}
+
+p {
+  font-family: 'Libre Franklin';
+  font-size: 1em;
+  text-align: left;
+}
+
+select {
+  height: 35px;
+  line-height: 35px;
+  padding: 0 10px;
+  font-family: 'Libre Franklin';
+  font-size: 1em;
+  color: #333;
+  box-shadow: none;
+}
+
+.separator {
+  box-shadow: none !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+}
+
+.alert {
+  li {
+    font-family: 'Libre Franklin';
+  }
+}
+
+.field_with_errors {
+  width: 100%;
+  background-color: transparent !important;
+  padding: 0 !important;
+
+  label {
+    color: red !important;
+  }
+
+  input {
+    border-color: red !important;
+  }
+}
+
+label.error {
+  color: red !important;
+  font-family: 'Libre Franklin' !important;
+}
+
+button {
+  outline: none !important;
+
+  &:hover,
+  &:focus {
+    outline: none !important;
+  }
+}
+
+.modal-backdrop{
+  z-index: 999 !important;
+}
+#project-location-icon{
+  cursor:default !important;
+}
+
+.normal-button,
+.btn-share,
+.btn-notify,
+#submit-message,
+#editSource {
+  @extend .hover-default;
+}
+
+.do-popup-button {
+  @extend .hover-alt;
+}
+
+button {
+  outline: none !important;
+
+  &:hover,
+  &:focus {
+    outline: none !important;
+  }
+}
+
+.ui-autocomplete {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+
+  li.ui-menu-item {
+    background-color: #fff;
+    padding-left: 20px;
+    font-family: 'Roboto';
+    color: #555;
+    font-size: 0.9em;
+  }
+
+  li.ui-state-focus {
+    margin: 0;
+    background: #eee;
+    border: none;
+  }
+}
+
+#error-message-show {
+  background-color: #fedede;
+  color: #a94442;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 3vw;
+  font-family: 'Libre Franklin';
+  display: none;
+}
+

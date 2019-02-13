@@ -1,0 +1,30 @@
+.modal-search {
+  .modal-default__content {
+    max-width: 600px;
+    width: 100%;
+  }
+  .f-default__field {
+    height: 41px;
+    line-height: 37px;
+  }
+  .f-search {
+    margin-bottom: 30px;
+  }
+  &__col-wrap {
+    margin: 0 -10px;
+    font-size: 0;
+  }
+  &__col {
+    vertical-align: middle;
+    display: inline-block;
+    width: 50%;
+    margin-bottom: 15px;
+    padding: 0 10px;
+    &._wide {
+      width: calc(100% - 125px);
+    }
+    &._narrow {
+      width: 125px
+    }
+  }
+}

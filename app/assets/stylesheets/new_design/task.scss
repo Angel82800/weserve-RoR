@@ -1,0 +1,161 @@
+// tasks page's styles goes here
+
+@import 'variables';
+
+.task-wrapper {
+  .content {
+    margin: 0 !important;
+    padding-bottom: 20px !important;
+  }
+
+  .form-actions {
+    float: none;
+    width: 100%;
+    display: block;
+    text-align: right;
+    margin: 0;
+
+    input {
+      background-color: $alt-clr;
+      border-radius: 0;
+      min-width: 150px;
+      padding: 0;
+      height: 40px;
+      margin-bottom: 0;
+    }
+  }
+
+  form#new_task {
+    margin-bottom: 0 !important;
+  }
+
+  label.datetime {
+    display: block;
+    width: 100%;
+  }
+
+  select.datetime {
+    display: inline-block;
+    width: 18%;
+  }
+
+}
+
+@media screen and (max-width: 767px) {
+  .task-wrapper {
+    select.datetime {
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+.approve-block {
+  .popover {
+    min-width: 300px;
+    border: none;
+  }
+
+  .popover-title {
+    font-family: 'Roboto';
+    color: #000;
+    font-size: 1em;
+    padding: 10px;
+    border: none;
+    text-align: center;
+  }
+
+  .popover-content {
+    padding: 10px;
+    p {
+      font-family: 'Libre Franklin';
+      color: #555;
+      font-size: 1em;
+      margin: 0;
+      padding: 0;
+    }
+
+    .approve-btns {
+      text-align: center;
+      a {
+        display: inline-block;
+        text-align: center;
+        margin: 0;
+        height: 40px;
+        line-height: 40px;
+        border: 2px solid #000;
+        border-radius: 60px;
+        font-family: 'Roboto';
+        font-size: 1em;
+        text-transform: uppercase;
+        font-weight: 600;
+
+        i {
+          font-size: 1.2em;
+          margin-right: 5px;
+        }
+      }
+      a[title="approve"] {
+        background-color: #fff;
+        color: #000;
+        padding: 0 10px;
+      }
+      a[title="cancel"] {
+        background-color: #000;
+        color: #fff;
+        padding: 0 30px;
+      }
+    }
+  }
+}
+
+.alert_red {
+  color: red;
+}
+
+.transition-state-dropdown {
+  width: auto !important;
+  .fa-chevron-down {
+    margin-left: 5px !important;
+  }
+}
+
+.state-transition-list li {
+  margin-right: 0 !important;
+}
+
+.transition-state {
+  display: inline-block !important;
+  padding: 0 10px !important;
+  width: 230px;
+  .source-state {
+    width: auto;
+    float: left;
+  }
+
+  .target-state {
+    float: right;
+  }
+}
+
+.title-inline {
+  display: inline;
+  padding-right: 10px;
+}
+
+.title-select-user {
+  padding-top: 10px;
+}
+.form-select-assignee {
+  padding-top: 5px;
+  select {
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  input {
+    width: 100px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid;
+  }
+}

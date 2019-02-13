@@ -1,0 +1,46 @@
+<div class="l-comments">
+    <div class="l-comments__title">
+        <%= t('modal.tasks_edit.comments_title') %>
+    </div>
+    <ul class="l-comments__list">
+        <% @task_comments.each do |comment| %>
+        <li class="l-comments__item comment-no-<%= comment.id %>">
+            <div class="l-comments__avatar">
+                <% if comment.user.picture? %>
+                    <%= link_to (image_tag comment.user.picture, :size => "30x30"), comment.user %>
+                <% else %>
+                    <%= gravatar_for_user(comment.user) %>
+                <% end %>
+            </div>
+            <div class="l-comments__description">
+                <p class="l-comments__username">
+                  <%= link_to comment.user.display_name, user_path(comment.user) %>
+                </p>
+                <div class="l-comments__content">
+                    <%= auto_link((simple_format comment.body), html:{ target: '_blank' })  %>
+                </div>
+                <div class="l-comments__date">
+                    <%= l(comment.created_at.localtime, format: :long) if !comment.created_at.nil? %>
+                </div>
+                <div class="l-comments__attachements">
+                    <% if comment.attachment.present? %>
+                        <% if %w{jpeg jpg png tiff gif bmp}.include?(comment.attachment.file.extension) %>
+                            <%= image_tag comment.attachment.url, style: "width:90px ; height:90px" %>
+                        <% else %>
+                            <a href="<%= comment.attachment.url %>" target="_blank">
+                            <h4><%= comment.attachment.file.filename %></h4></a>
+                        <% end %>
+                    <% end %>
+                </div>
+            </div>
+            <% if can? :destroy_task_comment, comment.task %>
+              <div class="l-comments__delete">
+                <%= link_to project_task_task_comment_path(comment.task.project.id, comment.task.id, comment.id), class: "btn-reset", method: :delete, data: {confirm: t("commons.are_you_sure")}, remote: true do %>
+                  <i class="fa fa-trash-o" aria-hidden="true"></i>
+                <% end %>
+              </div>
+            <% end %>
+        </li>
+        <% end %>
+    </ul>
+</div>

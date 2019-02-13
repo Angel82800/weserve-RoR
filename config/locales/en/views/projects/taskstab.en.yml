@@ -1,0 +1,19 @@
+---
+en:
+  projects:
+    taskstab:
+      plan_tab_title: Wiki
+      tasks_tab_title: Tasks
+      requests_tab_title: Requests
+      donors_tab_title: Donors
+      sub_projects: Subprojects
+      team_tab:
+        title: Team
+        description: Below are the existing teammates for this project. You may choose
+          to join this team below.
+        apply_leader_coordinator: Apply as a lead editor or as a coordinator
+      task_tab:
+        title: Action
+      request_tab:
+        title: Requests
+...

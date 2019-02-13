@@ -1,0 +1,3 @@
+$('.tabs-wrapper__team .team-content').html(' ');
+$('.tabs-wrapper__team .team-content').html('<%= escape_javascript render "projects/project_teams" %>');
+$('[data-tab=team] .count').text(<%= @project.team_members.uniq.count %>);

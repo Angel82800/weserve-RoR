@@ -1,0 +1,26 @@
+.m-cabinet {
+  &__item {
+    position: relative;
+    i {
+      color: #fff;
+      font-weight: bold;
+      font-size: 2em;
+      position: absolute;
+      left: 13px;
+      line-height: 60px;
+      width: 20px;
+      text-align: center;
+    }
+    a {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom:0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      line-height: 60px;
+      padding: 0 0 0 50px !important; // todo remove strange default styles
+    }
+  }
+}

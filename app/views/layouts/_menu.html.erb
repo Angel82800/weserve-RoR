@@ -1,0 +1,7 @@
+<div class="header-container s-header <%= @header_class ? @header_class : '' %>">
+  <% if user_signed_in? %>
+      <%= render "layouts/users_header" %>
+  <% else %>
+      <%= render "layouts/visitors_header" %>
+  <% end %>
+</div>

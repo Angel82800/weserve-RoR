@@ -1,0 +1,10 @@
+---
+en:
+  projects:
+    task_card:
+      teammates: Teammates
+      raised: Raised
+      needed: Needed
+      left_in_usd: Left, %(currency)
+      budget: Budget
+...

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "WeServe.io" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "WeServe.io" %>">
+    <%= render "layouts/google_tag_manager_head" %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'vendor/modernizr' %>
+    <%= javascript_include_tag 'application' %>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArO4kJXYuWNWA47l20aDlstpi1oFA9f7A&&libraries=places"></script>
+    <%= csrf_meta_tags %>
+
+    <%= yield :customhead %>
+
+  </head>
+
+  <%= render 'layouts/noindex' %>
+
+  <body <%= landing_class %>>
+    <%= render "layouts/google_tag_manager_body" %>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1204824659546785',
+          xfbml      : true,
+          version    : 'v2.5'
+        });
+      };
+
+      (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+
+    </script>
+
+    <div class="page-wrapper">
+      <%= render 'layouts/menu', locals: { header_class: @header_class ? @header_class : '' } %>
+
+      <div id="projects-search-results">
+        <div id="error-message-show"></div>
+        <% if user_signed_in? && @current_user&.email.blank? %>
+          <%= render 'layouts/badge_update_email' %>
+        <% end %>
+
+        <div class="row expanded margin-none dashboard-wrapper">
+          <%= render 'users/sidebar' %>
+
+          <div class="dashboard-content<%= current_page?('/notifications') ? ' _notifications' : '' %>">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+
+      <%= render "modal/start_project_modal" %>
+
+    </div>
+
+    <%= render 'layouts/footer' %>
+
+  </body>
+</html>

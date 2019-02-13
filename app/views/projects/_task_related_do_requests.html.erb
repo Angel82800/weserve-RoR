@@ -1,0 +1,18 @@
+<% if pending_apply_requests.size > 0 %>
+  <div class="modal-task__desc-block task-related-do-requests task-<%= task.id %>">
+    <h4><%= t('.pending_requests') %></h4>
+    <% pending_apply_requests.each do |do_request| %>
+      <div class="request-item do-request-<%= do_request.id %>">
+        <%= t('.user_has_requested_become_task_assignee_html', user_name: do_request.user.display_name) %>
+        <div class='actions-group'>
+          <%= link_to accept_do_request_path(do_request.id), :method => :put, class: 'btn-notify _accept', data: {confirm: t('projects.task_details.accept_application_confirmation')}, remote: true do %>
+            <button><%= t('.approve') %></button>
+            <% end %>
+          <%= link_to reject_do_request_path(do_request.id), :method => :put, class: 'btn-notify _reject', title: "Delete", data: {confirm: t('projects.task_details.reject_application_confirmation')}, remote: true do %>
+            <button><%= t('.reject') %></button>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,10 @@
+<div class="b-notification__text">
+  <% if current_user.is_admin_for?(source_model) %>
+    <%= t('projects.update_project.notification') %>
+    <%= link_to source_model.title, project_path(source_model) %>
+  <% else %>
+    <%= source_model.user.display_name %> &nbsp
+    have updated project
+    <%= link_to source_model.title, project_path(source_model) %>
+  <% end %>
+</div>

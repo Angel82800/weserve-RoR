@@ -1,0 +1,150 @@
+<%= render 'layouts/messages' %>
+<div class="myprojets-wrapper">
+  <h2><%= t('commons.my_projects') %></h2>
+  <ul class="myprojects__list">
+    <% @user.projects.each do |project| %>
+        <li class="myprojects__item">
+            <%= link_to project_path(project) do %>
+                <span class="myprojects__item-title"><%= project.title %></span>
+            <% end %>
+        </li>
+    <% end %>
+  </ul>
+  <div class="myprojets-table">
+    <% if @user.projects.present? %>
+      <div class="table-responsive mb30 my-projects">
+      <table class="table">
+        <thead>
+          <tr>
+            <th><%= t('commons.project') %></th>
+            <th><%= t('.leader') %></th>
+            <th><%= t('.fund_and_needed') %></th>
+            <th><%= t('.team_needed_html').html_safe %></th>
+            <th><%= t('.task_reviewed_html').html_safe %></th>
+            <th><%= t('.task_completed_html').html_safe %></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @user.projects.each do |project| %>
+            <tr>
+              <td class="project" id="<%= "project-#{project.id}" %>">
+                <%= link_to project_path(project) do %>
+                  <span class="pull-left"><%= project.title %></span>
+                <% end %>
+              </td>
+              <td class="leader">
+                <span class="pull-left"><a href="<%= user_path(project.user) %>"><%= project.user.display_name %></a></span>
+              </td>
+              <td class="fund">
+                <div class="pull-left">
+                    <div class="my-project__usd-left"><%= ENV['symbol_currency'] %> <%= format_currency(project.funded_budget) %></div>
+                </div>
+                <div class="pull-right">
+                    <div class="my-project__usd-right"><%= ENV['symbol_currency'] %> <%= format_currency(project.needed_budget) %></div>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: <%= project.funded_percentages %>" >
+                  </div>
+                </div>
+                <div class="progress-percent"><%= project.funded_percentages %></div>
+              </td>
+              <td class="team">
+                <%= project.team_relations_string %>
+              </td>
+              <td class="team">
+                <%= project.tasks_to_review_relations_string %>
+              </td>
+              <td class="team">
+                <%= project.completed_tasks.count %> / <%= project.tasks.count%>
+              </td>
+              <td class="delete">
+                <button type="button" class="btn-reset" data-modal="#modalRemoveProject" onclick="removeProject(<%= project.id %>)">
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                </button>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <% else %>
+      <%= t('commons.no_projects') %>
+    <% end %>
+
+    <h2>Followed Projects</h2>
+    <div class="l-project-cards">
+      <ul class="l-project-cards__list followed-projects">
+        <% @user.followed_projects.each do |project| %>
+          <li class="l-project-cards__item " id="<%= "project-#{project.id}" %>">
+            <div class="b-project-card" data-link="<%= taskstab_project_path(project) %>">
+
+              <div class="b-project-card__top">
+                <% if project.picture.url %>
+                    <%= link_to taskstab_project_path(project), class: 'b-project-card__img-wrap', data: {no_turbolink: false} do %>
+                        <%= image_tag(project.picture.url, data: { 'object-fit': "cover" }) %>
+                    <% end %>
+                <% else %>
+                    <%= link_to taskstab_project_path(project), class: 'b-project-card__img-wrap _no-img', data: {no_turbolink: false} do %>
+                    <% end %>
+                <% end %>
+                <div class="b-project-card__user-link">
+                  <% if project.user.picture? %>
+                    <%= image_tag(project.user.picture, size: "30x30") %>
+                  <% else %>
+                    <%= gravatar_for_user(project.user)%>
+                  <%end%>
+                  <%= link_to project.user.display_name, user_path(project.user)%>
+                </div>
+
+              </div>
+              <div class="b-project-card__middle">
+                <%= link_to project.title, taskstab_project_path(project), data: {no_turbolink: false}, class: "b-project-card__title" %>
+
+                <div class="b-project-card__location">
+                  <svg focusable="false" version="1.1" class="svg-marker" aria-hidden="true">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-marker"></use>
+                  </svg>
+                  <%= project.country %>
+                </div>
+
+                <p class="b-project-card__description">
+                  <%= project.short_description %>
+                </p>
+              </div>
+              <div class="b-project-card__bottom">
+                <div class="progress-banner">
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: <%= project.funded_percentages %>">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="progress-report">
+                  <table>
+                    <tr class="value">
+                      <td><%= project.team_relations_string %></td>
+                      <td><%= project.tasks_relations_string %></td>
+                      <td>
+                          <div class="b-project-card__usd-value"><%= ENV['symbol_currency'] %> <%= number_with_precision(balance_in_usd(project.funded_budget), :precision => 2) %> </div>
+                      </td>
+                    </tr>
+                    <tr class="items">
+                      <td><%= t('commons.teammates') %></td>
+                      <td><%= t('commons.completed') %></td>
+                      <td><%= t('commons.raised') %></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<%= render 'projects/remove_project_modal' %>

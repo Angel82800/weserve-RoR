@@ -1,0 +1,7 @@
+<% if @team_memberships.present? %>
+    <% @team_memberships.each do |team_membership| %>
+        <li class="s-group-messages__submenu-item">
+          <a href="#" class="projects-chat" name="<%= team_membership.team_member.id %>" data-project-id="<%= team_membership.team.project_id %>"> <%= team_membership.team_member.display_name %> </a>
+        </li>
+    <% end %>
+<% end %>

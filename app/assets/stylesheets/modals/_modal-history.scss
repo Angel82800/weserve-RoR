@@ -1,0 +1,47 @@
+.pr-card-history {
+  border:1px solid black;
+  display:inline-block;
+  width:100%;
+  margin-bottom:20px;
+  .history-item {
+    width:100%;
+    list-style-type:none;
+    align-self:stretch;
+    display:flex;
+    margin-bottom:-1px;
+    .history-left_block {
+      width:50%;
+      .history-task_title {
+        width:100%;
+        border-bottom:1px solid black;
+        padding:15px;
+      }
+      .history-task_info {
+        padding:15px;
+      }
+    }
+    .history-right_block {
+      width:49%;
+      border-left:1px solid black;
+      .history-review-block {
+        width:100%;
+        display:inline-block;
+        padding:15px;
+        .history-review-user {
+          width:30%;
+          float:left;
+          .history-user-picture, .history-default-user-picture {
+            width:20px;
+            height:20px;
+            border-radius:50%;
+          }
+        }
+        .history-review-rating {
+          width:65%;
+          float:right;
+          text-align:right;
+        }
+      }
+    }
+  }
+}

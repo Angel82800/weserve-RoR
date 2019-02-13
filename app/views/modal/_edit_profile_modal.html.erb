@@ -1,0 +1,172 @@
+<div id="editProfileModal" class="modal-default modal-edit-profile" role="dialog" tabindex="-1">
+  <div class="modal-default__content">
+    <button type="button" class="modal-default__close"></button>
+    <h2 class="modal-default__title "><%= t('.title') %></h2>
+
+    <form class="modal-edit-profile__form">
+      <div class="modal-header">
+        <div id="error_explanation" class="alert alert-danger center-block" style="display:none;">
+        </div>
+      </div>
+      <div class="modal-edit-profile__row _general">
+        <% if @user.picture? %>
+            <div class="modal-edit-profile__avatar" style="background-image: url('<%= @user.picture %>')">
+              <button class="modal-edit-profile__avatar-edit" data-modal="#profile-img-edit">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              </button>
+              <a class="modal-edit-profile__background-edit" data-modal="#profile-bcg-edit"><i class="fa fa-pencil" aria-hidden="true"></i> <%= t('.edit_bg_img') %>
+              </a>
+              <input class="hidden" type="file" name="user[picture]" id="users-picture">
+              <input class="hidden" type="file" name="user[background_picture]" id="users-background-picture">
+            </div>
+        <% else %>
+            <div class="modal-edit-profile__avatar" style="background-image: url('<%= image_url(t('commons.default_user_pic')) %>')">
+              <button class="modal-edit-profile__avatar-edit" data-modal="#profile-img-edit">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              </button>
+              <a class="modal-edit-profile__background-edit" data-modal="#profile-bcg-edit"><i class="fa fa-pencil" aria-hidden="true"></i> <%= t('.edit_bg_img') %>
+              </a>
+              <input class="hidden" type="file" name="user[picture]" id="users-picture">
+              <input class="hidden" type="file" name="user[background_picture]" id="users-background-picture">
+            </div>
+        <% end %>
+        <div class="modal-edit-profile__general">
+          <div class="modal-edit-profile__title"><%= t('commons.general') %></div>
+          <div class="modal-edit-profile__row-wrapper">
+            <div class="modal-edit-profile__col">
+              <div class="modal-edit-profile__subtitle"><%= t('commons.first_name') %></div>
+              <input type="text" class="modal-edit-profile__input _first-name" name="user[first_name]" value="<%= @user.first_name %>">
+            </div>
+            <div class="modal-edit-profile__col">
+              <div class="modal-edit-profile__subtitle"><%= t('commons.last_name') %></div>
+              <input type="text" class="modal-edit-profile__input _last-name" name="user[last_name]" value="<%= @user.last_name %>">
+            </div>
+          </div>
+          <div class="modal-edit-profile__row-wrapper">
+            <div class="modal-edit-profile__col">
+              <div class="modal-edit-profile__subtitle"><%= t('commons.city') %></div>
+              <input type="text" class="modal-edit-profile__input _city" name="user[city]" value="<%= @user.city %>">
+            </div>
+            <div class="modal-edit-profile__col">
+              <div class="modal-edit-profile__subtitle"><%= t('commons.state') %></div>
+              <input type="text" class="modal-edit-profile__input _state" name="user[state]" value="<%= @user.state %>">
+            </div>
+          </div>
+          <div class="modal-edit-profile__row-wrapper">
+            <div class="modal-edit-profile__col">
+              <div class="modal-edit-profile__subtitle"><%= t('commons.select_language') %></div>
+              <select class="modal-edit-profile__select _language" name="user[preferred_language]" >
+                <option value="en">English</option>
+                <option value="es">Spanish</option>
+                <option value="pt">Portuguese</option>
+                <option value="fr">French</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-edit-profile__row">
+        <div class="modal-edit-profile__title"><%= t('commons.social') %></div>
+        <div class="modal-edit-profile__row-wrapper _three-col">
+          <div class="modal-edit-profile__col">
+            <div class="modal-edit-profile__subtitle"><%= t('commons.linkedin') %></div>
+            <input type="text" class="modal-edit-profile__input _linkedin" name="user[linkedin_id]" value="<%= @user.linkedin_id %>">
+          </div>
+          <div class="modal-edit-profile__col">
+            <div class="modal-edit-profile__subtitle"><%= t('commons.facebook') %></div>
+            <input type="text" class="modal-edit-profile__input _facebook" name="user[facebook_id]" value="<%= @user.facebook_id %>">
+          </div>
+          <div class="modal-edit-profile__col">
+            <div class="modal-edit-profile__subtitle"><%= t('commons.twitter') %></div>
+            <input type="text" class="modal-edit-profile__input _twitter" name="user[twitter_id]" value="<%= @user.twitter_id %>">
+          </div>
+        </div>
+      </div>
+      <div class="modal-edit-profile__row">
+        <div class="modal-edit-profile__title"><%= t('commons.contacts') %>
+          <span> (<%= t('commons.contacts_privacy') %>)</span></div>
+        <div class="modal-edit-profile__row-wrapper _three-col">
+          <div class="modal-edit-profile__col">
+            <div class="modal-edit-profile__subtitle"><%= t('commons.email') %></div>
+            <input type="text" class="modal-edit-profile__input _email" name="user[email]" value="<%= @user.email %>" <%= 'disabled' if current_user.email.present? %> >
+          </div>
+          <div class="modal-edit-profile__col">
+            <div class="modal-edit-profile__subtitle"><%= t('commons.phone') %></div>
+            <input type="text" class="modal-edit-profile__input _phone" maxlength="15" name="user[phone_number]" value="<%= @user.phone_number %>">
+          </div>
+          <div class="modal-edit-profile__col">
+            <div class="modal-edit-profile__subtitle"><%= t('commons.skype') %></div>
+            <input type="text" class="modal-edit-profile__input _skype" name="user[skype_id]" value="<%= @user.skype_id %>">
+          </div>
+        </div>
+      </div>
+      <div class="modal-edit-profile__row">
+        <div class="modal-edit-profile__row-wrapper">
+          <div class="modal-edit-profile__bio">
+            <div class="modal-edit-profile__subtitle"><%= t('commons.bio') %></div>
+            <textarea class="modal-edit-profile__textarea _bio" name="user[bio]"><%= @user.bio %></textarea>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="modal-edit-profile__save btn-root"><%= t('commons.save') %></button>
+    </form>
+  </div>
+</div>
+
+<script>
+    function selectLanguage(lang) {
+        location.assign(location.href.split('?locale')[0] + '?locale=es');
+        return false;
+    }
+
+    $(document).ready(function () {
+        var currentLanguage = '<%= @user.preferred_language %>';
+
+        if (currentLanguage) {
+            $('.modal-edit-profile__select').val(currentLanguage);
+        }
+
+        // === phone validation
+        $(".modal-edit-profile__input._phone").bind("keyup", function(e) {
+          var phone_string = $(this).val();
+          phone_string = phone_string.replace(/[^\d\+]/, '');
+          $(this).val( phone_string );
+        });
+        // === ================
+
+        $(document)
+            .on('click.saveUserData', '.modal-edit-profile__save', function (e) {
+                e.preventDefault();
+
+                var $this = $(this),
+                    $form = $('.modal-edit-profile__form'),
+                    userId = '<%= @user.id %>',
+                    userNewData = new FormData($form[0]);
+                $.ajax({
+                    url: '/users/' + userId,
+                    method: 'PUT',
+                    data: userNewData,
+                    processData: false,
+                    contentType: false,
+                    success: function (event, data, status, xhr) {
+                        $('#profileEditResponse').find('.modal-profile-edit-response__title').text("<%= t('.update_success_message') %>");
+                        window.location = window.location;
+                        $('#editProfileModal').fadeOut();
+                        $('#profileEditResponse').fadeIn();
+                        $('#error_explanation').hide()
+                    },
+                    error: function (data) {
+                        errors = jQuery.parseJSON(data.responseText);
+                        $('#error_explanation').empty();
+                        $('#error_explanation').append('<ul>');
+                        $.each(errors, function (key, value) {
+                            $('#error_explanation').append('<li>' + value + '</li>')
+                        });
+                        $('#error_explanation').append('</ul>');
+                        $('#error_explanation').show();
+                    }
+                })
+            })
+
+    })
+</script>

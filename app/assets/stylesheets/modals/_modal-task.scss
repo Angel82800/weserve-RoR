@@ -1,0 +1,503 @@
+@import '../new_design/variables';
+@import '../_colors';
+@import '../mixins/elements/url_link';
+
+.modal-task {
+  font-size: 0;
+  background-color: rgba(74, 73, 74, 0.7);
+  text-align: center;
+  padding: 80px 20px; // TODO why it is possible to see header when modal is open?
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+  &:after {
+    width: 0;
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    content: '';
+  }
+  &__content {
+    padding: 40px 40px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    font-size: 14px;
+    max-width: 1200px;
+    text-align: left;
+    width: 100%;
+    .task-desc {
+      .btn-edit {
+        font-size: 12px;
+      }
+    }
+  }
+  &__flex {
+    display: flex;
+    position: relative;
+  }
+  &__title-wrap,
+  &__content-side {
+    form {
+      input[type="text"] {
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+        border-bottom: 2px solid #000;
+        text-align: center;
+        color: #000;
+        max-width: 560px;
+        display: block;
+        font-weight: 600;
+        margin: 0 auto 10px;
+        font-size: 30px;
+        height: 40px;
+        font-family: Roboto, sans-serif;
+      }
+    }
+  }
+  &__free {
+    font-family: 'Roboto', sans-serif;
+  }
+  &__content-side {
+    flex-grow: 1;
+    padding-right: 40px;
+    max-width: calc(100% - 390px);
+    p {
+      word-break: break-word;
+    }
+  }
+  &__controls-side {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    overflow-y: auto;
+    flex-basis: 390px;
+    width: 390px;
+    max-width: 390px;
+    padding-right: 15px;
+    flex-shrink: 0;
+  }
+
+  .task-details__save-btn {
+    &._disable {
+      opacity: .6;
+      pointer-events: none;
+    }
+  }
+
+
+  &__title-wrap {
+    position: relative;
+    text-align: center;
+    margin-bottom: 20px;
+    span.btn-edit {
+      font-size: 18px;
+    }
+  }
+
+  &__task-info {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+    &._hide {
+      display: none;
+    }
+  }
+
+  &__attachment-error {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    &._error {
+      color: red
+    }
+    &._success {
+      color: green
+    }
+  }
+
+  &__form {
+    &._hide {
+      display: none;
+    }
+  }
+
+  &__invite {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .js-toggleForm {
+    min-height: 21px;
+
+    &._hide {
+      display: none;
+    }
+  }
+
+  .modal-default__title {
+    display: inline;
+    vertical-align: middle;
+    margin: 0;
+  }
+
+  .btn-edit {
+    display: inline-block;
+    vertical-align: middle;
+    width: 32px;
+    height: 32px;
+    position: relative;
+    text-align: center;
+    font-size: 0;
+    cursor: pointer;
+    &:after {
+      content: '';
+      height: 100%;
+      width: 0;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    i {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 14px;
+    }
+  }
+
+  &__desc-block {
+    margin-bottom: 10px;
+    h4 {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+      color: #000;
+      display: inline-block;
+      line-height: 32px;
+      margin-top: 0;
+    }
+    @include colored_link($sky-blue, $sky-blue-hover);
+  }
+
+
+  // todo styles below should be checked
+  &__controls-side {
+    border-left: none;
+
+    .progress {
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+
+    .fund {
+      .btn-root {
+        width: calc(50% - 4px);
+      }
+
+      .modal-task__card {
+        margin-bottom: 10px;
+        .btn-edit {
+          display: inline-block;
+          vertical-align: middle;
+          text-align: center;
+          font-size: .9em;
+          width: auto;
+          height: auto;
+          top: 0;
+        }
+        &-values,
+        &-titles {
+          display: flex;
+          width: 100%;
+        }
+        &-value {
+          font-family: 'Libre Franklin', sans-serif;
+          color: $grey-clr;
+          font-size: 0.9em;
+          text-align: center;
+          &._left {
+            text-align: left;
+          }
+          &._right {
+            text-align: right;
+          }
+        }
+        &-value {
+          width: 33.333%;
+          padding: 0 20px;
+          text-align: center;
+          &._data {
+            color: #333;
+            font-size: 1em;
+            font-weight: bold;
+          }
+          &._budget {
+            .modal-task__btc-value {
+              font-size: 12px;
+              color: #636363;
+              input {
+                font-size: 14px;
+                line-height: 14px;
+              }
+            }
+          }
+        }
+        ._hide {
+          display: none;
+        }
+      }
+    }
+
+    .deadline-block {
+      h5 {
+        font-family: 'Roboto', sans-serif;
+        color: #000;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 1.2em;
+      }
+      p {
+        font-family: 'Libre Franklin', sans-serif;
+        font-size: 1em;
+        color: #555;
+        i {
+          color: #555;
+          font-size: 1.3em;
+          padding-right: 10px;
+        }
+      }
+    }
+
+    .team-block {
+      padding-top: 5px;
+      ._free-task & {
+        //border-top: 1px solid #eee;
+        margin-top: 10px;
+        padding-top: 10px;
+        h5 {
+          display: inline;
+        }
+      }
+      &__item {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+        &:hover,
+        &:focus {
+          text-decoration: none;
+        }
+        &-name {
+          margin-top: 3px;
+        }
+        &-delete {
+          width: 20px;
+          height: 20px;
+          top: -5px;
+          right: -15px;
+          position: absolute;
+          z-index: 1;
+          &:after,
+          &:before {
+            display: block;
+            content: '';
+            position: absolute;
+            width: 3px;
+            height: 15px;
+            transform-origin: center center;
+            background-color: #d4d4d4;
+           }
+           &:after {
+             transform: rotate(45deg);
+           }
+           &:before {
+             transform: rotate(-45deg);
+           }
+        }
+      }
+      h5,
+      span {
+        font-family: 'Roboto', sans-serif;
+        color: #000;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 1.2em;
+      }
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 5px;
+      }
+      h2 {
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+      }
+    }
+
+    .wallet-block {
+      h5 {
+        font-family: 'Roboto', sans-serif;
+        color: #000;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+      p {
+        font-family: 'Libre Franklin', sans-serif;
+        font-size: 1em;
+        color: #555;
+      }
+    }
+
+    .approve-block {
+      .approve-link {
+        display: inline-block;
+        width: 100%;
+        padding: 0;
+        height: 45px;
+        line-height: 45px;
+        border: 2px solid #000;
+        border-radius: 100px;
+        font-family: 'Libre Franklin', sans-serif;
+        font-size: 1.2em;
+        font-weight: bold;
+        text-transform: uppercase;
+        background-color: #fff;
+        color: #000;
+        text-align: center;
+        &:not(.disabled) {
+          &:hover {
+            i {
+              color: #fff;
+            }
+          }
+
+          i {
+            font-size: 1.3em;
+            color: #000;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 920px) {
+  .modal-task {
+    &__content-side {
+      max-width: calc(100% - 290px);
+    }
+    &__controls-side {
+      width: 290px;
+      max-width: 290px;
+      flex-basis: 290px;
+    }
+  }
+}
+
+
+@media only screen and (max-width: 768px) {
+  .modal-task {
+    &__content-side {
+      max-width: none;
+      padding-right: 0;
+    }
+    &__controls-side {
+      position: static;
+      overflow-y: visible;
+      width: 100%;
+      flex-basis: 100%;
+      padding-right: 0;
+      max-width: none;
+    }
+    &__activities {
+      display: flex;
+      flex-direction: column;
+    }
+    .activity {
+      order: 0;
+    }
+    .l-comments,
+    .f-comment-post {
+      order: 1;
+    }
+  }
+}
+.deadline-input {
+  font-size: 14px;
+}
+
+
+input[type="number"].input-task-budget{
+  border: none !important;
+  box-shadow: none;
+  background-color: white !important;
+  border-bottom: 2px solid #000 !important;
+  text-align: center;
+  max-width: 560px;
+  display: block;
+  font-weight: 600;
+  margin: 0 auto 10px;
+  font-size: 16px;
+  height: 29px;
+}
+
+.no-spinners {
+  -moz-appearance:textfield;
+}
+
+.no-spinners::-webkit-outer-spin-button,
+.no-spinners::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.task-related-do-requests {
+
+  .requester {
+    font-family: 'Slabo 27px', serif;
+    text-decoration: underline;
+  }
+
+  .actions-group {
+    display: inline-block;
+    font-size: 14px;
+
+    a {
+      border: none;
+      padding-right: 0;
+      &:last-child {
+        padding-left: 5px;
+      }
+      &:hover {
+        background-color: transparent !important;
+        border: none;
+      }
+    }
+    button {
+      background: transparent;
+      border: 1px solid #525252;
+      padding: 2px 10px;
+      border-radius: 15px;
+      width: 80px;
+      &:hover {
+        background-color: #000;
+        color: white;
+      }
+    }
+  }
+}
+
+.button-group .rating_block, .deadline-block .rating_block{
+  span {
+    margin:0 10px;
+    font-weight:bold;
+  }
+}

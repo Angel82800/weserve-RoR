@@ -1,0 +1,75 @@
+---
+en:
+  tasks:
+    preview:
+      leader-badge_task_edited: <strong>Task was edited.</strong> Changes are waiting
+        to be approved by other participant. <a class='btn btn-theme-green preview'
+        href='#'>Preview</a> <a class='btn btn-theme-green dismiss' href='#'>Dismiss
+        changes</a>
+      assignee-badge_task_edited: <strong>Your task has been changed!</strong> <a
+        class='btn btn-theme-green preview' href='#'>Click to Review these changes</a>
+      leader-preview-mode: <strong>Preview mode:</strong> <a class='btn btn-theme-green
+        exit_preview' href='#'>Exit</a>
+      assignee-preview-mode: <strong>Preview mode.</strong> You can  <a class='btn
+        btn-theme-green approve_change' href='#'>Approve</a> or <a class='btn btn-theme-green
+        reject_change' href='#'>Reject</a> changes or just <a class='btn btn-theme-green
+        exit_preview' href='#'>Exit</a> from preview mode.
+    create:
+      notice_message: Task was successfully created.
+      alert_message: Task was not created
+    update:
+      notice_message: Task was successfully updated.
+    destroy:
+      notice_message: Task was successfully destroyed.
+      error_message: Error happened during task delete process
+    accept:
+      task_accepted: Task accepted
+      task_not_accepted: Task was not accepted
+    doing:
+      cannot_do: You can't Do this Task
+      goal_not_meet: You have not met your goal either in the number of teammates
+        or in funding
+      task_changed_to_doing: Task Status changed to Doing
+      error_moving: Error in Moving Task
+    reject:
+      task_rejected: Task %{task_title} has been rejected
+      task_not_rejected: Task was not rejected
+    back_funding:
+      task_cancelled: Task %{task_title} has been cancelled
+      task_not_cancelled: Task was not cancelled
+    reviewing:
+      task_submitted: Task Submitted for Review
+      task_not_sumitted: Task Was Not Submitted for Review
+    completed:
+      task_completed: Task was successfully completed
+    incomplete:
+      task_incompleted: You have reviewed and rejected task %{task_title} of project
+        %{project_title}
+      fail: You have not set correct deadline date
+    cancel:
+      success: Cancel request task was sent successfully
+      task_cancelled: Task %{task_title} has been cancelled
+      task_not_cancelled: Task was not cancelled
+    send_email:
+      task_link_sent: Task link has been sent to %{email}
+    validate_team_member:
+      not_allowed: You are not allowed to do this opration
+    validate_admin:
+      not_allowed: You are not allowed to do this opration
+    refund:
+      refunds_disabled: Refunds are disabled now
+    remove_member:
+      success: Assignee has been removed
+      fail: Must give reason
+    show:
+      fail: Task not found
+    request_change:
+      task_back_doing: Task was moved back into In Progress
+      task_not_back_doing: Task was not moved back into In Progress
+    remove_assignee:
+      success: Remove assignee successfully
+      fail: Remove assignee failed
+    add_assignee:
+      success: Assign task successfully
+      fail: Assign task failed
+...

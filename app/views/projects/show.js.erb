@@ -1,0 +1,5 @@
+<%=javascript_tag do%>
+  $('.project-description-context').html('<%= escape_javascript @project.description%>');
+  $('.section-details-content').html('<%=escape_javascript section_details_content_tag%>');
+  $('.section-details-context').html('<%=escape_javascript render('project_section_details')%>');
+<%end%>

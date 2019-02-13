@@ -1,0 +1,218 @@
+@import "../variables/fonts";
+@import "../variables/colors";
+
+.buttons_group {
+  display: flex;
+  > .btn {
+    flex: 1;
+    width: auto;
+    margin-right: 10px;
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+}
+
+.revision-wrapper {
+  .buttons_group {
+    > .btn {
+      flex: none;
+      &:last-child {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+#textarea_feedback {
+  float: none !important;
+  padding-bottom: 0px !important;
+  margin-top: 10px;
+  text-align: left;
+}
+
+#input-task-condition, #input-task-proof {
+  margin-bottom: 15px;
+}
+
+.form_in_place {
+  input[type='submit'], input[type='button'] {
+    font-family: $defaultFont;
+    border-radius: 4px !important;
+    font-weight: 600 !important;
+
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+  }
+  input[type='submit'], input[type='button'] {
+    color: $white !important;
+    background-color: $salat !important;
+    border-color: $salat !important;
+    border: solid 1px $salat !important;
+    margin-top: 0px !important;
+    &:hover {
+      background-color: $salat !important;
+      border-color: $salat !important;
+      border: solid 1px $salat !important;
+      color: $white !important;
+    }
+  }
+  // input[type='button'] {
+  //   color: $salat !important;
+  //   background-color: $white !important;
+  //   border-color: $salat !important;
+  //   border: solid 1px $salat !important;
+  //   &:hover {
+  //     color: $salat !important;
+  //   }
+  // }
+}
+
+.btn {
+  &.btn-theme-dark-blue {
+    font-family: $defaultFont;
+    color: $white !important;
+    border-radius: 2px !important;
+    background-color: $dark_aqua_v3 !important;
+    border: solid 1px $dark_aqua_v3 !important;
+    svg {
+      fill: $white !important;
+    }
+    .fa {
+      color: $white !important;
+    }
+  }
+  &.btn-theme-salat {
+    font-family: $defaultFont;
+    color: $white !important;
+    border-radius: 2px !important;
+    background-color: $salat_v3 !important;
+    border: solid 1px $salat_v3 !important;
+    svg {
+      fill: $white !important;
+    }
+    .fa {
+      color: $white;
+    }
+  }
+  &.btn-theme-black-overlap {
+    font-family: $defaultFont;
+    color: $white !important;
+    border-radius: 4px !important;
+    border-width: 2px !important;
+    border-color: rgba(255, 255, 255, .8) !important;
+    background-color: rgba(0, 0, 0, .6) !important;
+    svg {
+      fill: $white !important;
+    }
+    .fa {
+      color: $white;
+    }
+  }
+  &.btn-theme-transparent {
+    font-family: $defaultFont;
+    color: $dark_green_blue !important;
+    border-radius: 4px !important;
+    background-color: transparent !important;
+    border-color: $dark_blue !important;
+    border: solid 1px $dark_blue !important;
+    svg {
+      fill: $dark_green_blue !important;
+    }
+    .fa {
+      color: $dark_green_blue;
+    }
+     &:hover, &:active {
+       background-color: $white !important;
+     }
+  }
+  &.btn-theme-blue {
+    font-family: $defaultFont;
+    color: $white !important;
+    border-radius: 2px !important;
+    background-color: $aqua_v2 !important;
+    border: solid 1px $aqua_v2 !important;
+    svg {
+      fill: $white !important;
+    }
+    .fa {
+      color: $white;
+    }
+  }
+  &.btn-theme-green {
+    font-family: $defaultFont;
+    color: $white !important;
+    border-radius: 4px !important;
+    background-color: $salat !important;
+    border-color: $salat !important;
+    border: solid 1px $salat !important;
+    svg {
+      fill: $white !important;
+    }
+    .fa {
+      color: $white;
+    }
+  }
+  &.small {
+    font-size: 12px;
+    padding: 6px 10px !important;
+  }
+  &.block_center {
+    display: block;
+    margin: 0 auto;
+  }
+  &.square {
+    border-radius: 0px !important;
+  }
+  &.transparent {
+    color: $salat !important;
+    background-color: transparent !important;
+  }
+  &.inside-box {
+    height: 100%;
+  }
+  &.big {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 8px 24px;
+  }
+}
+
+.text-input {
+  &.green_theme {
+    background-color: $white !important;
+    border-color: $salat !important;
+  }
+  &.thin {
+    border: 1px solid $salat !important;
+  }
+  &.square {
+    border-radius: 0px;
+  }
+}
+
+.btn-share {
+  &:hover {
+    border-color: $salat !important;
+    background-color: $salat !important;
+    color: $white !important;
+  }
+}

@@ -1,0 +1,30 @@
+<br><br>
+
+
+
+<div class="generalcontent">
+
+<h4>Weserve.io</h4><br>
+
+<h5><em>The Collaborative to-do list</em></h5><br>
+
+ 
+ <div class="jumbo">
+
+<main role="main">
+      
+      <p> Weserve.io is an internet platform that turn your audience into an auto-funded task force to solve common problems. The Goal is to help you leading legitimate and sustainable actions directly into the world, instead of spending your time protesting on social media or rioting in the streets. Weserve.io helps citizens around the world shaping their societies free from political or financial partisanship. 
+
+      </p>
+    </main>
+</div>
+    <br><br><br><hr>
+    
+
+    <% if !current_user %>
+    <div class="signingButton">
+     <br><%=link_to "Sign Up", new_user_registration_path, class:"button tiny radius" %><br>
+     <%= link_to "Sign In", new_user_session_path, class:"button tiny radius" %>
+    </div>
+    <%end%>
+  </div>

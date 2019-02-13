@@ -1,0 +1,48 @@
+---
+fr:
+  users:
+    history:
+      budget: Budget
+      task_specification: ""
+      review: Examiner
+      stars: étoiles
+      star: étoile
+    my_projects:
+      leader: Leader
+      fund_and_needed: Financé
+      team_needed_html: Équipe / <br> requis
+      task_reviewed_html: Tâches à <br>examiner
+      task_completed_html: Tâches <br>réalisées
+      change_role_confirmation: À qui voulez-vous donner le rôle de leader?
+      enter_email: Indiquer une adresse e-mail
+      delete_project_confirmation: Êtes-vous sûr de vouloir supprimer ce projet?
+    my_wallet:
+      title: Mon portefeuille
+      no_wallet_message: Nous vous créons un portefeuille. Revenez dans quelques minutes.
+    user_receive_address_section:
+      title: Recevoir l'adresse
+      show_qrcode: Voir le Code QR
+    user_transactions:
+      date: Date
+      description: Description
+      status: Statut
+      amount: Montant
+      received_from: Reçu de
+      sent_to: Envoyé à
+      no_transaction: Vous n'avez pas encore effectué de transactions
+    user_make_transaction:
+      bitcoin_address: 'Adresse ou étiquette Bitcoin '
+      enter_wallet_address: Veuillez indiquer l'adresse du portefeuille du destinataire
+      enter_amount: Indiquer le montant
+      optional_memo: Mémo interne optionnel
+    profile:
+      edit_bg_img: Modifier l'image d'arrière plan
+      edit_profile_img: Modifier mon image de profil
+      project_leads: Leader de projets
+      completed_task: Tâches réalisées
+      project_funded: Projets financés
+    profile_edit_dialog:
+      edit_profile_img: Modifier l'image de profil
+    profile_edit_bcg_dialog:
+      edit_bg_img: Modifier l'image d'arrière-plan
+...

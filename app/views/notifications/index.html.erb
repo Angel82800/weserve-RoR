@@ -1,0 +1,31 @@
+<% content_for :title do %>
+  My notifications
+<% end %>
+
+<section class="s-notifications">
+    <div class="container">
+        <div class="s-notifications__top">
+            <h2 class="s-notifications__title">Notifications</h2>
+
+            <%= link_to mark_all_as_read_notifications_path, class: 's-notifications__mark-read', remote: true, method: :put do %>
+              <svg focusable="false" version="1.1" class="svg-check">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-check"></use>
+              </svg>
+              Mark all as read
+            <% end %>
+        </div>
+
+        <div class="s-notifications__content">
+            <ul class="l-notifications">
+                <%= render @notifications %>
+            </ul>
+            <%= render partial: 'load_older_link', locals: { notifications: @notifications } %>
+        </div>
+    </div>
+</section>
+
+<script>
+  $(function() {
+    JsonFormsHelper.InitializeNotificationsControls();
+  });
+</script>

@@ -1,0 +1,37 @@
+es:
+  projects:
+    task_details:
+      accept_approvation: 'Si, apruebo'
+      attachments: 'Adjuntos'
+      email_placeholder: 'Dirección de E-mail'
+      gmail_contacts: 'Contactos de Gmail'
+      import_contact_from: "Importar tus contactos desde:"
+      invite_button: "Agregar / Invitar"
+      invite_subtitle: "Escribe el e-mail de la persona que quisieras invitar"
+      make_non_free: "Quitar gratuidad"
+      mark_completed: "Marcar como completa"
+      mark_completed_confirmation: '¿Confirmas que has revisado la tarea y que está
+        completa?'
+      mark_incomplete: "Marcar como incompleta"
+      mark_incomplete_confirmation: '¿Confirmas que has revisado la tarea y que está
+        incompleta?'
+      no_teammate: "No se ha agregado compañero de equipo aún"
+      proof_of_execution: "Prueba de ejecución"
+      refund_task: 'Reembolsar tarea'
+      share_fb: "Compartir por Facebook"
+      share_gplus: "Compartir por Google +"
+      share_invite_subtitle: 'Compartir por redes sociales'
+      share_invite_title: 'Compartir/Invitar gente a participar'
+      share_twitter: "Compartir por Twitter"
+      specifications: "Especificaciones"
+      submit_review: "Envíe para revisión"
+      team: "Equipo"
+      title: "Agregar / Invitar gente"
+      yahoo_contacts: 'Contactos Yahoo'
+      approve_task_description_html: |-
+        <p>¿Estás seguro(a) de aprobar esta tarea?</p>
+        <p>Esta es una acción irreversible.</p>
+      login_or_signup_html: |
+        Por favor <a class="sign_in_a" data-modal="#registerModal">ingresa</a>
+        o <a class="sign_up_a" data-modal="#registerModal">regístrate</a>
+        para agregar comentarios.

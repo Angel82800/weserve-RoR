@@ -1,0 +1,122 @@
+.s-result-page {
+  &__container {
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  &__title,
+  &__subtitle {
+    font-family: 'Roboto', sans-serif;
+    color: #000;
+  }
+  &__title {
+    margin-bottom: 20px;
+  }
+  &__project-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+  }
+  &__task {
+    &-list {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -15px;
+      border: none;
+      padding: 0;
+    }
+    &-item {
+      width: 25%;
+      flex-basis: 25%;
+      max-width: 25%;
+      padding: 0 15px;
+      margin-bottom: 30px;
+      display: flex;
+      .card-wrapper {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #dadada;
+        border-radius: 3px;
+      }
+    }
+  }
+  &__user {
+    &-list {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -15px;
+      border: none;
+      padding: 0;
+      list-style-type: none;
+    }
+    &-item {
+      width: 25%;
+      flex-basis: 25%;
+      max-width: 25%;
+      padding: 0 15px;
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: 14px;
+      color: #000;
+      img {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 5px;
+      }
+    }
+    &-link {
+      color: #000;
+      &:visited {
+        color: #000;
+      }
+      &:hover {
+        text-decoration: none;
+        color: #000;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 840px) {
+  .s-result-page {
+    &__task {
+      &-item {
+        width: 33.333%;
+        flex-basis: 33.333%;
+        max-width: 33.333%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .s-result-page {
+    &__task {
+      &-item {
+        width: 50%;
+        flex-basis: 50%;
+        max-width: 50%;
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 480px) {
+  .s-result-page {
+    &__task {
+      &-item {
+        width: 100%;
+        flex-basis: 100%;
+        max-width: 100%;
+      }
+    }
+    &__user {
+      &-item {
+        width: 50%;
+        flex-basis: 50%;
+        max-width: 50%;
+      }
+    }
+  }
+}

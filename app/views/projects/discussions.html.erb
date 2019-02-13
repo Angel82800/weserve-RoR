@@ -1,0 +1,147 @@
+<div class="row">
+  <div class="medium-8 columns" style="overflow-y: auto; height: 800px;">
+    <div clss="row">
+      <div class="medium-9 columns">
+        <h3><%= @project.title%></h3>
+      </div>
+      <div class="medium-3 columns">
+        <%= link_to (current_user.is_admin_for?(@project) ? 'Edit': 'Suggest edit'), '#', id: 'discussion-edit-link', class:  "button tiny rigth"%>
+      </div>
+    </div>
+    <div class="row" style="width:99%;">
+      <div class="medium-12 columns">
+      <%=form_for @project, remote: true, html:{id: 'discussions-form', class: 'simple_form edit_project'} do |f|%>
+        <div style="min-height: 300px; padding: 10px;">
+          <h4>Description</h4>
+          <hr/>
+          <div class="discussion-content">
+             <%= discussion_context_tag @project, :description %>
+          </div>
+          <div class="discussion-edit hide">
+            <%= f.text_area :discussed_description, class: 'tinymce', :rows => 5, :cols => 60 %>
+          </div>
+          <div id="section-details" >
+              <%=f.simple_fields_for :section_details, @project.section_details_list do |section_detail_fields|%>
+                <div id="section-detail-<%=section_detail_fields.object.id%>" class="discussion-content">
+                  <h4><%= discussion_context_tag section_detail_fields.object, :title %></h4>
+                  <hr/>
+                  <%= discussion_context_tag section_detail_fields.object, :context %>
+                </div>
+                <%= render 'section_detail_fields', f: section_detail_fields%>
+              <%end%>
+              <div class="links hide discussions-actions">
+                <%= link_to_add_association('Add section', f, :section_details, class:'button tiny')%>
+              </div>
+            </div>
+        </div>
+        <div class="form-actions hide discussions-actions" >
+          <%= f.button 'Save', class: "button tiny radius", id: 'disscussions-submit'%>
+          <%= link_to 'Cancel','#', class: "button tiny radius", id: 'discussions-cancel'%>
+        </div>
+      <%end%>
+      </div>
+    </div>
+  </div>
+
+  <div class="medium-4 columns" style="background-color: #f2f2f2; height: 800px; border-left: #b2b2b2 solid 2px;overflow-y: auto">
+    <div style="height: 10px;">
+      <%= link_to(image_tag('dialog-close.png'), '#', id: 'discussion-dialog-close-link', style:"float: right;")%>
+    </div>
+
+    <%@project.discussions.order(:created_at).each do |discussion| %>
+        <div id='<%="discussion-#{discussion.id}"%>' style="margin: 12px; background-color: white ;border-left: #00a0f3 solid 4px; padding: 5px;">
+
+          <span style="font-size: 14px;">Description</span>
+
+          <table style="width:100%;margin-bottom: 0px;">
+            <tr>
+              <td><%=image_tag(discussion.user.picture_url(:thumb), height: '32', width: '32')  %></td>
+              <td>
+                <div style="font-size: 10px; color: grey"><%=discussion.user.display_name%></div>
+                <div style="font-size: 10px; color: grey"> <%=discussion.created_at.strftime("%m/%d/%y at %l:%M %p")%></div>
+              </td>
+              <td style="text-align:right;">
+                <%if @project.can_update?%>
+                    <%=link_to image_tag('accept-icon.png', size: '24x24'), '#', title: 'Accept suggestion', onclick: "acceptDiscussion(#{discussion.id});$('.discussion-dialog').load('/projects/#{@project.id}/discussions');return false;"%>
+                <%end%>
+                <%if @project.can_update? || (current_user.id == discussion.user_id)%>
+                    <%=link_to image_tag('close-icon.png', size: '24x24'), '#', title: 'Reject suggestion', onclick: "rejectDiscussion(#{discussion.id});$('.discussion-dialog').load('/projects/#{@project.id}/discussions');return false;"%>
+                <%end%>
+              </td>
+            </tr>
+          </table>
+
+          <div style="font-size: 12px;">
+            <%= discussion_change_tag(discussion.context, @project.send(discussion.field_name)||'')%>
+          </div>
+        </div>
+    <%end%>
+
+    <%@section_details.each do |section_detail|%>
+      <% section_detail.discussions.order(:created_at).each do |discussion| %>
+        <div id='<%="discussion-#{discussion.id}"%>' style="margin: 12px; background-color: white ;border-left: #00a0f3 solid 4px; padding: 5px;">
+
+          <span style="font-size: 14px;"><%=discussion.field_name.capitalize%></span>
+
+          <table style="width:100%;margin-bottom: 0px;">
+            <tr>
+              <td><%=image_tag(discussion.user.picture_url(:thumb), height: '32', width: '32')  %></td>
+              <td>
+                <div style="font-size: 10px; color: grey"><%=discussion.user.display_name%></div>
+                <div style="font-size: 10px; color: grey"> <%=discussion.created_at.strftime("%m/%d/%y at %l:%M %p")%></div>
+              </td>
+              <td style="text-align:right;">
+                <%if @project.can_update?%>
+                  <%=link_to image_tag('accept-icon.png', size: '24x24'), '#', onclick: "acceptDiscussion(#{discussion.id});$('.discussion-dialog').load('/projects/#{@project.id}/discussions');return false;"%>
+                <%end%>
+                <%if @project.can_update? || (current_user.id == discussion.user_id)%>
+                  <%=link_to image_tag('close-icon.png', size: '24x24'), '#', onclick: "rejectDiscussion(#{discussion.id});$('.discussion-dialog').load('/projects/#{@project.id}/discussions');return false;"%>
+                <%end%>
+              </td>
+            </tr>
+          </table>
+
+          <div style="font-size: 12px;">
+            <%= discussion_change_tag(discussion.context, section_detail.send(discussion.field_name)||'')%>
+          </div>
+        </div>
+      <%end%>
+    <%end%>
+  </div>
+</div>
+<%=javascript_tag do%>
+    $('.nested-fields').hide();
+    $("#discussions-cancel").click(function(e) {
+      e.preventDefault();
+      $('.discussion-content').show();
+      $('.discussion-edit').hide();
+      $('.discussions-actions').hide();
+    });
+
+    $("#discussion-dialog-close-link").click(function(e) {
+      e.preventDefault();
+      $('.discussion-dialog').dialog('close');
+    });
+
+    $("#discussion-edit-link").click(function(e) {
+      e.preventDefault();
+      //tinyMCE.init({  selector: 'textarea.tinymce', menubar:false,  statusbar: false  });
+      $('.discussion-content').hide();
+      $('.discussion-edit').show();
+      $('.discussions-actions').show();
+    });
+
+    $("#discussions-form").on("ajax:success", function(e, data, status, xhr) {
+        //tinymce.remove();
+        $('.discussion-dialog').load('/projects/<%=@project.id%>/discussions');
+    })
+    .on('ajax:error',function(e, xhr, status, error){
+      alert(xhr.responseText)
+    });
+
+    $('#section-details').on('cocoon:after-insert', function() {
+      //tinyMCE.init({  selector: 'textarea.tinymce', menubar:false,  statusbar: false  });
+    })
+
+    $('#discussions-form').validate();
+<%end%>

@@ -1,0 +1,61 @@
+---
+en:
+  projects:
+    send_project_invite_email:
+      success: Project link has been shared successfully with your friends!
+    send_project_email:
+      fail: 'ERROR: Please sign in to continue.'
+      success: Project link has been sent to %{email}
+      please_provide_email: Please provide receiver email.
+    failure:
+      message: No, Project invitation Email was sent to your Friends!
+    unfollow:
+      success: You stopped following project %{project_title}
+    taskstab:
+      success: Project link has been shared successfully with your friends!
+      fail: No, project invitation email was not sent to your Friends!
+    create:
+      success: Project has been created successfully
+      request_sent: Project request was sent.
+      new_project: This is a New project
+    update:
+      success: Project was successfully updated.
+    change_leader:
+      email_not_found: Can't find the user with email address you entered. Please
+        input valid email address.
+      already_invited: You have already invited a new leader for this project.
+      cannot_invite_non_team_member: The user is not a team member of the project.
+        You can only invite team members as a new leader.
+      success: You sent an invitation for leader role to %{email}
+    saveEdit:
+      success: Project was successfully updated.
+    updateEdit:
+      success: Project was successfully updated.
+    accept:
+      success: Project Request accepted
+      fail: Project could not be accepted
+    reject:
+      success: Project rejected
+      fail: Project could not be rejected
+    get_in:
+      already_lead_editor: You are already Lead Editor of this project.
+      already_coordinator: You are already Coordinator of this project.
+      already_submitted_request: You have already submitted a request  for this project.
+      success: Your request has been submitted
+    destroy:
+      success: Project was successfully destroyed.
+    user_search:
+      blank: Sorry, no results match with your search.
+    task_teammate_item:
+      remove: Remove
+    change_leader_by_admin:
+      success: Change leader successfully
+    change_user_role:
+      success: Change user role successfully
+    follow_project:
+      notification: You are now following project
+    create_project:
+      notification: You have created project
+    update_project:
+      notification: You have updated project
+...

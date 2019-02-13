@@ -1,0 +1,27 @@
+// Place all the styles related to the ProfileComments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.load-more-comments-link {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+label[for='profile_comment_comment_text'] {
+  display: none;
+}
+
+#new_profile_comment .button:focus {
+  outline: none;
+}
+
+#new_profile_comment .form-errors {
+  color: red;
+  margin-bottom: 5px;
+}
+
+.cropbox-wrap {
+  #user_picture_cropbox_wrapper {
+    display: inline-block;
+    margin: auto;
+  }
+}

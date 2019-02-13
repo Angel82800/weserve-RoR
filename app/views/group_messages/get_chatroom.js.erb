@@ -1,0 +1,17 @@
+$(".s-group-messages__chat-title").html("");
+$(".s-group-messages__chat-title").html("<%= escape_javascript(render('group_messages/chatroom_info')) %>");
+$(".s-group-messages__messages").html("");
+$(".s-group-messages__messages").html("<%= escape_javascript(render('group_messages/all_messages')) %>");
+$(".s-group-messages__submenu-list._project-team-members").html("");
+$(".s-group-messages__submenu-list._project-team-members").html("<%= escape_javascript(render 'group_messages/one_to_one_members') %>");
+$("#message-form-div").html("")
+$("#message-form-div").html("<%= escape_javascript(render('group_messages/form')) %>");
+$("div#message-load-image").hide();
+<% if @team_members.present? %>
+  $("_project-team-members").html("")
+  $("_project-team-members").html("<%= escape_javascript(render('group_messages/project_team')) %>");
+<% end %>
+<% if @chat_sessions && @chat_sessions.any? %>
+$(".s-group-messages__chat-sessions").html("");
+$(".s-group-messages__chat-sessions").html("<%= escape_javascript(render('group_messages/chat_sessions')) %>");
+<% end %>

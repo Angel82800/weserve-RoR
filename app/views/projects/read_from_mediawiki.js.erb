@@ -1,0 +1,10 @@
+$('.tabs-wrapper__plan').hide();
+$('#sourceEditor').show();
+$("#sourceEditor #editorContents").html("<%= escape_javascript(render partial: 'textarea_editor', locals: {contents: @contents}) %>");
+<% if @revision_id %>
+  $(".btn-visual").attr('href', "<%= @mediawiki_api_base_url %>index.php?title=<%= URI.escape(@project.wiki_page_name.gsub(' ', '_')) %>&useskin=weserve&veaction=edit&redirect=<%= URI.encode(taskstab_project_url(@project.id)) %>&oldid=<%= @revision_id %>")
+<% end %>
+
+// MarkItUp Editor
+$('#textarea-editor').markItUp(mySettings);
+$("#textarea-editor").focus();

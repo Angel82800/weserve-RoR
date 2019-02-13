@@ -1,0 +1,63 @@
+<h1>Notifications</h1>
+<div class="lin2 row">
+  <div class="lin2-media small-12 medium-2 columns">
+    <% if @user.picture? %>
+      <%= image_tag(@user.picture, size: "123x123") %>
+    <% else %>
+      <%= gravatar_for_user(@user, 123)%>
+    <%end%>
+  </div>
+  <div class="lin2-contents medium-10 columns">
+    <h1><%= @user.display_name %></h1>
+    <div class="lin2-social ">
+      <a href='<%= url_for("http://#{@user.facebook_url}") %>' target="_blank"><i class="icon-facebook"></i></a>
+      <a href="<%= url_for("http://#{@user.linkedin_url}") %>" target="_blank"><i class="icon-linkedin"></i></a>
+      <a href="<%= url_for("http://#{@user.twitter_url}") %>" target="_blank"><i class="icon-link"></i></a>
+      <a href="<%= url_for("mailto:#{@user.email}") %>" target="_blank"><i class="icon-envelope-alt"></i></a>
+    </div>
+    <p>
+      <i class="icon-map-marker margin-right-5"></i>
+      <%= user_short_info(@user) %>
+    </p>
+    <a href="#" class="button button-send"><i class="icon-comment"></i>Send Message</a>
+  </div>
+</div>
+<div class="lin3">
+  <div class="lin-inner">
+    <span class="no"><%= @user.projects.count %></span>
+    <span class="tx">Project </br>Leads</span>
+  </div>
+  <div class="lin-inner">
+    <span class="no"><%= @user.completed_tasks_count %></span>
+    <span class="tx">Completed </br>Tasks</span>
+  </div>
+  <div class="lin-inner">
+    <span class="no"><%= @user.funded_projects_count %></span>
+    <span class="tx">Funded </br>Projects</span>
+  </div>
+</div>
+<section class="bio">
+
+    <br>
+  <!-- end user bio  -->
+        <ul class="Notifi">
+          <li class="not"><h4 class="header"> <i class="fa fa-bell-o" aria-hidden="true"></i>Notificatons <i class="fa fa-cog" aria-hidden="true"></i></h4> </li>
+        </ul>
+        <% @user.activities.each_with_index do |activity, i| %>
+          <ul class="Notifi-1">
+            <li class="not">
+              <a href="#">
+                <div class="pro"><%= activity_title(activity) %>
+                  ALERT
+                </div>
+                <%= activity_text(activity) %>
+                <div class="pro-we">WE SERVE
+                  <span><%= activity.created_at.strftime('%b %dTH') %></span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        <% end %>
+
+  <!-- END NOTIFICATIONS -->
+</section>

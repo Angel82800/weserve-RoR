@@ -1,0 +1,10 @@
+---
+en:
+  activerecord:
+    models:
+      project: Project
+    attributes:
+      project:
+        section1: First Details Section
+        section2: Second Details Section
+...

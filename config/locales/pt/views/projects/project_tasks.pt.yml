@@ -1,0 +1,11 @@
+pt:
+  projects:
+    project_tasks:
+      suggestion: "Sugestões"
+      delete_confirmation: "Tem certeza de que deseja eliminar esta tarefa?"
+      suggest_a_task: "Sugerir uma tarefa"
+      funding_and_sourcing: "Financiamento e Aprovisionamento"
+      add_a_task: "Adicionar uma tarefa"
+      doing: "Em processo"
+      reviewing: "Em revisão"
+      done: "sucesso!"

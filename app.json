@@ -1,0 +1,280 @@
+{
+  "name": "weserve-testing",
+  "description": "Heroku rev 1",
+  "scripts": {
+    "postdeploy": "if [ -v HEROKU_APP_NAME ]; then export default_url=$HEROKU_APP_NAME.herokuapp.com; fi; bundle exec rake db:schema:load db:migrate db:seed"
+  },
+  "env": {
+    "RAILS_ENV": {
+      "required": true
+    },
+    "RAKE_ENV": {
+      "required": true
+    },
+    "mediawiki_secret": {
+      "required": true
+    },
+    "mediawiki_domain": {
+      "required": true
+    },
+    "mediawiki_api_base_url": {
+      "required": true
+    },
+    "mediawiki_username": {
+      "required": true
+    },
+    "mediawiki_password": {
+      "required": true
+    },
+    "email_provider_username": {
+      "required": false
+    },
+    "email_provider_password": {
+      "required": false
+    },
+    "facebook_app_id": {
+      "required": true
+    },
+    "facebook_secret_key": {
+      "required": true
+    },
+    "twitter_app_id": {
+      "required": true
+    },
+    "twitter_secret_key": {
+      "required": true
+    },
+    "gapp_id": {
+      "required": true
+    },
+    "gapp_secret_key": {
+      "required": true
+    },
+    "app_secret_key": {
+      "required": true
+    },
+    "default_url": {
+      "required": false
+    },
+    "service_provider": {
+      "required": true
+    },
+    "aws_access_key_id": {
+      "required": true
+    },
+    "aws_secret_access_key": {
+      "required": true
+    },
+    "s3_bucket_region": {
+      "required": true
+    },
+    "bucket_name": {
+      "required": true
+    },
+    "rollbar_key": {
+      "required": false
+    },
+    "consider_all_requests_local": {
+      "required": false
+    },
+    "secret_key_base": {
+      "required": true
+    },
+    "GMAIL_USERNAME": {
+      "required": false
+    },
+    "GMAIL_PASSWORD": {
+      "required": false
+    },
+    "weserve_service_fee": {
+      "required": true
+    },
+    "weserve_wallet_address": {
+      "required": true
+    },
+    "weserve_from_email": {
+      "required": true
+    },
+    "delayed_job_username": {
+      "required": true
+    },
+    "delayed_job_passwords": {
+      "required": true
+    },
+    "skip_wallet_transaction": {
+      "required": false
+    },
+    "coinbase_api_key": {
+      "required": false
+    },
+    "coinbase_api_secret": {
+      "required": false
+    },
+    "reserve_wallet_id": {
+      "required": true
+    },
+    "HTTP_BASIC_AUTHENTICATION_PASSWORD": {
+      "required": false
+    },
+    "mediawiki_api_secret": {
+      "required": true
+    },
+    "mailer_sender": {
+      "required": false
+    },
+    "PUBLISHABLE_KEY_STRIPE": {
+      "required": false
+    },
+    "SECRET_KEY_STRIPE": {
+      "required": false
+    },
+    "PORT": {
+      "required": false
+    },
+    "DEPLOY_TASKS": {
+      "required": false
+    },
+    "HEROKU_APP_NAME": {
+        "required": true
+    },
+    "HEROKU_PARENT_APP_NAME": {
+        "required": true
+    },
+    "ROLLBAR_ENV": {
+      "required": false,
+      "value": "staging"
+    },
+    "account_balance_hold": {
+      "required": true,
+      "value": "0"
+    },
+    "ui_favicon_logo": {
+      "required": true
+    },
+    "ui_logo": {
+      "required": true
+    },
+    "ui_logo_text": {
+      "required": true
+    },
+    "ui_logo_x2": {
+      "required": true
+    },
+    "symbol_currency": {
+      "required": true
+    },
+    "currency": {
+      "required": true
+    },
+    "mailjet_subject_prefix": {
+      "required": true
+    },
+    "mailjet_apikey": {
+      "required": true
+    },
+    "mailjet_secretkey": {
+      "required": true
+    },
+    "donation_fee_percent_ui": {
+      "required": true
+    },
+    "donation_fee_fixed_ui": {
+      "required": true
+    },
+    "CUSTOM_RUBY_VERSION": {
+      "required": false
+    },
+    "tax_deduction_enabled": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "hobby"
+    },
+    "worker": {
+      "quantity": 1,
+      "size": "hobby"
+    },
+    "clock": {
+      "quantity": 1,
+      "size": "hobby"
+    }
+  },
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/ruby"
+    },
+    {
+      "url": "https://github.com/gunpowderlabs/buildpack-ruby-rake-deploy-tasks"
+    }
+  ],
+  "environments": {
+    "test": {
+      "buildpacks": [
+        {
+          "url": "https://github.com/heroku/heroku-buildpack-ruby.git"
+        },
+        {
+          "url": "https://github.com/stomita/heroku-buildpack-phantomjs"
+        }
+      ],
+      "env": {
+        "RAILS_ENV": {
+          "value": "test"
+        },
+        "RAKE_ENV": {
+          "value": "test"
+        },
+        "currency": {
+          "value": "USD"
+        },
+        "donation_fee_fixed_ui": {
+          "value": 0.3
+        },
+        "donation_fee_percent_ui": {
+          "value": 0.025
+        },
+        "mailer_sender": {
+          "value": "sender@youserve.test"
+        },
+        "mediawiki_api_secret": {
+          "generator": "secret"
+        },
+        "symbol_currency": {
+          "value": "$"
+        },
+        "weserve_from_email": {
+          "value": "sender@weserve.io"
+        },
+        "weserve_service_fee": {
+          "value": 0.5
+        },
+        "DISABLE_SPRING": {
+          "value": 1
+        },
+        "FIVEMAT_PROFILE": {
+          "value": 1
+        }
+      },
+      "addons": [
+        "heroku-postgresql:in-dyno",
+        "heroku-redis"
+      ],
+      "formation": {
+        "test": {
+          "quantity": 4,
+          "size": "performance-m"
+        }
+      },
+      "scripts": {
+        "test-setup": "bundle exec rake assets:precompile",
+        "test": "bundle exec rspec-queue --queue $REDIS_URL --max-requeues=1 --timeout 360 --format Fivemat"
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+---
+en:
+  activities:
+    index:
+      title: Activity Feed
+      wiki:
+        created: created an %{href}
+        deleted: deleted an article
+        updated: edited an %{href}
+      task:
+        created: created a %{href}
+        deleted: deleted a task
+        updated: edited a %{href}
+      task_comment:
+        created: commented on a %{href}
+        deleted: deleted a comment on a task.
+        updated: edited his comment on a %{href}
+      project:
+        created: created a %{href}
+        deleted: deleted a project
+        updated: edited a %{href}
+      project_comment:
+        created: commented on %{href}
+        deleted: deleted a comment on a project.
+        updated: edited his comment on %{href}
+...

@@ -1,0 +1,314 @@
+<div class="sections section_request_access">
+  <div class="container">
+    <div class="section_content">
+      <div class="flex">
+        <div class="left">
+          <div>
+            <p class="h">
+              <%= t('landing.section_request_access_title') %>
+            </p>
+            <p class="desc">
+              <%= t('landing.section_request_access_desc') %>
+            </p>
+          </div>
+        </div>
+        <div class="right">
+          <div class="start_project_wr">
+            <% if user_signed_in? %>
+              <button class="btn btn-theme-green" data-modal="#startProjectModal"><%= t('commons.start_a_project') %></button>
+            <% else %>
+              <button class="btn btn-theme-green sign_up_a" data-modal="#registerModal"><%= t('commons.start_a_project') %></button>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sections section_community">
+  <div class="container">
+    <div class="row headline">
+      <div class="col-sm-12">
+        <p>
+          <span><%= t('landing.section_community_title_1') %></span><br />
+          <span><%= t('landing.section_community_title_2') %></span>
+        </p>
+      </div>
+    </div>
+    <div class="row section_content">
+      <div class="col-sm-3 col-xs-6">
+        <div class="box_custom">
+          <div class="wr_icon">
+            <div class="icon"><%= image_tag("service_icons/services_files.png") %></div>
+          </div>
+          <p class="h"><%= t('landing.section_community_organize_title') %></p>
+          <p class="desc">
+            <%= t('landing.section_community_organize_desc') %>
+          </p>
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-6">
+        <div class="box_custom">
+          <div class="wr_icon">
+            <div class="icon"><%= image_tag("service_icons/group_share.png") %></div>
+          </div>
+          <p class="h"><%= t('landing.section_community_trust_title') %></p>
+          <p class="desc">
+            <%= t('landing.section_community_trust_desc') %>
+          </p>
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-6">
+        <div class="box_custom">
+          <div class="wr_icon">
+            <div class="icon"><%= image_tag("service_icons/scale.png") %></div>
+          </div>
+          <p class="h"><%= t('landing.section_community_hack_title') %></p>
+          <p class="desc">
+            <%= t('landing.section_community_hack_desc') %>
+          </p>
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-6">
+        <div class="box_custom">
+          <div class="wr_icon">
+            <div class="icon"><%= image_tag("service_icons/group.png") %></div>
+          </div>
+          <p class="h"><%= t('landing.section_community_scale_title') %></p>
+          <p class="desc">
+            <%= t('landing.section_community_scale_desc') %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sections section_how_it_works">
+  <div class="container">
+    <div class="row headline">
+      <div class="col-sm-12">
+        <p><%= t('landing.how_it_works_title') %></p>
+      </div>
+    </div>
+    <div class="section_content">
+
+      <div class="row">
+        <div class="col-sm-4 col-xs-12">
+          <div class="box_custom">
+            <div class="icon_wr">
+              <%= image_tag("works_icons/share.png") %>
+            </div>
+            <p class="h">1. <%= t('landing.hero-collaboration-item-vision-share') %></p>
+            <div class="desc">
+              <p>
+                <%= t('landing.hero-collaboration-item-vision-share-desc') %>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+          <div class="box_custom">
+            <div class="icon_wr">
+              <%= image_tag("works_icons/breakdown.png") %>
+            </div>
+            <p class="h">2. <%= t('landing.hero-collaboration-item-breakdown') %></p>
+            <div class="desc">
+              <p>
+                <%= t('landing.hero-collaboration-item-breakdown-desc') %>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+          <div class="box_custom">
+            <div class="icon_wr">
+              <%= image_tag("works_icons/dollar.png") %>
+            </div>
+            <p class="h">3. <%= t('landing.hero-collaboration-item-fund') %></p>
+            <div class="desc">
+              <p>
+                <%= t('landing.hero-collaboration-item-fund-desc') %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-4 col-xs-12">
+          <div class="box_custom">
+            <div class="icon_wr">
+              <%= image_tag("works_icons/crowdsource.png") %>
+            </div>
+            <p class="h">4. <%= t('landing.hero-collaboration-item-complete') %></p>
+            <div class="desc">
+              <p><%= t('landing.hero-collaboration-item-complete-desc-1') %></p>
+              <p><%= t('landing.hero-collaboration-item-complete-desc-2') %></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+          <div class="box_custom">
+            <div class="icon_wr">
+              <%= image_tag("works_icons/check_mark.png") %>
+            </div>
+            <p class="h">5. <%= t('landing.hero-collaboration-item-review') %></p>
+            <div class="desc">
+              <p>
+                <%= t('landing.hero-collaboration-item-review-desc') %>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+          <div class="box_custom">
+            <div class="icon_wr">
+              <%= image_tag("works_icons/award.png") %>
+            </div>
+            <p class="h">6. <%= t('landing.hero-collaboration-item-done') %></p>
+            <div class="desc">
+              <p>
+                <%= t('landing.hero-collaboration-item-done-desc') %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="sections section_service">
+  <div class="headline"><p><%= t('landing.advantages_title') %></p></div>
+  <%= image_tag("section_service_bg.jpg") %>
+  <div class="box_custom">
+    <p class="h">
+      <%= t('landing.advantages_head_1') %>
+    </p>
+    <p>
+      <%= t('landing.advantages_desc_1') %>
+    </p>
+    <p class="h">
+      <%= t('landing.advantages_head_2') %>
+    </p>
+    <p>
+      <%= t('landing.advantages_desc_2') %>
+    </p>
+    <p class="h">
+      <%= t('landing.advantages_head_3') %>
+    </p>
+    <p>
+      <%= t('landing.advantages_desc_3') %>
+    </p>
+    <% if user_signed_in? %>
+      <button class="btn btn-theme-green" data-modal="#startProjectModal"><%= t('commons.start_a_project') %></button>
+    <% else %>
+      <button class="btn btn-theme-green sign_up_a" data-modal="#registerModal"><%= t('commons.start_a_project') %></button>
+    <% end %>
+  </div>
+</div>
+
+<div class="sections section_features">
+  <div class="container">
+    <div class="row headline">
+      <div class="col-sm-12">
+        <p><%= t('landing.special_features_title') %></p>
+      </div>
+    </div>
+    <div class="row section_content">
+      <div class="col-sm-4 col-xs-12">
+        <div class="box_custom">
+          <div class="icon_wr">
+            <%= image_tag("section_feature_icon_1.png") %>
+          </div>
+          <p class="h"><%= t('landing.special_features_sass_title') %></p>
+          <div class="desc">
+            <p>
+              <%= t('landing.special_features_sass_desc_1') %>
+            </p>
+            <p>
+              <%= t('landing.special_features_sass_desc_2') %>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4 col-xs-12">
+        <div class="box_custom">
+          <div class="icon_wr">
+            <%= image_tag("section_feature_icon_2.png") %>
+          </div>
+          <p class="h"><%= t('landing.special_features_workflow_title') %></p>
+          <div class="desc">
+            <p>
+              <%= t('landing.special_features_workflow_desc_1') %>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4 col-xs-12">
+        <div class="box_custom">
+          <div class="icon_wr">
+            <%= image_tag("section_feature_icon_3.png") %>
+          </div>
+          <p class="h"><%= t('landing.special_features_unlimited_title') %></p>
+          <div class="desc">
+            <p>
+              <%= t('landing.special_features_unlimited_desc') %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sections section_team">
+  <div class="container">
+    <div class="row headline">
+      <div class="col-sm-12">
+        <p><%= t('landing.our_team_title') %></p>
+      </div>
+    </div>
+    <div class="row section_content">
+      <div class="col-sm-4 col-xs-12">
+        <div class="box_custom">
+          <div class="icon_wr">
+            <%= image_tag("team_virginia.png") %>
+          </div>
+          <p class="h">Virginia Garcia</p>
+          <div class="desc">
+            <p><%= t('landing.our_team_virginia_degree') %> -<br /><%= t('landing.our_team_virginia_edu') %></p>
+            <p><%= t('landing.our_team_virginia_pos_1') %><br /><%= t('landing.our_team_virginia_pos_2') %><br /><%= t('landing.our_team_virginia_from') %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4 col-xs-12">
+        <div class="box_custom">
+          <div class="icon_wr">
+            <%= image_tag("team_eric.png") %>
+          </div>
+          <p class="h">Eric Courier de Méré</p>
+          <div class="desc">
+            <p>WeServe, <%= t('landing.our_team_eric_founder') %></p>
+            <p><%= t('landing.our_team_eric_edu') %><br /><%= t('landing.our_team_eric_from') %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4 col-xs-12">
+        <div class="box_custom">
+          <div class="icon_wr">
+            <%= image_tag("team_fatima.png") %>
+          </div>
+          <p class="h">Fatima Uriarte Caceres</p>
+          <div class="desc">
+            <p><%= t('landing.our_team_fatima_degree') %><br /><%= t('landing.our_team_fatima_edu') %></p>
+            <p><%= t('landing.our_team_fatima_pos') %><br /><%= t('landing.our_team_fatima_from') %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

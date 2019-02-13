@@ -1,0 +1,35 @@
+<% content_for :title do %>
+  WeServe.io > Review Comments
+<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Profile Comments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Commenter</th>
+      <th>Receiver</th>
+      <th>Comment text</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @profile_comments.each do |profile_comment| %>
+      <tr>
+        <td><%= profile_comment.commenter_id %></td>
+        <td><%= profile_comment.receiver_id %></td>
+        <td><%= profile_comment.comment_text %></td>
+        <td><%= link_to 'Show', profile_comment %></td>
+        <td><%= link_to 'Edit', edit_profile_comment_path(profile_comment) %></td>
+        <td><%= link_to 'Destroy', profile_comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Profile comment', new_profile_comment_path %>

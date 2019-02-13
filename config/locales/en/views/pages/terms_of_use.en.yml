@@ -1,0 +1,390 @@
+---
+en:
+  pages:
+    terms_of_use:
+      heading: Terms of Use
+      updated: Last Updated
+      description_html: Weserve.io, Inc. (“<u>Weserve.io</u>,” “<u>we</u>,” “<u>us</u>,”
+        or “<u>our</u>”) welcomes you.  We provide you access to our services (our
+        “<u>Services</u>”) through our website located at weserve.io (the “<u>Site</u>”)
+        subject to these Terms of Use, which may be updated by us from time to time
+        without notice to you. By clicking “I Accept” or by browsing the public areas
+        of the Site or accessing and using our Services, you acknowledge that you
+        have read, understood, and agree to be legally bound by the terms and conditions
+        of these Terms of Use and the terms and conditions of our Privacy Policy,
+        which are hereby incorporated by reference (collectively, this “<u>Agreement</u>”).  If
+        you do not agree to any of these terms, then you are not permitted to use
+        the Site.
+      please_read: THE SECTIONS BELOW TITLED “BINDING ARBITRATION” AND “CLASS ACTION
+        WAIVER” CONTAIN A BINDING ARBITRATION AGREEMENT AND CLASS ACTION WAIVER.  THEY
+        AFFECT YOUR LEGAL RIGHTS.  PLEASE READ THEM.
+      capitalized_terms: Capitalized terms not defined in these Terms of Use shall
+        have the meaning set forth in our Privacy Policy.
+      description_and_use:
+        heading: DESCRIPTION AND USE OF OUR SITE
+        intro: We provide Visitors and Registered Users with access to the Site as
+          described below.
+        visitors:
+          heading: Visitors
+          description_html: 'Visitors, as the term implies, are people who do not
+            register with us, but want to explore the Site. No login is required for
+            Visitors. Visitors can: (i) view and access all publicly-available features
+            and functionality on the Site; (ii) share the Site’s listed projects and/or
+            any tasks that are a part of such projects (collectively, “<u>Projects</u>”)
+            on social media platforms; and (iii) donate money to fund a Project.'
+        registered_user:
+          heading: Registered Users
+          description_html: 'Registered Users can do all the things that Visitors
+            can do, as well as: (i) access non-public features and functionality available
+            only to Registered Users; (ii) create, access, manage, and update their
+            own personal accounts on the Site; (iii) invite other Registered Users
+            to complete a Project; (iv) accept or reject personal invitations to complete
+            a Project; (v) apply to complete a task; (vi) follow Projects; and (vii)
+            post comments, reviews, and other content on the Site and/or interact
+            with other Registered Users of the Site (all content and information provided
+            in connection with the foregoing is collectively referred to herein as
+            “<u>Registered User Content</u>”). In addition to the foregoing Registered
+            Users that have administrator status (each, an “<u>Administrator</u>”)
+            can: (i) add new Projects; and (ii) mark Projects as completed.'
+          more: Weserve.io is under no obligation to accept any individual as a Registered
+            User and may accept or reject any registration in its sole and complete
+            discretion. In addition, Weserve.io may, but is not required to, deactivate
+            any account or revoke any Administrator’s account permissions at any time,
+            including, without limitation, if it determines that a Registered User
+            has violated these Terms of Use.
+      restriction_on_use:
+        heading: RESTRICTIONS ON USE
+        intro: 'By accessing and/or using the Site or the Services, you agree to comply
+          with the following restrictions on use (“Community Guidelines”):'
+        applicable_law: You will comply with all applicable laws in your use of the
+          Site and will not use the Site for any unlawful or otherwise fraudulent
+          purpose;
+        will_not_upload: 'You will not upload, post, e-mail, transmit, or otherwise
+          make available any Registered User Content that:'
+        infringes_copyright: infringes any copyright, trademark, right of publicity,
+          or other proprietary rights of any person or entity; or
+        constitutes_promotion: constitutes promotion or advertising of any third-party
+          website, product or service; or
+        no_invasive_another_privacy: is defamatory, libelous, indecent, obscene, pornographic,
+          sexually explicit, invasive of another’s privacy, promotes violence, or
+          contains hate speech (i.e., speech that attacks or demeans a group based
+          on race or ethnic origin, religion, disability, gender, age, veteran status,
+          and/or sexual orientation/gender identity; or
+        sensitive_information: discloses any sensitive information about another person,
+          including that person’s e-mail address, postal address, phone number, credit
+          card information, or any similar information.
+        no_stalk: ou will not “stalk,” threaten, or otherwise harass another person;
+        no_competition: You will not access or use the Site to collect any market
+          research for a competing business;
+        no_impersonate_any_person: You will not impersonate any person or entity or
+          falsely state or otherwise misrepresent your affiliation with a person or
+          entity;
+        no_interfere: You will not interfere with or attempt to interrupt the proper
+          operation of the Site through the use of any virus, device, information
+          collection or transmission mechanism, software or routine, or access or
+          attempt to gain access to any data, files, or passwords related to the Site
+          through hacking, password or data mining, or any other means;
+        no_block: You will not cover, obscure, block, or in any way interfere with
+          any advertisements and/or safety features (e.g., report abuse button) on
+          the Site;
+        no_scraper: You will not use any robot, spider, scraper, or other automated
+          means to access the Site for any purpose without our express written permission;
+          <u>provided</u>, <u>however</u>, we grant the operators of public search
+          engines permission to use spiders to copy materials from the public portions
+          of the Site for the sole purpose of and solely to the extent necessary for
+          creating publicly-available searchable indices of the materials, but not
+          caches or archives of such materials;
+        no_attack_site: You will not take any action that imposes or may impose (in
+          our sole discretion) an unreasonable or disproportionately large load on
+          our technical infrastructure; and
+        inform_us: You will let us know about inappropriate Registered User Content
+          of which you become aware.
+        visitor_term_html: 'Visitors, as the term implies, are people who do not register
+          with us, but want to explore the Site. No login is required for Visitors.
+          Visitors can: (i) view and access all publicly-available features and functionality
+          on the Site; (ii) share the Site’s listed projects and/or any tasks that
+          are a part of such projects (collectively, “<u>Projects</u>”) on social
+          media platforms; and (iii) donate money to fund a Project.'
+        we_may_deactivate_account: Weserve.io is under no obligation to accept any
+          individual as a Registered User and may accept or reject any registration
+          in its sole and complete discretion. In addition, Weserve.io may, but is
+          not required to, deactivate any account or revoke any Administrator’s account
+          permissions at any time, including, without limitation, if it determines
+          that a Registered User has violated these Terms of Use.
+        may_deny_access: We have the right, but not the obligation, to review and
+          reject or remove content that, in our sole discretion, does not adhere to
+          these Community Guidelines. We also reserve the right, in our sole and absolute
+          discretion, to deny you access to the Site, or to any portion of the Site,
+          without notice.
+      user_identification:
+        heading: SIGN-IN NAME; PASSWORD; UNIQUE IDENTIFIERS
+        description_html: If you wish to register for the Platform and do not log
+          in to the Platform using a third-party login provider (e.g., Facebook),
+          you will be prompted to create an account, which may include a sign-in name
+          (“<u>Sign-In Name</u>”), a password (“<u>Password</u>”), and perhaps certain
+          additional information that will assist in authenticating your identity
+          when you log-in in the future (“<u>Unique Identifiers</u>”). When creating
+          your account, you must provide true, accurate, current, and complete information.
+          Each Sign-In Name and corresponding Password can be used by only one Registered
+          User. You are solely responsible for the confidentiality and use of your
+          Sign-In Name, Password, and Unique Identifiers, as well as for any use,
+          misuse, or communications entered or payments made through the Site using
+          one or more of them. You will promptly inform us of any need to deactivate
+          a Password or Sign-In Name, or change any Unique Identifier. We reserve
+          the right to delete or change your Password, Sign-In Name, or Unique Identifier
+          at any time and for any reason and shall have no liability to you for any
+          loss or damage caused by such action. Weserve.io will not be liable for
+          any loss or damage caused by any unauthorized use of your account.
+      intellectual_property:
+        heading: INTELLECTUAL PROPERTY
+        description_html: The Site may contain material, such as software, text, graphics,
+          images, designs, sound recordings, audiovisual works, and other material
+          provided by or on behalf of Weserve.io (collectively referred to as the
+          “<u>Content</u>”). The Content may be owned by us or third parties. The
+          Content is protected under both United States and foreign laws. Unauthorized
+          use of the Content may violate copyright, trademark, and other laws. You
+          have no rights in or to the Content, and you will not use the Content except
+          as permitted under this Agreement. No other use is permitted without prior
+          written consent from us. You must retain all copyright and other proprietary
+          notices contained in the original Content on any copy you make of the Content.
+          You may not sell, transfer, assign, license, sublicense, or modify the Content
+          or reproduce, display, publicly perform, make a derivative version of, distribute,
+          or otherwise use the Content in any way for any public or commercial purpose.
+          The use or posting of the Content on any other website or in a networked
+          computer environment for any purpose is expressly prohibited. If you violate
+          any part of this Agreement, your permission to access and/or use the Content
+          and the Site automatically terminates and you must immediately destroy any
+          copies you have made of the Content. The trademarks, service marks, and
+          logos of Weserve.io (the “<u>Weserve.io Trademarks</u>”) used and displayed
+          on the Site may be registered and/or unregistered trademarks or service
+          marks of Weserve.io. Other company, product, and service names located on
+          the Site may be trademarks or service marks owned by others (the “<u>Third-Party
+          Trademarks</u>,” and, collectively with Weserve.io Trademarks, the “<u>Trademarks</u>”).
+          Nothing on the Site should be construed as granting, by implication, estoppel,
+          or otherwise, any license or right to use the Trademarks, without our prior
+          written permission specific for each such use. Use of the Trademarks as
+          part of a link to or from any site is prohibited unless establishment of
+          such a link is approved in advance by us in writing. All goodwill generated
+          from the use of the Weserve.io Trademarks inures to our benefit. Elements
+          of the Site are protected by trade dress, trademark, unfair competition,
+          and other state and federal laws and may not be copied or imitated in whole
+          or in part, by any means, including, but not limited to, the use of framing
+          or mirrors. None of the Content may be retransmitted without our express,
+          written consent for each and every instance.
+      registered_user_content:
+        heading: REGISTERED USER CONTENT
+        description: As noted above, the Site provides Registered Users the ability
+          to post and upload Registered User Content. You expressly acknowledge and
+          agree that once you submit your Registered User Content, it will be accessible
+          by others, and that there is no confidentiality or privacy with respect
+          to such Registered User Content, including, without limitation, any personally
+          identifying information that you may make available. YOU, AND NOT WESERVE.IO,
+          ARE ENTIRELY RESPONSIBLE FOR ALL REGISTERED USER CONTENT THAT YOU UPLOAD,
+          POST, E-MAIL, OR OTHERWISE TRANSMIT VIA THE SITE. You retain all copyrights
+          and other intellectual property rights in and to your own Registered User
+          Content. You do, however, hereby grant us and our sublicensees a non-exclusive,
+          royalty-free, freely sublicensable, perpetual license to modify, compile,
+          combine with other content, copy, record, synchronize, transmit, translate,
+          format, distribute, publicly display, publicly perform, and otherwise use
+          or exploit (including for profit) your Registered User Content and all intellectual
+          property and moral rights therein throughout the universe, in each case,
+          by or in any means, methods, media, or technology now known or hereafter
+          devised. You also grant us and our sublicensees the right, but not the obligation,
+          to use your Registered User Content, your Sign-In Name, name, likeness,
+          and photograph in connection with any use of the related Registered User
+          Content permitted by the previous sentence and/or to advertise and promote
+          the Site, Weserve.io, and our products and services. Without limiting the
+          foregoing, you acknowledge and agree that uses of your Registered User Content,
+          name, likeness, and photograph permitted by the foregoing rights and licenses
+          may include the display of such Registered User Content, name, likeness,
+          and photograph adjacent to advertising and other material or content, including
+          for profit. If you submit Registered User Content to us, each such submission
+          constitutes a representation and warranty to Weserve.io that such Registered
+          User Content is your original creation (or that you otherwise have the right
+          to provide the Registered User Content), that you have the rights necessary
+          to grant to Weserve.io the license to the Registered User Content as set
+          forth above, and that it and its use by Weserve.io and third parties as
+          permitted by this Agreement does not and will not infringe or misappropriate
+          the intellectual property or moral rights of any person or contain any libelous,
+          defamatory, or obscene material or content that violates this Agreement.
+      communication_with_us:
+        heading: COMMUNICATIONS WITH US
+        description: Although we encourage you to e-mail us, we do not want you to,
+          and you should not, e-mail us any content that contains confidential information.
+          With respect to all e-mails and communications you send to us, including,
+          but not limited to, feedback, QUESTIONS, comments, suggestions, and the
+          like, we shall be free to use any ideas, concepts, know-how, or techniques
+          contained in your communications for any purpose whatsoever, including but
+          not limited to, the development, production, and marketing of products and
+          services that incorporate such information without compensation or attribution
+          to you.
+      no_warranties:
+        heading: NO WARRANTIES; LIMITATION OF LIABILITY
+        description: 'YOU ACKNOWLEDGE THAT WESERVE.IO DOES NOT REPRESENT OR WARRANT
+          THAT THE CONTENT AND ANY OTHER DATA OR INFORMATION PROVIDED THROUGH THE
+          SITE OR THE SERVICES WILL BE ACCURATE OR COMPLETE. YOU ACKNOWLEDGE THAT
+          ANY INTERACTION WITH OR PARTICIPATION IN ANY PROJECT IS DONE AT YOUR SOLE
+          RISK AND EXPENSE, AND THAT WESERVE.IO HAS NO CONTROL OVER OR INVOLVEMENT
+          IN SUCH INTERACTION OR PARTICIPATION. YOU ALSO ACKNOWLEDGE THAT THE SITE
+          MAY CONTAIN BUGS, ERRORS, AND OTHER PROBLEMS THAT COULD CAUSE SYSTEM FAILURES.
+          CONSEQUENTLY, THE SITE AND THE CONTENT ARE PROVIDED “AS IS” AND “AS AVAILABLE”
+          WITHOUT ANY WARRANTIES OF ANY KIND, INCLUDING THAT THE SITE OR CONTENT WILL
+          OPERATE ERROR-FREE OR THAT THE SITE, ITS SERVERS, OR THE CONTENT ARE FREE
+          OF COMPUTER VIRUSES OR SIMILAR CONTAMINATION OR DESTRUCTIVE FEATURES. WE
+          DISCLAIM ALL WARRANTIES, INCLUDING, BUT NOT LIMITED TO, WARRANTIES OF TITLE,
+          MERCHANTABILITY, NON-INFRINGEMENT OF THIRD PARTIES’ RIGHTS, AND FITNESS
+          FOR PARTICULAR PURPOSE AND ANY WARRANTIES ARISING FROM A COURSE OF DEALING,
+          COURSE OF PERFORMANCE, OR USAGE OF TRADE. IN CONNECTION WITH ANY WARRANTY,
+          CONTRACT, OR COMMON LAW TORT CLAIMS: (I) WE AND OUR LICENSORS SHALL NOT
+          BE LIABLE FOR ANY INCIDENTAL OR CONSEQUENTIAL DAMAGES, LOST PROFITS, OR
+          DAMAGES RESULTING FROM LOST DATA OR BUSINESS INTERRUPTION RESULTING FROM
+          THE USE OR INABILITY TO ACCESS AND USE THE SITE, THE SERVICES OR THE CONTENT,
+          EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES; AND (II)
+          ANY DIRECT DAMAGES THAT YOU MAY SUFFER AS A RESULT OF YOUR USE OF THE SITE,
+          THE SERVICES OR THE CONTENT SHALL BE LIMITED TO FIFTY UNITED STATES DOLLARS
+          (US$50). SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF CERTAIN WARRANTIES.
+          THEREFORE, SOME OF THE ABOVE LIMITATIONS ON WARRANTIES IN THIS SECTION MAY
+          NOT APPLY TO YOU. NOTHING IN THESE TERMS OF USE SHALL AFFECT ANY NON-WAIVABLE
+          STATUTORY RIGHTS THAT APPLY TO YOU.'
+      external_site:
+        heading: EXTERNAL SITES
+        description: The Site may contain links to third-party websites, including,
+          without limitation, websites maintained or owned by other Registered Users
+          (“External Sites”). These links are provided solely as a convenience to
+          you and not as an endorsement by us of the content on such External Sites.
+          The content of such External Sites is developed and provided by others.
+          You should contact the site administrator or webmaster for those External
+          Sites if you have any concerns regarding such links or any content located
+          on such External Sites. We are not responsible for the content of any linked
+          External Sites and do not make any representations regarding the content
+          or accuracy of materials on such External Sites. You should take precautions
+          when downloading files from all websites to protect your computer from viruses
+          and other destructive programs. If you decide to access linked External
+          Sites, you do so at your own risk.
+      donation_and_payment:
+        heading: DONATIONS AND PAYMENT
+        description: "You can make a donation through the Site by using Bitcoin as
+          your payment method. By using Bitcoin as your payment method, you acknowledge
+          and agree to be bound by these <u>Coinbase Terms of Use</u>. You expressly
+          acknowledge that any donation made through the Site is a donation to Weserve.io.
+          We will make reasonable efforts to assure your donation reaches the particular
+          Project you select, but we cannot guarantee that it will. For instance,
+          if the Project does not meet its funding goals, or if the Project is canceled
+          or completed prior to your donation reaching the Project, we will return
+          your donated funds to you.\tAll payments to Registered Users for any completed
+          Projects shall be subject to and governed by this Agreement, as well as
+          any other applicable payment policies posted by Weserve.io on the Site.
+          In the event of a conflict between the terms and conditions of any such
+          policies and the terms and conditions of this Agreement, the terms and conditions
+          of this Agreement shall control."
+      indemnify:
+        heading: INDEMNIFICATION
+        description: You agree to defend, indemnify, and hold us and our officers,
+          directors, employees, successors, licensees, and assigns harmless from and
+          against any claims, actions, or demands, including, without limitation,
+          reasonable legal and accounting fees, arising or resulting from your breach
+          of this Agreement, or your misuse of the Content, the Services, or the Site.
+          We shall provide notice to you of any such claim, suit, or proceeding and
+          shall assist you, at your expense, in defending any such claim, suit, or
+          proceeding. We reserve the right, at your expense, to assume the exclusive
+          defense and control of any matter that is subject to indemnification under
+          this section. In such case, you agree to cooperate with any reasonable requests
+          assisting our defense of such matter.
+      compiance_with_law:
+        heading: COMPLIANCE WITH APPLICABLE LAWS
+        description: The Site is based in the United States. We make no claims concerning
+          whether the Content may be downloaded, viewed, or be appropriate for use
+          outside of the United States. If you access or use the Site, the Content,
+          or the Products from outside of the United States, you do so at your own
+          risk. Whether inside or outside of the United States, you are solely responsible
+          for ensuring compliance with the laws of your specific jurisdiction.
+      termination_of_agreement:
+        heading: TERMINATION OF THE AGREEMENT
+        description: We reserve the right, in our sole discretion, to restrict, suspend,
+          or terminate this Agreement and your access to all or any part of the Site,
+          at any time and for any reason without prior notice or liability. We reserve
+          the right to change, suspend, or discontinue all or any part of the Site
+          at any time without prior notice or liability.
+      digital_copyright:
+        heading: DIGITAL MILLENNIUM COPYRIGHT ACT
+        description: 'Weserve.io respects the intellectual property rights of others
+          and attempts to comply with all relevant laws. We will review all claims
+          of copyright infringement received and remove any content deemed to have
+          been posted or distributed in violation of any such laws. Our designated
+          agent under the Digital Millennium Copyright Act (the “Act”) for the receipt
+          of any Notification of Claimed Infringement which may be given under that
+          Act is as follows:'
+        copyright_agent: Copyright Agent
+        more: If you believe that your work has been copied on the Site in a way that
+          constitutes copyright infringement, please provide our agent with notice
+          in accordance with the requirements of the Act, including (i) a description
+          of the copyrighted work that has been infringed and the specific location
+          on the Site where such work is located; (ii) a description of the location
+          of the original or an authorized copy of the copyrighted work; (iii) your
+          address, telephone number and e-mail address; (iv) a statement by you that
+          you have a good faith belief that the disputed use is not authorized by
+          the copyright owner, its agent or the law; (v) a statement by you, made
+          under penalty of perjury, that the information in your notice is accurate
+          and that you are the copyright owner or authorized to act on the copyright
+          owner’s behalf; and (vi) an electronic or physical signature of the owner
+          of the copyright or the person authorized to act on behalf of the owner
+          of the copyright interest.
+      binding_arbitration:
+        heading: BINDING ARBITRATION
+        description_html: In the event of a dispute arising under or relating to these
+          Terms of Use, the Website, the Content, or the Site (each, a “<u>Dispute</u>”),
+          either party may elect to finally and exclusively resolve the dispute by
+          binding arbitration governed by the Federal Arbitration Act (“FAA”). Any
+          election to arbitrate, at any time, shall be final and binding on the other
+          party. IF EITHER PARTY CHOOSES ARBITRATION, NEITHER PARTY SHALL HAVE THE
+          RIGHT TO LITIGATE SUCH CLAIM IN COURT OR TO HAVE A JURY TRIAL. DISCOVERY
+          AND APPEAL RIGHTS MAY ALSO BE LIMITED IN ARBITRATION. All disputes will
+          be resolved before a neutral arbitrator, whose decision will be final except
+          for a limited right of appeal under the FAA. Any court in New York, New
+          York may enforce the arbitrator’s award. The arbitration shall be administered
+          by the Judicial Arbitration and Mediation Services (“<u>JAMS</u>”) pursuant
+          to JAMS’ Streamlined Arbitration Rules and Procedures, if applicable, or
+          otherwise pursuant to its Comprehensive Arbitration Rules and Procedures
+          and in accordance with the Expedited Procedures in those Rules (the “JAMS
+          Rules”). Such disputes will be resolved by the arbitrator as determined
+          under the JAMS Rules. The arbitration may be conducted in person, through
+          the submission of documents, by phone, or online. If conducted in person,
+          the arbitration shall take place in New York, New York. The parties may
+          litigate in court to compel arbitration, to stay proceeding pending arbitration,
+          or to confirm, modify, vacate, or enter judgment on the award entered by
+          the arbitrator. In addition, we may litigate in court to seek injunctive
+          relief.
+      class_action:
+        heading: CLASS ACTION WAIVER
+        description: You agree that any arbitration or proceeding shall be limited
+          to the Dispute between us and you individually. To the full extent permitted
+          by law, (i) no arbitration or proceeding shall be joined with any other;
+          (ii) there is no right or authority for any Dispute to be arbitrated or
+          resolved on a class action-basis or to utilize class action procedures;
+          and (iii) there is no right or authority for any Dispute to be brought in
+          a purported representative capacity on behalf of the general public or any
+          other persons. YOU AGREE THAT YOU MAY BRING CLAIMS AGAINST US ONLY IN YOUR
+          INDIVIDUAL CAPACITY AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED
+          CLASS OR REPRESENTATIVE PROCEEDING.
+      miscellaneous:
+        heading: MISCELLANEOUS
+        description: 'This Agreement and any action related thereto will be governed
+          by the laws of the State of New York without regard to its conflict of laws
+          provisions. The following provisions will survive any expiration or termination
+          of this Agreement: “Purchases,” “Intellectual Property,” “Registered User
+          Content,” “Communications with Us, ” “No Warranties; Limitation of Liability,”
+          “Donations,” “Indemnification,” “Termination of the Agreement,” “ Binding
+          Arbitration,” “Class Action Waiver,” and “Miscellaneous.” Our failure to
+          act on or enforce any provision of the Agreement shall not be construed
+          as a waiver of that provision or any other provision in this Agreement.
+          No waiver shall be effective against us unless made in writing, and no such
+          waiver shall be construed as a waiver in any other or subsequent instance.
+          Except as expressly agreed by us and you in writing, this Agreement constitutes
+          the entire Agreement between you and us with respect to the subject matter,
+          and supersedes all previous or contemporaneous agreements, whether written
+          or oral, between the parties with respect to the subject matter. The section
+          headings are provided merely for convenience and shall not be given any
+          legal import. This Agreement will inure to the benefit of our successors,
+          assigns, licensees, and sublicensees.'
+      copyright: Copyright %{year} Weserve.io, Inc. All rights reserved.
+...

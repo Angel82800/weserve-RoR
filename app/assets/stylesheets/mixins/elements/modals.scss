@@ -1,0 +1,45 @@
+@import "../variables/colors";
+
+.modal {
+  &.custom_modal {
+    .modal-body {
+      position: relative;
+      .check_icon {
+        text-align: center;
+        margin-bottom: 25px;
+        margin-top: 40px;
+        .fa {
+          color: $salat;
+          font-size: 8em;
+        }
+      }
+      .h {
+        font-weight: 800;
+        font-size: 24px;
+        text-align: center;
+      }
+      .desc {
+        line-height: 1.8em;
+        text-align: center;
+        a {
+          color: $salat;
+        }
+      }
+      .note {
+        text-align: center;
+        font-weight: 800;
+        margin-bottom: 40px;
+      }
+      .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: $salat;
+        opacity: .7;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

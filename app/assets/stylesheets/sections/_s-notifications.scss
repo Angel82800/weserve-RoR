@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=Libre+Franklin');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+@import '../new_design/variables';
+
+.s-notifications {
+  padding: 22px 0;
+  margin: 0;
+  .row & {
+    margin: 0;
+  }
+  .container {
+    width: 100%;
+    max-width: 815px;
+    margin: 0;
+    padding: 0 35px;
+  }
+  &__top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  &__title {
+    margin: 0;
+    font-family: 'Libre Franklin', sans-serif;
+    letter-spacing: -0.5px;
+  }
+  &__mark-read {
+    font-size: 14px;
+    color: $darkBackground;
+    margin-left: auto;
+    font-family: 'Libre Franklin', sans-serif;
+    margin-top: 5px;
+
+    .svg-check {
+      margin-right: 3px;
+      width: 14px;
+      height: 10px;
+      color: currentColor;
+    }
+  }
+  .load-older-notifications-link {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+    a {
+      color: inherit;
+    }
+  }
+}

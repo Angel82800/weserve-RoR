@@ -1,0 +1,124 @@
+---
+en:
+  payments:
+    saved_cards: Saved Cards
+    card_number: Card Number
+    last_four_digits: Last 4 digits
+    expiry: Expiry (MM/YYYY)
+    card_code: Card code
+    what_is_cvv: What is CVV?
+    save_this_card: Save this card
+    read_accept_terms: I've read and accept the
+    terms_and_conditions: terms & conditions
+    donate_btn: Donate
+  modal:
+    submit_review:
+      please_submit: Please submit a review
+      text: 'Please rate the task completion. '
+      feedback: Feedback
+      short_feedback: Please provide a short feedback about how teammate evaluated
+        the task.
+      feedback_posted: The feedback will be posted on the user page.
+      placeholder: John did everything well, I'll be happy to continue our cooperation...
+      postpone_later: Postpone for later
+      submit: Submit review
+    tasks_edit:
+      comments_title: Comments / Attachments
+    start_project_modal:
+      title: Start New Project
+      project:
+        title: Title
+        error_title: Username is mandatory, please specify one
+        short_description: Idea
+        country: Location (Where is project located?)
+        image: Project Image
+        choose_a_file: Choose a file
+        enter_location: Enter a location
+    task_fund_modal:
+      donate_with_credit_card: Donate with credit card
+      title: Make a donation
+      amount_to_send: Amount to Send
+      donate_with_bitcoin: Donate with bitcoin
+      donate_with_card: Donate with credit card
+      use_weserve_wallet: Use your WeServe.io wallet
+      donate: Donate
+      pay_with_stripe: Pay with your credit card via stripe
+    thank_you_fund_modal:
+      title: Thank you for your donation!
+      message: It can take up few hours for transaction to be completed
+    task_do_modal:
+      project: Project
+      task: Task
+      description: Description
+      amount_per_volunteer: Amount to be received per volunteer
+      why_right_person?: Why are you the right person to complete this task? (Indicate
+        if you prefer to do this task for free.)
+      submit: Submit Application
+      read_our: Questions? Read our
+      want_to_task_for_free: I want to do this task for free (optional)
+    cancel_confirm:
+      want_cancel_task: Do you want cancel task?
+      agree: "Yes"
+      disagree: "No"
+    welcome_to_team_modal:
+      title: Welcome to the team!
+      how_to_join: How to join the team?
+      contribute: Contribute to the plan
+      suggest_a_task: Suggest a task
+      do_or_fund: Do or Fund a task
+      looking_for_role: Looking for a special role?
+      become_lead_editor: Become the Lead Editor!
+      lead_editor_description: Lead editor channels collaboration on "Plan" tab, by
+        accepting or rejecting edits from users. Lead editor verifies content quality
+        and checks that information comes from a reliable sources.
+      apply_lead_editor_confirmation: Do you want to apply as Lead Editor?
+      become_coordinator: Become the Coordinator!
+      coordinator_description: coordinator controls collaboration on "Task" tab.<p>-
+        edit + approve suggested tasks.</p><p>- accept user applications to complete
+        tasks.</p><p>- coordinate and interact with users who complete tasks.</p><p>-
+        verify task completion.</p>
+      apply_coordinator_confirmation: Do you want to apply as Coordinator?
+    project_invite_modal:
+      title: Share/Invite People to Participate
+      share_on_social_media: Share on social media
+      share_fb: Share on Facebook
+      share_twitter: Share on Twitter
+      share_gplus: Share on Google +
+      import_contact_from: Import your contacts from
+      email_address: E-mail address
+    revisions_diff_modal:
+      title: Difference between revisions
+      revision_as_of: Revision as of
+    block_user_modal:
+      confirmation_message: Are you sure you want to block
+    new_task_modal:
+      suggest_new_task: Suggest New Task
+      is_task_free: Task without budget (This task does not require funding)?
+      budget_in_usd: Total budget of task in %(currency).
+      people_needed: People Needed
+      total_participant: Total number of participants needed to work on this task.
+      estimate_amount_per_member: Estimated per member amount
+      specifications: Specifications
+      general_description: Provide general description of this task.
+      proof_of_execution: Proof of Execution
+      condition_as_completed: Specify conditions to consider this task as completed.
+    edit_profile_modal:
+      title: Edit info
+      edit_bg_img: Edit Background Image
+      update_success_message: Profile was updated
+      update_fail_message: Profile wasn't updated. Try one more time
+    profile_edit_response_modal:
+      message: Profile was successfully updated
+    register_modal:
+      join_weserve_today: Join WeServe.io Today
+      password_not_match: Password confirmation doesn't match
+      already_have_account?: Already have an account?
+      agree_term_html: By clicking Sign Up or Sign in, you agree to our <a href='/pages/terms_of_use'>
+        Terms of Use </a> and <a href='/pages/privacy_policy'>Privacy Policy</a>.
+      not_receive_confirmation?: Didn't receive confirmation?
+      donot_have_account?: Don't have an account?
+    warring_pop_up:
+      title: You can't change task description. Team members are working on this task.
+    edit_budget:
+      title: Change Budget!
+...

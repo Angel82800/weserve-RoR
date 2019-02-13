@@ -1,0 +1,49 @@
+<%- @task_reviews.each do |task_review| %>
+  <%- task = task_review.task %>
+  <%- user = task_review.user %>
+  <div class='pr-card-history' data={ taskId="<%= task.id %>", task-board-id="<%= task.board&.id %>" }>
+    <div class="history-item clearfix">
+      <div class='history-left_block'>
+        <div class='history-task_title'>
+          <h4><%= link_to task.title, show_task_projects_path(id: task.id), format: :js %></h4>
+          <h5><%= link_to task.project.title, project_path(task.project.id) %></h5>
+        </div>
+        <div class='history-task_info'>
+          <h5><strong><%= t('.budget') %></strong></h5>
+          <p><%= "€#{task.budget/100}" %></p>
+          <h5><strong><%= t('.task_specification') %></strong></h5>
+          <p><%= task.condition_of_execution %></p>
+        </div>
+      </div>
+      <div class='history-right_block'>
+        <div class='history-review-block'>
+          <div class='history-review-user'>
+            <h5><strong><%= t(".review") %></strong></h5>
+            <div>
+              <% if user.picture? %>
+                <%= image_tag user.picture, class: 'history-user-picture' %>
+              <% else %>
+                <%= image_tag t('commons.default_user_pic'), class: 'history-default-user-picture' %>
+              <% end %>
+              <%= link_to user.username, user_path(user.id) %>
+            </div>
+          </div>
+          <div class='history-review-rating'>
+            <div><strong><%= "#{task_review.rating.to_i}/5" %></strong></div>
+            <div>
+              <fieldset class="rating" title="<%= task_review.rating %>/5">
+                <%- [1,2,3,4,5].each do |i| %>
+                    <%- klass = task_review.rating >= i ? 'star-gold' : 'star-grey' %>
+                    <label class = "<%= klass %>"></label>
+                <% end %>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+        <div style="padding:15px;">
+          <p><%= task_review.feedback %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

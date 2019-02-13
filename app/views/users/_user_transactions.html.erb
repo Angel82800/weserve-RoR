@@ -1,0 +1,36 @@
+<div class="s-wallet__content _active">
+  <div class="s-wallet__content-header">
+    <h3 class="s-wallet__subtitle _uppercase"><%= t('commons.transactions') %></h3>
+  </div>
+
+  <div class="s-wallet__content-main">
+    <div class="t-transactions">
+      <% if @transactions.any? %>
+        <div class="t-transactions__row _head">
+          <div class="t-transactions__th"><%= t('.date') %></div>
+          <div class="t-transactions__th"><%= t('.description') %></div>
+          <div class="t-transactions__th"><%= t('.amount') %></div>
+        </div>
+        <% @transactions.each do |transaction| %>
+          <div class="t-transactions__row">
+            <div class="t-transactions__td">
+              <%= l(transaction.created_at.localtime, format: :long)%>
+            </div>
+            <div class="t-transactions__td">
+              <!-- here with withdrawal too -->
+              <%= transaction.display_transaction.html_safe %>
+              <%- if ENV['tax_deduction_enabled'].present? && transaction.class.name == "PaymentTransaction" %>
+                <div><%= link_to 'Download tax receipt', download_tax_receipt_path(transaction.id, :format => :pdf) , :format => :pdf %></div>
+              <% end %>
+            </div>
+            <div class="t-transactions__td">
+              <%= increase_decrease(transaction) %> <%= ENV['symbol_currency'] %><%= transaction_amount(transaction) %>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <%= t('.no_transaction') %>
+      <% end %>
+    </div>
+  </div>
+</div>

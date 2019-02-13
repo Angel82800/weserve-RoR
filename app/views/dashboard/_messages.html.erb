@@ -1,0 +1,96 @@
+
+  <div class="main">
+    <div class="row messages-page-row">
+      <!-- Messages and projects nav -->
+      <div class="small-2 columns full-page" id="messages-nav">
+        <br>
+        <div class="messages-nav-title">
+          <i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i>
+          <span>Messages</span>
+        </div>
+        <div class="messages-menu">
+          <div class="messages-submenu">
+            <div class="submenu-title">
+              <span class="menu-subtitle">
+                PROJECTS (<%= @user.projects.count %>)
+              </span>
+              <%= link_to new_project_path do%>
+                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+              <% end %>
+            </div>
+            <ul class="circle">
+              <% @user.projects.each do |project| %>
+                <li>
+                  <%= link_to project.title, project_path(project) %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+          <hr>
+          <div class="messages-submenu">
+            <div class="submenu-title">
+              <span class="menu-subtitle">DIRECT MESSAGES</span>
+              <%#= link_to conversations_path do %>
+                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+            </div>
+            <ul class="circle">
+              <% conversations.each do |conversation| %>
+                <li conversation-id="<%= conversation.id%>">
+                  <%#= link_to conversation_companion_name(@user, conversation), conversation, remote: true %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+          <hr>
+        </div>
+      </div>
+
+      <div class="small-7 columns" id="page-message-content">
+        <br>
+        <div>
+          <!-- Conversation name -->
+          <div class="small-6 columns">
+            <h4 id="conversation-name">
+              <%#= conversation_companion_name(@user, conversations.first) %>
+            </h4>
+          </div>
+
+          <div class="small-6 columns">
+            <!-- Search box -->
+            <div class="small-8 columns">
+              <form>
+                <div class="row messages-page-row collapse">
+                  <div class="small-9 columns">
+                    <input type="search" placeholder="search">
+                  </div>
+                  <div class="small-3 columns">
+                    <span class="postfix"><i class="fa fa-search" aria-hidden="true"></i></span>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <!-- Settings and attach file icons -->
+            <div class="small-4 columns">
+              <span style="margin-right: 8px;">
+                <i class="fa fa-cog fa-2x" title="Settings" aria-hidden="true"></i>
+              </span>
+              <span class="attach-file-icon">
+                <i class="fa fa-paperclip fa-2x" title="Attach file" aria-hidden="true"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+        <!-- Messages box. includes messages and new message form -->
+        <%#= render conversations.first%>
+        <hr>
+        <%#= render partial: "messages/new_message_form", locals: { conversation: conversations.first} %>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    $("li[conversation-id]").first().addClass("active");
+  </script>

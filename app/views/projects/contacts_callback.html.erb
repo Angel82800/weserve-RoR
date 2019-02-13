@@ -1,0 +1,72 @@
+<div id="gmail-invite-modal" class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content" id="gmail-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Invite Your Friends To This Project</h3>
+        <h5 class="text-center">(<%= @contacts.count.to_s.concat('  Emails found') unless @contacts.blank? %>)</h5>
+      </div>
+
+      <div class="modal-body">
+        <% unless @contacts.blank? %>
+            <%if  @contacts.count >15 %>
+                <%= form_tag  '/projects/send_project_invite_email' do%>
+                    <%= hidden_field_tag 'emails' %>
+                    <%= link_to "Cancel",'/contacts/failure', class: "btn btn-danger" , id: 'cancel'%>
+
+                    <%= submit_tag "Invite Friends", class: "btn btn-success", id:'succes' %>
+                <%end %>
+            <%end%>
+        <% else %>
+            <p id="failer"> No, Contact Found!</p>
+            <%= link_to 'Go Back',controller: 'projects', action: 'taskstab', id: session[:idd]%>
+        <% end %>
+        <script>var arr=[]</script>
+
+        <% if !@contacts.nil?%>
+            <% @contacts.each do |email|%>
+                <% @contacts.count %>
+                <script>arr.push("<%=email%>")</script>
+                <input type="checkbox" id="x" class='email_selected' value="<%=email%>"  checked>
+                <span class="email-address"><%= email %></span>
+            <%end%>
+            <%else%>
+            <p id= 'failer'> No, Contact Found!</p>
+            <%= link_to 'Go Back',controller: 'projects', action: 'taskstab', id: session[:idd]%>
+        <% end %>
+
+        <script>
+          $(document).ready(function() {
+            $('#gmail-invite-modal').modal({
+              backdrop: 'static',
+              keyboard: false
+            });
+            document.getElementById("emails").value = arr;
+            $('.email_selected').change(function () {
+              if ($(this).prop('checked') == true) {
+                var ema = $(this).attr('value');
+                arr.push(ema);
+                document.getElementById("emails").value = arr;
+              }
+              else {
+                var email = $(this).attr('value');
+                var index = arr.indexOf(email)
+                arr.splice(index, 1)
+                document.getElementById("emails").value = arr;
+              }
+            });
+            $("#gmail-invite-modal").modal('show');
+          });
+        </script>
+
+        <% unless @contacts.blank? %>
+          <%= form_tag('/projects/send_project_invite_email', :method => "post", :class => "invite-action__form" ) do%>
+              <%= hidden_field_tag 'emails' %>
+              <%= submit_tag "Invite Friends", id:'invite-friends',  class: "btn-default-weserve" %>
+              <%= link_to "Cancel",'/contacts/failure', id:'contacts-failure' , class: "btn-alt-weserve"%>
+          <% end %>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>

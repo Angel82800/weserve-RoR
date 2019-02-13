@@ -1,0 +1,13 @@
+pt:
+  tasks:
+    banner:
+      edit_project_image: "Edite a imagem do projeto"
+      funded: "Financiado"
+      teammates: "Companheiros de equipe"
+      raised: "Recolhido"
+      get_involved: "Envolva-se"
+      raised_of: "criado de"
+      goal: "objetivo"
+      tasks_completed: "completado"
+      to_dos: "to-dos"
+      back_this_project: "de volta ao projeto"

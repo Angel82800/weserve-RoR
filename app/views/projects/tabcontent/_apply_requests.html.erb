@@ -1,0 +1,62 @@
+<% if apply_requests.size > 0 %>
+  <% is_pending_table = apply_requests.first.is_valid? %>
+  <% if is_pending_table %>
+    <h4 class="mb20">
+      <%= t('.pending_application_requests') %>
+    </h4>
+    <%= t('.there_users_requested_to_apply', project_title: project.title) %>
+  <% else %>
+    <h4 class="mb20">
+      <%= t('.resolved_application_requests') %>
+    </h4>
+    <%= t('.there_users_apply_resolved_in_project', project_title: project.title) %>
+  <% end %>
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>User</th>
+          <th>Applied as</th>
+          <th>Created At</th>
+          <% if is_pending_table %>
+            <th>Actions</th>
+          <% else %>
+            <th>Status</th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <% apply_requests.each do |apply_request| %>
+          <tr>
+            <td><%= apply_request.id %></td>
+            <td><%= apply_request.user.display_name %> (<%= apply_request.user.email %>)</td>
+            <td><%= apply_request.request_type %></td>
+            <td><%= apply_request.created_at %></td>
+            <td>
+              <% if is_pending_table %>
+              <div class="buttons_group">
+                <%= link_to(accept_apply_request_path(apply_request), class: 'btn btn-theme-green btn-notify _accept', method: :post) do %>
+                  <svg focusable="false" version="1.1" class="svg-check">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-check"></use>
+                  </svg>
+                  Approve
+                <% end %>
+                <%= link_to(reject_apply_request_path(apply_request), class: 'btn btn-theme-green btn-notify _reject', method: :post) do %>
+                  <svg focusable="false" version="1.1" class="svg-times">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-times"></use>
+                  </svg>
+                  Deny
+                <% end %>
+              </div>
+              <% else %>
+              <%= apply_request.resolved_state&.capitalize %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

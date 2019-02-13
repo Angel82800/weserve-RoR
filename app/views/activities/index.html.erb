@@ -1,0 +1,19 @@
+<h1><%= t('.title') %></h1>
+<%if @activities %>
+	<% @activities.each do |activity| %>
+		<% next if activity.targetable.nil? %>
+
+		<%# TODO: add view for these activities %>
+		<% next if activity.targetable_type == 'User' %>
+
+		<% if activity.user.picture? %>
+			<%= link_to (image_tag activity.user.picture, :size => "30x30"), activity.user  %>
+		<% else %>
+			<%= gravatar_for_user(activity.user) %>
+	  <%end%>
+
+		<%= activity.user.display_name %>
+		<%= render partial: "activities/#{activity.targetable_type.underscore}/#{activity.action}", locals: { activity: activity } %>
+		<hr>
+	<%end%>
+<%end%>

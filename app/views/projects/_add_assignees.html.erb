@@ -1,0 +1,8 @@
+<div class="add-task-assignee hide">
+  <div class='title-select-user'><%= t('.select_user') %></div>
+  <%= form_tag add_assignee_task_path(task.id), class: "form-select-assignee", data: { confirm: t("commons.are_you_sure") }, method: :put do |f| %>
+    <%= select_tag "user_id", options_for_select(@task.members_assign.collect{ |u| [u.display_name, u.id] }) %>
+    <%= submit_tag t('.confirm') %>
+    <a href="javascript:void(0)" id="cancel-assignee"><%= t('.cancel') %></a>
+  <% end %>
+</div>

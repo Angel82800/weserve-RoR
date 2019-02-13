@@ -1,0 +1,42 @@
+<% content_for :title do %>
+  WeServe.io > Directory
+<% end %>
+
+<div class="generalcontent">
+
+  <div class="container">
+  <br>
+    <div class="row collapse postfix-round right">
+      <div class="small-9 columns">
+        <input type="text" placeholder="Search">
+      </div>
+      <div class="small-3 columns">
+        <a href="#" class="button postfix">Go</a>
+      </div>
+    </div>
+
+    <div class="row">
+      <h3>Users</h3>
+      <div class="table-responsive">
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>Name </th>
+              <th> City </th>
+              <th>Country</th>
+              <th>Email</th>
+              <th>Status </th>
+              <th>Change Status</th>
+              <th>Delete User</th>
+            </tr>
+            <% @users.each do |user| %>
+              <tr>
+                <%= render user %>
+              </tr>
+            <%end%>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

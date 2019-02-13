@@ -1,0 +1,134 @@
+---
+fr:
+  payments:
+    saved_cards: Cartes sauvegardées
+    card_number: Numéro de carte
+    last_four_digits: 4 derniers chiffres
+    expiry: Expiration (MM/AAAA)
+    card_code: Code de la carte
+    what_is_cvv: Qu'est-ce que le cryptogramme visuel ?
+    save_this_card: Enregistrer cette carte
+    read_accept_terms: J'ai lu et accepté les
+    terms_and_conditions: conditions générales
+    donate_btn: Faire un don
+  modal:
+    submit_review:
+      please_submit: Veuillez soumettre un examen
+      text: Notez la réalisation de la tache. Merci
+      feedback: Feedback
+      short_feedback: Veuillez fournir un court feedback sur la façon dont l'équipier
+        a évalué la tâche.
+      feedback_posted: Le feedback sera posté sur la page de l'utilisateur.
+      placeholder: John a fait du bon travail, je serai heureux de poursuivre notre
+        collaboration...
+      postpone_later: Reporter à plus tard
+      submit: Soumettre l'examen
+    tasks_edit:
+      comments_title: Commentaires / Pièces jointes
+    start_project_modal:
+      title: Lancer un nouveau projet
+      project:
+        title: Titre
+        error_title: Vous devez indiquez un nom d'utilisateur
+        short_description: Idée
+        country: Lieu (Où le projet est-il situé ?)
+        image: Image du projet
+        choose_a_file: Choisir un fichier
+        enter_location: Entrez un lieu
+    task_fund_modal:
+      donate_with_credit_card: Faire un don avec une carte de crédit
+      title: Faire un don
+      amount_to_send: Montant à envoyer
+      donate_with_bitcoin: Donner en bitcoins
+      donate_with_card: Donner avec une carte bancaire
+      use_weserve_wallet: Utiliser votre portefeuille WeServe.io
+      donate: Donner
+      pay_with_stripe: Payer avec votre carte bancaire via stripe
+    thank_you_fund_modal:
+      title: Merci pour votre don !
+      message: Le traitement de la transaction peut prendre quelques heures
+    task_do_modal:
+      project: Projet
+      task: Tâche
+      description: Description
+      amount_per_volunteer: Montant que le volontaire va recevoir
+      why_right_person?: Pourquoi êtes-vous la bonne personne pour effectuer cette
+        tâche ? (Indiquez si vous préférez réaliser cette tâche gratuitement.)
+      submit: Envoyer votre candidature
+      read_our: Des questions ? Lisez nos
+      want_to_task_for_free: Je veux faire cette tâche gratuitement (facultatif)
+    cancel_confirm:
+      want_cancel_task: Voulez-vous annuler la tâche ?
+      agree: Oui
+      disagree: Non
+    welcome_to_team_modal:
+      title: Bienvenue dans l'équipe !
+      how_to_join: Comment rejoindre l'équipe ?
+      contribute: Contribuer au plan
+      suggest_a_task: Proposer une tâche
+      do_or_fund: Réaliser ou financer une tâche
+      looking_for_role: Vous souhaitez jouer un rôle particulier ?
+      become_lead_editor: Devenez éditeur principal !
+      lead_editor_description: L'éditeur principal gère la collaboration sur l'onglet
+        "Plan", en acceptant ou en rejetant les modifications des utilisateurs. L'éditeur
+        principal vérifie la qualité du contenu et s'assure que les informations proviennent
+        d'une source fiable.
+      apply_lead_editor_confirmation: Voulez-vous postuler pour devenir éditeur principal
+        ?
+      become_coordinator: Devenez coordinateur !
+      coordinator_description: Le coordinateur contrôle la collaboration sur l'onglet
+        "Tâche".<p>- modifier et approuver les tâches proposées.</p><p>- accepter
+        les candidatures des utilisateurs pour réaliser les tâches.</p><p>- coordonner
+        et être en relation avec les utilisateurs qui effectuent les tâches.</p><p>-
+        vérifier la réalisation des tâches.</p>
+      apply_coordinator_confirmation: Souhaitez-vous envoyer votre candidature pour
+        devenir coordinateur ?
+    project_invite_modal:
+      title: Partager / Inviter des personnes à participer
+      share_on_social_media: Partager sur les réseaux sociaux
+      share_fb: Partager sur Facebook
+      share_twitter: Partager sur Twitter
+      share_gplus: Partager sur Google +
+      import_contact_from: Importer vos contacts depuis
+      email_address: Adresse e-mail
+    revisions_diff_modal:
+      title: Différence entre les révisions
+      revision_as_of: Révision en tant que
+    block_user_modal:
+      confirmation_message: Êtes-vous sûr de vouloir bloquer
+    new_task_modal:
+      suggest_new_task: Proposer une nouvelle tâche
+      is_task_free: Tâche sans budget (cette tâche ne nécessite pas de financement)
+        ?
+      budget_in_usd: Budget total de la tâche en %(currency).
+      people_needed: Participants requis
+      total_participant: Nombre total de participants requis pour travailler sur cette
+        tâche.
+      estimate_amount_per_member: Montant estimé par le membre
+      specifications: Caractéristiques
+      general_description: Donner une description générale de cette tâche.
+      proof_of_execution: Preuve d'exécution
+      condition_as_completed: Déterminer les conditions pour considérer que cette
+        tâche a bien été réalisée.
+    edit_profile_modal:
+      title: Modifier les informations
+      edit_bg_img: Modifier l'image d'arrière-plan
+      update_success_message: Le profil a été mis à jour
+      update_fail_message: Le projet n'a pas été mis à jour. Réessayez.
+    profile_edit_response_modal:
+      message: Le profil a bien été mis à jour
+    register_modal:
+      join_weserve_today: S'inscrire sur WeServe.io aujourd'hui
+      password_not_match: La confirmation du mot de passe ne correspond pas
+      already_have_account?: Vous avez déjà un compte ?
+      agree_term_html: En cliquant sur Inscription ou Identifiez-vous, vous acceptez
+        nos <a href="/pages/terms_of_use"> Conditions d'utilisation </a> et notre
+        <a href="/pages/privacy_policy">Politique de confidentialité</a>.
+      not_receive_confirmation?: Vous n'avez pas reçu de confirmation ?
+      donot_have_account?: Vous n'avez pas encore de compte ?
+    warring_pop_up:
+      title: Vous ne pouvez pas changer la description de cette tâche car des équipiers
+        travaillent sur cette tâche.
+    edit_budget:
+      title: Changer le budget !
+...

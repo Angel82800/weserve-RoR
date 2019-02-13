@@ -1,0 +1,32 @@
+<div class="modal-default modal-edit-img" id="project-img-edit" role="dialog" tabindex="-1" aria-hidden="true">
+  <div class="modal-default__content">
+    <button type="button" class="modal-default__close"></button>
+    <h3 class="modal-default__title">Edit Project Image</h3>
+    <%= form_for @project do |f| %>
+        <%= content_tag(:div, class: ["cropbox-wrap", @project.picture? ? "" : "_hide"]) do %>
+            <%= f.cropbox :picture %>
+        <% end %>
+
+        <%= f.file_field :picture, class: 'btn-upload' %>
+        <button class="btn btn-theme-green btn-root" name="commit" data-modal-close>Save Changes</button>
+        <button type="button" class="btn btn-theme-green transparent btn-root _dark" data-modal-close>Cancel</button>
+    <% end %>
+  </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('.modal-edit-img').on('change', function(event) {
+            var input = event.target;
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('.cropbox-wrap').removeClass('_hide');
+                    $('#project_picture_cropbox').data('Jcrop').setImage(e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        })
+    });
+</script>

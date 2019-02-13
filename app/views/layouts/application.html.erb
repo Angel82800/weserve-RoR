@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for?(:title) ? yield(:title) : "WeServe.io" %></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "WeServe.io" %>">
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'vendor/modernizr' %>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <%= Gon::Base.render_data %>
+    <%= favicon_link_tag ENV["ui_favicon_logo"] %>
+    <%= csrf_meta_tags %>
+    <%= yield :customhead %>
+    <%= metamagic %>
+  </head>
+
+  <body>
+    <%= render 'layouts/noindex' %>
+
+    <%= render 'layouts/devise_translations'  %>
+
+    <%= javascript_include_tag 'application' %>
+    <%= render 'layouts/menu', locals: { header_class: @header_class ? @header_class : '' } %>
+
+
+    <div class="page page-wrapper">
+      <% if user_signed_in? && @current_user&.email.blank? %>
+        <%= render 'layouts/badge_update_email' %>
+      <% end %>
+      <%= render 'layouts/messages' %>
+      <div class="content">
+        <div id="error-message-show"></div>
+        <%= yield %>
+      </div>
+    </div>
+
+    <%= render "modal/register_modal" %>
+    <%= render "modal/start_project_modal" %>
+    <%= render "modal/change_language_modal" %>
+    <%= render 'modal/response_modal' %>
+    <%= render 'modal/agreement_modal' %>
+
+    <%= render 'layouts/footer' %>
+
+    <script>
+        $(document).ready(function() {
+            var arr_locale = location.href.split('locale='),
+            currentLanguage = arr_locale.length > 1 ? arr_locale[1].split('&')[0] : 'en';
+
+            <% if user_signed_in? %>
+                currentLanguage = '<%= current_user.preferred_language %>';
+            <% end %>
+
+            LanguageModule.setUserSelectedLanguage(currentLanguage);
+        })
+    </script>
+    <%= render "layouts/google_tag_manager_body" %>
+    <%= render "layouts/setup_rollbar" %>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1204824659546785',
+          xfbml      : true,
+          version    : 'v2.5'
+        });
+      };
+
+      (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <% unless Rails.env.test? %>
+      <!-- Start of weservesupport Zendesk Widget script -->
+      <!-- <script>/*<![CDATA[*/window.zEmbed||function(e,t){var n,o,d,i,s,a=[],r=document.createElement("iframe");window.zEmbed=function(){a.push(arguments)},window.zE=window.zE||window.zEmbed,r.src="javascript:false",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="display: none",d=document.getElementsByTagName("script"),d=d[d.length-1],d.parentNode.insertBefore(r,d),i=r.contentWindow,s=i.document;try{o=s}catch(e){n=document.domain,r.src='javascript:var d=document.open();d.domain="'+n+'";void(0);',o=s}o.open()._l=function(){var e=this.createElement("script");n&&(this.domain=n),e.id="js-iframe-async",e.src="https://assets.zendesk.com/embeddable_framework/main.js",this.t=+new Date,this.zendeskHost="weservesupport.zendesk.com",this.zEQueue=a,this.body.appendChild(e)},o.write('<body onload="document._l();">'),o.close()}();
+      /*]]>*/</script> -->
+      <!-- End of weservesupport Zendesk Widget script -->
+    <% end %>
+
+    <%= render "layouts/google_tag_manager_head" %>
+    <%= render 'visitors/google_analytics' if controller.controller_name.eql?("visitors") && controller.action_name.eql?("landing")  && (Rails.env.production? || Rails.env.staging?)%>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArO4kJXYuWNWA47l20aDlstpi1oFA9f7A&&libraries=places"></script>
+
+    <% if ENV['jira_reporter_enabled'].present? %>
+    <script type="text/javascript" src="https://weserveio.atlassian.net/s/d41d8cd98f00b204e9800998ecf8427e-T/d290wo/b/20/a44af77267a987a660377e5c46e0fb64/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-US&collectorId=e00ca93f"></script>
+    <% end %>
+
+  </body>
+</html>

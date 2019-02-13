@@ -1,0 +1,65 @@
+pt:
+  controllers:
+    cancan_access_denied: "Ops. Parece que você não está autorizado para esta ação"
+    active_record_not_found: "Desculpe, não podemos encontrar o que você está procurando!"
+    unauthorized_message: "Você não está autorizado a fazer esta operação"
+    admin_only_mode:
+      admin_mode_activated: "Modo Admininistrador Apenas ativado. "
+    payments:
+      thanks_you: "Obrigado pelo seu pagamento "
+      invalid_parameters: "Os parâmetros do formulário enviado são inválidos"
+  task_comments:
+    create:
+      success: "Comentário enviado"
+      fail: "Erro ao salvar este comentário, comente novamente "
+  user_wallet_transactions:
+    send_to_any_address:
+      success: "%{amount} O BTC foi enviado com sucesso para %{transfer_address}."
+    send_to_task_address:
+      success: "%{amount} O BTC foi enviado com sucesso ao balanço da tarefa "
+  users:
+    update:
+      fail: "Falha ao atualizar usuário."
+    destroy:
+      success: "Usuário excluído."
+  task_attachments:
+    create:
+      success: "O Arquivo Anexo da Tarefa foi carregado."
+      fail: "Não foi possível carregar o Arquivo Anexo de Tarefas."
+  project_comments:
+    create:
+      success: "Seu comentário foi enviado"
+    update:
+      success: "Comentário atualizado"
+    destroy:
+      success: "Comentário excluído"
+  group_messages:
+    create:
+      fail: "Falha ao carregar o anexo. Tipos permitidos: %{allowed_types}"
+  do_requests:
+    new:
+      fail: "Você não pode solicitar a tarefa sugerida"
+    create:
+      success_and_sent: "Solicitação enviada ao Administrador do Projeto"
+      success_and_will_notify_back: "O seu pedido para executar esta tarefa foi enviado\
+        \ com sucesso. O líder do projeto irá notificá-lo depois que ele for recebido\
+        \ e uma decisão for tomada."
+      fail_cannot_apply_twice: "Você não pode se inscrever duas vezes"
+    destroy:
+      success: "O pedido de atribuição de tarefas foi destruído com sucesso."
+    accept:
+      success: "Tarefa foi atribuída"
+      fail: "A tarefa não foi atribuída ao usuário"
+    reject:
+      success: "Pedido rejeitado"
+      fail: "Não foi possível rejeitar solicitação"
+  change_leader_invitation:
+    accept:
+      success: "Parabéns! Você é o líder do projeto de %{project_title}!"
+  admin_invitations:
+    accept:
+      success: "O convite foi aceito."
+      fail: "Houve alguns problemas impedindo que o convite fosse aceito."
+    reject:
+      success: "O convite foi rejeitado."
+      fail: "Houve alguns problemas impedindo que o convite fosse rejeitado."

@@ -1,0 +1,533 @@
+.modal-fund {
+  font-size: 0;
+  text-align: center;
+  z-index: 1050;
+  padding: 67px 15px;
+  #fund-loading {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 32px;
+    height: 32px;
+    margin: auto;
+  }
+  &__inner {
+    vertical-align: middle;
+    display: inline-block;
+    background: #fff;
+    box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.3);
+    position: relative;
+    width: 100%;
+    max-width: 810px;
+    padding: 0 0 25px;
+  }
+  &__content {
+    text-align: left;
+  }
+  .f-default__field {
+    height: 38px;
+    padding: 0 14px;
+    line-height: 1;
+    margin-bottom: 5px;
+    font-size: 14px;
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      opacity: 1;
+    }
+
+  }
+  &__current-fund {
+    font-size: 13px;
+    font-family: 'Roboto', sans-serif;
+    color: #4a4a4a;
+    font-weight: 500;
+    margin-bottom: 20px;
+    display: block;
+  }
+  &__error {
+    opacity: 0;
+    pointer-events: none;
+    color: red;
+    font-size: 13px;
+    &._visible {
+      pointer-events: auto;
+      opacity: 1;
+    }
+  }
+  &__fees {
+    margin-top: 10px;
+    &._hide {
+      display: none;
+    }
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    color: #fe1c05;
+  }
+  &__top {
+    padding: 42px 80px 0;
+  }
+  &__convert {
+    color: #4a4a4a;
+    font-family: Roboto, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    display: block;
+  }
+  .btn-root {
+    padding: 7px 27px 6px;
+    letter-spacing: 0.6px;
+  }
+  &__bottom {
+    border-top: 2px solid #ccc;
+  }
+
+  &__tab-wrap {
+    border-bottom: 2px solid #ccc;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 80px;
+  }
+  &__tab {
+    background: transparent;
+    line-height: 52px;
+    padding: 0 16px;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 0;
+    font-family: Roboto, sans-serif;
+    color: #ccc;
+    transition: color .2s linear;
+    min-width: 200px;
+    &._active {
+      color: #000;
+      &:before {
+        background: #000;
+      }
+    }
+    &:hover,
+    &:focus {
+      background: transparent;
+      color: #000;
+      outline: none;
+      &:before {
+        background: #000;
+      }
+    }
+    &:before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 2px;
+      bottom: -2px;
+      z-index: 1;
+      background: #ccc;
+      position: absolute;
+      left: 0;
+      transition: opacity .2s linear;
+    }
+  }
+  &__tab-content {
+    padding: 41px 80px 35px;
+  }
+  &__wrong-user {
+    float: right;
+    letter-spacing: 0.6px;
+    text-decoration: underline;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: Roboto, sans-serif;
+    &:hover,
+    &:focus {
+      color: #000;
+      text-decoration: none;
+      background: transparent;
+    }
+  }
+  &__tabs-wrapper {
+    display: flex;
+    margin: 20px 0 0;
+  }
+  &__tab {
+    width: 50%;
+    max-width: 50%;
+    flex-basis: 50%;
+    background: none;
+    margin: 0 10px;
+    padding: 0;
+    text-align: center;
+    &:hover {
+      background: none;
+    }
+  }
+  &__wallet {
+    color: #000;
+    vertical-align: middle;
+    margin-left: 15px;
+    letter-spacing: .6px;
+    text-decoration: underline;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: Roboto, sans-serif;
+    &:visited {
+      color: #000;
+    }
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  &__signed {
+    position: relative;
+    &-label {
+      color: #525252;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+      font-family: Roboto, sans-serif;
+      margin-bottom: 10px;
+      letter-spacing: 0.4px;
+    }
+  }
+  &__user-name {
+    color: #000;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    font-family: Roboto, sans-serif;
+  }
+
+  &__last4 {
+    color: #000;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    margin-left: 6px;
+    font-family: Roboto, sans-serif;
+  }
+
+  &__avatar {
+    border-radius: 50%;
+    max-width: 44px;
+    max-height: 44px;
+    width: 44px;
+    height: 44px;
+    margin-right: 21px;
+    margin-left: 17px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  &__balance {
+    width: 100%;
+    border: 1px solid #dadada;
+    height: 38px;
+    padding: 0 15px 0 41px;
+    margin: 0;
+    font-size: 14px;
+    font-family: Roboto, sans-serif;
+    line-height: 36px;
+  }
+  &__field-wrap {
+    width: 100%;
+    max-width: 320px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+  }
+  &__content-wrap {
+    border-bottom: 2px solid #ccc;
+  }
+  &__address {
+    display: flex;
+    justify-content: flex-end;
+    &-inner {
+      width: 100%;
+      max-width: 320px;
+    }
+  }
+  .btn-root {
+    &._donate,
+    &._sign-in {
+      margin: 33px auto 25px auto;
+      display: table;
+    }
+    &._donate {
+      transition: opacity .25s ease-in-out;
+    }
+    &._donate._disable {
+      opacity: .4;
+      pointer-events: none;
+    }
+  }
+
+  .btn-root._copy-address {
+    padding: 5px 15px 4px;
+  }
+  .select-new-card-row {
+    padding-bottom: 20px;
+  }
+
+  .new-card-link {
+    color: #000;
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 17px;
+    display: inline-block;
+    vertical-align: middle;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .svg-wallet {
+    fill: #4a4a4a;
+    width: 17px;
+    height: 16px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    left: 10px;
+  }
+  .js-hidden_card {
+    display: none;
+  }
+  .f-default__label-wrap {
+    position: relative;
+    margin-bottom: 18px;
+    .f-default__field {
+      margin: 0;
+      font-family: Roboto, sans-serif;
+      box-shadow: none; // todo FD: remove when will be removed hindering default styles
+    }
+    .svg-visa {
+      position: absolute;
+      bottom: 10px;
+      right: 19px;
+      width: 52px;
+      height: 15px;
+      fill: #004f8b;
+      color: #ee9f2d;
+    }
+  }
+  ._cvc {
+    max-width: 84px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  &__cvc-info {
+    display: inline-block;
+    vertical-align: middle;
+    letter-spacing: 0.6px;
+    text-decoration: underline;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: Roboto, sans-serif;
+    &.btn-reset {
+      margin-left: 20px;
+    }
+    &:hover,
+    &:focus {
+      color: #000;
+      text-decoration: none;
+      background: transparent;
+    }
+  }
+  &__min-donation {
+    color: red;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    &:empty {
+      display: none;
+    }
+  }
+  &__stripe-bottom-inner {
+    max-width: 553px;
+  }
+  &__stripe-top {
+    padding: 7px 55px 7px;
+    border-bottom: 2px solid #ccc;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__stripe-bottom {
+    padding: 30px 80px 30px;
+    border-bottom: 2px solid #ccc;
+  }
+  &__stripe-title {
+    text-transform: uppercase;
+    color: #000;
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    line-height: 17px;
+    position: relative;
+    top: 2px;
+  }
+  &__stripe-cards {
+    img {
+      max-width: 52px;
+      margin-left: 10px;
+      height: auto;
+    }
+  }
+  &__bottom-content {
+    display: none;
+    &._active {
+      display: block;
+    }
+  }
+  ._flex {
+    display: flex;
+    margin-bottom: 16px;
+  }
+  ._grow {
+    flex-grow: 1;
+    margin-right: 51px;
+  }
+  .f-default__radio-label {
+    margin-bottom: 21px;
+  }
+  .f-default__checkbox-label {
+    margin-bottom: 17px;
+  }
+  [name="cardNumber"] {
+    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      font-weight: 700;
+      font-size: 24px;
+      position: relative;
+      top: 5px;
+    }
+    &::-moz-placeholder { /* Firefox 19+ */
+      font-weight: 700;
+      font-size: 24px;
+      position: relative;
+      top: 5px;
+    }
+    &:-ms-input-placeholder { /* IE 10+ */
+      font-weight: 700;
+      font-size: 24px;
+      position: relative;
+      top: 5px;
+    }
+    &:-moz-placeholder { /* Firefox 18- */
+      font-weight: 700;
+      font-size: 24px;
+      position: relative;
+      top: 5px;
+    }
+  }
+  &__payment-errors {
+    color: red;
+    font-size: 14px;
+    font-family: Roboto, sans-serif;
+    display: block;
+  }
+  .f-default__card-wrap {
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    img {
+      display: none;
+      max-height: 28px;
+      &._active {
+        display: block;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .modal-fund {
+    &__top,
+    &__tab-content,
+    &__stripe-bottom {
+      padding: 42px 25px 0;
+      .f-default {
+        &__checkbox {
+          &-label {
+            margin-bottom: 0;
+          }
+          &-text {
+            display: inline;
+          }
+        }
+        &__row {
+          &._flex {
+            display: block;
+          }
+        }
+        &__label-wrap {
+          margin: 0 0 10px;
+        }
+      }
+    }
+    &__tab {
+      text-transform: uppercase;
+      margin: 0;
+      min-width: 0;
+      span {
+        display: none;
+      }
+    }
+    &__form-wrap {
+      .default__label {
+        margin-bottom: 10px;
+      }
+      .modal-fund__input {
+        margin-bottom: 10px;
+      }
+    }
+    &__tab-wrap {
+      padding: 0;
+    }
+    &__avatar {
+      display: none;
+    }
+    &__wallet {
+      display: block;
+    }
+    &__signed {
+      &-label {
+        margin-bottom: 20px;
+      }
+      .img-rounded {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 1px solid #a3a3a3;
+      }
+    }
+    &__field-wrap {
+      width: calc(100% - 34px - 10px);
+      margin-left: 10px;
+      height: 34px;
+    }
+    &__wallet {
+      margin-top: 15px;
+      margin-left: 44px;
+    }
+    ._cvc {
+      max-width: none;
+    }
+    &__cvc-info.btn-reset {
+      display: block;
+      margin-left: 0;
+      font-size: 12px;
+      margin-top: 5px;
+    }
+  }
+}

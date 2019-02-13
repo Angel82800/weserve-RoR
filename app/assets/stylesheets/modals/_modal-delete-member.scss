@@ -1,0 +1,20 @@
+.modal-delete-member {
+  z-index: 1050;
+  &__top {
+    margin-bottom: 30px;
+  }
+  &__content {
+    margin-bottom: 10px;
+  }
+  &__textarea {
+    resize: none;
+    padding: 10px 15px;
+  }
+  .btn-root._delete {
+    transition: opacity .25s ease-in-out;
+    &._disable {
+      pointer-events: none;
+      opacity: .6;
+    }
+  }
+}

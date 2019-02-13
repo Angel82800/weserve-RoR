@@ -1,0 +1,9 @@
+<% if @success %>
+  $(".comment-no-" + "<%= @comment_id %>").remove();
+<% else %>
+  if ($(".flash-messages").length > 0) {
+    $(".flash-messages").replaceWith("<%= escape_javascript(render partial: "layouts/messages") %>");
+  } else {
+    $("<%= escape_javascript(render partial: "layouts/messages") %>").insertAfter(".header-container.s-header");
+  }
+<% end %>

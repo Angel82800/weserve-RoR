@@ -1,0 +1,12 @@
+$('[data-board-id="' + UrlModule.getBoardParam() + '"]').trigger('click');
+var modal_url = '?tab=tasks&board=' + <%= @board.id %>;
+// setLocation(modal_url);
+$('html').removeClass('_open-modal');
+$('.tabs-wrapper__tasks').html('<%= escape_javascript render "boards_with_tasks" %>');
+if (!UrlModule.checkIsCardClicked()) {
+    UrlModule.getTaskParam() && $('[data-task-id="' + UrlModule.getTaskParam() + '"]').trigger('click');
+}
+<% if can? :rearrange_order_tasks, @project %>
+  tasks.init();
+  boards.init();
+<% end %>

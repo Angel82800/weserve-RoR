@@ -1,0 +1,58 @@
+en:
+  notification_mailer:
+    notify_assignee_added_to_task:
+      mailjet_template_id: 317792
+    task_deleted:
+      mailjet_template_id: 317643
+    comment:
+      mailjet_template_id: 317640
+    revision_approved:
+      mailjet_template_id: 317614
+    task_change_rejected:
+      mailjet_template_id: 317627
+    task_change_approved:
+      mailjet_template_id: 317631
+    task_started:
+      mailjet_template_id: 317514
+    accept_new_task:
+      mailjet_template_id: 317507
+    reject_task_to_suggested:
+      mailjet_template_id: 317511
+    under_review_task:
+      mailjet_template_id: 317518
+    task_back_inprogress:
+      mailjet_template_id: 317609
+    notify_user_for_rejecting_new_task:
+      mailjet_template_id: 317636
+    notify_others_for_rejecting_new_task:
+      mailjet_template_id: 317636
+    invite_admin:
+      mailjet_template_id: 317502
+    notify_assignee_on_removing_from_task:
+      mailjet_template_id: 317750
+    notify_interested_user_on_removing_from_task:
+      mailjet_template_id: 319071
+    suggest_task:
+      mailjet_template_id: 317504
+    task_changed:
+      mailjet_template_id: 317516
+    task_completed:
+      mailjet_template_id: 317645
+    task_incomplete:
+      mailjet_template_id: 317647
+    cancel_request_task:
+      mailjet_template_id: 317738
+    new_message:
+      mailjet_template_id: 319096
+    stripe_account_update:
+      mailjet_template_id: 319132
+    block_withdraw:
+      mailjet_template_id: 319168
+    send_warning_mail:
+      mailjet_template_id: 319186
+    fund_available:
+      mailjet_template_id: 319197
+    send_error_to_admin:
+      mailjet_template_id: 319238
+    notify_new_leader_for_project:
+      mailjet_template_id: 349891

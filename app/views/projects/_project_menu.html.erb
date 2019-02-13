@@ -1,0 +1,24 @@
+<div id="project_menu">
+  <dl class="tabs tabs-home" data-tab>
+    <dd>
+      <a class="project_menu_btn" >
+        <span class="project_title">Project Menu <i class="icon-double-angle-right"></i></span>
+      </a>
+    </dd>
+    <dd class="active active_tab">
+      <a class="active_tab" href="#panel2">Vision</a>
+    </dd>
+    <dd class="active active_tab">
+      <!-- <a class="active_tab" href="#panel3"> -->
+      <a class="my_active_tab" id="tasks-tab-link" href=<%= "/projects/#{@project.id}/taskstab" %>>
+        Action
+            <span>
+              <%= @project.tasks_relations_string %>
+            </span>
+      </a>
+    </dd>
+    <dd class="active active_tab">
+      <%= link_to "Team(#{ @project.team_relations_string })", "/projects/#{@project.id}/show_project_team", remote: true %>
+    </dd>
+  </dl>
+</div>

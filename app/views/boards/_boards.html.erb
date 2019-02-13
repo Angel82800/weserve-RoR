@@ -1,0 +1,19 @@
+<% if @boards.any? %>
+    <% @project.boards_sort_by_priority.each do |board| %>
+        <li class="board-hover" data-board-id='<%= board.id %>'>
+        <%= render board %>
+        </li>
+    <% end %>
+<% else # Should not happen  %>
+    No boards
+<% end %>
+<% if can? :create, @board %>
+    <li>
+      <%= link_to('javascript:void(0)', 'data-modal': '#newBoard', class:'btn btn-theme-transparent tablinks border-right-none') do %>
+          <i class="fa fa-plus"></i>&nbsp;&nbsp;<%=t('.new_board_link')%>
+      <% end %>
+    </li>
+<% end %>
+<!--render modals for create/delete board -->
+<%= render 'boards/modals/new_board', project: @project %>
+<%= render 'boards/modals/remove_board', project: @project %>

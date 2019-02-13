@@ -1,0 +1,16 @@
+---
+fr:
+  tax_deduction:
+    new:
+      message: Pour pouvoir télécharger un reçu fiscal, veuillez remplir le formulaire
+        ci-dessous. Les informations contenues dans ce formulaire seront enregistrées
+        afin que vous n'ayez pas à remplir ce formulaire à nouveau (mais vous pourrez
+        ensuite les modifier).
+    edit:
+      placeholder:
+        name: Nom
+        address: Adresse
+        zip_code: Code postal
+        city: Ville
+        country: Pays
+...

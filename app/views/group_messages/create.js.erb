@@ -1,0 +1,14 @@
+<% if @group_message.save %>
+    $("#messages").append("<%= escape_javascript(render('group_messages/new_message'))%>");
+    $("#group_message_message").val(' ');
+    $('#messages').scrollTop(1E10)
+    $("div#message-load-image").hide();
+    $('.f-new-message__attach-error').removeClass('_error').html('');
+<% else %>
+    $('.f-new-message__attach-error').addClass('_error').html("<%= @notice %>");
+<% end %>
+
+
+$('#file-attachment-button').val('');
+$("#load-image-gif").hide();
+

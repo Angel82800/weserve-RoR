@@ -1,0 +1,8 @@
+fr:
+  project_mailer:
+    project_text_edited_by_leader:
+      mailjet_template_id: 319645
+    project_text_submitted_for_approval:
+      mailjet_template_id: 319647
+    project_text_edited:
+      mailjet_template_id: 319645

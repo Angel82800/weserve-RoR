@@ -1,0 +1,112 @@
+@import "variables/fonts";
+@import "variables/colors";
+
+.footer {
+  // min-height: 800px;
+  background: asset_url("footer_bg.jpg") no-repeat $black;
+  padding: 50px 0 50px;
+  .copyright {
+    text-align: center;
+    font-size: 16px;
+    color: $aqua;
+    margin-top: 80px;
+  }
+  .links {
+    text-align: center;
+    ul {
+      display: inline-block;
+      li {
+        float: left;
+        position: relative;
+        list-style: none;
+        span {
+          color: $white;
+          font-size: 16px;
+        }
+        a {
+          color: $bright_green;
+          font-size: 16px;
+          &.white {
+            color: $white;
+          }
+        }
+        &:nth-child(1) {
+          padding-right: 60px;
+          &:before {
+            content: ".";
+            position: absolute;
+            top: 0px;
+            top: calc(50% - 3px);
+            right: -3px;
+            width: 6px;
+            height: 6px;
+            background-color: $bright_green;
+            border-radius: 50%;
+            color: transparent;
+          }
+        }
+        &:nth-child(2) {
+          padding-left: 60px;
+          padding-right: 60px;
+          &:before {
+            content: ".";
+            position: absolute;
+            top: 0px;
+            top: calc(50% - 3px);
+            right: -3px;
+            width: 6px;
+            height: 6px;
+            background-color: $bright_green;
+            border-radius: 50%;
+            color: transparent;
+          }
+        }
+        &:nth-child(3) {
+          padding-left: 60px;
+        }
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    &.footer {
+      min-height: 0;
+      padding: 30px 0 30px;
+      background: none;
+      background-color: $black;
+    }
+  }
+  @media (max-width: 630px) {
+    &.footer {
+      .copyright {
+        margin-top: 40px;
+      }
+      .links {
+        ul {
+          li {
+            float: none;
+            margin-bottom: 15px;
+            &:nth-child(1) {
+              padding-right: 0px;
+              &:before {
+                display: none;
+              }
+            }
+            &:nth-child(2) {
+              padding-left: 0px;
+              padding-right: 0px;
+              &:before {
+                display: none;
+              }
+            }
+            &:nth-child(3) {
+              padding-left: 0px;
+            }
+            &:last-child {
+              margin-bottom: 0px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

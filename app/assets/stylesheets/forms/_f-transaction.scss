@@ -1,0 +1,58 @@
+.f-transaction {
+  max-width: 380px;
+  &__title {
+    color: #000;
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 17px;
+    display: inline-block;
+    vertical-align: middle;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  &__info {
+    color: #a6a6a6;
+    font-family: Roboto, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    line-height: 13px;
+  }
+  &__notification {
+    color: red;
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+  }
+  ._btc {
+    position: relative;
+    &:hover .f-transaction__btc {
+      border-color: #333;
+    }
+    .f-default__field {
+      padding-left: 55px;
+      line-height: 33px;
+    }
+  }
+  .f-default__field:focus+.f-transaction__btc {
+    border-color: #333;
+  }
+  &__btc {
+    bottom: 0;
+    width: 44px;
+    left: 0;
+    position: absolute;
+    height: 35px;
+    text-align: center;
+    line-height: 33px;
+    border: 1px solid #ccc;
+    transition: border-color 0.15s linear;
+    color: #4a4a4a;
+    font-family: Roboto, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+}

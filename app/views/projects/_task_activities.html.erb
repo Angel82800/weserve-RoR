@@ -1,0 +1,32 @@
+<div class="l-task-activities">
+    <div class="l-task-activities__title">
+        <%= t('.title') %>
+    </div>
+    <ul class="l-task-activities__list">
+        <% @activities.each do |activity | %>
+            <div class="l-task-activities__item">
+                <div class="l-task-activities__avatar">
+                    <% if activity.user.picture? %>
+                        <%= link_to (image_tag activity.user.picture, :size => "30x30"), activity.user  %>
+                    <% else %>
+                        <%= gravatar_for_user(activity.user) %>
+                    <% end %>
+                </div>
+                <div class="l-task-activities__description">
+                    <div class="l-task-activities__content">
+                        <span><%= get_activity_detail(activity)%>&nbsp;</span>
+                        <span><%= activity.user.display_name %>.</span>
+
+                        <% if activity.targetable_type == 'TeamMembership' && activity.deleted? %>
+                            <% targetable = activity.archived_targetable %>
+                            <span><%= t('.reason', reason: targetable.deleted_reason) %></span>
+                        <% end %>
+                    </div>
+                    <div class="l-task-activities__date">
+                        <%= l(activity.created_at.localtime, format: :long) %>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </ul>
+</div>

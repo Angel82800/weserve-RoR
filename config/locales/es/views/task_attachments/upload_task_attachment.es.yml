@@ -1,0 +1,4 @@
+es:
+  task_attachments:
+    upload_task_attachement:
+      added: 'Agregado %{date}'

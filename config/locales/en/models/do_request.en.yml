@@ -1,0 +1,7 @@
+---
+en:
+  do_request:
+    your_application_cannot_be_processed: Your application request can't be processed,
+      possibly you've already applied to the task before and your request is still
+      being reviewed by leader.
+...

@@ -1,0 +1,41 @@
+---
+en:
+  projects:
+    revision_history:
+      edit_revision: Edit revision
+      select_revisions: Select Revisions
+      compare: Compare
+      time: Time
+      contributors: Contributors
+      approved_version: Approved version
+    tabcontent:
+      plan:
+        review_contribution: Review contributions
+        create_sub_project: Create subproject
+        project_idea: Project Idea
+      donors:
+        nobody_donated: Nobody has donated yet.
+      do_requests:
+        pending_do_requests: Pending do requests
+        resolved_do_requests: Resolved do requests
+        there_users_requested_to_do_task: These users requested to do tasks in project
+          %{project_title}
+        there_users_requested_resolved_in_project: This user's request to do tasks
+          was resolved in project %{project_title}
+      revision:
+        revision_for: Revisions for
+        manual_verification: Manual Verification
+        approval_help_tooltip_1: When manual verification is off, users can edit your
+          project without your approval. You still can cancel or edit contributions
+          and block users.
+        approval_help_tooltip_2: If you turn manual verification on, you will have
+          to review every user's contribution in order for them to be implemented.
+        revision_error: You need to select more than one revisions
+      apply_requests:
+        pending_application_requests: Pending application requests
+        resolved_application_requests: Resolved application requests
+        there_users_requested_to_apply: These users requested to apply for roles in
+          project %{project_title}
+        there_users_apply_resolved_in_project: This user's request to apply was resolved
+          in project %{project_title}
+...

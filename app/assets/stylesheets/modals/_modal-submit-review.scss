@@ -1,0 +1,46 @@
+.modal-submit-review {
+  font-size:20px;
+  .modal-default__content {
+    width:820px;
+    padding:20px;
+  }
+  .modal-review-task__row {
+    text-align: left;
+  }
+  .modal-review-task_stars {
+    float:left;
+    .stars {
+      margin-left:10px;
+      font-weight:bold;
+    }
+    p {
+      display: none;
+    }
+  }
+  .modal-review-task_info {
+    display:inline-block;
+    float:right;width:35%;
+    margin-top:25px;
+    text-align:left;
+    .modal-review-user_pict, .modal-review-user_default_pict {
+      width:30px;
+      height:30px;
+      border-radius:50%;
+    }
+  }
+  .modal-feedback {
+    text-align:left;
+    p {
+      color:black;
+    }
+  }
+  .modal-footer {
+    line-height:40px;
+    width:50%;
+    float:right;
+    .modal-review-task_submit {
+      width: 50%;
+      margin-left: 15px;
+    }
+  }
+}

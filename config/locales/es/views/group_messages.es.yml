@@ -1,0 +1,10 @@
+es:
+  group_messages:
+    index:
+      team_channels: "Canales de equipos"
+      team_members: "Miembros del equipo"
+      direct_messages: "Mensajes directos"
+      search_for_user: "Buscar usuarios"
+      find_start_conversation: "Buscar o iniciar una conversación"
+    form:
+      write_message: "Escribir un mensaje"

@@ -1,0 +1,31 @@
+<% unless @dm_chatroom_users.blank? %>
+    <% @dm_chatroom_users.each do |user| %>
+        <li class="s-group-messages__submenu-item _message">
+          <a href="#" class="one-user-chat" data-user-id="<%= user.id %>" name=""> <%= user.display_name %>
+            <%-if Chatroom.find(user.dm_chatroom_id_shared_with(current_user)) %>
+              <span class="s-group-messages__unread-message"><%= Chatroom.find(user.dm_chatroom_id_shared_with(current_user)).user_message_read_flags.unread.for_user_count(current_user) %></span>
+            <%-end%>
+          </a>
+        </li>
+    <% end %>
+<% end %>
+<script>
+    $(document).ready(function() {
+        $(".one-user-chat").click(function () {
+            var userID = $(this).data('user-id'),
+                projectID = $(this).attr('name');
+
+            $(this).find('.s-group-messages__unread-message').hide();
+            $("div#message-load-image").show();
+            $.ajax({
+                url: "/group_messages/get_chatroom",
+                type: "post",
+                data: {user_id: userID},
+                success: function () {
+                    $('.s-group-messages__submenu-item').removeClass('_active');
+                    $('.one-user-chat[data-user-id=' + userID + ']').parent().addClass('_active');
+                }
+            });
+        });
+    })
+</script>

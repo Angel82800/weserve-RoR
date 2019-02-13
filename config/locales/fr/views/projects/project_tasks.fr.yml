@@ -1,0 +1,13 @@
+---
+fr:
+  projects:
+    project_tasks:
+      suggestion: Propositions
+      delete_confirmation: Êtes-vous sûr de vouloir supprimer cette tâche ?
+      suggest_a_task: Proposer une tâche
+      funding_and_sourcing: À Réaliser
+      add_a_task: Ajouter une tâche
+      doing: En cours
+      reviewing: Vérification
+      done: Terminé !
+...

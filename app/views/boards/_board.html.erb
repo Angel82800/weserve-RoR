@@ -1,0 +1,39 @@
+<span id='project-board-<%= board.id %>' class="board-hover">
+  <% if board.id == @board.id %>
+    <%= link_to board.title, 'javascript:void(0)', data: {board_id: board.id}, class:'tablinks border-right-none board-active board-tab' %>
+  <% else %>
+    <%= link_to project_board_path(project_id: @project.id, id: board.id), data: {board_id: board.id}, class:'tablinks border-right-none board-tab',
+              remote: true do %>
+      <%= board.title %>
+    <% end %>
+  <% end %>
+  <% if (can? :update, board) %>
+    <a href='javascript:void(0)' data-modal="#editBoard-<%= board.id %>" title='<%= t('.edit_board_link') %>' class="control-board">
+      <span class="btn-edit glyphicon glyphicon-pencil" aria-hidden="true"/>
+    </a>
+    <div id="editBoard-<%= board.id %>" class="modal-default" role="dialog">
+    <div class="modal-default__content">
+      <button type="button" class="modal-default__close"></button>
+      <h4 class="modal-default__title"><%= t('.title') %></h4>
+      <div class="modal-task__activities">
+        <div class="f-comment-post">
+          <%= form_for board, url: project_board_path(id: board.id, project_id: @project.id), remote: true do |f| %>
+              <%= f.text_field :title, placeholder: t('.title_field'), id: "board_title-#{board.id}" %>
+              <%= f.hidden_field :project_id, value: @project.id, id: "board_project_id-#{board.id}" %>
+              <div class="f-comment-post__action-wrapper">
+                <button class="btn btn-theme-green btn-block btn-root" type="submit" name="commit" value="<%= t('commons.send') %>">
+                  <%= t('commons.save') %>
+                </button>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<% if (can? :destroy, board) %>
+  <a data-delete-url='<%= project_board_path(project_id: @project.id, id: board.id) %>' class='control-board' data-modal="#removeBoard">
+    <span class="btn-delete glyphicon glyphicon-trash" aria-hidden="true"/>
+  </a>
+<% end %>
+</span>

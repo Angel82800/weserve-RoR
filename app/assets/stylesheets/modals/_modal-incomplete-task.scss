@@ -1,0 +1,26 @@
+.modal-incomplete {
+  z-index: 2002;
+  .modal-default__content {
+    max-width: 600px;
+    width: 100%;
+    text-align: left;
+  }
+
+  .f-default__row {
+    margin-bottom: 8px;
+  }
+  .input-group-addon {
+    border-radius: 0;
+  }
+  .btn-root {
+    display: table;
+    margin: 26px 0 0 auto;
+    min-width: 227px;
+    border-radius: 20px;
+
+  }
+  .f-default__field {
+    font-size: 14px;
+    margin: 0;
+  }
+}

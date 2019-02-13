@@ -1,0 +1,92 @@
+div.modal-sign {
+  z-index: 2000;  // todo move all z-index in right order
+}
+.modal-sign {
+  &._project-sign {
+    .modal-default__content {
+      max-width: 620px;
+    }
+  }
+  ._sign-up,
+  ._sign-in {
+    display: none;
+  }
+  &._sign-up ._sign-up,
+  &._sign-in ._sign-in {
+    display: inline-block;
+  }
+  &._sign-up .m-social._email,
+  &._sign-in .m-social._email,
+  &._sign-up ._start-project-show,
+  &._sign-in ._start-project-show {
+    display: none;
+  }
+  &._sign-up .register-form-wrapper ._sign-up,
+  &._sign-in .register-form-wrapper ._sign-in,
+  &._sign-up .modal-sign__col ._sign-up,
+  &._sign-in .modal-sign__col ._sign-in {
+    display: block;
+  }
+  .modal-default__title {
+    margin-bottom: 30px;
+  }
+  &__col-wrap {
+    font-size: 0;
+    margin-bottom: 30px;
+    width: 100vw;
+    max-width: 750px;
+  }
+  &__col {
+    vertical-align: middle;
+    display: inline-block;
+    width: 50%;
+    font-size: 14px;
+    text-align: left;
+    padding-right: 55px;
+    border-right: 1px solid #ddd;
+    &:last-child {
+      padding-left: 55px;
+      padding-right: 0;
+      border-right: 0;
+    }
+  }
+  .register-form-wrapper {
+    margin: 30px auto;
+    max-width: 260px;
+    text-align: left;
+  }
+}
+
+@media(max-width: 970px) {
+  .modal-sign {
+    .modal-default__content {
+      width: 100%;
+    }
+    &__col-wrap {
+      max-width: 100%;
+      width: auto;
+    }
+  }
+}
+
+@media(max-width: 740px) {
+  .modal-sign {
+    .modal-default__content {
+      max-width: 480px;
+    }
+    &__col {
+      width: 100%;
+      border-right: 0;
+      display: block;
+      padding-right: 0;
+      margin-bottom: 20px;
+      &:last-child {
+        padding-left: 0;
+      }
+      .register-form {
+        max-width: 320px;
+        margin: 0 auto;
+      }
+    }
+  }
+}

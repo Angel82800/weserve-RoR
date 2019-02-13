@@ -1,0 +1,10 @@
+<div class="content-details revision-wrapper">
+  <% if @do_requests.size > 0 || @apply_requests.size > 0 || @resolved_do_requests.count > 0 || @resolved_apply_requests.count > 0 %>
+    <%= render partial: 'projects/tabcontent/do_requests', locals: { project: @project, do_requests: @do_requests, table_class: "pending-do-request-table" } %>
+    <%= render partial: 'projects/tabcontent/apply_requests', locals: { project: @project, apply_requests: @apply_requests } %>
+    <%= render partial: 'projects/tabcontent/do_requests', locals: { project: @project, do_requests: @resolved_do_requests, table_class: "resolved-do-request-table" } %>
+    <%= render partial: 'projects/tabcontent/apply_requests', locals: { project: @project, apply_requests: @resolved_apply_requests } %>
+  <% else %>
+    No users requested to do tasks in the project or applied for specific roles.
+  <% end %>
+</div>

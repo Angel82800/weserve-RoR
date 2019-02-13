@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  task_id: 1
+  user_id: 1
+  free: false
+  deadline: 2016-03-10 16:41:38
+
+two:
+  task_id: 1
+  user_id: 1
+  free: false
+  deadline: 2016-03-10 16:41:38

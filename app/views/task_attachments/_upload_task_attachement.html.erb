@@ -1,0 +1,18 @@
+<div class="attachment" id="attachment-div-<%= task_attachment.id %>">
+  <% if %w{jpeg jpg png tiff gif bmp}.include?(task_attachment.attachment.file.extension) %>
+      <%= image_tag task_attachment.attachment.url, style: "width:90px ; height:90px" %>
+  <% else %>
+      <img src="http://placehold.it/150x150">
+  <% end %>
+  <h4><%= task_attachment.attachment.file.filename %></h4>
+  <span><%= t('.added', date: l(task_attachment.created_at.localtime, format: :long)) %></span><br>
+  <div class="attachment-actions">
+    <%= link_to t('commons.open'), task_attachment.attachment_url, target: '_blank' %>
+    <% if user_signed_in? && (can? :create_or_destroy_task_attachment, task_attachment.task) %>
+      <a href="#" name="delete_attachment" data-id="<%= task_attachment.id %>"><%= t('commons.remove') %></a>
+    <% end %>
+  </div>
+</div>
+<hr>
+
+

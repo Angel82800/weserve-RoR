@@ -1,0 +1,44 @@
+
+<div class="content edit-content">
+  <h1 class="edit-header">Create new task</h1>
+
+<%= simple_form_for(@task) do |f| %>
+  <%= f.error_notification %>
+
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div class="form-inputs">
+    <div class="form-group">
+      <%= f.input :title %>
+    </div>
+    <div class="form-group">
+      <%= f.input :short_description %>
+    </div>
+    <div class="form-group">
+      <%= f.input :description %>
+    </div>
+    <div class="form-group">
+      <%= f.input :budget %>
+    </div>
+    <div class="form-group">
+      <%= f.input :condition_of_execution %>
+    </div>
+    <div class="form-group">
+      <%= f.input :proof_of_execution %>
+    </div>
+    <div class="form-group">
+      <%= f.input :deadline, :ampm => true %>
+    </div>
+    <div class="form-group">
+      <%= f.input :target_number_of_participants %>
+    </div>
+
+    <%= f.hidden_field :project_id, value: @task.project_id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+</div>

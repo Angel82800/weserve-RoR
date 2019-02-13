@@ -1,0 +1,35 @@
+.b-tooltip {
+  &__element {
+    margin-left: 3px;
+    position: relative;
+    cursor: pointer;
+    &:hover {
+      .b-tooltip__content {
+        display: block;
+      }
+    }
+  }
+  &__content {
+    position: absolute;
+    bottom: 25px;
+    border-radius: 4px;
+    border: 1px solid #c3c3c3;
+    min-width: 210px;
+    background-color: #ededed;
+    padding: 10px;
+    pointer-events: none;
+    display: none;
+    left: 50%;
+    transform: translateX(-50%);
+    &:after {
+      display: block;
+      content: '';
+      position: absolute;
+      border: 10px solid transparent;
+      border-top: 10px solid #ededed;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -10px;
+    }
+  }
+}

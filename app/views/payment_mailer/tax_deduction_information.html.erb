@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" content="text/html" http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p><%= t('.greeting', payer_name: @payer.display_name) %></p>
+    <p>
+      <%= t('.body_html').html_safe %>
+      <a href="<%= my_wallet_user_url(@payer.id) %>"> <%= t('commons.my_wallet') %> </a>
+    </p>
+    <p>
+      <a href="<%= download_tax_receipt_url(@transaction_id, :format => :pdf) %>"> <%= t('.download') %> </a>
+    </p>
+  </body>
+</html>

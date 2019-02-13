@@ -1,0 +1,56 @@
+<div class="task-box portlet">
+  <div class="portlet-content">
+    <div class="btn_movecard">
+      <%= task.title || "Move Card Tindo" %><span><a href="#" class="#" onclick="openModal();">...<i class="fa fa-eye fa-lg fa-pulse"></i></a></span>
+    </div>
+    <p><%= task.description[0..80].concat("...") %> </p>
+    <ul class="task-box-icons">
+      <li><i class="fa fa-comment-o" aria-hidden="true"></i> 3</li>
+      <li><i class="fa fa-paperclip" aria-hidden="true"></i> 2</li>
+    </ul>
+    <div class="nice round progress alert large-12 medium-12 small-12">
+      <span class="meter" style="width: <%= 100 * (task.current_fund/task.budget) %>%"></span>
+    </div>
+    <div class="row task-4rd-row">
+      <center>
+        <table>
+          <tr>
+            <th><%= 100 * (task.current_fund/task.budget) %>%</th>
+            <th>55/80</th>
+            <th><%= task.assignments.count %>/<%= task.target_number_of_participants %></th>
+            <th><%= ENV['symbol_currency'] %><%= task.budget %></th>
+          </tr>
+          <tr>
+            <td>Funded</td>
+            <td>Finished</td>
+            <td>Tearmates</td>
+            <td>Needed</td>
+          </tr>
+        </table>
+      </center>
+    </div>
+  </div>
+
+<!-- repeating member task box ends -->
+</div>
+
+<script type="text/javascript">
+// todo look like this is unnecessary code
+$(document).ready(function() {
+
+  // Open the modal and render the task details via AJAX
+  var $modal = $('#myModal');
+
+  // Get the button that opens the modal
+  var btn = document.getElementsByClassName("taskLinks");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // When the user clicks on the button, open the modal
+  function openModal() {
+      $modal.fadeIn();
+  }
+
+});
+</script>

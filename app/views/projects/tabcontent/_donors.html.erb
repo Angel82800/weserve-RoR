@@ -1,0 +1,12 @@
+<div class="content-details revision-wrapper">
+  <% if @donors.size > 0 %>
+      <% @donors.each do |donor| %>
+        <div class="donor">
+          <span><%= image_tag (donor.picture.present? ? donor.picture : 'user_pic.jpg') %></span>
+          <%= link_to donor.username, user_path(donor) %>
+        </div>
+      <% end %>
+  <% else %>
+    <%= t('projects.tabcontent.donors.nobody_donated') %>
+  <% end %>
+</div>

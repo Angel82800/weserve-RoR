@@ -1,0 +1,217 @@
+.s-group-messages {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+
+  &__nav {
+    background-color: #F5F5F5;
+    text-align: left;
+    width: 240px;
+    padding: 20px 30px;
+    top: 0;
+    bottom: 0;
+    transition: transform .25s ease-in-out;
+    &-title {
+      margin-bottom: 25px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 18px;
+      letter-spacing: 1px;
+      color: #000;
+    }
+  }
+
+  &__close {
+    display: none;
+  }
+
+  &__submenu {
+    &-title {
+      margin-bottom: 10px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #888;
+    }
+    &-list {
+      margin: 0;
+      list-style-type: none;
+    }
+    &-item {
+      padding: 0 0 20px 0;
+      &._active {
+        a {
+          color: #555;
+          text-decoration: underline;
+        }
+      }
+      a {
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        color: #888;
+        font-weight: 500;
+      }
+    }
+  }
+
+  &__open-threads {
+    display: none;
+  }
+
+  &__user-search {
+    padding: 10px 0;
+    span {
+      font-family: 'Roboto', sans-serif;
+      color: #555;
+      font-size: 1em;
+      i {
+        color: #333;
+      }
+    }
+  }
+
+  &__messages {
+    margin-bottom: 20px;
+  }
+  &__content {
+    position: relative;
+    width: calc(100% - 240px);
+    padding: 20px 20px 0 30px;
+    transition: transform .25s ease-in-out;
+    h4 {
+      font-family: 'Roboto', sans-serif;
+      color: #000;
+      font-weight: 600;
+    }
+    .row {
+      margin: 0;
+    }
+  }
+
+  &__chat {
+    &-title {
+      margin-bottom: 20px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 18px;
+      letter-spacing: 1px;
+      color: #000;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .s-group-messages {
+    display: block;
+    &._menuOpen {
+      overflow: hidden;
+      .s-group-messages {
+        &__nav {
+          transform: translateX(0);
+        }
+        &__content {
+          transform: translateX(240px);
+        }
+      }
+    }
+    &__content {
+      width: 100%;
+      padding: 20px 20px 0;
+    }
+    &__nav {
+      position: absolute;
+      transform: translateX(-100%);
+      background-color: #555;
+      padding: 20px 0;
+      &-title {
+        color: #bbb;
+        padding: 0 30px;
+        margin-bottom: 20px;
+      }
+    }
+    &__submenu {
+      &-title {
+        color: #bbb;
+        padding: 0 30px;
+      }
+      &-list {
+        margin-bottom: 15px;
+      }
+      &-item {
+        position: relative;
+        padding: 10px 30px;
+        a {
+          color: #fff;
+        }
+        &._active {
+          background-color: #000;
+          border-radius: 5px;
+          &:before {
+            display: block;
+            content: '';
+            position: absolute;
+            width: 7px;
+            height: 7px;
+            border: 1px solid #fff;
+            border-radius: 50%;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+          a {
+            color: #fff;
+            text-decoration: none;
+            &:visited {
+              color: #fff
+            }
+          }
+        }
+      }
+    }
+    &__open-threads {
+      cursor: pointer;
+      display: block;
+      font-size: 16px;
+      font-family: 'Roboto', sans-serif;
+      padding: 20px 0 20px 10px;
+    }
+    &__user-search {
+      display: none;
+    }
+    &__search-form {
+      display: block;
+      margin: 0 30px;
+      input {
+        border-radius: 5px;
+      }
+    }
+    &__close {
+      display: block;
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      z-index: 1;
+      right: 0;
+      top: 10px;
+      &:before,
+      &:after {
+        position: absolute;
+        top: 10px;
+        left: 20px;
+        display: block;
+        content: '';
+        background-color: #fff;
+      }
+      &:before {
+        width: 2px;
+        height: 20px;
+        transform: rotate(45deg);
+      }
+      &:after {
+        width: 2px;
+        height: 20px;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}

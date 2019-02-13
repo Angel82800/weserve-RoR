@@ -1,0 +1,98 @@
+---
+fr:
+  projects:
+    task_details:
+      stars: étoiles
+      full_review: Voir l'examen complet
+      submit_a_review: Soumettre un examen
+      warning-message: Vous allez modifier une tâche qui a déjà commencé. Pour cette
+        raison, tous les changements devront être approuvés par les autres participants
+        pour être appliqués.
+      accept_approvation: Oui, approuver
+      reject_funding_task: Oui, rejeter
+      cancel_doing_task: Oui, annuler
+      reject_application_confirmation: Êtes-vous sûr de vouloir rejeter cette candidature
+        ? Si oui, veuillez ajouter un commentaire pour le candidat.
+      accept_application_confirmation: Êtes-vous sûr de vouloir accepter cette candidature
+        ?
+      attachments: Pièces jointes
+      email_placeholder: Adresse e-mail
+      gmail_contacts: Contacts Gmail
+      import_contact_from: Importer vos contacts depuis
+      invite_button: Ajouter / Inviter
+      invite_subtitle: Indiquer l'adresse e-mail de la personne que vous souhaitez
+        inviter
+      make_non_free: Ajouter un budget
+      remove_budget: Supprimer un budget
+      mark_completed: Marquer comme réalisée
+      mark_completed_confirmation: Confirmez-vous que vous avez examiné cette tâche
+        et qu'elle a bien été réalisée ?
+      mark_incomplete: Marquer comme non réalisée
+      mark_incomplete_confirmation: Confirmez-vous que vous avez examiné cette tâche
+        et qu'elle n'a pas été réalisée ?
+      no_teammate: Aucun équipier ajouté pour le moment
+      proof_of_execution: Preuve d'exécution
+      refund_task: Rembourser la tâche
+      share_fb: Partager sur Facebook
+      share_gplus: Partager sur Google +
+      share_invite_subtitle: Partager sur les réseaux sociaux
+      share_invite_title: Partager / Inviter des personnes à participer
+      share_twitter: Partager sur Twitter
+      specifications: Caractéristiques
+      submit_review: Soumettre à examen
+      team: Équipe
+      title: Ajouter / Inviter des personnes
+      yahoo_contacts: Contacts Yahoo
+      approve_task_description_html: <p>Êtes-vous sûr de vouloir approuver cette tâche
+        ?</p>
+      reject_task_description_html: Êtes-vous sûr de vouloir rejeter cette tâche ?
+      cancel_task_description_html: Êtes-vous sûr de vouloir annuler cette tâche ?
+      login_or_signup_html: Veuillez vous <a class="sign_in_a" data-modal="#registerModal">connecter</a>\nou
+        vous <a class="sign_up_a" data-modal="#registerModal">inscrire</a>\npour ajouter
+        des commentaires
+      choose_deadline: Choisir une nouvelle date limite
+      select_board: -- Sélectionner un tableau --
+      cannot_edit_delete_task_started_html: Vous ne pouvez pas modifier ou supprimer
+        une tâche qui a déjà commencé.
+      task_cannot_start_tooltip: Les tâches ne peuvent être commencées que lorsque
+        l'objectif de financement est atteint et que le nombre de participants est
+        suffisant
+      remove_budget_confirm_message: Êtes-vous sûr de vouloir supprimer le budget
+        ? Cela signifie que vous n'autorisez pas le crowdfunding pour cette tache
+        et que la personne qui réalisera cette tache ne recevra aucune compensation.
+      add_budget_confirm_message: Êtes-vous sûr de vouloir ajouter un budget pour
+        cette tâche ? Cela signifie que vous autorisez le crowdfunding et que cette
+        tache ne commencera pas avant qu'elle ait atteint son objectif. En outre,
+        la personne désignée pour réaliser cette tâche recevra les fonds alloués à
+        cette tache.
+      add_assignees: 'Ajoutez des '
+    task_related_do_requests:
+      pending_requests: Demandes en attente
+      user_has_requested_become_task_assignee_html: <span class="requester">%{user_name}</span>
+        souhaite réaliser une tâche
+      approve: Approuver
+      reject: Refuser
+    task_state_transition_dropdown:
+      suggested_task: Suggestions
+      accepted: Financement & Sourcing
+      doing: En cours
+      reviewing: En cours d'examen
+      completed: Terminé
+      accept_task: Accepter la tâche
+      reject_task: Rejeter la tâche
+      start_task: Commencer la tâche
+      stop_task: Arrêter la tâche
+      funding_sourcing: Financement
+      inprogress: En cours
+      submit_review: Soumettre à examen
+      inreview: En cours d'examen
+      request_changes: Demander des changements
+      mark_as_incompleted: Marquer comme non réalisée
+      mark_as_completed: Marquer comme réalisée
+      back_review: Revenir à l'examen
+      success: Terminé
+    add_assignees:
+      select_user: Sélectionnez un utilisateur à ajouter en tant que cessionnaire
+      confirm: Confirmer
+      cancel: Annuler
+...

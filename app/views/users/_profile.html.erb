@@ -1,0 +1,260 @@
+<div class="profile-wrapper">
+
+  <div class="info_sections_wrapper">
+
+    <div class="profile-hero">
+      <% if @user.background_picture? %>
+      <div class="profile-hero_top" style="background-image: url('/assets/3px-tile.png'), url('<%= @user.background_picture %>');">
+      <% else %>
+      <div class="profile-hero_top empty">
+      <% end %>
+        <div class="profile-base-info">
+          <div class="profile-hero__avatar-wrapper">
+            <% if @user.picture? %>
+              <div class="profile-hero__avatar" style="background-image: url('<%= @user.picture %>')"></div>
+            <% else %>
+              <div class="profile-hero__avatar" style="background-image: url('<%= image_url(t('commons.default_user_pic')) %>')"></div>
+            <% end %>
+          </div>
+          <div class="info">
+            <div class="profile-hero__user-name">
+              <div>
+                <%= @user.display_name %>
+                <% if user_signed_in? && (current_user.id == @user.id || current_user.admin?) %>
+                  <a class="profile-hero__edit-button" href="javascript: void(0)" data-modal="#editProfileModal"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                <% end %>
+              </div>
+            </div>
+            <div class='profile_rating-block'>
+              <fieldset class="rating" title="<%= t('commons.average_rating', value: @average_rating) %>">
+                <%- [1,2,3,4,5].each do |i| %>
+                  <%- klass = @average_rating >= i ? 'star-gold' : 'star-grey' %>
+                  <label class = "<%= klass %>"></label>
+                <% end %>
+              </fieldset>
+            </div>
+            <% if @user.city.present? %>
+              <div class="profile-hero__user-location">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <%= @user.city %>
+                <% if @user.state.present? %>
+                  / <%= @user.state %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="profile_projects_stats">
+          <div class="stats_block">
+            <p><%= t('.project_leads') %></p>
+            <p><%= @user.projects.count %></p>
+          </div>
+          <div class="stats_block">
+            <p><%= t('.completed_task') %></p>
+            <p><%= @user.completed_tasks_count %></p>
+          </div>
+          <div class="stats_block">
+            <p><%= t('.project_funded') %></p>
+            <p><%= @user.funded_projects_count %></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-hero__user-trans-btns hidden">
+        <% if current_user && current_user.id != @user.id %>
+          <%= link_to group_messages_path(user_id: @user.id), class: "btn btn-theme-green profile-hero__btn _hide-mobile" do %>
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            <%= t('commons.message') %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <% if @user.is_teammate_with?(current_user) %>
+        <div class="contacts-wrapper">
+            <h3 class="contacts-header text-uppercase">
+                <%= t('commons.contacts') %>
+            </h3>
+            <ul class="contacts-list">
+                <% if @user.email? %>
+                    <li class="contacts-item">
+                        <a class="contacts-value" href="mailto:<%= @user.email %>"><i class="fa fa-envelope" aria-hidden="true"></i><%= @user.email %></a>
+                    </li>
+                <% end %>
+                <% if @user.phone_number? %>
+                    <li class="contacts-item">
+                        <a class="contacts-value" href="tel:<%= @user.phone_number %>"><i class="fa fa-phone" aria-hidden="true"></i><%= @user.phone_number %></a>
+                    </li>
+                <% end %>
+
+                <% if @user.skype_id? %>
+                    <li class="contacts-item">
+                        <a class="contacts-value" href="skype:<%= @user.skype_id %>"><i class="fa fa-skype" aria-hidden="true"></i><%= @user.skype_id %></a>
+                    </li>
+                <% end %>
+
+                <% if @user.linkedin_id? %>
+                    <li class="contacts-item">
+                        <a class="contacts-value" target="_blank" href="https://www.linkedin.com/in/<%= @user.linkedin_id %>"><i class="fa fa-linkedin-square" aria-hidden="true"></i><%= @user.linkedin_id %></a>
+                    </li>
+                <% end %>
+
+                <% if @user.facebook_id? %>
+                    <li class="contacts-item">
+                        <a class="contacts-value" target="_blank" href="https://facebook.com/<%= @user.facebook_id %>"><i class="fa fa-facebook-square" aria-hidden="true"></i><%= @user.facebook_id %></a>
+                    </li>
+                <% end %>
+
+
+                <% if @user.twitter_id? %>
+                    <li class="contacts-item">
+                        <a class="contacts-value" target="_blank" href="https://twitter.com/<%= @user.twitter_id %>"><i class="fa fa-twitter-square" aria-hidden="true"></i><%= @user.twitter_id %></a>
+                    </li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <div class="bio-wrapper">
+      <h3 class="bio-header text-uppercase">
+        <%= t('commons.bio') %>
+      </h3>
+      <p class="profile-bio">
+          <span> <%= @user.bio %> </span>
+      </p>
+    </div>
+
+    <div class="history-wrapper">
+      <h3 class="history-header text-uppercase">
+        <%= t('commons.history') %>
+      </h3>
+      <%- if @task_reviews.present? %>
+        <%= render partial: 'history' %>
+      <% else %>
+        <%= t('commons.no_reviews') %>
+      <% end %>
+    </div>
+  </div>
+  <div class="profile-projects">
+    <div class="l-project-cards">
+      <h3 class="l-project-cards__title"><%= t('commons.projects') %></h3>
+      <ul class="l-project-cards__list">
+        <% @user.projects.each do |project| %>
+          <li class="l-project-cards__item">
+            <div class="b-project-card" data-link="<%= taskstab_project_path(project) %>">
+
+              <div class="b-project-card__top">
+                <% if project.picture.url %>
+                    <%= link_to taskstab_project_path(project), class: 'b-project-card__img-wrap', data: {no_turbolink: false} do %>
+                        <%= image_tag(project.picture.url, data: { 'object-fit': "cover" }) %>
+                    <% end %>
+                <% else %>
+                    <%= link_to taskstab_project_path(project), class: 'b-project-card__img-wrap _no-img', data: {no_turbolink: false} do %>
+                    <% end %>
+                <% end %>
+                <div class="b-project-card_abs_title">
+                  <%= link_to project.title, taskstab_project_path(project, tab: 'tasks'), data: {no_turbolink: false}, class: "b-project-card__title" %>
+                </div>
+              </div>
+              <div class="b-project-card__middle">
+
+                <div class="b-project-card__user-link">
+                  <div class="b-project-card__user-avatar">
+                    <% if project.user.picture? %>
+                      <%= image_tag(project.user.picture) %>
+                    <% else %>
+                      <%= gravatar_for_user(project.user)%>
+                    <%end%>
+                  </div>
+                  <div class="b-project-card__user-info">
+                    <p><%= link_to project.user.display_name, user_path(project.user)%></p>
+                    <div class="b-project-card__location">
+                      <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      <%= project.country %>
+                    </div>
+                  </div>
+                </div>
+
+                <p class="b-project-card__description">
+                  <%= project.short_description %>
+                </p>
+              </div>
+              <div class="b-project-card__bottom">
+                <div class="progress-banner">
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: <%= project.funded_percentages %>">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="progress-report">
+                  <table>
+                    <tr class="value">
+                      <td class="price"><span><%= ENV['symbol_currency'] %></span><%= number_with_precision(balance_in_usd(project.funded_budget), :precision => 2) %></td>
+                      <td class="todo"><%= project.completed_tasks.size %></td>
+                      <td class="tasks"><%= project.to_dos_tasks.size %></td>
+                    </tr>
+                    <tr class="items">
+                      <td><%= t('tasks.banner.raised_of') %> <%= ENV['symbol_currency'] %><%= number_with_precision(balance_in_usd(project.needed_budget), :precision => 0) %> <%= t('tasks.banner.goal') %></td>
+                      <td><%= t('tasks.banner.tasks_completed') %></td>
+                      <td><%= t('tasks.banner.to_dos') %></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+  </div>
+
+</div>
+
+
+<%= render "profile_edit_dialog" %>
+<%= render "profile_edit_bcg_dialog" %>
+<%= render "profile_edit_bcg_dialog" %>
+<% if user_signed_in? && (current_user.id == @user.id || current_user.admin?) %>
+  <%= render "modal/edit_profile_modal" %>
+<% end %>
+<%= render "modal/profile_edit_response_modal" %>
+
+<script>
+
+  <% if user_signed_in? && current_user.id == @user.id %>
+    $('.profile-hero__avatar').addClass('_signed-in');
+  <% end %>
+
+  $('#wallet_transaction_amount').keypress(function(eve) {
+    if(eve.which == 8 || eve.which == 0){
+      return true;
+    }
+    if ((eve.which != 46 || $(this).val().indexOf('.') != -1) && (eve.which < 48 || eve.which > 57)) {
+      var usd = document.getElementById("wallet_transaction_amount");
+      eve.preventDefault();
+    }
+
+    // this part is when left part of number is deleted and leaves a . in the leftmost position. For example, 33.25, then 33 is deleted
+    $('#wallet_transaction_amount').keyup(function(eve) {
+      if($(this).val().indexOf('.') == 0) {    $(this).val($(this).val().substring(1));
+      }
+      var usd = document.getElementById("wallet_transaction_amount");
+
+    });
+
+  });
+
+  $('#save-wallet-teansaction').click(function(){
+    if ($("#wallet_transaction_user_wallet").val() != '' && $("#wallet_transaction_amount").val() != ''  ){
+      $('#save-wallet-teansaction').disabled = true ;
+      $('#response-from-wallet').html("");
+      $('#response-from-wallet').html("Requesting ... please Wait ");}
+  });
+
+  $(".close-reveal-modal").click(function(){
+    $('#response-from-wallet').html("");
+  });
+
+</script>

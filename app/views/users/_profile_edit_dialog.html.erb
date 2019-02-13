@@ -1,0 +1,13 @@
+<div class="modal-default modal-edit-img _avatar" id="profile-img-edit" role="dialog" tabindex="-1" aria-hidden="true">
+  <div class="modal-default__content" role="document">
+      <button class="modal-default__close" type="button"></button>
+      <h3 class="modal-default__title"><%= t('.edit_profile_img') %></h3>
+      <%- picture = @user.picture? ? @user.picture : t('commons.default_user_pic') %>
+      <div class="f-edit-img__image">
+        <%= image_tag(picture) %>
+      </div>
+      <%= file_field_tag :picture, accept: 'image/png,image/gif,image/jpeg', class: 'btn-upload', id: "tmp-user-picture"%>
+      <button class="btn-root btn-save-user-picture" name="commit" data-modal-close><%= t('commons.save_changes') %></button>
+      <button type="button" class="btn-root _dark" data-modal-close><%= t('commons.cancel') %></button>
+  </div>
+</div>

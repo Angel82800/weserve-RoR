@@ -1,0 +1,151 @@
+<div class="s-result-page">
+  <div class="s-result-page__container">
+    <h3 class="s-result-page__title">Search Results</h3>
+    <h4 class="s-result-page__subtitle">Projects</h4>
+    <ul class="l-project-cards__list">
+      <% @results.each do |result| %>
+          <% if result.is_a? Project %>
+              <li class="l-project-cards__item">
+                <div class="b-project-card" data-link="<%= taskstab_project_path(result) %>">
+                  <div class="b-project-card__top">
+                    <% if result.picture? %>
+                        <%= link_to taskstab_project_path(result), class: 'b-project-card__img-wrap', data: {no_turbolink: false} do %>
+                            <%= image_tag(result.picture, data: { 'object-fit': "cover" }) %>
+                        <% end %>
+                    <% else %>
+                        <%= link_to taskstab_project_path(result), class: 'b-project-card__img-wrap _no-img', data: {no_turbolink: false} do %>
+                        <% end %>
+                    <% end %>
+                  </div>
+                  <div class="b-project-card__middle">
+                    <%= link_to result.title, taskstab_project_path(result), data: {no_turbolink: false}, class: "b-project-card__title" %>
+                    <div class="b-project-card__location">
+                      <svg focusable="false" version="1.1" class="svg-marker" aria-hidden="true">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-marker"></use>
+                      </svg>
+                      <%= result.country %>
+                    </div>
+
+                    <p class="b-project-card__description">
+                      <%= result.short_description %>
+                    </p>
+                  </div>
+                  <div class="b-project-card__bottom">
+                    <div class="progress-banner">
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: <%= result.funded_percentages %>">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="progress-report">
+                      <table>
+                        <tr class="value">
+                          <td><%= result.team_relations_string %></td>
+                          <td><%= result.tasks_relations_string %></td>
+                          <td>
+                            <div class="b-project-card__usd-value"><%= ENV['symbol_currency'] %> <%= number_with_precision(balance_in_usd(result.funded_budget), :precision => 2) %> </div>
+                          </td>
+                        </tr>
+                        <tr class="items">
+                          <td><%= t('commons.teammates') %></td>
+                          <td><%= t('commons.completed') %></td>
+                          <td><%= t('commons.raised') %></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </li>
+          <% end %>
+      <% end %>
+    </ul>
+    <h4 class="s-result-page__subtitle">Tasks</h4>
+    <ul class="s-result-page__task-list trello-cards">
+      <% @results.each do |result| %>
+          <% if result.is_a? Task %>
+              <li class="s-result-page__task-item">
+                <div class="card-wrapper">
+                  <div class="card-title">
+                    <h5><%= result.title %></h5>
+                    <p><%= result.description %></p>
+                  </div>
+
+                  <% if result.free? %>
+                      <div class="comment-wrapper _free-task">
+                  <% else %>
+                      <div class="comment-wrapper">
+                  <% end %>
+                  <span><i class="fa fa-comment-o" aria-hidden="true"></i>&nbsp;<%= result.task_comments.count %></span>
+                  <span><i class="fa fa-paperclip" aria-hidden="true"></i>&nbsp;<%= result.task_attachments.count %></span>
+                  </div>
+
+                  <% if !result.free? %>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: <%= result.funded %>">
+                        </div>
+                      </div>
+                  <% end %>
+
+                  <div class="card-report">
+                    <table>
+                      <tr class="value">
+                        <td><%= result.number_of_participants%> / <%= result.target_number_of_participants %></td>
+                        <td class="card-report__data _raised _hide"><%= balance_in_usd(result.current_fund) %></td>
+
+                        <% if !result.free? %>
+                            <td class="card-report__data _amount-left-btc"><%= balance_in_usd(result.funds_needed_to_fulfill_budget) %></td>
+                        <% end %>
+
+                        <td class="card-report__data _amount-left-usd _hide"><%= balance_in_usd(result.funds_needed_to_fulfill_budget) %></td>
+
+                        <% if !result.free? %>
+                            <td class="card-report__data _budget">
+                              <div class="card-report__data _usd"><%= ENV['symbol_currency'] %> <%= number_with_precision(balance_in_usd(result.budget), :precision => 2) %> </div>
+                            </td>
+                        <% end %>
+                        <td class="card-report__data _per-amount _hide"><%= balance_in_usd(result.planned_amount_per_member) %></td>
+                      </tr>
+                      <tr class="items">
+                        <td><%= t('.teammates') %></td>
+                        <td class="_hide"><%= t('.raised') %></td>
+                        <% if !result.free? %>
+                            <td><%= t('.needed') %></td>
+                        <% end %>
+
+                        <td class="_hide"><%= t('.left_in_usd', currency: ENV['currency']) %></td>
+
+                        <% if !result.free? %>
+                            <td><%= t('.budget') %></td>
+                        <% end %>
+                      </tr>
+                    </table>
+                  </div>
+                  </div>
+
+              </li>
+
+          <% end %>
+      <% end %>
+    </ul>
+    <h4 class="s-result-page__subtitle">Users</h4>
+    <ul class="s-result-page__user-list">
+      <% @results.each do |result| %>
+          <% if result.is_a? User %>
+              <li class="s-result-page__user-item">
+                <%= link_to user_path(result), class: 's-result-page__user-link', data: {no_turbolink: false} do %>
+                    <% if result.picture? %>
+                        <%= image_tag(result.picture, size: "60x60") %>
+                    <% else %>
+                        <%= gravatar_for_user(result) %>
+                    <% end %>
+                    <div class="s-result-page__user-name">
+                      <%= result.username %>
+                    </div>
+                <% end %>
+              </li>
+          <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>

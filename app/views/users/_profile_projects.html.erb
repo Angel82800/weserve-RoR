@@ -1,0 +1,45 @@
+<div class="small-12 medium-6 columns">
+  <h1>
+    <i class="fa fa-file-text-o" aria-hidden="true"></i>Projects
+  </h1>
+  <% @user.projects.each do |project| %>
+    <div class="project-wrap">
+      <a href="/projects/<%= project.id %>"><p class="big-tx"><%= project.title %></p></a>
+      <div class="progress task_bar">
+        <span class="meter" style="width:<%= project.funded_percentages%>"></span>
+      </div>
+      <div class="row percentages">
+        <div class="small-6 medium-2 columns no-pad-left">
+          <div class="stats">
+            <%= project.funded_percentages %>
+            <span>Funded</span>
+          </div>
+        </div>
+        <div class="small-6 medium-3 columns no-pad-left">
+          <div class="stats"> 
+            <%= project.tasks_relations_string %>
+            <span>Completed Task</span>
+          </div>
+        </div>
+        <div class="small-6 medium-2 columns no-pad-left">
+          <div class="stats">
+          <%= project.team_relations_string %> 
+          <span>Teamates</span>
+          </div>
+        </div>
+        <div class="small-6 medium-2 columns no-pad-left">
+          <div class="stats">
+            <%= number_to_currency(project.needed_budget) %>
+            <span>Raised</span>
+          </div>
+        </div>
+        <div class="small-6 medium-2 columns no-pad-left"></div>
+      </div>
+      <div class="star-rating">
+        <% 5.times do |i| %>
+            <i class="icon-star <%= 'seleted' if i < project.rate_avg %>" aria-hidden="true"></i>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

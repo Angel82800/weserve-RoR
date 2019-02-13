@@ -1,0 +1,181 @@
+---
+en:
+  landing:
+    all_rights_reserved: All rights reserved
+    our_team_fatima_from: From Peru
+    our_team_fatima_pos: Ms Mathematical Statistics
+    our_team_fatima_degree: Columbia SIPA,
+    our_team_fatima_edu: MPA Economic Policy
+    our_team_eric_edu: Columbia GS, BA Philosophy
+    our_team_eric_from: From France
+    our_team_eric_founder: founder
+    our_team_virginia_degree: MPA Columbia SIPA
+    our_team_virginia_edu: London School of Economics.
+    our_team_virginia_pos_1: Investment Strategy and debt
+    our_team_virginia_pos_2: ""
+    our_team_virginia_from: From Spain
+    our_team_title: Our Team
+    special_features_unlimited_title: Open Source
+    special_features_unlimited_desc: As a game changer in the field of social impact
+      and online movement, weserve.io aught to be open source.
+    special_features_workflow_title: Decentralized Money-Flow and Workflow
+    special_features_workflow_desc_1: 'Give wings to your online community with peer
+      to peer cross border impact: Operate anywhere in the world with smart contracts
+      and crypto, free from the middlemen.'
+    special_features_sass_title: SAAS & Decentralized Data
+    special_features_sass_desc_1: In a few clicks, run weserve as your own platform
+      under your own brand.
+    special_features_sass_desc_2: Secure user privacy on a decentralized database
+      . Protect your operations on a resilient architecture.
+    special_features_title: Coming up
+    advantages_head_1: Impact
+    advantages_head_2: Audience Engagement
+    advantages_head_3: Public Legitimacy
+    advantages_desc_1: By opening your project to collective intelligence and collaboration,
+      you scale up your capacities.
+    advantages_desc_2: Offer social recognition to your people and build up your community.
+    advantages_desc_3: Build solutions with the people for the people.
+    advantages_title: Advantages
+    section_community_scale_title: Scale up
+    section_community_scale_desc: Start small and scale up your impact.
+    section_community_hack_title: Growth Hack
+    section_community_hack_desc: Open your cause to public participation, and grow
+      your community.
+    section_community_trust_title: Build Trust
+    section_community_trust_desc: Build trust to raise funds efficiently.
+    section_community_organize_title: Organize
+    section_community_organize_desc: Get your audience organized to complete a mission.
+    section_community_title_1: Your Community Wants To
+    section_community_title_2: Embark On an Epic Social Adventure
+    section_request_access_title: Channel the Wild Power of Your Online Community
+      Into Social Impact
+    section_request_access_desc: We help organizations open their projects to public
+      collaboration.
+    how_it_works_title: How It Works
+    hero-title: Turn your followers into a task force
+    hero-subtitle: To build powerful public actions.
+    hero-collaboration-title: Engage your social network to
+    hero-collaboration-text: As the Project Leader, you maintain control over the
+      collaboration at all times, so your project development reflects your own vision.
+      You build momentum with the crowd through the achievement of small tasks.
+    hero-collaboration-item-expand: Expand your idea into a plan of action
+    hero-collaboration-item-breakdown: Break-Down Project Into Tasks
+    hero-collaboration-item-breakdown-desc: Each task has a button 'fund', and a button
+      'do'. Any visitor can suggest a new task. As the Project Leader, you maintain
+      control over the collaboration at all times, so your project development reflects
+      your own vision.
+    hero-collaboration-item-fund: Get Funding
+    hero-collaboration-item-fund-desc: 'Each task is a small crowdfunding campaign
+      with a small budget that is easy to reach. It is 100% transparent: donors see
+      exactly where their money goes and can follow tasks progress. That transparency
+      increases your fundraising capacity.'
+    hero-collaboration-item-complete: Crowdsource Tasks
+    hero-collaboration-item-complete-desc-1: Let your followers complete tasks, so
+      they will form an active movement around your mission. That translates into
+      more trust, greater impact, and more legitimacy for your project.
+    hero-collaboration-item-complete-desc-2: People can donate of their time for free
+      or get paid for the completion of a task. The funds raised for a task are transferred
+      to the person who executed it when the task has been completed.
+    hero-collaboration-item-review: Verify Task Completion
+    hero-collaboration-item-review-desc: Payment is released upon publicly proven
+      completion. Each time a task gets completed, it is a success story that you
+      can share on social media. Doing that would encourage more people to join your
+      movement. So you can start small and scale up your impact.
+    hero-collaboration-item-done: Done!
+    hero-collaboration-item-done-desc: Users who completed a task can receive the
+      funds allocated to that task either in fiat currency or in cryptocurrency. Tasks
+      can be implemented anywhere in the world.
+    hero-collaboration-item-vision-share: Share Your Vision
+    hero-collaboration-item-vision-share-desc: Post your project Idea on social media
+      and invite your friends and followers to participate. You will get Immediate
+      feedback. You can start with a simple community action.
+    hero-generate-title: Generate Soft Power
+    hero-generate-text_html: Solve issues with your audience;<br>Action brings legitimacy
+      to what you stand for,<br>So you emerge as an independent leader.
+    hero-lab-title: Build Your Own Lab
+    hero-lab-text_html: Bridge the gap between theory and action;<br>Publicize and
+      expand your academic projects.
+    hero-prototype-title: Create Your Prototype
+    hero-prototype-text_html: Build a Team;<br>Finance Tasks;<br>Gather Feedback.
+    hero-footer-title: Things that Weserve does for you
+    hero-footer-market-title: Market Validation
+    hero-footer-market-item-build: build an active community around a real story
+    hero-footer-market-item-get: Get community feedback and improvement
+    hero-footer-market-item-analyse: Analyse traffic on your project
+    hero-footer-stimulate-title: Stimulate your Audience
+    hero-footer-stimulate-text: Turn your followers into actors, and build trust around
+      your project.
+    hero-footer-inclusive-title: Inclusive
+    hero-footer-inclusive-text_html: WeServe brings contrasting people together in
+      a unique efforts to achieve common goals.<br>Volunteers can refund the amount
+      they earned towards a new task. People who cannot afford to volunteer may keep
+      the money they earned.
+    hero-footer-corruption-title: Anti Corruption
+    hero-footer-corruption-text_html: Build powerful actions for your community without
+      having to belong to the ruling clubs, and without being bound by political or
+      financial partisanship.
+    hero-footer-transparency-title: Transparency
+    hero-footer-transparency-text_html: Projects are open for public reviews, and
+      constant feedback. So your project is protected by the crowd and gains legitimacy.
+    innovators:
+      title: INNOVATORS
+      create_prototype_html: <span>Create</span> your Prototype
+      build_team: Build a team.
+      finance_task: Finance tasks.
+      feedback: Collect feedback.
+    bloggers:
+      title: Bloggers
+      report_on_the_future_html: <span>Report</span> on the future
+      publish_idea: Publish an idea and your audience will implement it in the world.
+      generate_content: Generate verified content on what is about to happen.
+      translate_ideas: See your writing drive action. Translate your written ideas
+        into tangible results.
+    students:
+      title: STUDENTS
+      build_lab_html: <span>Build</span> your own lab
+      theory_and_action: Bridge the gap between theory and action.
+      academic_projects: Publicize and expand your academic projects.
+    activists:
+      title: Activists
+      serve_as_leader_html: <span>Serve</span> as a leader
+      supporter: Turn your supporters into an organized task force.
+      multiply_effectiveness: Multiply your effectiveness with collaborative action,
+        rather than mere protest.
+      emerge_leadership: Emerge as a leader through concrete action rather than just
+        talking and lip service.
+    engage_audience:
+      title: ENGAGE YOUR AUDIENCE
+      description: Turn your followers into contributors, and build trust around your
+        project.
+    inclusive:
+      title: BE INCLUSIVE
+      description: Bring diverse people together in unique efforts to achieve common
+        goals.
+    test_market:
+      title: GROW YOUR EXPERTISE
+      description: Build an active community around a concrete story. Get community
+        feedback and improvement.
+    independent:
+      title: Gain Independence
+      anti_curruption:
+        title: ANTI-CORRUPTION
+        description: Build powerful action for your community without having to belong
+          to the ruling party and emerge as an independent leader.
+      transparency:
+        title: TRANSPARENCY
+        description: Projects are open for public review, so you may channel the wisdom
+          of the crowd. This makes you accountable but it also protects you and your
+          project as independent and legitimate.
+      bitcoin_payment:
+        title: BITCOIN PAYMENT
+        description: Fund a project anywhere in the world with a transnational team.
+      power:
+        title: POWER
+        description: Multiply your impact with coordinated action rather than mere
+          protest and emerge as an effective leader.
+    errors:
+      unconfirmed_email: An email has been sent to confirm your account.
+      link: add your email address
+      badge_no_email_html: Please %{user_url} to your profile page in order to complete
+        registration.
+...

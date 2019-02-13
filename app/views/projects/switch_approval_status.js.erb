@@ -1,0 +1,1 @@
+$(".revision-histories-body").html("<%= escape_javascript(render partial: 'projects/revision_history', locals: {histories: @histories, project: @project, mediawiki_api_base_url: @mediawiki_api_base_url}) %>");

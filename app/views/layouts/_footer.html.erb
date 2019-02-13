@@ -1,0 +1,22 @@
+
+<% project ||= Project.reorder(:created_at).first %>
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="links">
+          <ul class="clearfix">
+            <li><%= link_to t('commons.privacy_policy'), pages_privacy_policy_path, data: { no_turbolink: true }, class: ['privacy-policy'] %></li>
+            <li><%= link_to t('commons.term_of_use'), pages_terms_of_use_path, data: { no_turbolink: true }, class: ['term-of-use'] %></li>
+            <li><%= mail_to "info@weserve.io", "info@weserve.io", class: ['white'] %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <p class="copyright">2018 weserve.io <%= t('landing.all_rights_reserved') %></p>
+      </div>
+    </div>
+  </div>
+</footer>

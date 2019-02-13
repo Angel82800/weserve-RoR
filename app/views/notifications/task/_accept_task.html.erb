@@ -1,0 +1,5 @@
+<div class="b-notification__text">
+  <%= "Your task " %>
+  <%= link_to source_model.title, taskstab_project_path(source_model.project_id, tab: 'tasks', taskId: source_model.id) %>
+  <%= " has been approved" %>
+</div>

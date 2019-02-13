@@ -1,0 +1,22 @@
+pt:
+  activerecord:
+    errors:
+      models:
+        project:
+          attributes:
+            short_description:
+              bad_short_description: "Tem comprimento inválido. O comprimento mínimo\
+                \ é 3, o comprimento máximo é 250"
+  number:
+    human:
+      decimal_units:
+        units:
+          unit: ''
+      format:
+        delimiter: ''
+    percentage:
+      format:
+        delimiter: ''
+    precision:
+      format:
+        delimiter: ''

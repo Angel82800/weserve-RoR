@@ -1,0 +1,110 @@
+es:
+  payments:
+    saved_cards: "Tarjetas guardadas"
+    card_number: "Número de tarjeta"
+    last_four_digits: "Últimos 4 dígitos"
+    expiry: "Caducidad (MM/AAAA)"
+    card_code: "Código de la tarjeta"
+    what_is_cvv: "Que es CVV?"
+    save_this_card: "guarde esta tarjeta"
+    read_accept_terms: "He leído y acepto el"
+    terms_and_conditions: "Términos y condiciones"
+    donate_btn: "Donar"
+  modal:
+    tasks_edit:
+      comments_title: "Comentarios / Adjuntos"
+    start_project_modal:
+      title: "Iniciar un Nuevo Proyecto"
+      project:
+        title: "Título"
+        error_title: "El Nombre de Usuario es obligatorio, por favor especifique uno"
+        short_description: "Idea"
+        country: "Ubicación (¿Dónde se ubica el proyecto?)"
+        image: "Imagen del Proyecto"
+        choose_a_file: "Elija un Archivo"
+        enter_location: "Ingresa una ubicación"
+    task_fund_modal:
+      donate_with_credit_card: "Donar con tarjeta de crédito"
+      title: "Haga una donación"
+      amount_to_send: "Cantidad a enviar"
+      donate_with_bitcoin: "Donar con bitcoin"
+      donate_with_card: "Donar con tarjeta de crédito"
+      use_weserve_wallet: "Utilizar sus fondos de WeServe.io"
+      donate: "Donate"
+      pay_with_stripe: "Pagar con su tarjeta de crédito a través de stripe"
+    thank_you_fund_modal:
+      title: "¡Gracias por su donación!"
+      message: "Puede que la transacción tome unas horas en completarse"
+    task_do_modal:
+      project: "Proyecto"
+      task: "Tarea"
+      description: "Descripción"
+      amount_per_volunteer: "Cantidad que recibirá cada voluntario"
+      why_right_person?: "¿Por qué se considera la persona indicada para completar\
+        \ esta tarea?"
+      submit: "Enviar Solicitud"
+      read_our: "¿Preguntas? Lea nuestro"
+    welcome_to_team_modal:
+      title: "¡Bienvenido al equipo!"
+      how_to_join: "¿Cómo unirse al equipo?"
+      contribute: "Contribuir con el plan"
+      suggest_a_task: "Sugerir una tarea"
+      do_or_fund: "Ejecutar o Financiar una tarea"
+      looking_for_role: "¿Busca un cargo en particular?"
+      become_lead_editor: "¡Conviértase en el Editor Principal!"
+      lead_editor_description: "El Editor Principal canaliza las colaboraciones en\
+        \ la pestaña \"Plan\", aceptando o rechazando ediciones hechas por usuarios.\
+        \ El editor principal verifica la calidad del contenido y revisa que la informació\
+        n provenga de fuentes confiables."
+      apply_lead_editor_confirmation: "¿Desea aplicar al cargo de Editor Principal?"
+      become_coordinator: "¡Conviértase en un Coordinador!"
+      coordinator_description: "El coordinador controla las colaboraciones en la pestañ\
+        a \"Tarea\".<p>- edita + aprueba tareas sugeridas.</p><p>- acepta las solicitudes\
+        \ de los usuarios para completar tareas.</p><p>- coordina e interactúa con\
+        \ usuarios que completan tareas.</p><p>- verifica que las tareas estén completas.</p>"
+      apply_coordinator_confirmation: "¿Desea aplicar al cargo de Coordinador?"
+    project_invite_modal:
+      title: "Compartir con/Invitar a personas a participar"
+      share_on_social_media: "Compartir en las redes sociales"
+      share_fb: "Compartir en Facebook"
+      share_twitter: "Compartir en Twitter"
+      share_gplus: "Compartir en Google +"
+      import_contact_from: "Importar sus contactos de"
+      email_address: "Dirección de correo electrónico"
+    revisions_diff_modal:
+      title: "Diferencia entre revisiones"
+      revision_as_of: "Revisión del día"
+    block_user_modal:
+      confirmation_message: "¿Está seguro de querer bloquear"
+    new_task_modal:
+      suggest_new_task: "Sugiera nuevas tareas"
+      is_task_free: "Free task?"
+      people_needed: "Cantidad de personas requeridas"
+      total_participant: "Cantidad total de participantes requeridos para trabajar\
+        \ en esta tarea."
+      estimate_amount_per_member: "Cantidad estimada por miembro"
+      specifications: "Especificaciones"
+      general_description: "Proporcionar una descripción general de esta tarea."
+      proof_of_execution: "Prueba de la Ejecución"
+      condition_as_completed: "Especificar las condiciones para considerar que esta\
+        \ tarea se ha completado."
+    edit_profile_modal:
+      title: "Editar la introducción"
+      update_success_message: "El perfil ha sido actualizado"
+      update_fail_message: "El perfil no fue actualizado. Intente de nuevo"
+    profile_edit_response_modal:
+      message: "El perfil fue actualizado con éxito"
+    register_modal:
+      join_weserve_today: "Forme parte de WeServe.io hoy"
+      password_not_match: "La confirmación de la contraseña no coincide"
+      already_have_account?: "¿Ya posee una cuenta?"
+      agree_term_html: "Al hacer clic en Registrarse o Iniciar Sesión, acepta nuestros\
+        \ <a href='/pages/terms_of_use'> Términos de Uso </a> y <a href='/pages/privacy_policy'>Polí\
+        tica de Privacidad</a>."
+      not_receive_confirmation?: "¿No recibió la confimación?"
+      donot_have_account?: "¿No tiene una cuenta?"
+    warring_pop_up:
+      title: "No puedes cambiar la descripción de la tarea. Un miembro del equipo\
+        \ se encuentra trabajando en ella."
+    edit_budget:
+      title: '¡Cambiar presupuesto!'

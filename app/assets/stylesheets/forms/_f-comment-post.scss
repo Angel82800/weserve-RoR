@@ -1,0 +1,21 @@
+.f-comment-post {
+  &__form {
+    textarea {
+      height: 50px;
+      border: 1px solid #e0e2e1;
+      background: #fff;
+      color: #4a4a4a;
+      width: 100%;
+      padding: 10px 15px;
+      font-size: 14px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+  }
+  &__action-wrapper {
+    text-align: center;
+  }
+  &__add-attachment {
+    margin-left: 5px;
+  }
+}

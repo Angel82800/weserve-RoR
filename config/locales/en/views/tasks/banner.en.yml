@@ -1,0 +1,15 @@
+---
+en:
+  tasks:
+    banner:
+      edit_project_image: Edit Project Image
+      funded: Funded
+      teammates: Teammates
+      raised: Raised
+      get_involved: Get involved
+      raised_of: raised of
+      goal: goal
+      tasks_completed: Tasks completed
+      to_dos: to-dos
+      back_this_project: Back this project
+...

@@ -1,0 +1,13 @@
+---
+fr:
+  transaction_histories:
+    index:
+      title: Historique complet des transactions
+      destination: Destination
+      source: Utilisateur source / Tâche
+      date: Date
+      description: Description
+      amount: Montant
+      operation: Type d'opération
+      user: Utilisateur
+...

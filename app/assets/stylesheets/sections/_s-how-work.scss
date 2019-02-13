@@ -1,0 +1,121 @@
+.s-how-work {
+  position: relative;
+  background-color: #333;
+  z-index: 4;
+  padding-top: 60px;
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+
+  &__container {
+    max-width: 1200px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  &__info {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    color: #fff;
+    max-width: 920px;
+    margin: 40px auto 100px;
+    font-size: 22px;
+  }
+
+  &__item-wrap {
+    padding: 6% 20px;
+    font-size: 0;
+  }
+  &__item {
+    vertical-align: top;
+    display: inline-block;
+    width: 20%;
+    position: relative;
+  }
+  &__img-wrap {
+    height: 110px;
+    margin-bottom: 20px;
+    font-size: 0;
+    &:after {
+      vertical-align: middle;
+      display: inline-block;
+      width: 0;
+      height: 100%;
+      content: '';
+    }
+  }
+  &__img {
+    max-width: 100px;
+    height: auto;
+    max-height: 110px;
+    width: auto;
+
+  }
+  &__arrow {
+    max-width: 70px;
+    height: auto;
+    position: absolute;
+    left: -35px;
+    top: 39px;
+  }
+  .s-how-work__text {
+    font-family: 'Libre Franklin', sans-serif;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 13px;
+    line-height: 19px;
+    text-align: center;
+    font-weight: 600;
+    max-width: 170px;
+    margin: 0 auto;
+  }
+}
+
+@media(max-width: 1024px) {
+  .s-how-work {
+    &__img {
+      max-width: 50%;
+      margin: 0 auto;
+    }
+    &__arrow {
+      max-width: 50px;
+      left: -25px;
+    }
+  }
+}
+
+@media(max-width: 920px) {
+  .s-how-work {
+    .s-how-work__text {
+      max-width: 100%;
+      padding: 0 10px;
+    }
+  }
+}
+
+@media(max-width: 767px) {
+  .s-how-work {
+    &__title {
+      padding: 0 15px;
+    }
+    &__item-wrap {
+      max-width: 320px;
+      margin: 0 auto;
+    }
+    &__item {
+      width: 100%;
+      margin-bottom: 80px;
+    }
+    &__arrow {
+      left: 50%;
+      top: -50px;
+      transform: translateX(-50%) rotate(90deg);
+    }
+  }
+}

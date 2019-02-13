@@ -1,0 +1,50 @@
+<%= render 'layouts/flash_lead_project_invitation' %>
+
+<main class="main-wrapper">
+  <section class="s-projects">
+    <div class="s-projects__container">
+      <div class="s-projects__heading">
+        <h2 class="s-projects__title"><%= t('.title') %></h2>
+        <div id="paginator" style="display: none;">
+          <%= paginate @featured_projects, remote: true %>
+        </div>        
+      </div>
+      <div class="l-project-cards" id="search-results-show">
+        <ul class="l-project-cards__list">
+          <%= render "projects_page" %>
+        </ul>
+      </div>
+      <%= render partial: 'project_preloader' %>
+    </div>
+  </section>
+</main>
+<button class="btn-to-top">
+  <svg focusable="false" version="1.1" class="svg-arrow-down">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-arrow-down"></use>
+  </svg>
+</button>
+<script type="text/javascript">
+    var $window = $(window),
+        $btnToTop = $('.btn-to-top');
+    $(document).ready(function () {
+        function updateBtnToTopVisibility() {
+            var $sFooter = $('.landing-footer');
+            if ($sFooter.length && ($window.scrollTop() + window.innerHeight > $sFooter.offset().top)) {
+                $btnToTop.removeClass('_active');
+            } else if ($window.scrollTop() > 150) {
+                $btnToTop.addClass('_active');
+            } else {
+                $btnToTop.removeClass('_active');
+            }
+        }
+
+        $btnToTop.on('click', function () {
+            $('body, html').animate({scrollTop: 0}, 600);
+        });
+        $window.on('scroll.toggleBtnToTop', function () {
+            updateBtnToTopVisibility();
+        });
+        updateBtnToTopVisibility();
+
+    });
+</script>

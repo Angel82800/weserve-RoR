@@ -1,0 +1,12 @@
+<div class="modal-default modal-edit-bcg" id="profile-bcg-edit" role="dialog" tabindex="-1" aria-hidden="true">
+  <div class="modal-default__content" role="document">
+      <button class="modal-default__close" type="button"></button>
+      <h3 class="modal-default__title"><%= t('.edit_bg_img') %></h3>
+      <div class="f-edit-bcg__image">
+        <%= image_tag(@user.background_picture) %>
+      </div>
+      <%= file_field_tag :background_picture, accept: 'image/png,image/gif,image/jpeg', class: 'btn-upload', id: "tmp-user-background-picture"%>
+      <button class="btn-root btn-save-user-background-picture" name="commit" data-modal-close><%= t('commons.save_changes') %></button>
+      <button type="button" class="btn-root _dark" data-modal-close><%= t('commons.cancel') %></button>
+  </div>
+</div>

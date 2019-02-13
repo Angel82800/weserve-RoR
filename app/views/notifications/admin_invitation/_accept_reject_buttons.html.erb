@@ -1,0 +1,25 @@
+<% if source_model.pending? %>
+  <div id="invitation-<%= source_model.id %>" class="b-notification__actions admin-invitation">
+  <%= link_to(accept_admin_invitation_path(source_model), class: 'btn-notify _accept', method: :post, remote: true) do %>
+    <svg focusable="false" version="1.1" class="svg-check">
+      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-check"></use>
+    </svg>
+    Accept
+  <% end %>
+
+  <%= link_to(reject_admin_invitation_path(source_model), class: 'btn-notify _reject', method: :post, remote: true) do %>
+    <svg focusable="false" version="1.1" class="svg-times">
+      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-times"></use>
+    </svg>
+    Reject
+  <% end %>
+  </div>
+<% else %>
+  You have <%= source_model.status %> the invitation
+<% end %>
+
+<script>
+  $("#invitation-<%= source_model.id %> .btn-notify").on("ajax:success", function(data, status, xhr) {
+    location.reload();
+  });
+</script>

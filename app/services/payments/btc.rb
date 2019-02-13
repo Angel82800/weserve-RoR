@@ -1,0 +1,2 @@
+module Payments::BTC
+end

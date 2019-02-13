@@ -1,0 +1,27 @@
+.f-start-project {
+  &__submit-row {
+    text-align: right;
+    margin-top: 27px;
+  }
+  .f-default__row {
+    position: relative;
+  }
+  .f-default__field {
+    height: 40px;
+    line-height: 38px;
+  }
+  .svg-marker {
+    position: absolute;
+    left: 13px;
+    fill: #555;
+    width: 8px;
+    height: 12px;
+    bottom: 13px;
+  }
+  ._country-field {
+    padding-left: 35px;
+  }
+  ._location {
+    max-width: 325px;
+  }
+}

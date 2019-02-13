@@ -1,0 +1,8 @@
+pt:
+  projects:
+    task_card:
+      teammates: "Companheiros de equipe"
+      raised: "Recolhido"
+      needed: "Necessário"
+      left_in_usd: "Restante, %(currency)"
+      budget: "Orçamento"

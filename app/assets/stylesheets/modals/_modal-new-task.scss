@@ -1,0 +1,47 @@
+.modal-new-task {
+  .f-default__row {
+    margin-bottom: 8px;
+  }
+  .input-group-addon {
+    border-radius: 0;
+  }
+  .btn-root {
+    display: table;
+    margin: 26px 0 0 auto;
+    min-width: 227px;
+  }
+  .f-default__field {
+    font-size: 14px;
+    margin: 0;
+  }
+  .modal-default__content {
+    max-width: 800px;
+    width: 100%;
+    text-align: left;
+  }
+  &__team-member-estimation {
+    font-size: 14px;
+    line-height: 35px;
+  }
+  &__checkbox {
+    border: none;
+    width: 20px;
+    height: 18px;
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  .modal-new-task {
+    .modal-default__content {
+      padding: 40px 25px;
+    }
+  }
+}
+
+@media only screen and (max-width: 710px) {
+  .modal-new-task {
+    .f-default__col {
+      width: 100%;
+    }
+  }
+}

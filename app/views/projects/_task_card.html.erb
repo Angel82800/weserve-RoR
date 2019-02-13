@@ -1,0 +1,107 @@
+<%= link_to show_task_projects_path(id: task.id), class:'pr-card', data: { task_board_id: task.board.id, task_id: task.id }, remote: true do %>
+  <div class="trello-cards">
+    <div class="card-wrapper">
+      <div class="card-title">
+        <h5><%= task.title %></h5>
+        <p><%= task.description %></p>
+      </div>
+      <div class="<%=task.free? ? 'comment-wrapper _free-task' : 'comment-wrapper _free-task' %>">
+        <span class="task_attachment"><i class="fa fa-paperclip" aria-hidden="true"></i>&nbsp;<%= task.task_attachments.count %></span>
+        <span class="task_comment"><i class="fa fa-comment-o" aria-hidden="true"></i>&nbsp;<%= task.task_comments.count %></span>
+      </div>
+
+      <% if !task.free? %>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: <%= task.funded %>">
+            </div>
+          </div>
+      <% end %>
+
+      <div class="card-report">
+        <table>
+          <% if !task.free? %>
+            <tr>
+              <td>
+                <p><span><%= ENV['symbol_currency'] %><%= number_with_precision(balance_in_usd(task.current_fund), :precision => 2) %> raised</span> out of <%= ENV['symbol_currency'] %><span class="card-task-budget"><%= number_with_precision(balance_in_usd(task.budget), :precision => 2) %></span> goal</p>
+              </td>
+            </tr>
+          <% end %>
+          <tr>
+            <td>
+              <% unless task.enough_teammembers? %>
+                  <p><span><%= task.target_number_of_participants %> teammate needed</span></p>
+              <% end %>
+            </td>
+          </tr>
+          <!-- <tr class="value">
+            <td><%= task.number_of_participants%> / <%= task.target_number_of_participants %></td>
+          <tr class="value">
+            <td>
+              <%# unless task.enough_teammembers? %>
+                  <%= task.number_of_participants%> / <%= task.target_number_of_participants %>
+              <%# end %>
+            </td>
+
+            <td class="card-report__data _raised _hide"><%= balance_in_usd(task.current_fund) %></td>
+
+            <% #if !task.free? %>
+              <td class="card-report__data _amount-left-btc">$ <%= number_with_precision(balance_in_usd(task.funds_needed_to_fulfill_budget), :precision => 2) %></td>
+            <%# end %>
+
+            <td class="card-report__data _amount-left-usd _hide"><%= balance_in_usd(task.funds_needed_to_fulfill_budget) %></td>
+
+            <%# if !task.free? %>
+                <td class="card-report__data _budget">
+                  <div class="card-report__data _usd">$ <%= number_with_precision(balance_in_usd(task.budget), :precision => 2) %> </div>
+                </td>
+            <%# end %>
+            <td class="card-report__data _per-amount _hide"><%= balance_in_usd(task.planned_amount_per_member) %></td>
+          </tr>
+          <tr class="items">
+            <td>
+              <% #unless task.enough_teammembers? %>
+                  <%= t('.teammates') %>
+              <% #end %>
+            </td>
+
+            <td class="_hide"><%= t('.raised') %></td>
+            <% #if !task.free? %>
+                <td><%= t('.needed') %></td>
+            <% #end %>
+
+            <td class="_hide"><%= t('.left_in_usd') %></td>
+      #
+            <%# if !task.free? %>
+                <td><%= t('.budget') %></td>
+            <% #end %>
+          </tr> -->
+        </table>
+      </div>
+      <% if task.is_funding? || task.suggested_task? %>
+        <% if user_signed_in? %>
+          <div class="fund-do-btns buttons_group">
+            <% if task.is_funding? %>
+              <% unless task.free? %>
+                <button type="button" title="FUND" class='btn btn-theme-salat small btn-root fund-button' onclick="fundPopup(<%= task.id %>)" id="<%= task.id %>" data-modal="#taskFundModal"><%= t('commons.fund') %></button>
+              <% end %>
+            <% end %>
+            <% unless task.enough_teammembers? %>
+              <button type="button" title="DO" class='btn btn-theme-blue small btn-root _dark _do-popup-button do-button' id="<%= task.id %>" onclick="doPopup(<%= task.id %>, <%= can_make_request_free?(task) %>, <%= format_currency(task.budget) %>)" data-modal="#taskDoModal"><%= t('commons.do') %></button>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="fund-do-btns buttons_group">
+             <% if task.is_funding? %>
+               <% unless task.free? %>
+                 <button type="button" title="FUND" class='btn btn-theme-salat small btn-root sign_in_a' data-modal="#registerModal"><%= t('commons.fund') %></button>
+               <% end %>
+             <% end %>
+             <% unless task.enough_teammembers? %>
+              <button type="button" title="DO" class='btn btn-theme-blue small btn-root _dark _do-popup-button sign_in_a' data-modal="#registerModal"><%= t('commons.do') %></button>
+             <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

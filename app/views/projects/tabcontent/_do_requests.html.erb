@@ -1,0 +1,40 @@
+<% if do_requests.size > 0 %>
+  <% is_pending_table = do_requests.first.state.eql?('pending') %>
+  <% table_class ||= nil %>
+  <div class="<%= table_class %>">
+    <% if is_pending_table %>
+      <h4 class="mb20">
+        <%= t('.pending_do_requests') %>
+      </h4>
+      <%= t('.there_users_requested_to_do_task', project_title: project.title) %>
+    <% else %>
+      <h4 class="mb20">
+        <%= t('.resolved_do_requests') %>
+      </h4>
+      <%= t('.there_users_requested_resolved_in_project', project_title: project.title) %>
+    <% end %>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th><%= t('commons.task') %></th>
+            <th><%= t('commons.user') %></th>
+            <th><%= t('commons.application') %></th>
+            <th><%= t('commons.created_at') %></th>
+            <% if is_pending_table %>
+              <th><%= t('commons.actions') %></th>
+            <% else %>
+              <th><%= t('commons.status') %></th>
+            <% end %>
+          </tr>
+        </thead>
+        <tbody>
+          <% do_requests.each do |do_request| %>
+            <%= render 'projects/tabcontent/do_request_item', do_request: do_request, is_pending_table: is_pending_table %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<% end %>

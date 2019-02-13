@@ -1,0 +1,41 @@
+---
+fr:
+  projects:
+    revision_history:
+      edit_revision: Modifier la révision
+      select_revisions: Sélectionnez les révisions
+      compare: Comparer
+      time: Temps
+      contributors: Contributeurs
+      approved_version: Version approuvée
+    tabcontent:
+      plan:
+        review_contribution: Examiner les contributions
+        create_sub_project: Créer un sous-projet
+        project_idea: Idée du projet
+      donors:
+        nobody_donated: Personne n'a encore donné.
+      do_requests:
+        pending_do_requests: Effectuer une tâche - demandes en attente
+        resolved_do_requests: Effectuer une tâche - demandes résolues
+        there_users_requested_to_do_task: Ces utilisateurs ont demandé à effectuer
+          des tâches dans le projet %{project_title}
+        there_users_requested_resolved_in_project: La demande de cet utilisateur pour
+          effectuer des tâches dans le projet %{project_title} a été résolue
+      revision:
+        revision_for: Révisions pour
+        manual_verification: Vérification manuelle
+        approval_help_tooltip_1: Lorsque la vérification manuelle est désactivée,
+          les utilisateurs peuvent modifier votre projet sans votre approbation. Vous
+          pouvez toujours annuler ou modifier les contributions et bloquer les utilisateurs.
+        approval_help_tooltip_2: Si vous activez la vérification manuelle, vous devrez
+          examiner la contribution de chaque utilisateur afin de pouvoir les concrétiser
+        revision_error: Vous devez sélectionner plusieurs révisions
+      apply_requests:
+        pending_application_requests: Demandes de candidature en attente
+        resolved_application_requests: Demandes de candidature résolues
+        there_users_requested_to_apply: Ces utilisateurs ont envoyé une demande de
+          candidature pour le projet %{project_title}
+        there_users_apply_resolved_in_project: La demande de cet utilisateur pour
+          être candidat dans le projet %{project_title} a été résolue
+...

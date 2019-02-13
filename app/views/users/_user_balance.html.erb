@@ -1,0 +1,23 @@
+<div class="s-wallet__top-bar">
+  <div class="s-wallet__info"><%= t('commons.balance') %>:  <%= ENV['symbol_currency'] %><strong class="s-wallet__value"><%= balance_in_usd(@user_balance) %></strong> <%= ENV['currency'] %>
+  </div>
+  <div class="s-wallet__notification">
+    <% if current_user.custom_account.try(:withdrawals_enabled?) && (current_user.bank || current_user.credit_card) %>
+
+      <%= link_to "Withdraw", withdraw_method_user_path, class: "withdraw-btn" if @user_balance > 0 %>
+      <%= link_to "Configure Withdrawals", payout_method_user_path, class: "conf-withdraw" %>
+    <% else %>
+      <i class="fa fa-info-circle" aria-hidden="true"></i>
+      <% if current_user.custom_account.present? && (current_user.bank || current_user.credit_card)%>
+        <%== t('commons.verify_cus_acc', link: link_to("verification", payout_method_user_path)) %>
+      <% else %>
+        <%== t('commons.config_payout_method', link: link_to("setup", payout_method_user_path)) %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="hold-balance">On Hold:  <%= ENV['symbol_currency'] %><strong class="s-wallet__value"><%= balance_in_usd(@hold_balance) %></strong> <%= ENV['currency'] %>
+    <i class="fa fa-question-circle add_color tooltips" aria-hidden="true">
+      <span class="tooltiptext"><%= t('commons.hold_balance')%></span>
+    </i>
+  </div>
+</div>

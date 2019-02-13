@@ -1,0 +1,7 @@
+---
+fr:
+  projects:
+    projects_page_box:
+      remove: Supprimer en tant que projet parent
+      confirm: Êtes-vous sûr de vouloir supprimer ce sous-projet ?
+...

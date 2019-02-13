@@ -1,0 +1,8 @@
+$('.l-project-cards__list').append("<%= escape_javascript(render 'projects_page') %>");
+$('#paginator').html("<%= escape_javascript(paginate(@featured_projects, remote: true)) %>");
+
+<% if @featured_projects.last_page? %>
+$('.load-more').hide();
+<% else %>
+$('.load-more').show();
+<% end %>

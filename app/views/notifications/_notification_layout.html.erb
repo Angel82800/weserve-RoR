@@ -1,0 +1,23 @@
+<li class="l-notifications__item">
+    <div id="notification-<%= notification.id %>" class="b-notification">
+      <div class="b-notification__mark-read">
+        <svg focusable="false" version="1.1" class="svg-bell">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-bell"></use>
+        </svg>
+      </div>
+
+      <div class="b-notification__content">
+        <date class="b-notification__date"><%= "#{notification.created_at.strftime(" %b")} #{notification.created_at.day.ordinalize}" rescue nil %></date>
+
+        <div class="b-notification__wrapper">
+          <%= yield %>
+
+          <% if notification.user_id == current_user.id && notification.operatable? %>
+            <% if ["project", "task"].exclude? notification.source_model_type.underscore %>
+                <%= render partial: "notifications/#{notification.source_model_type.underscore}/accept_reject_buttons", locals: { notification: notification, source_model: source_model }%>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+</li>

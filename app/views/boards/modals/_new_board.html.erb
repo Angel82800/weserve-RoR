@@ -1,0 +1,19 @@
+<div id="newBoard" class="modal-default" role="dialog">
+  <div class="modal-default__content">
+    <button type="button" class="modal-default__close"></button>
+    <h4 class="modal-default__title"><%= t('boards.boards.title') %></h4>
+    <div class="modal-task__activities">
+      <div class="f-comment-post">
+        <%= form_for Board.new, url: project_boards_path(project_id: project.id), remote: true do |f| %>
+            <%= f.text_field :title, placeholder: t('boards.boards.title_field') %>
+            <%= f.hidden_field :project_id, value: project.id %>
+            <div class="f-comment-post__action-wrapper">
+              <button class="btn btn-theme-green btn-block btn-root" type="submit" name="commit" value="<%= t('commons.send') %>">
+                <%= t('commons.create') %>
+              </button>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

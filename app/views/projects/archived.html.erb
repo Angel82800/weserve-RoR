@@ -1,0 +1,17 @@
+<section class="s-projects">
+  <div class="s-projects__container">
+    <div class="s-projects__heading">
+      <h2 class="s-projects__title"><%= t('.title') %></h2>
+      <div id="paginator">
+        <%= paginate @featured_projects, remote: true %>
+      </div>
+    </div>
+
+    <div class="l-project-cards" id="search-results-show">
+      <ul class="l-project-cards__list">
+        <%= render "projects_page" %>
+      </ul>
+    </div>
+    <%= render partial: 'project_preloader' %>
+  </div>
+</section>

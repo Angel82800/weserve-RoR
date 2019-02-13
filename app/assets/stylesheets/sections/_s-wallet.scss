@@ -1,0 +1,250 @@
+.s-wallet {
+  font-family: 'Roboto', sans-serif;
+  margin-left: 220px;
+  margin-top: 0;
+  margin-right: 0;
+  max-width: none;  // todo why we have so strange default styles??
+  &__wrapper {
+    max-width: 910px;
+    padding: 0 20px;
+  }
+  &__title {
+    color: #000;
+    font-family: Roboto, sans-serif;
+    font-size: 31px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 45px;
+  }
+  &__subtitle {
+    color: #000;
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 17px;
+    display: inline-block;
+    vertical-align: middle;
+    &._uppercase {
+      text-transform: uppercase;
+    }
+  }
+  &__info,
+  &__notification {
+    display: inline-block;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+  }
+  &__notification {
+    margin-left: 25px;
+    color: #FFA834;
+    a {
+      color: #FFA834;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+  }
+  &__content {
+    display: none;
+    &._active {
+      display: block;
+    }
+  }
+  &__top-bar {
+    margin: 15px 0 30px;
+    .s-wallet__subtitle {
+      display: block;
+    }
+  }
+  &__btc-address {
+    color: #4a4a4a;
+    font-family: Roboto, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24px;
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 50px;
+  }
+  &__method {
+    display: flex;
+    padding: 40px 0;
+    border-bottom: 1px solid #dcdcdc;
+    &-info {
+      flex-basis: 70%;
+      max-width: 70%;
+    }
+    &-setup {
+      text-align: center;
+      margin-left: auto;
+      & > div:last-child {
+        margin-top: 10px;
+        font-size: 16px;
+      }
+    }
+  }
+  &__qr {
+    color: #000;
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: underline;
+    background: transparent;
+    position: relative;
+    transition: color .2s;
+    &:hover,
+    &:focus {
+      background: transparent;
+      text-decoration: none;
+      color: transparent;
+      outline: none;
+      .s-wallet__qr-wrap {
+        display: block;
+        opacity: 1;
+      }
+      .svg-qr {
+        opacity: 0;
+      }
+    }
+    .svg-qr {
+      width: 16px;
+      height: 16px;
+      fill: #000;
+      display: inline-block;
+      vertical-align: middle;
+      transition: opacity .2s;
+    }
+  }
+  &__btns-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__qr-wrap {
+    position: absolute;
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: opacity .2s;
+    pointer-events: none;
+  }
+  &__back {
+    font-family: Roboto, sans-serif;
+    text-decoration: underline;
+    background: transparent;
+    color: #8e8e8e;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 8px 0;
+    margin-bottom: 10px;
+    &:hover,
+    &:focus {
+      background: transparent;
+      text-decoration: none;
+      color: #000;
+      outline: none;
+    }
+  }
+  &__btc {
+    color: #000;
+    font-family: Roboto, sans-serif;
+    font-size: 31px;
+    font-weight: 500;
+    line-height: 45px;
+    text-transform: uppercase;
+  }
+  &__usd {
+    color: #4a4a4a;
+    font-family: Roboto, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24px;
+    text-transform: uppercase;
+    text-align: right;
+  }
+  &__content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    .btn-root {
+      &:active,
+      &:focus {
+        background-color: #fff;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1040px) {
+  .s-wallet {
+    margin-left: 0;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .s-wallet {
+    &__wrapper {
+      padding: 0 10px;
+    }
+    &__title {
+      text-align: center;
+      font-weight: 600;
+    }
+    &__subtitle {
+      font-weight: 500;
+      margin-bottom: 30px;
+    }
+    &__top-bar {
+      display: block;
+      text-align: left;
+    }
+    &__info {
+      display: block;
+      margin-bottom: 10px;
+    }
+    &__notification {
+      display: block;
+      margin-left: 0;
+    }
+    &__btc-address {
+      margin-right: 0;
+    }
+    &__usd {
+      text-align: center;
+    }
+    &__qr {
+      margin: 20px 0;
+    }
+    &__method {
+      display: block;
+      text-align: center;
+      padding: 20px 0;
+      border-bottom: 1px solid #dcdcdc;
+      &-info {
+        max-width: none;
+        p {
+          text-align: center;
+        }
+      }
+      &-setup {
+        margin: 40px 0 0;
+      }
+    }
+    &__content {
+      &-header {
+        flex-direction: column-reverse;
+        margin-bottom: 0;
+        .s-wallet__subtitle {
+          align-self: flex-start;
+          margin: 40px 0 0;
+        }
+      }
+      &-main {
+        overflow-x: auto;
+        margin-bottom: 40px;
+      }
+    }
+  }
+}

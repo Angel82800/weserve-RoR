@@ -1,0 +1,28 @@
+
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.page-wrapper {
+  min-height: 100%;
+  position: relative;
+}
+
+.page-wrapper:after {
+  content: "";
+  display: block;
+}
+
+.footer-wrapper, .page-wrapper:after {
+
+}
+
+body {
+  padding: 0 !important;
+}

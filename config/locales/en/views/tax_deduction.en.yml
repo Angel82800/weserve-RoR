@@ -1,0 +1,15 @@
+---
+en:
+  tax_deduction:
+    new:
+      message: In order to download a tax receipt please fill the form below. Information
+        from this form will be saved for later downloads so you need to fill it only
+        once(but you will be able to edit it later).
+    edit:
+      placeholder:
+        name: Name
+        address: Address
+        zip_code: Zip code
+        city: City
+        country: Country
+...

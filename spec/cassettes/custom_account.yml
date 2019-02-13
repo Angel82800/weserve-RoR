@@ -1,0 +1,163 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.stripe.com/v1/accounts
+    body:
+      encoding: UTF-8
+      string: country=US&type=custom
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Stripe/v1 RubyBindings/1.57.1
+      Authorization:
+      - Bearer sk_test_qSObtpdzQVntvXBlBl9B4DGC
+      Content-Type:
+      - application/x-www-form-urlencoded
+      X-Stripe-Client-User-Agent:
+      - '{"bindings_version":"1.57.1","lang":"ruby","lang_version":"2.3.1 p112 (2016-04-26)","platform":"x86_64-linux","engine":"ruby","publisher":"stripe","uname":"Linux
+        version 4.4.0-96-generic (buildd@lgw01-10) (gcc version 5.4.0 20160609 (Ubuntu
+        5.4.0-6ubuntu1~16.04.4) ) #119-Ubuntu SMP Tue Sep 12 14:59:54 UTC 2017","hostname":"rails-All-Series"}'
+      Content-Length:
+      - '22'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 03 Oct 2017 07:34:06 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '2269'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST, HEAD, OPTIONS, DELETE
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - X-Stripe-Privileged-Session-Required,stripe-manage-version,X-Stripe-External-Auth-Required
+      Access-Control-Max-Age:
+      - '300'
+      Cache-Control:
+      - no-cache, no-store
+      Request-Id:
+      - req_NbNz6K4UshOo0t
+      Stripe-Version:
+      - '2017-08-15'
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "id": "acct_1B8kunDHUx5Xhi5H",
+          "object": "account",
+          "business_logo": null,
+          "business_name": null,
+          "business_url": null,
+          "charges_enabled": true,
+          "country": "US",
+          "debit_negative_balances": false,
+          "decline_charge_on": {
+            "avs_failure": false,
+            "cvc_failure": false
+          },
+          "default_currency": "usd",
+          "details_submitted": false,
+          "display_name": null,
+          "email": null,
+          "external_accounts": {
+            "object": "list",
+            "data": [],
+            "has_more": false,
+            "total_count": 0,
+            "url": "/v1/accounts/acct_1B8kunDHUx5Xhi5H/external_accounts"
+          },
+          "keys": {
+            "secret": "sk_test_x7MOqI9rSGlcDYGIumGmSfKZ",
+            "publishable": "pk_test_YC0tkIfcyGPeAyeWve6x7BfX"
+          },
+          "legal_entity": {
+            "additional_owners": [],
+            "address": {
+              "city": null,
+              "country": "US",
+              "line1": null,
+              "line2": null,
+              "postal_code": null,
+              "state": null
+            },
+            "business_name": null,
+            "business_tax_id_provided": false,
+            "dob": {
+              "day": null,
+              "month": null,
+              "year": null
+            },
+            "first_name": null,
+            "last_name": null,
+            "personal_address": {
+              "city": null,
+              "country": "US",
+              "line1": null,
+              "line2": null,
+              "postal_code": null,
+              "state": null
+            },
+            "personal_id_number_provided": false,
+            "ssn_last_4_provided": false,
+            "type": null,
+            "verification": {
+              "details": null,
+              "details_code": null,
+              "document": null,
+              "status": "unverified"
+            }
+          },
+          "metadata": {},
+          "payout_schedule": {
+            "delay_days": 2,
+            "interval": "daily"
+          },
+          "payout_statement_descriptor": null,
+          "payouts_enabled": false,
+          "product_description": null,
+          "statement_descriptor": null,
+          "support_email": null,
+          "support_phone": null,
+          "timezone": "Etc/UTC",
+          "tos_acceptance": {
+            "date": null,
+            "ip": null,
+            "user_agent": null
+          },
+          "type": "custom",
+          "verification": {
+            "disabled_reason": "fields_needed",
+            "due_by": null,
+            "fields_needed": [
+              "external_account",
+              "legal_entity.dob.day",
+              "legal_entity.dob.month",
+              "legal_entity.dob.year",
+              "legal_entity.first_name",
+              "legal_entity.last_name",
+              "legal_entity.type",
+              "tos_acceptance.date",
+              "tos_acceptance.ip"
+            ]
+          }
+        }
+    http_version: 
+  recorded_at: Tue, 03 Oct 2017 07:34:06 GMT
+recorded_with: VCR 3.0.3

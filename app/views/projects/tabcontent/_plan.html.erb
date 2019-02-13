@@ -1,0 +1,48 @@
+<div class="content-details">
+  <div class="row">
+    <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12">
+      <% if user_signed_in? %>
+        <div class="edit-btn margin-none mb20">
+          <% if is_blocked == 0 %>
+            <% if can? :revisions, project %>
+              <a class="btn btn-theme-green btn-root" id="editSource"><%= t('projects.tabcontent.plan.review_contribution') %></a>
+            <% end %>
+            <a href="<%= mediawiki_api_base_url %>index.php?title=<%= URI.escape(project.wiki_page_name.gsub(' ', '_')) %>&useskin=weserve&veaction=edit&redirect=<%= URI.encode(taskstab_project_url(project.id)) %>" class="btn btn-theme-green btn-root">
+              <%= t('commons.edit') %><i class="fa fa-pencil" aria-hidden="true"></i>
+            </a>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="edit-btn row margin-none mb20">
+          <div class="btn-edit-wrapper">
+            <a class="btn btn-theme-green sign_in_a btn-root" data-modal="#registerModal">
+              <%= t('commons.edit') %>&nbsp;&nbsp;
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="clearfix"></div>
+      <div class="project-summary">
+        <%= contents.html_safe %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $('.best_in_place').best_in_place();
+    var projectTitle = $('.project-title').data('bip-value');
+
+    $('.project-title').on('ajax:success', function(res) {
+      var $btnEditWrapper = $('.btn-edit-wrapper'),
+          $btnEdit = $('.btn-edit-wrapper a'),
+          newTitle = $('.project-title').data('bip-value'),
+          url = "<%= mediawiki_api_base_url %>index.php?title=<%= URI.escape(project.wiki_page_name.gsub(' ', '_')) %>&useskin=weserve&veaction=edit&redirect=<%= URI.encode(taskstab_project_url(project.id)) %>";
+
+      $btnEdit.attr('href', url.replace(projectTitle, newTitle));
+    });
+  })
+</script>

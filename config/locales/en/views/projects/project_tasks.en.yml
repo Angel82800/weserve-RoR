@@ -1,0 +1,13 @@
+---
+en:
+  projects:
+    project_tasks:
+      suggestion: Suggestions
+      delete_confirmation: Are you sure you want to delete this task?
+      suggest_a_task: Suggest a Task
+      funding_and_sourcing: Funding & Sourcing
+      add_a_task: Add a Task
+      doing: Doing
+      reviewing: Reviewing
+      done: Success!
+...

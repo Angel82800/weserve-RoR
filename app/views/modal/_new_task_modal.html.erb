@@ -1,0 +1,119 @@
+<div id="newTaskModal" class="modal-new-task modal-default" role="dialog" tabindex="-1">
+  <div class="modal-default__content">
+      <button type="button" class="modal-default__close" data-dismiss="modal"></button>
+
+      <h2 class="modal-default__title"><%= t('.suggest_new_task') %></h2>
+
+      <%= simple_form_for(Task.new) do |f| %>
+        <%= f.error_notification %>
+
+        <%= render 'shared/error_messages', object: f.object %>
+
+        <div class="f-default__row">
+          <label class="f-default__label" for="task_title"><%= t('commons.title') %></label>
+          <input class="f-default__field" required="required" maxlength="200" aria-required="true" type="text" name="task[title]" id="task_title">
+        </div>
+
+        <!-- <div class="f-default__row">
+          <label class="f-default__label" for="task_description">Description</label>
+          <textarea class="f-default__textarea" required="required" maxlength="1500" aria-required="true" name="task[description]" id="task_description"></textarea>
+        </div> -->
+
+        <div class="f-default__row b-tooltip">
+          <div class="f-default__col-wrap">
+            <div class="f-default__col">
+              <label class="f-default__label" for="task_description">
+                <%= t('.is_task_free') %>
+              </label>
+              <input class="f-default__field modal-new-task__checkbox" type="checkbox" value="true" name="task[free]" id="task_free">
+            </div>
+            <div class="f-default__col">
+              <label class="f-default__label" for="task_description">
+                <%= t('commons.budget') %>
+                <span class="b-tooltip__element">(?)
+                    <div class="b-tooltip__content">
+                      <%= t('.budget_in_usd', currency: ENV['symbol_currency']) %>
+                    </div>
+                </span>
+                , <%= t('commons.min') %> 20 <%= ENV['symbol_currency'] %></label>
+              </label>
+              <input class="f-default__field modal-new-task__usd-amount numeric decimal no-spinners required" min="20" maxlength="10" aria-required="true" type="number" name="task[budget]" id="task_budget">
+            </div>
+            <div class="f-default__col">
+              <label class="f-default__label" for="task_description">
+                  <%= t('.people_needed') %>
+                  <span class="b-tooltip__element">(?)
+                      <div class="b-tooltip__content">
+                        <%= t('.total_participant') %>
+                      </div>
+                  </span>
+              </label>
+              <input class="f-default__field modal-new-task__member_amount numeric integer required" required="required" disabled maxlength="5" aria-required="true" type="number" step="1" min="1" value="1" name="task[target_number_of_participants]" id="task_target_number_of_participants">
+            </div>
+          </div>
+        </div>
+
+        <div class="f-default__row b-tooltip">
+          <label class="f-default__label" for="task_condition_of_execution">
+            <%= t('.specifications') %>
+            <span class="b-tooltip__element">(?)
+                <div class="b-tooltip__content">
+                  <%= t('.general_description') %>
+                </div>
+            </span>
+          </label>
+          <textarea class="f-default__textarea" required="required" maxlength="1500" aria-required="true" name="task[condition_of_execution]" id="task_condition_of_execution"></textarea>
+        </div>
+
+        <div class="f-default__row b-tooltip">
+          <label class="f-default__label" for="task_proof_of_execution">
+            <%= t('.proof_of_execution') %>
+            <span class="b-tooltip__element">(?)
+                <div class="b-tooltip__content">
+                    <%= t('.condition_as_completed') %>
+                </div>
+            </span>
+          </label>
+          <textarea class="f-default__textarea" required="required" maxlength="1500" aria-required="true" name="task[proof_of_execution]" id="task_proof_of_execution"></textarea>
+        </div>
+
+        <div class="f-default__row">
+          <label class="f-default__label" for="deadline_field"><%= t('commons.deadline') %></label>
+          <div class='input-group date deadline_picker'>
+              <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar">
+                  </span>
+              </span>
+              <input type='text' name="task[deadline]" class="f-default__field" id="deadline_field" required="required" aria-required="true" />
+          </div>
+
+          <%= f.hidden_field :project_id, value: @project.id %>
+          <%= f.hidden_field :board_id, value: @board.id %>
+          <input type='hidden' name="task[state]" id="task_state" value="">
+        </div>
+        <p>
+          <b><%= t('commons.information_about_fee') %></b>
+          <%= t('commons.fees_info',
+            weserve_fee: number_to_percentage(ENV['weserve_service_fee'].to_f * 100, precision: 0),
+            donation_fee_ui: ENV['donation_fee_fixed_ui'],
+            donation_fee_percent: number_to_percentage(ENV['donation_fee_percent_ui'].to_f * 100, precision: 1)
+          )%>
+        </p>
+        <button class="btn btn-theme-green big btn-root"><%= t('commons.create_task') %></button>
+      <% end %>
+  </div>
+</div>
+
+<script>
+  DateTimePickerModule.init($(document));
+  $(document)
+    .on('submit.createNewTask', '.new_task', function(e) {
+      if (!$('.modal-new-task__checkbox').is(':checked') && !$('.modal-new-task__usd-amount').val()) {
+        $('.error-create-task').fadeIn(300);
+        e.preventDefault();
+      }
+      _.each( $(this).find('textarea'), function(ta) {
+        $(ta).val(convertLineToBr($(ta).val()));
+      })
+    });
+</script>

@@ -1,0 +1,38 @@
+<div class="row row-custom" id="sign_in_show">
+  <div class="row row-custom">
+    <div class="register-form">
+      <div class="alert-box round alert _hidden">
+        <span></span>
+        <a class="close">x</a>
+      </div>
+      <div class="abc">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => 'form-signin', id: 'new_session'}) do |f| %>
+          <div class="form-group">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, id: 'session_email', class: 'sign-in-form__email', required: true %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :password %><br />
+            <%= f.password_field :password, autocomplete: "off", id: 'session_password', class: 'sign-in-form__password', required: true %>
+
+            <div class="forgot-link">
+              <%= link_to t('devise.passwords.forgot_password?'), new_user_password_path %>
+            </div>
+          </div>
+
+          <% if devise_mapping.rememberable? %>
+            <div class="checkbox">
+              <label>
+                <%= f.check_box :remember_me, class: 'sign-in-form__remember' %>
+                <%= User.human_attribute_name('remember_me') %>
+              </label>
+            </div>
+          <% end %>
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token, id: 'session_token', class: 'sign-in-form__token' %>
+          <button type="submit" class="btn btn-theme-green normal-button"><%= t('devise.sessions.new.sign_in') %></button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

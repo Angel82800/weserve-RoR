@@ -1,0 +1,23 @@
+<div class="expanded margin-none dashboard-wrapper">
+  <% if current_user %>
+      <%= render 'layouts/sidebar_navigation' %>
+  <% end %>
+  <section class="s-wallet">
+    <div class="s-wallet__wrapper">
+      <h1 class="s-wallet__title"><%= t('commons.my_wallet') %></h1>
+      <div class="row">
+        <div class="col-sm-2 col-xs-12 p-s-check">
+           <i class="fa fa-check p-s-check" aria-hidden="true"></i>
+        </div>
+        <div class="col-sm-6 col-xs-12 add_color">
+          <p>
+            Thank you, your withdrawal required being processed. You will receive notification
+            when funds will be transfered. You can also check transaction status in Withdrawls
+            History tab at my wallet page.
+          </p>
+        </div>
+      </div>
+      <%= link_to "Back to My Wallet", my_wallet_user_path%>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,75 @@
+---
+fr:
+  tasks:
+    preview:
+      leader-badge_task_edited: <strong>La tâche a été modifiée.</strong> Les changements
+        sont en attente d'approbation des autres participants.<a class="btn btn-theme-green
+        preview" href="#">Prévisualiser</a><a class="btn btn-theme-green dismiss"
+        href="#">Rejeter les changements</a>
+      assignee-badge_task_edited: <strong>Votre tâche a été modifiée !</strong><a
+        class="btn btn-theme-green preview" href="#">Cliquez pour Examiner ces changements</a>
+      leader-preview-mode: <strong>Prévisualisation:</strong><a class="btn btn-theme-green
+        exit_preview" href="#">Quitter</a>
+      assignee-preview-mode: <strong>Prévisualisation.</strong> Vous pouvez<a class="btn
+        btn-theme-green approve_change" href="#">Approuver</a> ou <a class="btn btn-theme-green
+        reject_change" href="#">Rejeter</a> les changements, ou <a class="btn btn-theme-green
+        exit_preview" href="#">Quitter</a> la prévisualisation.
+    create:
+      notice_message: La tâche a bien été créée.
+      alert_message: La tâche n'a pas été créée
+    update:
+      notice_message: La tâche a bien été mise à jour.
+    destroy:
+      notice_message: La tâche a bien été supprimée.
+      error_message: Une erreur s'est produite pendant la suppression de la tâche
+    accept:
+      task_accepted: Tâche acceptée
+      task_not_accepted: La tâche n'a pas été acceptée
+    doing:
+      cannot_do: Vous ne pouvez pas réaliser cette tâche
+      goal_not_meet: Vous n'avez pas atteint votre objectif concernant le nombre d'équipiers
+        ou le financement
+      task_changed_to_doing: Le statut de la tâche est désormais EN COURS
+      error_moving: Erreur lors du déplacement de la tâche
+    reject:
+      task_rejected: La tâche %{task_title} a été rejetée
+      task_not_rejected: La tâche n'a pas été rejetée
+    back_funding:
+      task_cancelled: La tâche %{task_title} a été annulée
+      task_not_cancelled: La tâche n'a pas été annulée
+    reviewing:
+      task_submitted: Tâche envoyée pour examen
+      task_not_sumitted: La tâche n'a pas été envoyée pour examen
+    completed:
+      task_completed: La tâche a bien été réalisée
+    incomplete:
+      task_incompleted: Vous avez examiné et rejeté la tâche %{task_title} du projet
+        %{project_title}
+      fail: Vous n'avez pas indiqué de date limite valide
+    cancel:
+      success: Votre demande d'annulation a bien été envoyée
+      task_cancelled: La tâche %{task_title} a été annulée
+      task_not_cancelled: La tâche n'a pas été annulée
+    send_email:
+      task_link_sent: Le lien vers la tâche a été envoyé à %{email}
+    validate_team_member:
+      not_allowed: Vous n'êtes pas autorisé à effectuer cette opération
+    validate_admin:
+      not_allowed: Vous n'êtes pas autorisé à effectuer cette opération
+    refund:
+      refunds_disabled: Les remboursements sont maintenant désactivés
+    remove_member:
+      success: Le bénéficiaire a été supprimé
+      fail: Doit donner une raison
+    show:
+      fail: Tâche introuvable
+    request_change:
+      task_back_doing: La tâche a été déplacée dans le dossier En cours
+      task_not_back_doing: La tâche n'a pas été déplacée dans le dossier En cours
+    remove_assignee:
+      success: Le
+      fail: Supprimer le destinataire a échoué
+    add_assignee:
+      success: La tâche a bien été assignée
+      fail: La tâche n'a pas pu être assignée
+...

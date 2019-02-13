@@ -1,0 +1,10 @@
+---
+fr:
+  activerecord:
+    models:
+      project: Projet
+    attributes:
+      project:
+        section1: 'Détails : première partie'
+        section2: 'Détails : deuxième partie'
+...

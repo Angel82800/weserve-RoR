@@ -1,0 +1,3 @@
+$('#response').empty();
+$('#response').css('color', "<%= escape_javascript(@notice).include?('Error') ? 'red' : 'green' %>");
+$('#response').html("<%= escape_javascript(@notice) %>");

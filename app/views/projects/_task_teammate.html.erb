@@ -1,0 +1,11 @@
+<div class='team-memberships-group'>
+  <% if @task.team_memberships.blank? %>
+    <h2 class='no-teammate-added'><%= t('projects.task_details.no_teammate') %></h2>
+  <% else %>
+    <% @task.team_memberships.each do |membership| %>
+      <div class='task-assignee'>
+        <%= render 'projects/task_teammate_item', membership: membership %>
+      </div>
+    <% end  %>
+  <% end %>
+</div>

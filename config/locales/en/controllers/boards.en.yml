@@ -1,0 +1,10 @@
+---
+en:
+  boards:
+    create:
+      success: Board was successfully created
+    update:
+      success: Board was successfully updated
+    destroy:
+      success: Board was successfully destroyed
+...

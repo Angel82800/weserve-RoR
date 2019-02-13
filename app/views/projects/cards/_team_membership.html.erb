@@ -1,0 +1,63 @@
+<div class="col-lg-3 col-md-3 col-sm-3 _team-member" id="team-member-<%= team_memberships.first.id %>">
+  <div class="member-box" >
+    <% if user_signed_in? %>
+      <%# if current_user.id == @project.user_id && team_member_id != current_user.id %>
+      <% if can? :destroy, team_memberships.first%>
+        <a href="#" type="button" class="delete-member" team-membership-id="<%= team_memberships.first.id %>" title="Delete team member">&times;</a>
+      <% end %>
+    <% end %>
+
+    <center class="member-img-wrapper">
+      <div class="member-img">
+        <% if team_member.picture? %>
+          <%= image_tag(team_member.picture, size: "35x35") %>
+        <% else %>
+          <%= gravatar_for_user(team_member, 35)%>
+        <%end%>
+      </div>
+    </center>
+
+    <center class="member-name">
+      <h5><%= link_to team_member.display_name, user_path(team_member) %></h5>
+    </center>
+
+    <% team_memberships.each do |team_membership| %>
+      <center class="member-role">
+        <h5>
+          <% if (can? :update, team_membership) && !(team_member.is_project_leader? @project) %>
+            <span class="role">
+              <%= best_in_place team_membership, :role, :as => :select, :collection => TeamMembership.get_roles , activator: ".role-edit-pencil-#{team_membership.id}", class: "role_in_place-#{team_membership.id}" %>
+            </span>
+            <span>
+              <i class="fa fa-pencil role-edit-pencil-<%=team_membership.id%>"></i>
+              <% if ['lead_editor', 'coordinator'].include?(team_membership.role)  %>
+                <a href="#" type="button" class="delete-role" team-membership-id="<%= team_membership.id %>" title="Delete role">&times;</a>
+              <% end %>
+            </span>
+
+          <% else %>
+            <span class="role">
+              <%= team_membership.role.humanize %>
+            </span>
+          <% end %>
+        </h5>
+      </center>
+      <script>
+        $(".role_in_place-<%=team_membership.id%>.best_in_place").best_in_place();
+        $(".role-edit-pencil-<%=team_membership.id%>").click(toggleRoleEditPencil);
+        $(".role_in_place-<%=team_membership.id%>").change(toggleRoleEditPencil);
+        function toggleRoleEditPencil(){
+          $(".role-edit-pencil-<%=team_membership.id%>").toggle();
+        }
+      </script>
+    <% end %>
+    <div class="member-bio">
+      <%= team_member.try(:bio)[0..70] rescue nil %>&nbsp;<%= link_to "[...]", user_path(team_member) %>
+      <% unless team_member.is_project_leader?(@project) %>
+        <% if (can? :change_leader_by_admin, @project) %>
+          <%= link_to t("commons.set_as_new_leader"), change_leader_by_admin_project_path(@project.id, team_member.id), method: :put, data: { confirm: t("commons.are_you_sure") }, class: "change-leader-btn float-right" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

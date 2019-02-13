@@ -1,0 +1,76 @@
+---
+fr:
+  controllers:
+    cancan_access_denied: Oups. Il semble que vous ne soyez pas autorisé à effectuer
+      cette action
+    active_record_not_found: Désolé, nous n'avons pas pu trouver ce que vous cherchez
+      !
+    unauthorized_message: Vous n'êtes pas autorisé à effectuer cette opération
+    admin_only_mode:
+      admin_mode_activated: Seul le Mode Administrateur est activé.
+    payments:
+      thanks_you: Merci pour votre paiement
+      invalid_parameters: Les paramètres du formulaire soumis sont invalides
+  task_comments:
+    create:
+      success: Commentaire envoyé
+      fail: Erreur lors de l'enregistrement de ce commentaire, veuillez ajouter un
+        nouveau commentaire
+  user_wallet_transactions:
+    send_to_any_address:
+      success: '%{amount} BTC ont bien été envoyés à %{transfer_address}.'
+    send_to_task_address:
+      success: '%{amount} BTC ont bien été envoyés sur le solde de la tâche.'
+    send_to_personal_coinbase:
+      success: '%{amount} BTC ont bien été envoyés à %{transfer_address}.'
+      error_wallet: Impossible de trouver le portefeuille de l'utilisateur
+  users:
+    update:
+      fail: Impossible de mettre à jour l'utilisateur.
+      file_type_fail: 'Le fichier sélectionné est invalide. Types autorisés : %{allowed_types}'
+    destroy:
+      success: Utilisateur supprimé.
+  task_attachments:
+    create:
+      success: La pièce jointe de la tâche a été téléchargée.
+      fail: Impossible de télécharger la pièce jointe de cette tâche.
+  project_comments:
+    create:
+      success: Votre commentaire a été envoyé
+    update:
+      success: Commentaire mis à jour
+    destroy:
+      success: Commentaire supprimé
+  group_messages:
+    create:
+      fail: 'Impossible de télécharger la pièce jointe. Types autorisés: %{allowed_types}'
+  do_requests:
+    new:
+      fail: Vous ne pouvez pas postuler pour la tâche proposée
+    create:
+      success_and_sent: Demande envoyée à l'administrateur du projet
+      success_and_will_notify_back: Votre candidature pour réaliser cette tâche a
+        bien été envoyée. Le leader du projet vous informera une fois qu'il l'aura
+        reçue et qu'une décision aura été prise.
+      fail_cannot_apply_twice: Vous ne pouvez pas postuler deux fois
+    destroy:
+      success: La demande d'affectation des tâches a bien été supprimée
+    accept:
+      success: La tâche a été assignée
+      fail: La tâche n'a pas été assignée à un autre utilisateur
+      cannot_approve: Vous ne pouvez pas approuvez la demande de réalisation pour
+        une tâche qui est déjà financée
+    reject:
+      success: Demande rejetée
+      fail: Impossible de rejeter la demande
+  change_leader_invitation:
+    accept:
+      success: Félicitations ! Vous êtes le leader du projet %{project_title}!
+  admin_invitations:
+    accept:
+      success: L'invitation a été acceptée.
+      fail: Des problèmes ont empêché l'invitation d'être acceptée.
+    reject:
+      success: L'invitation a été rejetée.
+      fail: Des problèmes ont empêché l'invitation d'être rejetée.
+...

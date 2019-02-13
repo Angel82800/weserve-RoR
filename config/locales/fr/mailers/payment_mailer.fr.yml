@@ -1,0 +1,18 @@
+---
+fr:
+  payment_mailer:
+    fund_task:
+      mailjet_template_id: 319634
+    fully_funded_task:
+      mailjet_template_id: 319636
+      subject: La tâche a été entièrement financée
+      greeting: Cher %{receiver_name},
+      body_html: La tâche %{task_title} du projet %{project_url} a été entièrement
+        financée.
+    tax_deduction_information:
+      subject: Informations pour bénéficier d'une déduction d'impôt pour votre don
+      greeting: Cher %{payer_name},
+      body_html: 'Reçu fiscal pour bénéficier d''une déduction d''impôt disponible
+        ici : '
+      download: Télécharger un reçu fiscal
+...

@@ -1,0 +1,13 @@
+<div style="margin-bottom: 30px;">
+  <div><%= text_field_tag 'donor[name]', @tax&.name || @user&.username, placeholder: t('tax_deduction.edit.placeholder.name'), required: true  %></div>
+  <%= text_field_tag 'donor[address]', @tax&.address, placeholder: t('tax_deduction.edit.placeholder.address'), required: true %>
+  <div>
+    <%= text_field_tag 'donor[postal_code]', @tax&.postal_code, placeholder: t('tax_deduction.edit.placeholder.zip_code'), required: true %>
+    <%= text_field_tag 'donor[city]', @tax&.city, placeholder: t('tax_deduction.edit.placeholder.city'), required: true %>
+  </div>
+  <div><%= select_tag 'donor[country]', options_for_select(["France"], "France") %></div>
+  <%= hidden_field_tag 'transaction_id', @transaction_id %>
+</div>
+
+<%= submit_tag 'Save' %>
+<%= link_to 'Back', my_wallet_user_path(current_user.id) %>

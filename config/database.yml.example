@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username:                         # specify your postgres username
+  password:                         # specify your postgres password
+  port:                             # specify your postgres port
+  host: localhost                   # specify your postgres host
+
+development:
+  <<: *default
+  database: weserve_development
+
+test:
+  <<: *default
+  database: weserve_test
+
+production:
+  <<: *default
+  database: weserve_production

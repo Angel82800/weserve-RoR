@@ -1,0 +1,5 @@
+$('.profile-comments').append('<%= escape_javascript(render(:partial => @profile_comments)) %>');
+$('.load-more-comments-link').html('<%= escape_javascript( link_to "Upload more", profile_comments_path(user_id: @user.id, last_comment_id: @profile_comments.last.id), remote: true ) %>');
+<% if @all_comments_displaied %>
+  $('.load-more-comments-link').hide();
+<% end %>

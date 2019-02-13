@@ -1,0 +1,19 @@
+<div class="small-12 medium-6 columns">
+  <h1>
+    <i class="fa fa-comments-o" aria-hidden="true"></i>Comments
+  </h1>
+
+  <div>
+    <div class="row margin-none">
+      <%= render "users/comment_form" %>
+    </div>
+    <div class="profile-comments">
+      <%= render @profile_comments %>
+    </div>
+    <% if @profile_comments.count > 0 %>
+      <div class="load-more-comments-link">
+        <%= link_to "Upload more", profile_comments_path(user_id: @user.id, last_comment_id: @profile_comments.last.id), remote: true %>
+      </div>
+    <% end %>
+  </div>
+</div>

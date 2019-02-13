@@ -1,0 +1,195 @@
+---
+en:
+  commons:
+    not_enough_permissions: You have not enough permissions to perform the action
+    rating_blank: rating can't be blank
+    status: status
+    actions: actions
+    created_at: Created At
+    application: Application
+    user: User
+    deny: Deny
+    approved: Approved
+    unblock: Unblock
+    block: Block
+    chars_remaining: characters remaining
+    logo_text: FINANCE CLIMAT AGREEMENT
+    logo_default_text: ""
+    task_details_start: Start this task
+    trello_doing: In progress
+    trello_reviewing: In review
+    trello_done: Success
+    start_a_project: Start a Project
+    development_project_link: http://weserve.io/projects/1/taskstab?tab=plan
+    improve_the_platform: Improve the Platform
+    about: About
+    default_user_pic: user_pic.jpg
+    average_rating: average rating of the user is %{value}/5
+    faq: FAQ
+    knowledge_base_landing_link: https://weservesupport.zendesk.com/hc/en-us/categories/115000785867-Knowledge-Base
+    login: Login
+    logout: Logout
+    hi: Hi, %{name}!
+    register: Register
+    task: task
+    article: article
+    project: Project
+    projects: Projects
+    privacy_policy: Privacy Policy
+    term_of_use: Terms of Use
+    copy_right: '%{year} WeServe.io Beta'
+    accept: Accept
+    reject: Reject
+    loading: Loading...
+    loading_please_wait: Loading, please wait ..
+    share_or_invite: Share/Invite
+    invite: Invite
+    follow: Follow
+    unfollow: Unfollow
+    by: by
+    apply: Apply
+    edit: Edit
+    bio: Bio
+    history: Work history
+    no_reviews: There are no reviews yet.
+    delete: Delete
+    fund: I FUND IT
+    funded: Funded
+    teammates: Teammates
+    completed: Completed
+    raised: Raised
+    change: Change
+    title: Title
+    budget: Budget
+    min: min
+    do: I DO IT
+    or: or
+    ok: Ok
+    save: Save
+    cancel: Cancel
+    send: Send
+    enter: Enter
+    usd: '%{currency}'
+    sign_in: Sign in
+    sign_up: Sign Up
+    sign_in_as: Signed in as
+    not_you?: Not you?
+    btc_wallet: BTC Wallet
+    my_wallet: My Wallet
+    anonymous: Anonymous
+    message: Message
+    my_profile: My Profile
+    tax_deduction: Tax deduction profile
+    my_projects: My Projects
+    no_projects: You don't have any projects yet
+    deadline: Deadline
+    create_task: Create Task
+    explore: Explore
+    find_receipt: Find receipt for tax deduction at this page
+    active_projects: Explore projects
+    search_placeholder: Search Causes, Places, or Keyword
+    transactions: Transactions History
+    make_transaction: Make a transaction
+    available: Available
+    save_changes: Save Changes
+    general: General
+    first_name: First name
+    last_name: Last name
+    city: City
+    select_language: Select Language
+    state: State
+    social: Social
+    linkedin: Linkedin
+    facebook: Facebook
+    twitter: Twitter
+    contacts: Contacts
+    contacts_privacy: Your contact informations are only visible to your teammates
+    email: Email
+    phone: Phone
+    skype: Skype
+    download: Download
+    no_messages: No Messages
+    add_attachment: Add Attachment
+    link: link
+    congratulations: Congratulations
+    sign_in_to: Sign In To
+    donot_have_account?: Don't have an account?
+    sign_in_with_fb: Sign In with Facebook
+    sign_in_with_gplus: Sign In with Google +
+    sign_in_with_twitter: Sign In with Twitter
+    error: Error
+    needed: Needed
+    left: Left, USD
+    update: Update
+    approve: Approve
+    start: Start
+    open: Open
+    create: Create
+    remove: Remove
+    are_you_sure: Are you sure?
+    "no": "No"
+    sign_up_for_weserve: Sign Up For WeServe.io
+    sign_up_with_fb: Sign Up with Facebook
+    sign_up_with_gplus: Sign Up with Google +
+    sign_up_with_twitter: Sign Up with Twitter
+    lead_project_invitation: You were invited as a leader for project %{link}. Please
+      review the project and accept.
+    full_history: Full transaction history
+    balance: Balance
+    platform_balance: Platform Balance
+    config_payout_method: You do not have any active payout method configured yet,
+      please %{link} one.
+    setup: Setup
+    payout_conf: Payout method configuration
+    payout_us_card: Only U.S. issued non-prepaid Visa and MasterCard cards are supported
+      at the moment
+    payout_desc: Below you will see the list of supported payout methods. Please configure
+      at least one method in order to be able to withdraw funds from your account.
+    payout_card_desc: Allow you to withdraw fiat currency to your credit card or bank
+      account, identity verification or extra information may be required
+    payout_coinbase_desc: Allow you to withdraw fiat currency as Bitcoins to your
+      Coinbase account, you must have an account at Coinbase in order to proceed.
+    payout_details_desc: Payout method configuration ( Credit card / Bank account)
+    payout_info: In order to be eligible to with draw funds to bank account or credit
+      card you need to follow a quick setup procedure, please fill in form below to
+      proceed. All fields are required.
+    success_payout: Thank you, your request was submitted! We need some time to process
+      it, you should receive an update soon. You can also check request status on
+      My Wallet page.
+    hold_balance: Funds added to your account need to pass 7 days security hold period
+      before they will become available for withdraw
+    unverified: Your payout account is not verified yet hence it may be limited in
+      amount of funds processed. You're free to continue until we will ask you for
+      additional information or you can proceed with verification beforehand.
+    do_task_desc: 'You''re going to send an application request to the task, once
+      submitted it''ll be reviewed by the project team. You''ll be notified about
+      your application status. Please fill in the fields below to proceed:'
+    task_budget: Task budget
+    fee_apply: Fees apply
+    fee_apply_detail: '%{donation_fee_percent}% + %{currency}%{donation_fee_fixed}
+      per donation, %{fee}% withdrawal'
+    task_placeholder: Please supply your application with a short cover letter
+    information_about_fee: 'Information about fees:'
+    fees_info: 'It’s okay to raise more than the goal, but if the goal isn’t met,
+      no money will be collected. The goal should reflect the minimum amount of funds
+      needed to complete the task.       \nIf the task is successfully funded, the following fees will be collected from
+      the total amount funded: WeServe’s %{weserve_fee} fee, and payment processing
+      fees ($%{donation_fee_ui} + %{donation_fee_percent}). If funding isn’t successful,
+      the amount raised will be returned to donors.'
+    verify_cus_acc: Account %{link} required, please provide additional information
+      to enable withdrawals.
+    withdrawal_error: There is a problem with your withdrawal request, we're aware
+      of the problem and solving it at the moment
+    delete_project_title: Delete Project
+    confirm: Confirm
+    users_list: Users List
+    set_as_new_leader: Set as New Leader
+    free: Free
+    connecting_payment_service_error: There is a temporary problem connecting to payment
+      service. Please try again later
+    some_error: Some Error
+    unauthorized_access: You are not authorized to access this page.
+    not_implemented_error: NotImplementedError
+    coinbase_api_error: Coinbase API error
+    invalid_card_number: 'Error: This is not a valid credit card number'
+...

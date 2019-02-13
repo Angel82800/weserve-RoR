@@ -1,0 +1,16 @@
+---
+en:
+  payment_mailer:
+    fund_task:
+      mailjet_template_id: 319633
+    fully_funded_task:
+      mailjet_template_id: 319635
+      subject: Task was fully funded
+      greeting: Dear %{receiver_name},
+      body_html: Task %{task_title} of project %{project_url} was fully funded.
+    tax_deduction_information:
+      subject: Tax deduction information for your donation
+      greeting: Dear %{payer_name},
+      body_html: 'Find receipt for tax deduction at this page: '
+      download: Download tax receipt
+...

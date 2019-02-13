@@ -1,0 +1,4 @@
+<div class="b-notification__text">
+    <%= link_to notification.origin_user.display_name, user_path(notification.origin_user) %> invites you to become an admin on project
+    <%= link_to source_model.project.title, project_path(source_model.project) %>
+</div>

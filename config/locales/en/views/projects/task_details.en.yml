@@ -1,0 +1,92 @@
+---
+en:
+  projects:
+    task_details:
+      stars: stars
+      full_review: See full review
+      submit_a_review: Submit a review
+      warning-message: You're going to edit a task that was already started. By this
+        reason all edits made will require a confirmation from other task participants
+        in order to be applied.
+      accept_approvation: Yes, approve
+      reject_funding_task: Yes, reject
+      cancel_doing_task: Yes, cancel
+      reject_application_confirmation: Are you sure you want to reject this application?
+        If yes, please add a note to the applicant.
+      accept_application_confirmation: Are you sure you want to accept this application?
+      attachments: Attachments
+      email_placeholder: E-mail address
+      gmail_contacts: Gmail Contacts
+      import_contact_from: Import your contacts from
+      invite_button: Add / Invite
+      invite_subtitle: Type in the e-mail address of the person you like to invite
+      make_non_free: Add budget
+      remove_budget: Remove Budget
+      mark_completed: Mark As Completed
+      mark_completed_confirmation: Do you confirm that you have reviewed the task
+        and that it has been completed?
+      mark_incomplete: Mark As Incompleted
+      mark_incomplete_confirmation: Do you confirm that you have reviewed the task
+        and that it has not been completed?
+      no_teammate: No Teammate Added Yet
+      proof_of_execution: Proof of Execution
+      refund_task: Refund Task
+      share_fb: Share on Facebook
+      share_gplus: Share on Google +
+      share_invite_subtitle: Share on social media
+      share_invite_title: Share/Invite People to Participate
+      share_twitter: Share on Twitter
+      specifications: Specifications
+      submit_review: Submit for Review
+      team: Team
+      title: Add / Invite People
+      yahoo_contacts: Yahoo Contacts
+      approve_task_description_html: <p>Are you sure want to approve this task?</p>\n
+      reject_task_description_html: Are you sure want to reject this task?
+      cancel_task_description_html: Are you sure want to cancel this task?
+      login_or_signup_html: Please <a class="sign_in_a" data-modal="#registerModal">login</a>\nor
+        <a class="sign_up_a" data-modal="#registerModal">sign-up</a>\nto add comments\n
+      choose_deadline: Choose new deadline
+      select_board: -- Select a board --
+      cannot_edit_delete_task_started_html: You cannot edit or delete a task that
+        is already started.
+      task_cannot_start_tooltip: Task can only be started when reach funding goal
+        and have enough participants
+      remove_budget_confirm_message: Are you sure you want to remove the budget? It
+        means you will disable the crowdfunding functionality from this task and that
+        the person who will complete the job will not get any compensation.
+      add_budget_confirm_message: Are you sure you want to add a budget for this task?
+        It means that you will enable the crowdfunding functionality and that the
+        task won’t start until it reached its goal. And, the person designated to
+        complete the task will receive the funds allocated to that task?
+      add_assignees: Add assignees
+    task_related_do_requests:
+      pending_requests: Pending requests
+      user_has_requested_become_task_assignee_html: <span class='requester'>%{user_name}</span>
+        has requested to become a task assignee
+      approve: Approve
+      reject: Reject
+    task_state_transition_dropdown:
+      suggested_task: Suggestions
+      accepted: Funding & Sourcing
+      doing: In Progress
+      reviewing: In Review
+      completed: Success
+      accept_task: Accept Task
+      reject_task: Reject Task
+      start_task: Start Task
+      stop_task: Stop Task
+      funding_sourcing: Funding
+      inprogress: In Progress
+      submit_review: Submit for review
+      inreview: In Review
+      request_changes: Request Changes
+      mark_as_incompleted: Mark As Incompleted
+      mark_as_completed: Mark As Completed
+      back_review: Back to review
+      success: Success
+    add_assignees:
+      select_user: Select a user to be added as assignee
+      confirm: Confirm
+      cancel: Cancel
+...

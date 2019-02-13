@@ -1,0 +1,13 @@
+fr:
+  payout_mailer:
+    request_withdrawal:
+      mailjet_template_id: 319640
+    finished_withdrawal:
+      paid:
+        mailjet_template_id: 319991
+      canceled:
+        mailjet_template_id: 319999
+      failed:
+        mailjet_template_id: 320002
+      in_transit:
+        mailjet_template_id: 320008

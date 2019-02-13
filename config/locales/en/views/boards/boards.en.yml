@@ -1,0 +1,8 @@
+---
+en:
+  boards:
+    boards:
+      title: New Board
+      title_field: Title
+      new_board_link: Create a new Board
+...

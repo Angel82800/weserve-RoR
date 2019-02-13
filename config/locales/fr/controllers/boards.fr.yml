@@ -1,0 +1,10 @@
+---
+fr:
+  boards:
+    create:
+      success: Le tableau a bien été créé
+    update:
+      success: 'Le tableau a bien été mis à jour '
+    destroy:
+      success: Le tableau a bien été supprimé
+...

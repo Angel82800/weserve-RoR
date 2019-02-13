@@ -1,0 +1,1061 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://wikidev.weserve.io/api.php?action=weserve&format=json&method=approve&page=test&revision=627
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (linux-gnu x86_64) ruby/2.3.1p112
+      Cookie:
+      - wikiToken=16a17ed10ebd7b0e1c61894fad85ac9c; wikiUserID=2; wikiUserName=WeServeBot;
+        wiki_session=qnfkl32d07h7ptqnfvv934iguqrmol15
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 30 May 2017 00:50:15 GMT
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.21
+      Content-Length:
+      - '25'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":{"code":200}}'
+    http_version:
+  recorded_at: Tue, 30 May 2017 00:54:21 GMT
+- request:
+    method: get
+    uri: http://wikidev.weserve.io/api.php?action=weserve&format=json&method=block&page=test&user=homer
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (linux-gnu x86_64) ruby/2.3.1p112
+      Cookie:
+      - wikiToken=16a17ed10ebd7b0e1c61894fad85ac9c; wikiUserID=2; wikiUserName=WeServeBot;
+        wiki_session=2da4glvvaq2mg5anhp5d8jov57kha3n5
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 30 May 2017 00:34:04 GMT
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.21
+      Content-Length:
+      - '25'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":{"code":200}}'
+    http_version:
+  recorded_at: Tue, 30 May 2017 00:38:10 GMT
+- request:
+    method: get
+    uri: http://wikidev.weserve.io/api.php?action=weserve&format=json&method=history&page=test
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (linux-gnu x86_64) ruby/2.3.1p112
+      Cookie:
+      - wikiToken=16a17ed10ebd7b0e1c61894fad85ac9c; wikiUserID=2; wikiUserName=WeServeBot;
+        wiki_session=udj6ff07ku5558m880ub8l8qcnhrm2ld
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 29 May 2017 23:25:57 GMT
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.21
+      Content-Length:
+      - '644'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":[{"id":627,"author":"Homer","timestamp":"1496099755","comment":"","size":6,"diff":-3,"status":"unknown","is_blocked":0},{"id":586,"author":"Martin
+        Morava10209644256315473","timestamp":"1494944345","comment":"","size":9,"diff":9,"status":"unknown","is_blocked":0},{"id":114,"author":"Alex151","timestamp":"1481905281","comment":"","size":0,"diff":-9,"status":"unknown","is_blocked":1},{"id":72,"author":"Test1257","timestamp":"1481730484","comment":"qweqwe","size":9,"diff":9,"status":"approved","is_blocked":0},{"id":68,"author":"Test1257","timestamp":"1481728364","comment":"","size":0,"diff":0,"status":"unknown","is_blocked":0}]}'
+    http_version:
+  recorded_at: Mon, 29 May 2017 23:30:02 GMT
+- request:
+    method: get
+    uri: http://wikidev.weserve.io/api.php?action=weserve&format=json&method=revision&page=test&revision=627
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (linux-gnu x86_64) ruby/2.3.1p112
+      Cookie:
+      - wikiToken=16a17ed10ebd7b0e1c61894fad85ac9c; wikiUserID=2; wikiUserName=WeServeBot;
+        wiki_session=udj6ff07ku5558m880ub8l8qcnhrm2ld
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 29 May 2017 23:25:57 GMT
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.21
+      Content-Length:
+      - '133'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":{"parent_id":586,"author":"Homer","timestamp":"1496099755","comment":"","diff":-3,"content":"a
+        test","status":"unknown"}}'
+    http_version:
+  recorded_at: Mon, 29 May 2017 23:30:03 GMT
+- request:
+    method: get
+    uri: http://wikidev.weserve.io/api.php?action=weserve&format=json&method=grant&page=test&user=homer
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (linux-gnu x86_64) ruby/2.3.1p112
+      Cookie:
+      - wikiToken=16a17ed10ebd7b0e1c61894fad85ac9c; wikiUserID=2; wikiUserName=WeServeBot;
+        wiki_session=2da4glvvaq2mg5anhp5d8jov57kha3n5
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 30 May 2017 00:34:03 GMT
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.21
+      Content-Length:
+      - '25'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":{"code":200}}'
+    http_version:
+  recorded_at: Tue, 30 May 2017 00:38:08 GMT
+- request:
+    method: get
+    uri: http://wikidev.weserve.io/api.php?action=weserve&format=json&method=read&page=test&user=homer
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (linux-gnu x86_64) ruby/2.3.1p112
+      Cookie:
+      - wikiToken=16a17ed10ebd7b0e1c61894fad85ac9c; wikiUserID=2; wikiUserName=WeServeBot;
+        wiki_session=5jmnto38t81oq7q9ndo1qhevoil1snoq
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 29 May 2017 22:56:56 GMT
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.21
+      Content-Length:
+      - '527'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":{"id":43,"status":"approved","content":"hello","revision_id":72,"revision_timestamp":"1481730484","revision_author":"Test1257","page_owner":"Test1257","is_blocked":0,"pending_revisions":[{"id":586,"author":"Martin
+        Morava10209644256315473","timestamp":"1494944345","comment":"","diff":9},{"id":114,"author":"Alex151","timestamp":"1481905281","comment":"","diff":-9}],"subpages":[],"contentHtml":"<p>hello\n</p>","latest_revision":{"revision_id":586,"content":"asdasdads","contentHtml":"<p>asdasdads\n</p>"}}}'
+    http_version:
+  recorded_at: Mon, 29 May 2017 23:01:02 GMT
+- request:
+    method: get
+    uri: http://wikidev.weserve.io/api.php?action=weserve&format=json&method=read&page=test
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (linux-gnu x86_64) ruby/2.3.1p112
+      Cookie:
+      - wikiToken=16a17ed10ebd7b0e1c61894fad85ac9c; wikiUserID=2; wikiUserName=WeServeBot;
+        wiki_session=5jmnto38t81oq7q9ndo1qhevoil1snoq
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 29 May 2017 22:56:56 GMT
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.21
+      Content-Length:
+      - '527'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":{"id":43,"status":"approved","content":"hello","revision_id":72,"revision_timestamp":"1481730484","revision_author":"Test1257","page_owner":"Test1257","is_blocked":0,"pending_revisions":[{"id":586,"author":"Martin
+        Morava10209644256315473","timestamp":"1494944345","comment":"","diff":9},{"id":114,"author":"Alex151","timestamp":"1481905281","comment":"","diff":-9}],"subpages":[],"contentHtml":"<p>hello\n</p>","latest_revision":{"revision_id":586,"content":"asdasdads","contentHtml":"<p>asdasdads\n</p>"}}}'
+    http_version:
+  recorded_at: Mon, 29 May 2017 23:01:02 GMT
+- request:
+    method: get
+    uri: http://wikidev.weserve.io/api.php?action=weserve&format=json&method=read&page=unknown_page
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (linux-gnu x86_64) ruby/2.3.1p112
+      Cookie:
+      - wikiToken=16a17ed10ebd7b0e1c61894fad85ac9c; wikiUserID=2; wikiUserName=WeServeBot;
+        wiki_session=j6tcu1ssuohg7r0m2sii5ojhc0isag4b
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 29 May 2017 23:02:43 GMT
+      Mediawiki-Api-Error:
+      - '4002'
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.21
+      Content-Length:
+      - '113'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"error":{"code":"4002","info":"Page does not exists","*":"See http://wikidev.weserve.io/api.php
+        for API usage"}}'
+    http_version:
+  recorded_at: Mon, 29 May 2017 23:06:49 GMT
+- request:
+    method: get
+    uri: http://wikidev.weserve.io/api.php?action=weserve&format=json&method=read&page=unknown_page
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (linux-gnu x86_64) ruby/2.3.1p112
+      Cookie:
+      - wikiToken=16a17ed10ebd7b0e1c61894fad85ac9c; wikiUserID=2; wikiUserName=WeServeBot;
+        wiki_session=j6tcu1ssuohg7r0m2sii5ojhc0isag4b
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 29 May 2017 23:02:43 GMT
+      Mediawiki-Api-Error:
+      - '4002'
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.21
+      Content-Length:
+      - '113'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"error":{"code":"4002","info":"Page does not exists","*":"See http://wikidev.weserve.io/api.php
+        for API usage"}}'
+    http_version:
+  recorded_at: Mon, 29 May 2017 23:06:49 GMT
+- request:
+    method: post
+    uri: http://wikidev.weserve.io/api.php?action=weserve&content=a%20test&format=json&method=write&page=test
+    body:
+      encoding: UTF-8
+      string: user=homer
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (linux-gnu x86_64) ruby/2.3.1p112
+      Content-Length:
+      - '10'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - wikiToken=16a17ed10ebd7b0e1c61894fad85ac9c; wikiUserID=2; wikiUserName=WeServeBot;
+        wiki_session=rvccvilu4t6vlqd9vaaafehelb8jpoof
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 29 May 2017 23:15:55 GMT
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Set-Cookie:
+      - UseCDNCache=false; expires=Mon, 29-May-2017 23:16:05 GMT; Max-Age=10; path=/;
+        httponly
+      - UseDC=master; expires=Mon, 29-May-2017 23:16:05 GMT; Max-Age=10; path=/; httponly
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.21
+      Content-Length:
+      - '86'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":{"code":200,"revision_id":627,"page_id":43,"is_new":0,"status":"unknown"}}'
+    http_version:
+  recorded_at: Mon, 29 May 2017 23:20:01 GMT
+- request:
+    method: get
+    uri: http://wikidev.weserve.io/api.php?action=weserve&format=json&method=move&page=Test&page_new=New_Test&user=homer
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (linux-gnu x86_64) ruby/2.3.1p112
+      Cookie:
+      - wikiToken=16a17ed10ebd7b0e1c61894fad85ac9c; wikiUserID=2; wikiUserName=WeServeBot;
+        wiki_session=r7l5g1mh7t824jf7sttdpsh8sbjh9bqm
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 30 May 2017 00:44:27 GMT
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.21
+      Content-Length:
+      - '67'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":{"code":200,"subpages_moved":[],"subpages_errored":[]}}'
+    http_version:
+  recorded_at: Tue, 30 May 2017 00:48:33 GMT
+- request:
+    method: get
+    uri: http://wikidev.weserve.io/api.php?action=weserve&format=json&method=revoke&page=test&user=homer
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (linux-gnu x86_64) ruby/2.3.1p112
+      Cookie:
+      - wikiToken=16a17ed10ebd7b0e1c61894fad85ac9c; wikiUserID=2; wikiUserName=WeServeBot;
+        wiki_session=2da4glvvaq2mg5anhp5d8jov57kha3n5
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 30 May 2017 00:34:03 GMT
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.21
+      Content-Length:
+      - '25'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":{"code":200}}'
+    http_version:
+  recorded_at: Tue, 30 May 2017 00:38:09 GMT
+- request:
+    method: get
+    uri: http://wikidev.weserve.io/api.php?action=weserve&format=json&method=unapprove&page=test
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (linux-gnu x86_64) ruby/2.3.1p112
+      Cookie:
+      - wikiToken=16a17ed10ebd7b0e1c61894fad85ac9c; wikiUserID=2; wikiUserName=WeServeBot;
+        wiki_session=qnfkl32d07h7ptqnfvv934iguqrmol15
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 30 May 2017 00:50:14 GMT
+      Mediawiki-Api-Error:
+      - '4002'
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.21
+      Content-Length:
+      - '127'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":{"code":200}}'
+    http_version:
+  recorded_at: Tue, 30 May 2017 00:54:20 GMT
+- request:
+    method: get
+    uri: http://wikidev.weserve.io/api.php?action=weserve&format=json&method=unapprove&page=test&revision=627
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (linux-gnu x86_64) ruby/2.3.1p112
+      Cookie:
+      - wikiToken=16a17ed10ebd7b0e1c61894fad85ac9c; wikiUserID=2; wikiUserName=WeServeBot;
+        wiki_session=stk38q7uu8lr3st4ci7t8v6eoar0i170
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 30 May 2017 00:53:19 GMT
+      Mediawiki-Api-Error:
+      - '4002'
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.21
+      Content-Length:
+      - '113'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":{"code":200}}'
+    http_version:
+  recorded_at: Tue, 30 May 2017 00:57:25 GMT
+- request:
+    method: get
+    uri: http://wikidev.weserve.io/api.php?action=weserve&format=json&method=unblock&page=test&user=homer
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (linux-gnu x86_64) ruby/2.3.1p112
+      Cookie:
+      - wikiToken=16a17ed10ebd7b0e1c61894fad85ac9c; wikiUserID=2; wikiUserName=WeServeBot;
+        wiki_session=2da4glvvaq2mg5anhp5d8jov57kha3n5
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 30 May 2017 00:34:02 GMT
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.21
+      Content-Length:
+      - '25'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":{"code":201}}'
+    http_version:
+  recorded_at: Tue, 30 May 2017 00:38:08 GMT
+- request:
+    method: get
+    uri: http://wikidev.weserve.io/api.php?action=weserve&format=json&method=delete&page=test&user=homer
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (linux-gnu x86_64) ruby/2.3.1p112
+      Cookie:
+      - wikiToken=16a17ed10ebd7b0e1c61894fad85ac9c; wikiUserID=2; wikiUserName=WeServeBot;
+        wiki_session=u08dsdh6ohn98srfs5a5lre1apjb61e1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 30 May 2017 01:30:45 GMT
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.21
+      Content-Length:
+      - '25'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":{"code":200}}'
+    http_version:
+  recorded_at: Tue, 30 May 2017 01:34:51 GMT
+- request:
+    method: get
+    uri: http://wikidev.weserve.io/api.php?action=weserve&format=json&method=restore&page=test&user=homer
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (linux-gnu x86_64) ruby/2.3.1p112
+      Cookie:
+      - wikiToken=16a17ed10ebd7b0e1c61894fad85ac9c; wikiUserID=2; wikiUserName=WeServeBot;
+        wiki_session=8k58qqr0de2546t7bhs999lee21ar0om
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 30 May 2017 01:32:33 GMT
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.21
+      Content-Length:
+      - '25'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":{"code":200}}'
+    http_version:
+  recorded_at: Tue, 30 May 2017 01:36:39 GMT
+- request:
+    method: get
+    uri: <%= "#{ENV['mediawiki_api_base_url']}api.php?action=weserve&format=json&method=move&page=CoolProject/Nice_Subpage&page_new=CoolProject/New_title&user=homer" %>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (linux-gnu x86_64) ruby/2.3.1p112
+      Cookie:
+      - wikiToken=16a17ed10ebd7b0e1c61894fad85ac9c; wikiUserID=2; wikiUserName=WeServeBot;
+        wiki_session=2opekr2qp00oq2dvpvhlahju3du2rbjm
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 26 Jul 2017 08:55:35 GMT
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.21
+      Content-Length:
+      - '67'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":{"code":200,"subpages_moved":[],"subpages_errored":[]}}'
+    http_version:
+  recorded_at: Wed, 26 Jul 2017 09:02:48 GMT
+- request:
+    method: post
+    uri: <%= "#{ENV['mediawiki_api_base_url']}api.php?action=weserve&content=&format=json&method=write&page=CoolProject" %>
+    body:
+      encoding: UTF-8
+      string: user=homer
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (linux-gnu x86_64) ruby/2.3.1p112
+      Content-Length:
+      - '10'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - wikiToken=16a17ed10ebd7b0e1c61894fad85ac9c; wikiUserID=2; wikiUserName=WeServeBot;
+        wiki_session=lat2o4555hi38pt6ffp0l7rv62nfc1tk
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 26 Jul 2017 11:34:44 GMT
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Set-Cookie:
+      - UseCDNCache=false; expires=Wed, 26-Jul-2017 11:34:54 GMT; Max-Age=10; path=/;
+        httponly
+      - UseDC=master; expires=Wed, 26-Jul-2017 11:34:54 GMT; Max-Age=10; path=/; httponly
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.21
+      Content-Length:
+      - '86'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":{"code":201,"revision_id":-1,"page_id":504,"is_new":0,"status":"unknown"}}'
+    http_version:
+  recorded_at: Wed, 26 Jul 2017 11:41:57 GMT
+- request:
+    method: post
+    uri: <%= "#{ENV['mediawiki_api_base_url']}api.php?action=weserve&content=CONTENT&format=json&method=write_subpage&page=CoolProject" %>
+    body:
+      encoding: UTF-8
+      string: user=homer&sub_page=Nice_Subpage
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (linux-gnu x86_64) ruby/2.3.1p112
+      Content-Length:
+      - '32'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - wikiToken=16a17ed10ebd7b0e1c61894fad85ac9c; wikiUserID=2; wikiUserName=WeServeBot;
+        wiki_session=lat2o4555hi38pt6ffp0l7rv62nfc1tk
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 26 Jul 2017 11:34:45 GMT
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Set-Cookie:
+      - UseCDNCache=false; expires=Wed, 26-Jul-2017 11:34:55 GMT; Max-Age=10; path=/;
+        httponly
+      - UseDC=master; expires=Wed, 26-Jul-2017 11:34:55 GMT; Max-Age=10; path=/; httponly
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.21
+      Content-Length:
+      - '86'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":{"code":201,"revision_id":-1,"page_id":517,"is_new":0,"status":"unknown"}}'
+    http_version:
+  recorded_at: Wed, 26 Jul 2017 11:41:58 GMT
+- request:
+    method: get
+    uri: <%= "#{ENV['mediawiki_api_base_url']}api.php?action=weserve&format=json&method=move&page=CoolProject/Nice_Subpage&page_new=CoolProject/New_title&user=lead_editor" %>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (linux-gnu x86_64) ruby/2.3.1p112
+      Cookie:
+      - wikiToken=16a17ed10ebd7b0e1c61894fad85ac9c; wikiUserID=2; wikiUserName=WeServeBot;
+        wiki_session=0o8i2r1tthi6jns8f6sbr6lii1f10h3q
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 26 Jul 2017 12:25:33 GMT
+      Mediawiki-Api-Error:
+      - '4002'
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.21
+      Content-Length:
+      - '116'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":{"code":200,"subpages_moved":[],"subpages_errored":[]}}'
+    http_version:
+  recorded_at: Wed, 26 Jul 2017 12:32:46 GMT
+- request:
+    method: get
+    uri: <%= "#{ENV['mediawiki_api_base_url']}api.php?action=weserve&format=json&method=move&page=CoolProject/Nice_Subpage&page_new=CoolProject/New_title&user=coordinator" %>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (linux-gnu x86_64) ruby/2.3.1p112
+      Cookie:
+      - wikiToken=16a17ed10ebd7b0e1c61894fad85ac9c; wikiUserID=2; wikiUserName=WeServeBot;
+        wiki_session=it3hjqbfiail7ahl1d06qajohuc0sk04
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 26 Jul 2017 13:04:04 GMT
+      Mediawiki-Api-Error:
+      - '4002'
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.21
+      Content-Length:
+      - '113'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"error":{"code":"4002","info":"Page does not exists","*":"See http://localhost/api.php
+        for API usage"}}'
+    http_version:
+  recorded_at: Wed, 26 Jul 2017 13:11:17 GMT
+- request:
+    method: get
+    uri: <%= "#{ENV['mediawiki_api_base_url']}api.php?action=weserve&format=json&method=move&page=CoolProject/Nice_Subpage&page_new=CoolProject/New_title&user=teammate" %>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (linux-gnu x86_64) ruby/2.3.1p112
+      Cookie:
+      - wikiToken=16a17ed10ebd7b0e1c61894fad85ac9c; wikiUserID=2; wikiUserName=WeServeBot;
+        wiki_session=it3hjqbfiail7ahl1d06qajohuc0sk04
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, must-revalidate, max-age=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 26 Jul 2017 13:04:04 GMT
+      Mediawiki-Api-Error:
+      - '4002'
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.21
+      Content-Length:
+      - '113'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"error":{"code":"4002","info":"Page does not exists","*":"See http://localhost/api.php
+        for API usage"}}'
+    http_version:
+  recorded_at: Wed, 26 Jul 2017 13:11:17 GMT
+recorded_with: VCR 3.0.3

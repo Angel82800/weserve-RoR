@@ -1,0 +1,7 @@
+<% partial_name = "notifications/#{notification.source_model_type.underscore}/#{notification.action}" %>
+<% source_model = notification.source_model %>
+<% source_model ||= notification.archived_source_model %>
+
+<% if source_model.present? %>
+  <%= render partial: partial_name, layout: 'notification_layout', locals: { notification: notification, source_model: source_model } %>
+<% end %>

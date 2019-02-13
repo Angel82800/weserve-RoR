@@ -1,0 +1,6 @@
+<% if @do_request.accepted? %>
+  location.reload();
+<% else %>
+  $('.modal-task__flex .alert-box.alert').remove();
+  $('.modal-task__flex').prepend('<div data-alert="" class="alert-box alert" style="max-width:100%;text-align:center;">  <%= t('.fail')%> </div>');
+<% end %>

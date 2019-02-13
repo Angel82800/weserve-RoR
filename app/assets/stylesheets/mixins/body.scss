@@ -1,0 +1,38 @@
+@import "variables/fonts";
+@import "variables/colors";
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: $defaultFont;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 14px;
+  background: $white;
+  color: #4c5452;
+  line-height: 1.42857143;
+  text-rendering: optimizeLegibility !important;
+	-webkit-font-smoothing: antialiased !important;
+}
+
+* {
+  min-height: 0;
+  min-width: 0;
+}
+
+// p, a, span, button {
+//   font-family: $defaultFont !important;
+// }
+p, a, span, button {
+  font-family: $defaultFont;
+}
+
+.container {
+  .row {
+    width: auto !important;
+  }
+}

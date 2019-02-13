@@ -1,0 +1,3 @@
+$('#123123').html('<%= escape_javascript render "users/comments" %>');
+
+$('#paginator').html('<%= escape_javascript(paginate(@profile_comments, :remote => true).to_s) %>');

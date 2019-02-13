@@ -1,0 +1,83 @@
+<%= tinymce_assets %>
+
+<%= simple_form_for(config_project, html: { id: 'project-form', multipart: true }) do |f| %>
+  <%= f.error_notification %>
+
+   <%= render 'shared/error_messages', object: f.object %>
+
+  <div class="form-inputs">
+    <% if !current_user.admin? && !current_user.manager? %>
+      <h5 class="subheader"><center> Describe yourself and add your contact info</center></h5>
+      <%= f.text_area :request_description, :rows => 10, :cols => 20, class: 'form-control' %>
+    <%end%>
+    <br>
+    <h4 class="subheader"><center>Your Project</center></h4>
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control'%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :short_description, "Short description for Project" %>
+      <%= f.text_field :short_description %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description, "Overview" %>
+      <%= f.text_area :discussed_description, :class=>'tinymce', :rows => 10, :cols => 60 %>
+    </div>
+
+    <h4 class="subheader"><center>Project details</center></h4>
+    <div id="section-details">
+      <%=f.simple_fields_for :section_details do |section_detail_fields|%>
+        <%= render 'section_detail_fields', f: section_detail_fields%>
+      <%end%>
+      <div class='links'>
+        <%= link_to_add_association('Add section', f, :section_details, class:'btn-default-weserve')%>
+      </div>
+    </div>
+
+    <div class="form-group mt20">
+        <%= f.input :country%>
+    </div>
+
+    <div class="deadline-group">
+        <div class="form-group">
+            <label class="text required" for="deadline">Expires at</label>
+            <div class='input-group date' id='expire_picker'>
+                <span class="input-group-addon">
+                    <i class="fa fa-calendar">
+                    </i>
+                </span>
+                <input type='text' name="project[expires_at]" class="form-control" id="deadline_field" required="required" aria-required="true" />
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#expire_picker').datetimepicker({
+                    viewMode: 'years',
+                    format: 'YYYY-MM-DD HH:mm A'
+                });
+            });
+        </script>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :Project_Image, "Upload project picture" %>
+      <%= f.file_field :picture %>
+    </div>
+
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn-alt-weserve" %>
+  </div>
+<% end %>
+<%=javascript_tag do%>
+    $(document).ready(function() {
+      $('#project-form').validate();
+      //tinyMCE.init({  selector: 'textarea.tinymce', menubar:false,  statusbar: false  });
+
+      $('#section-details').on('cocoon:after-insert', function() {
+        //tinyMCE.init({  selector: 'textarea.tinymce', menubar:false,  statusbar: false  });
+      })
+    });
+<%end%>

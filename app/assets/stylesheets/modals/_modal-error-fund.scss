@@ -1,0 +1,19 @@
+.error-fund-modal {
+  font-size: 14px;
+  z-index: 1051;
+  .modal-default__content {
+    max-width: 720px;
+  }
+  .modal-default__title {
+    &._error {
+      color: red;
+    }
+    &._success {
+      color: green;
+    }
+  }
+  &__message {
+    color: #525252;
+    text-align: center;
+  }
+}

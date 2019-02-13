@@ -1,0 +1,7 @@
+es:
+  payment_mailer:
+    fully_funded_task:
+      subject: "La tarea fue completamente financiada"
+      greeting: "Estimado %{receiver_name},"
+      body_html: "La tarea %{task_title} del proyecto %{project_url} ha sido completamente\
+        \ financiada."

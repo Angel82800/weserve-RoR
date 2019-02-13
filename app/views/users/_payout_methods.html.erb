@@ -1,0 +1,76 @@
+<p class="s-wallet__subtitle"><%= t('commons.payout_conf') %></p>
+<p class="s-wallet__subtitle">
+  <%= t('commons.payout_desc')%>
+</p>
+<div class="s-wallet__methods">
+  <div class="s-wallet__method">
+    <div class="s-wallet__method-info">
+      <h3><b>Credit card / Bank account</b></h3>
+      <p>
+        <%= t('commons.payout_card_desc')%>
+      </p>
+    </div>
+    <div class="s-wallet__method-setup">
+      <% check_acc = current_user.custom_account.present?%>
+      <% if check_acc %>
+
+           <%= custom_acc_status %>
+
+      <% else %>
+        <div><%= link_to t('commons.setup'), payout_details_user_path, class: "setup-btn" %></div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% if check_acc %>
+  <div class="row">
+    <div class="add-account">
+      <div class="col-md-12">
+        <% if current_user.bank.present? %>
+          <p><i class="fa fa-money"></i> Bank Account
+            <label class="remove-option">
+              <i class="fa fa-check-circle-o" aria-hidden="true">
+                Active(ending <%= current_user.bank.last4 %>)
+              </i>
+              <%= link_to "Remove", remove_external_user_path(id: current_user, remove: "bank"), class: "remove-btn-root" %>
+            </label>
+         </p>
+        <% else %>
+          <p><i class="fa fa-money"></i> Bank Account
+           <%= link_to "Add", bank_user_path, class: "add-btn-root" %>
+          </p>
+        <% end %>
+
+        <% if current_user.credit_card.present? %>
+          <p><i class="fa fa-credit-card"></i> Credit Card
+            <label class="remove-option">
+              <i class="fa fa-check-circle-o" aria-hidden="true">
+                Active(ending <%= current_user.credit_card.last4 %>)
+              </i>
+              <%= link_to "Remove", remove_external_user_path(id: current_user, remove: "credit_card"), class: "remove-btn-root" %>
+            </label>
+          </p>
+        <% else %>
+          <p><i class="fa fa-credit-card"></i> Credit Card
+            <%= link_to "Add", credit_card_user_path, class: "add-btn-root" %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<hr class="payout-hr">
+<div class="row">
+  <div class="col-md-6">
+    <h4><b>Coinbase</b></h4>
+    <p>
+      <%= t('commons.payout_coinbase_desc')%>
+    </p>
+  </div>
+  <div class="col-md-6">
+    <ul class="btn-fee coinbase-details">
+      <li><button type="button" class="btn btn-primary disabled btn_comming_soon">Comming Soon</button></li>
+    </ul>
+  </div>
+</div>

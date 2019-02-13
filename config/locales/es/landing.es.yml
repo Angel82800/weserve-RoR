@@ -1,0 +1,184 @@
+es:
+  landing:
+    all_rights_reserved: "Todos los derechos reservados"
+    our_team_fatima_from: "De Peru"
+    our_team_fatima_pos: "Ms Estadística matemática"
+    our_team_fatima_degree: "Columbia SIPA,"
+    our_team_fatima_edu: "MPA Economic Policy"
+    our_team_eric_edu: "Columbia GS, BA Philosophy"
+    our_team_eric_from: "De Francia"
+    our_team_eric_founder: "fundador"
+    our_team_virginia_degree: "MPA Columbia SIPA"
+    our_team_virginia_edu: "London School of Economics."
+    our_team_virginia_pos_1: "Stratégie d'investissement et dette"
+    our_team_virginia_pos_2: "stratégie au Credit Suisse."
+    our_team_virginia_from: "D'Espagne"
+    our_team_title: "Nuestro equipo"
+    special_features_unlimited_title: "Colaboración Descentralizada Ilimitada"
+    special_features_unlimited_desc: "Cuando su proyecto principal necesita desarrollarse\
+      \ porque genera un gran movimiento, puede crear subproyectos. Puede delegar\
+      \ operaciones y / o estrategias a un equipo específico. Puede desconectar o\
+      \ volver a conectar el subproyecto, como una forma de respaldo público. El subproyecto\
+      \ también puede respaldar subproyectos, creando así una red de proyectos potencialmente\
+      \ infinita. Los proyectos son administrados por un líder humano en todo momento.\
+      \ Esa persona es responsable de sus acciones con su audiencia."
+    special_features_workflow_title: "Flujo de dinero descentralizado y flujo de trabajo"
+    special_features_workflow_desc_1: "Si desea que su movimiento sea autónomo y descentralizado,\
+      \ podemos actualizar su flujo de trabajo con contratos inteligentes en blockchain,\
+      \ de modo que cuando una tarea se marca como completada, los fondos se enví\
+      an automáticamente a la persona que completó la tarea y la transacción se desencadena\
+      \ y registra por un libro de contabilidad distribuido incorruptible."
+    special_features_sass_title: "SAAS y datos descentralizados"
+    special_features_sass_desc_1: "Podemos incorporar nuestras soluciones en su propio\
+      \ sitio web."
+    special_features_sass_desc_2: "Además, podemos proporcionarle a usted y a su comunidad\
+      \ derechos de administrador exclusivos para sus datos."
+    special_features_title: "Características especiales"
+    advantages_title: "Servicio dedicado"
+    section_community_scale_title: "Aumentar proporcionalmente"
+    section_community_scale_desc: "Comience de a poco y aumente su impacto."
+    section_community_hack_title: "Crecimiento Hack"
+    section_community_hack_desc: "Abre tu causa a la participación pública y haz crecer\
+      \ tu comunidad."
+    section_community_trust_title: "Generar confianza"
+    section_community_trust_desc: "Crea confianza para recaudar fondos de manera eficiente."
+    section_community_organize_title: "Organizar"
+    section_community_organize_desc: "Organice a su audiencia para completar una misió\
+      n."
+    section_community_title_1: "Su comunidad quiere"
+    section_community_title_2: "Embárcate en una aventura social épica"
+    section_request_access_title: "Canalice el poder salvaje de su comunidad en lí\
+      nea en el impacto social"
+    section_request_access_desc: "Ayudamos a que los movimientos en línea se organicen\
+      \ para recaudar fondos y completar tareas."
+    how_it_works_title: "Cómo funciona"
+    hero-title: "Convierta a sus seguidores en una fuerza de trabajo"
+    hero-subtitle: "Comparta su visión y su audiencia hará que se vuelva una realidad"
+    hero-collaboration-title: "Ocupe su red social para"
+    hero-collaboration-text: "Como el Líder del Proyecto, usted mantiene el control\
+      \ de la colaboración en todo momento, por lo que el desarrollo de su proyecto\
+      \ refleja su propia visión. Usted crea momento con la multitud a través del\
+      \ logro de pequeñas tareas."
+    hero-collaboration-item-expand: "expanda su idea y conviértala en un plan de acció\
+      n"
+    hero-collaboration-item-breakdown: "Divida su proyecto en tareas"
+    hero-collaboration-item-breakdown-desc: "Cada tarea tiene un botón 'fondo' y un\
+      \ botón 'do'. Cualquier visitante puede sugerir una nueva tarea. Como líder\
+      \ del proyecto, usted mantiene el control sobre la colaboración en todo momento,\
+      \ por lo que el desarrollo de su proyecto refleja su propia visión."
+    hero-collaboration-item-fund: "Financie sus tareas"
+    hero-collaboration-item-fund-desc: "Cada tarea es una pequeña campaña de crowdfunding\
+      \ con un pequeño presupuesto que es de fácil acceso. Es 100% transparente: los\
+      \ donantes ven exactamente a dónde va su dinero y pueden seguir el progreso\
+      \ de las tareas. Esa transparencia aumenta su capacidad de recaudación de fondos."
+    hero-collaboration-item-complete: "Asigne las tareas a multitudes"
+    hero-collaboration-item-complete-desc-1: "Deja que tus seguidores completen tareas,\
+      \ por lo que formarán un movimiento activo en torno a tu misión. Eso se traduce\
+      \ en más confianza, mayor impacto y más legitimidad para su proyecto."
+    hero-collaboration-item-complete-desc-2: "Las personas pueden donar su tiempo\
+      \ como voluntarios, pero también pueden recibir pagos como profesionales independientes.\
+      \ Los trabajadores independientes reciben el dinero asignado a la tarea una\
+      \ vez completada."
+    hero-collaboration-item-review: "Verifique que las tareas se hayan completado"
+    hero-collaboration-item-review-desc: "El pago se libera después de la finalizació\
+      n comprobada públicamente. Cada vez que se completa una tarea, es una historia\
+      \ de éxito que puede compartir en las redes sociales. Hacer eso alentaría a\
+      \ más personas a unirse a su movimiento. Entonces puede comenzar de a poco y\
+      \ aumentar su impacto."
+    hero-collaboration-item-done: "¡Hecho!"
+    hero-collaboration-item-done-desc: "Los usuarios que completaron una tarea pueden\
+      \ recibir los fondos asignados a esa tarea, ya sea en moneda fiduciaria o en\
+      \ criptomoneda. Las tareas se pueden implementar en cualquier parte del mundo."
+    hero-collaboration-item-vision-share: "Comparte tu visión"
+    hero-collaboration-item-vision-share-desc: "Publica tu idea de proyecto en las\
+      \ redes sociales e invita a tus amigos y seguidores a participar. Obtendrás\
+      \ comentarios inmediatos. Puedes comenzar con una acción comunitaria simple."
+    hero-generate-title: "Genere un poder sutil"
+    hero-generate-text_html: "Resuelva inconvenientes con su audiencia;<br>Las acciones\
+      \ dan legitimidad a lo que plantea,<br>así surgirá como un líder independiente."
+    hero-lab-title: "Construya su propio laboratorio"
+    hero-lab-text_html: "Cree puentes sobre las brechas que separan teoría y acció\
+      n;<br>Publique y expanda sus proyectos académicos."
+    hero-prototype-title: "Cree su Prototipo"
+    hero-prototype-text_html: "Forme un Equipo;<br>Financie las Tareas;<br>Recolecte\
+      \ Opiniones."
+    hero-footer-title: "Cosas que WeServe hace por usted"
+    hero-footer-market-title: "Validación del mercado"
+    hero-footer-market-item-build: "construya una comunidad activa en torno a una\
+      \ historia real"
+    hero-footer-market-item-get: "obtenga opiniones y mejoras de parte de la comunidad"
+    hero-footer-market-item-analyse: "analice el tráfico de su proyecto"
+    hero-footer-stimulate-title: "Estimule a su audiencia"
+    hero-footer-stimulate-text: "Convierta a sus seguidores en actores, e incremente\
+      \ la confianza y el apoyo hacia su proyecto."
+    hero-footer-inclusive-title: "Inclusivo"
+    hero-footer-inclusive-text_html: "WeServe acerca a personas opuestas para un esfuerzo\
+      \ único que permite lograr metas comunes. <br>Los voluntarios pueden devolver\
+      \ la cantidad que han ganado por alguna tarea nueva. Las personas que no puedan\
+      \ ser voluntarios pueden conservar el dinero que han ganado."
+    hero-footer-corruption-title: "Anti Corrupción"
+    hero-footer-corruption-text_html: "Construya acciones poderosas para su comunidad\
+      \ sin tener que pertenecer a los clubes de mayor poder, y sin ataduras a partidismos\
+      \ políticos o financieros."
+    hero-footer-transparency-title: "Transparencia"
+    hero-footer-transparency-text_html: "Los proyectos están disponibles para revisiones\
+      \ del público, y reciben opiniones constantes. Así que su proyecto queda protegido\
+      \ por la multitud y adquiere legitimidad."
+    innovators:
+      title: "INNOVADORES"
+      create_prototype_html: "<span>Cree</span> su Prototipo"
+      build_team: "Forme su Equipo."
+      finance_task: "Financie tareas."
+      feedback: "Obtenga opiniones."
+    bloggers:
+      title: "Bloggers"
+      report_on_the_future_html: "<span>Reporte</span> sobre el futuro"
+      publish_idea: "Publique una idea y su audiencia la implementará en el mundo\
+        \ externo."
+      generate_content: "Genere contenido verificado acerca de lo que ocurrirá."
+      translate_ideas: "Vigile su actuación por escrito. Convierta sus ideas escritas\
+        \ en resultados tangibles."
+    students:
+      title: "ESTUDIANTES"
+      build_lab_html: "<span>Construya</span> su propio laboratorio"
+      theory_and_action: "Cree puentes sobre las brechas que separan teoría y acció\
+        n."
+      academic_projects: "Publique y expanda sus proyectos académicos."
+    activists:
+      title: "Activistas"
+      serve_as_leader_html: "<span>Actúe</span> como un líder"
+      supporter: "Convierta a sus seguidores en una fuerza de trabajo organizada."
+      multiply_effectiveness: "Multiplique su efectividad con acción colaborativa,\
+        \ en vez de sólo protestas."
+      emerge_leadership: "Surja como líder a través de acciones concretas, en vez\
+        \ de sólo hablar y opinar."
+    engage_audience:
+      title: "OCUPE A SU AUDIENCIA"
+      description: "Convierta a sus seguidores en contribuidores, e incremente la\
+        \ confianza y soporte para su proyecto."
+    inclusive:
+      title: "SEA INCLUSIVO"
+      description: "Atraiga a personas diferentes para realizar esfuerzos únicos que\
+        \ les permitirán alcanzar metas comunes."
+    test_market:
+      title: "PRUEBE SU MERCADO"
+      description: "Construya una comunidad activa alrededor de una historia concreta.\
+        \ Obtenga opiniones y mejoras de parte de la comunidad."
+    independent:
+      title: "Gane independencia"
+      anti_curruption:
+        title: "ANTI-CORRUPCIÓN"
+        description: "Construya acciones poderosas para su comunidad sin tener que\
+          \ pertenecer a los clubes de mayor poder, y emerja como un líder independiente."
+      transparency:
+        title: "TRANSPARENCIA"
+        description: "Los proyectos están disponibles para revisiones del público,\
+          \ así que puede canalizar la sabiduría de la multitud. Esto lo hace responsable\
+          \ pero tambien lo protege a usted y a su proyecto como independiente y legí\
+          timo."
+      bitcoin_payment:
+        title: "PAGO CON BITCOIN"
+        description: "Financie un proyecto en cualquier parte del mundo con un equipo\
+          \ multi-nacional."
+    errors:
+      unconfirmed_email: Un email ha sido enviado para confirmar tu cuenta.

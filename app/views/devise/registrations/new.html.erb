@@ -1,0 +1,35 @@
+<% content_for :title do %>
+  <%= t('commons.sign_up_for_weserve') %>
+<% end %>
+
+<div class="register-form-wrapper">
+  <div class="register-modal mt80">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h2 class="modal-default__title"><%= t('modal.register_modal.join_weserve_today') %></h2>
+        </div>
+
+        <div class="modal-sign__col-wrap">
+          <div class="modal-sign__col">
+            <%= render "modal/social_register" %>
+          </div>
+
+          <div class="modal-sign__col">
+            <div class="row row-custom" id="sign_up_show">
+              <%= render 'form' %>
+            </div>
+          </div>
+        </div>
+
+        <p class="modal-default__text">
+          <%= t('modal.register_modal.agree_term_html').html_safe %>
+        </p>
+        <p class="modal-default__text">
+          <%= t('modal.register_modal.already_have_account?') %> <%= link_to t('.sign_in'), new_user_session_path %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

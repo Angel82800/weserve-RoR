@@ -1,0 +1,11 @@
+<div class="expanded margin-none dashboard-wrapper">
+  <% if current_user %>
+      <%= render 'layouts/sidebar_navigation' %>
+  <% end %>
+  <section class="s-wallet">
+    <div class="s-wallet__wrapper">
+      <h1 class="s-wallet__title"><%= t('commons.my_wallet') %></h1>
+      <%= render 'bank' %>
+    </div>
+  </section>
+</div>

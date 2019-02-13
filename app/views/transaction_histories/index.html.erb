@@ -1,0 +1,46 @@
+<div class="expanded margin-none dashboard-wrapper">
+<% if current_user %>
+  <%= render 'layouts/sidebar_navigation' %>
+<% end %>
+  <section class="s-wallet">
+  <div class="s-wallet__wrapper">
+    <h1 class="s-wallet__title"><%= t('.title') %></h1>
+    <%= render 'platform_balance' %>
+
+    <section class="t-transactions">
+      <% if @transaction_histories.any? %>
+
+        <div class="t-transactions__row _head">
+          <div class="t-transactions__th"><%= t('.source') %></div>
+          <div class="t-transactions__th"><%= t('.description') %></div>
+          <div class="t-transactions__th"><%= t('.date') %></div>
+          <div class="t-transactions__th"><%= t('.amount') %></div>
+        </div>
+        <% @transaction_histories.each do |transaction| %>
+          <div class="t-transactions__row">
+            <div class="t-transactions__td">
+              <%= display_user(transaction).html_safe %>
+            </div>
+            <div class="t-transactions__td">
+              <%= transaction.display_transaction.html_safe %>
+            </div>
+            <div class="t-transactions__td">
+              <%= l(transaction.created_at.localtime, format: :long) %>
+            </div>
+            <div class="t-transactions__td _tar">
+              <div class="t-transactions__value">
+                <%= increase_decrease(transaction) %> <%= ENV['symbol_currency'] %> <%= transaction_amount(transaction) %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+          <%= t('users.user_transactions.no_transaction') %>
+      <% end %>
+    </section>
+    <div class="center">
+      <%= paginate @transaction_histories %>
+    </div>
+  </div>
+  </section>
+</div>

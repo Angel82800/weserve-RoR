@@ -1,0 +1,32 @@
+<br>
+<%= form_for @do_request, method: :post do |form| %>
+<div class= "form form-actions" >
+     
+     <%= form.hidden_field :task_id, value: @task.id %>
+
+
+     <%= form.label :application, "Please write your application here and the project administrator will get back to you" %><br>
+
+     <%= form.text_area :application, :rows => 20, :cols => 60 %>
+
+
+     <% if params[:free] == 'true' %>
+     <%= form.hidden_field :free, value: true %>
+
+     <%elsif params[:free] == 'false' %>
+    
+
+     <div class="checkbox" style="width:150px">
+          <label>
+            <%= form.check_box :free %> Do for free
+          </label>
+        </div>
+
+     <%end%>
+
+     <%= submit_tag "Send Application", class: 'btn btn_primary' %>
+     <%= link_to "Cancel", task_path(@task), class: 'btn' %>
+
+	</div>
+
+	<%end%>

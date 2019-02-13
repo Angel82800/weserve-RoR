@@ -1,0 +1,12 @@
+<div class="b-notification__text">
+  <% if notification.origin_user.nil? %>
+    You followed project &nbsp
+    <%= link_to source_model.title, project_path(source_model) %>
+    &nbsp at &nbsp <%= notification.created_at %>
+  <% else %>
+    <%= notification.origin_user.display_name %> &nbsp
+    followed project &nbsp
+    <%= link_to source_model.title, project_path(source_model) %>
+    &nbsp at &nbsp <%= notification.created_at %>
+  <% end %>
+</div>

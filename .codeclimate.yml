@@ -1,0 +1,46 @@
+version: "2"
+checks:
+  file-lines:
+    enabled: false
+  method-lines:
+    enabled: false
+  
+plugins:
+  brakeman:
+    enabled: true
+  bundler-audit:
+    enabled: true
+  csslint:
+    enabled: true
+  coffeelint:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - ruby
+      - javascript
+  eslint:
+    enabled: true
+  fixme:
+    enabled: true
+  rubocop:
+    enabled: true
+  flog:
+    enabled: false
+exclude_patterns:
+- "config/"
+- "coverage/"
+- "assets/javascripts/vendor/"
+- "app/assets/javascripts/vendor/"
+- "app/assets/javascripts/markitup/"
+- "app/assets/javascripts/qrcode.js"
+- "app/assets/javascripts/geocomplete.js"
+- "db/"
+- "features/"
+- "**/node_modules/"
+- "**/spec/"
+- "**/test/"
+- "**/tests/"
+- "**/vendor/"
+- "**/*.d.ts"

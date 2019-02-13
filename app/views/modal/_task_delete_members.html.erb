@@ -1,0 +1,51 @@
+<div id="taskDeleteMember" class="modal-default modal-delete-member" role="dialog" tabindex="-1">
+    <div class="modal-default__content">
+        <div class="modal-delete-member__top">
+            <button type="button" class="modal-default__close"></button>
+            <h4 class="modal-default__title">Are you sure that you want to delete this member?</h4>
+        </div>
+        <div class="modal-delete-member__content">
+            <textarea class="modal-delete-member__textarea" placeholder="Reason"></textarea>
+        </div>
+        <div class="modal-delete-member__bottom">
+            <button class="btn-root _delete _disable">Delete Member</button>
+            <button class="btn-root" data-modal-close>Cancel</button>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $(document).ready(function() {
+        $(document)
+            .on('keyup.reasonWasFilled', '.modal-delete-member__textarea', function(e) {
+                var $button = $('.modal-delete-member__bottom ._delete');
+
+                if ($(this).val().length > 0) {
+                    $button.removeClass('_disable');
+                } else {
+                    $button.addClass('_disable');
+                }
+            })
+            .on('click.removeMember', '.modal-delete-member__bottom ._delete', function() {
+                var scope = ModalsModule.getScope();
+
+                if ($('.modal-delete-member__textarea').val().length === 0) {
+                    return false;
+                }
+
+                $.ajax({
+                    url: "/tasks/" + scope.task_id + "/members/" + scope.member_id,
+                    type: 'DELETE',
+                    data: { reason: $('.modal-delete-member__textarea').val() },
+                    success: function() {
+                      $('#taskDeleteMember').fadeOut();
+                      $('#myModal').fadeOut();
+                      $('html').removeClass('_open-modal');
+                      $('.modal-delete-member__textarea').val('');
+                    }
+                });
+            })
+    })
+
+</script>

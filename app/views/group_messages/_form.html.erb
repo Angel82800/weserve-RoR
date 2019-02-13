@@ -1,0 +1,59 @@
+<div class="f-new-message">
+
+  <div class="f-new-message__sender">
+    <% if current_user.picture? %>
+        <%= link_to image_tag(current_user.picture, size: "30x30"), user_path(current_user) %>
+    <% else %>
+        <%= link_to gravatar_for_user(current_user), user_path(current_user) %>
+    <% end %>
+  </div>
+
+  <%= simple_form_for(@group_message = GroupMessage.new, :remote => true, :html => {:class => 'f-new-message__form'}) do |f| %>
+      <div class="form-group">
+        <div id="load-image-gif" style="text-align: center; display: none">
+          <%= image_tag 'loading.gif' %>
+        </div>
+        <%= f.hidden_field :chatroom_id, value: @chatroom.id %>
+        <%= f.text_area :message, :placeholder => t('.write_message') %>
+        <%= f.file_field :attachment, :style => 'display:none', id: 'file-attachment-button' %>
+        <div class="f-new-message__send">
+            <%= f.submit t('commons.send'), class: 'f-new-message__submit' %>
+
+            <div class="f-new-message__attach">
+                <span class="postfix text-default">
+                    <i class="fa fa-paperclip fa-2x" title="Attach file" aria-hidden="true" id="file-attachment-icon"></i>
+                    <%= t('commons.add_attachment') %>
+                </span>
+            </div>
+        </div>
+        <div class="f-new-message__attach-error"></div>
+
+      </div>
+  <% end %>
+
+</div>
+
+<script>
+  $("#group_message_message").keypress(function (e) {
+    if (e.which == 13 && !e.shiftKey) {
+      if ($(this).val().trim() == "") {
+        return false
+      }
+      else {
+        $(".f-new-message__submit").trigger('click');
+      }
+    }
+  });
+  $(".f-new-message__attach").click(function (e) {
+    $("#file-attachment-button").click();
+  });
+  $("#file-attachment-button").change(function () {
+    $(".f-new-message__submit").click();
+    $("#load-image-gif").show();
+  });
+  $(".f-new-message__submit").click(function (event) {
+    if (($('#file-attachment-button').val() == "" && $('#group_message_message').val() == "")) {
+      event.preventDefault();
+    }
+  });
+</script>

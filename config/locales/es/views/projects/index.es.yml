@@ -1,0 +1,5 @@
+es:
+  projects:
+    index:
+      title: Buscar Proyectos
+      scroll_down: Desplace hacia abajo para cargar más

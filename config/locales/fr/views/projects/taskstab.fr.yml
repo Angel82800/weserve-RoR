@@ -1,0 +1,20 @@
+---
+fr:
+  projects:
+    taskstab:
+      plan_tab_title: Idée
+      tasks_tab_title: Tâches
+      requests_tab_title: Demandes
+      donors_tab_title: Donateurs
+      sub_projects: Sous-projets
+      team_tab:
+        title: Équipe
+        description: Voici les équipiers pour ce projet. Vous pouvez choisir de rejoindre
+          l'équipe ci-dessous.
+        apply_leader_coordinator: Postuler en tant que rédacteur en chef ou en tant
+          que coordinateur
+      task_tab:
+        title: Action
+      request_tab:
+        title: ""
+...

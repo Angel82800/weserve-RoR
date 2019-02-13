@@ -1,0 +1,37 @@
+.top-margin{
+  margin-top: 3rem;
+}
+.tabs dd > a, .tabs .tab-title > a {
+  border: 1px solid rgba(0,0,0,0.1) !important;
+}
+.tabs-center{
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+    width: 527px;
+}
+.tab {
+  margin-right: -1px;
+}
+.content {
+  margin-top: 3rem !important;
+}
+
+.margin-button{
+  margin-top: 1.8rem;
+}
+
+.center {
+  text-align: center;
+}
+
+.items {
+  position: relative;
+}
+.edit-btn {
+  position: absolute;
+  float: left;
+}
+.actions {
+  margin-top: 85px;
+}

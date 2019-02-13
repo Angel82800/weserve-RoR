@@ -1,0 +1,12 @@
+---
+en:
+  group_messages:
+    index:
+      team_channels: Teams channels
+      team_members: Team members
+      direct_messages: Direct messages
+      search_for_user: Search for user
+      find_start_conversation: Find or Start a conversation
+    form:
+      write_message: Write message
+...

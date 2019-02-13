@@ -1,0 +1,152 @@
+<div id="changeLanguageModal" class="modal-default modal-change-language" role="dialog" style="z-index: 1050" tabindex="-1">
+  <div class="modal-default__content">
+    <button type="button" class="modal-default__close"></button>
+    <h4 class="modal-default__title">Select the language</h4>
+    <div class="modal-change-language__content">
+        <ul class="modal-change-language__list">
+
+        </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  function sendRequestForChangeLanguage(id, lang) {
+      var userNewData = {
+              user: {
+                  preferred_language: lang,
+              }
+          };
+      $.ajax({
+          url: '/users/' +  id,
+          method: 'PUT',
+          data: userNewData,
+          success: function(res) {
+            updatedLocale(lang);
+          }
+      })
+  }
+
+  // https://gist.github.com/excalq/2961415
+  function updatedQueryStringParam(key, value) {
+    var baseUrl = [location.protocol, '//', location.host, location.pathname].join(''),
+      urlQueryString = document.location.search,
+      newParam = key + '=' + value,
+      params = '?' + newParam;
+
+    // If the "search" string exists, then build params from it
+    if (urlQueryString) {
+      updateRegex = new RegExp('([\?&])' + key + '[^&]*');
+      removeRegex = new RegExp('([\?&])' + key + '=[^&;]+[&;]?');
+
+      if( typeof value == 'undefined' || value == null || value == '' ) { // Remove param if value is empty
+
+        params = urlQueryString.replace(removeRegex, "$1");
+        params = params.replace( /[&;]$/, "" );
+
+      } else if (urlQueryString.match(updateRegex) !== null) { // If param exists already, update it
+
+        params = urlQueryString.replace(updateRegex, "$1" + newParam);
+
+      } else { // Otherwise, add it to end of query string
+
+        params = urlQueryString + '&' + newParam;
+
+      }
+
+    }
+    return baseUrl + params;
+  };
+
+  function updatedLocale(lang) {
+    var arr_locale = location.href.split('locale='),
+      arr_params = location.href.split('?'),
+      url = location.href;
+
+    if (arr_params.length > 1) {
+      if (arr_locale.length > 1) {
+        url = url.replace('locale=' + arr_locale[1].split('&')[0], 'locale=' + lang);
+      }
+      else {
+        url = url + '&locale=' + lang
+      }
+    }
+    else {
+      url = url + '?locale=' + lang;
+    }
+    location.assign(url);
+  }
+
+  $(document).ready(function() {
+    var availableLanguages = [
+      {
+        name: 'English',
+        tagName: 'en',
+        flag: 'svg-usa-flag',
+        clickHandler: function() {
+//          location.assign(updatedQueryStringParam('locale', 'en'));
+          updatedLocale('en');
+        }
+      },
+      // {
+      //   name: 'Spanish',
+      //   tagName: 'es',
+      //   flag: 'svg-spain-flag',
+      //   clickHandler: function() {
+      //     location.assign(location.href.split('?locale')[0] + '?locale=es');
+      //   }
+      // },
+       {
+         name: 'French',
+         tagName: 'fr',
+         flag: 'svg-france-flag',
+         clickHandler: function() {
+//           location.assign(updatedQueryStringParam('locale', 'fr'));
+           updatedLocale('fr');
+         }
+       },
+      // {
+      //   name: 'Portuguese',
+      //   tagName: 'pt',
+      //   flag: 'svg-portugal-flag',
+      //   clickHandler: function() {
+      //     location.assign(location.href.split('?locale')[0] + '?locale=pt');
+      //   }
+      // }
+    ];
+    var languageListWrapper = $('.modal-change-language__list'),
+        languageList = '';
+
+    availableLanguages.forEach(function(lang) {
+      languageList += '' +
+        '<li class="modal-change-language__item" data-name="' + lang.tagName + '">' +
+          '<svg focusable="false" version="1.1" class="' + lang.flag + '" aria-hidden="true">' +
+            '<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#' + lang.flag + '"></use>' +
+          '</svg>' +
+          '<div class="modal-change-language__name">' + lang.name + '</div>' +
+        '</li>'
+    });
+    languageListWrapper.html(languageList);
+
+    $(document).on('click.selectLanguage', '.modal-change-language__item', function() {
+      var selectedTagName = $(this).data('name'),
+          currentUserId = null;
+
+      <% if user_signed_in? %>
+          currentUserId = '<%= current_user.id %>';
+      <% end %>
+
+      availableLanguages.every(function(lang) {
+        if (lang.tagName === selectedTagName) {
+          if (currentUserId) {
+            sendRequestForChangeLanguage(currentUserId, selectedTagName);
+          } else {
+            lang.clickHandler();
+          }
+          return;
+        }
+        return true;
+      })
+    })
+  })
+</script>

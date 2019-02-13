@@ -1,0 +1,15 @@
+$(".condition-and-proof").html("<%=j (render 'projects/condition_and_proof_of_execution', task: @task) %>")
+$("#task-title").html("<%= @task.title %>")
+$("#task-budget + .b_bold").html("<%= number_with_precision(balance_in_usd(@task.budget), precision: 2) %>");
+$('[data-task-id="<%=@task.id %>"] .card-task-budget').html("<%= number_with_precision(balance_in_usd(@task.budget), precision: 2) %>");
+$("#project-budget").html("<%= number_with_precision(balance_in_usd(@task.project.needed_budget), :precision => 0) %>");
+$("#task-deadline").html("<%=(@task.deadline.strftime("%Y-%m-%d %I:%M %p")) %>");
+$('a[data-task-id="<%=@task.id%>"]').find(".card-title h5").html("<%= @task.title%>");
+<% if @board_changed %>
+  if ($('a[data-task-id="<%=@task.id%>"]').is(":visible")) {
+   $('a[data-task-id="<%=@task.id%>"]').hide();
+  }
+  else{
+    $('a[data-task-id="<%=@task.id%>"]').show();
+  }
+<% end %>

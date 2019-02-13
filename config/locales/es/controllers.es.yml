@@ -1,0 +1,66 @@
+es:
+  controllers:
+    cancan_access_denied: "Ooops. Parece que no está autorizado para esta acción"
+    active_record_not_found: "¡Lo sentimos, no pudimos encontrar lo que buscaba!"
+    unauthorized_message: "No está autorizado para ejecutar esta operación"
+    admin_only_mode:
+      admin_mode_activated: "Modo de Sólo Administrador activado."
+    payments:
+      thanks_you: "Gracias por su pago"
+      invalid_parameters: "Los parámetros del formulario introducidos son inválidos"
+  task_comments:
+    create:
+      success: "Comentario enviado"
+      fail: "Error al guardar este comentario, por favor intente de nuevo"
+  user_wallet_transactions:
+    send_to_any_address:
+      success: "%{amount} BTC ha sido enviado exitosamente a %{transfer_address}."
+    send_to_task_address:
+      success: "%{amount} BTC ha sido enviado exitosamente al balance de la tarea"
+  users:
+    update:
+      fail: "No es posible actualizar el usuario."
+      file_type_fail: "Selected file is invalid. Allowed types: %{allowed_types}"
+    destroy:
+      success: "Usuario eliminado."
+  task_attachments:
+    create:
+      success: "El Archivo Adjunto de la Tarea ha sido cargado."
+      fail: "Error al cargar el Archivo Adjunto de la Tarea."
+  project_comments:
+    create:
+      success: "Su comentario ha sido enviado"
+    update:
+      success: "Comentario actualizado"
+    destroy:
+      success: "Comentario eliminado"
+  group_messages:
+    create:
+      fail: "Error al cargar el archivo adjunto. Entradas permitidas: %{allowed_types}"
+  do_requests:
+    new:
+      fail: "No puede aplicar a la tarea sugerida"
+    create:
+      success_and_sent: "Solicitud enviada al Administrador del Proyecto"
+      success_and_will_notify_back: "Su solicitud para realizar esta tarea fue enviada\
+        \ exitosamente. El líder del proyecto le notificará una vez la misma haya\
+        \ sido recibida y se haya tomado una decisión."
+      fail_cannot_apply_twice: "You can not apply twice"
+    destroy:
+      success: "La solicitud de asignación de la tarea fue destruida con éxito."
+    accept:
+      success: "La tarea ha sido asignada"
+      fail: "La tarea no ha sido asignada al usuario"
+    reject:
+      success: "Solicitud rechazada"
+      fail: "No se pudo rechazar la solicitud"
+  change_leader_invitation:
+    accept:
+      success: "¡Felicidades! Usted es el líder del proyecto %{project_title}!"
+  admin_invitations:
+    accept:
+      success: "La invitación ha sido aceptada."
+      fail: "Hubo algunos problemas que evitaron que la invitación fuese aceptada."
+    reject:
+      success: "La invitación ha sido rechazada."
+      fail: "Hubo algunos problemas que evitaron que la invitación fuese rechazada."

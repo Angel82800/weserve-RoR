@@ -1,0 +1,16 @@
+<div id="cancellationModal" class="modal-default modal-cancellation" role="dialog" tabindex="-1">
+    <div class="modal-default__content">
+        <button type="button" class="modal-default__close"></button>
+        <h2 class="modal-default__title modal-cancellation__title"><%= t('.want_cancel_task') %></h2>
+
+        <div class="modal-cancellation__buttons">
+            <%= link_to back_funding_task_url(task, assignee_id: params[:assignee_id]), method: 'put' do %>
+              <button type="button" class="btn-root _agree"><%= t('.agree') %></button>
+            <% end %>
+            <button type="button" class="btn-root _dark _refuse" data-modal-close><%= t('.disagree') %></button>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+  ModalsModule.openModal('#cancellationModal');
+</script>

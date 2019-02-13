@@ -1,0 +1,23 @@
+<% content_for :title do %>
+  WeServe.io > Comment
+<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Commenter:</strong>
+  <%= @profile_comment.commenter_id %>
+</p>
+
+<p>
+  <strong>Receiver:</strong>
+  <%= @profile_comment.receiver_id %>
+</p>
+
+<p>
+  <strong>Comment text:</strong>
+  <%= @profile_comment.comment_text %>
+</p>
+
+<%= link_to 'Edit', edit_profile_comment_path(@profile_comment) %> |
+<%= link_to 'Back', profile_comments_path %>

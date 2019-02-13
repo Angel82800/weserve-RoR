@@ -1,0 +1,49 @@
+<% unless @group_messages.blank? %>
+    <ul class="l-messages__list">
+    <% @group_messages.each do |message| %>
+        <% if current_user.id == message.user.id %>
+            <li class="row l-messages__item _userMessage">
+        <% else %>
+            <li class="row l-messages__item">
+        <% end %>
+          <div class="l-messages__sender">
+            <a href="#">
+              <% if message.user.picture? %>
+                  <%=link_to  image_tag(message.user.picture),user_path(message.user) %>
+              <% else %>
+                  <%=link_to  gravatar_for_user(message.user, 35),user_path(message.user) %>
+              <% end %>
+            </a>
+          </div>
+          <div class="l-messages__content">
+
+            <div class="l-messages__content-text">
+              <%= message.message %>
+              <% if message.attachment? %>
+                  <br>
+                  <% if %w{jpeg jpg png tiff gif bmp}.include?(message.attachment.file.extension) %>
+                      <%= image_tag message.attachment.url %>
+                      <br>
+                      <%= t('commons.download') %>
+                      image: <%= link_to message.attachment.file.filename, group_messages_download_files_path(id: message.id)%>
+                  <% else %>
+                      <%= t('commons.download') %>
+                      file: <%= link_to message.attachment.file.filename, group_messages_download_files_path(id: message.id) %>
+                  <% end %>
+                  <br>
+                  <br>
+              <% end %>
+            </div>
+            <span class="l-messages__name"><%= message.user.display_name %></span>
+            <span class="l-messages__date"><%= time_ago_in_words(message.created_at) %></span>
+            <br>
+
+          </div>
+        </li>
+    <% end %>
+    </ul>
+<% else %>
+    <div class="l-messages__no-message">
+      <%= t('commons.no_messages') %>
+    </div>
+<% end %>

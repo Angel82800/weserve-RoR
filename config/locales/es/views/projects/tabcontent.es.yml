@@ -1,0 +1,30 @@
+es:
+  projects:
+    revision_history:
+      edit_revision: "Editar revisión"
+      select_revisions: "Seleccione Revisiones"
+      compare: "Comparar"
+      time: "Hora"
+      contributors: "Colaboradores"
+      approved_version: "Versión aprobada"
+    tabcontent:
+      plan:
+        review_contribution: "Revisar las contribuciones"
+        create_sub_project: "Crear subproyecto"
+        project_idea: "Idea de proyecto"
+      do_requests:
+        pending_do_requests: "Pendiente hacer solicitudes"
+        resolved_do_requests: "Resuelto hacer solicitudes"
+        there_users_requested_to_do_task: "Estos usuarios solicitaron realizar tareas\
+          \ en el proyecto %{project_title}"
+        there_users_requested_resolved_in_project: "Hay usuarios solicitados para\
+          \ hacer tareas fue resuelto en el proyecto %{project_title}"
+      revision:
+        revision_for: "Revisiones para"
+        manual_verification: "Verificación manual"
+        approval_help_tooltip_1: "Cuando la verificación manual está desactivada,\
+          \ los usuarios pueden editar su proyecto sin su aprobación. Aún puede cancelar\
+          \ o editar contribuciones y bloquear usuarios."
+        approval_help_tooltip_2: "Si activa la verificación manual, deberá revisar\
+          \ la contribución de cada usuario para que se implementen."
+        revision_error: "Debe seleccionar más de una revisión"

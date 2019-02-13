@@ -1,0 +1,17 @@
+.modal-agreement {
+  z-index: 1100;
+  .modal-default__content {
+    max-width: 920px;
+  }
+  &__title {
+    margin: 0;
+  }
+  &__subtitle {
+    margin: 0;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+  }
+  &__buttons {
+    margin-top: 30px;
+  }
+}

@@ -1,0 +1,18 @@
+<!-- Messages box. includes messages and new message form -->
+
+  <!-- Represents single message -->
+<%unless @groupmessages.blank?%>
+    <% @groupmessages.each do |groupmessage| %>
+        <div class="row message">
+          <div class="small-1 columns">
+            <a href="#"><img class="profile-image" src="images/profile-image.jpg"></a>
+          </div>
+          <div class="small-11 columns message-content">
+              <span><%= groupmessage.try(:messgae) %>
+              </span>
+            <div class="message-date">june 2016</div>
+          </div>
+        </div>
+
+    <%end%>
+<%end%>

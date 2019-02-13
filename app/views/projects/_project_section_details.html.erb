@@ -1,0 +1,15 @@
+<% if @change_leader_invitation.present? %>
+  <%= link_to "Accept", accept_change_leader_invitation_path(@change_leader_invitation), method: :put %>
+  <%= link_to "Reject", reject_change_leader_invitation_path(@change_leader_invitation), method: :put %>
+<% end%>
+
+<%-@project.section_details_list.select(&:completed?).each do |section_detail|%>
+  <section class="section_content_box" id="section-detail-<%=section_detail.id%>">
+    <a name="section-detail-<%=section_detail.id%>"></a>
+    <h2><%=section_detail.title%></h2>
+    <hr/>
+    <p class="section-detail-content">
+      <%= section_detail.context.html_safe %>
+    </p>
+  </section>
+<%end%>

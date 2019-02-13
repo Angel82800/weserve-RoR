@@ -1,0 +1,32 @@
+<% content_for :title do %>
+  <%= t('commons.sign_in_to') %> WeServe.io
+<% end %>
+
+<div class="register-form-wrapper">
+  <div class="register-modal mt100">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h2 class="modal-title"><%= t('commons.sign_in') %></h2>
+        </div>
+
+        <div class="modal-sign__col-wrap">
+            <div class="modal-sign__col">
+              <%= render "modal/social_sign_in" %>
+            </div>
+
+            <div class="modal-sign__col main-form">
+              <%= render 'form' %>
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="signin-intro pt30">
+            <p><%= t('commons.donot_have_account?') %> <%= link_to t('commons.sign_up'), new_user_registration_path %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,333 @@
+// for _payout_details.html.erb
+.pd-none {
+  padding: 0;
+}
+.pd-lft {
+  padding-left: 0;
+}
+.mb-40 {
+  margin-bottom: 40px;
+}
+section.my-wallet {
+  margin-left: 5%;
+  max-width: 600px;
+  width: 100%;
+}
+.head {
+  margin-bottom: 50px;
+}
+.head p {
+  font-size: 20px;
+}
+.my-wallet form ul {
+  text-align: right;
+}
+.my-wallet form li {
+  display: inline-block;
+  list-style: none;
+}
+.my-wallet form li a {
+  color: #0f89f3;
+  font-size: 16px;
+  text-decoration: underline;
+}
+.my-wallet form li:first-child {
+  padding-right: 30px;
+}
+.my-wallet form label {
+  font-size: 16px;
+  font-weight: 100;
+}
+.my-wallet form .dob_picker input {
+  margin-bottom: 0;
+}
+
+
+.p-s-check{
+  font-size: 25px;
+  color: #72BB53;
+}
+
+.add_color{
+  color: #72BB53;
+}
+
+.circle-check{
+  font-size: 20px !important;
+  color: #72BB53;
+}
+
+.add-account {
+  margin-top: 30px;
+}
+.add-account .add-btn-root {
+  float: right;
+}
+.add-account .add-btn-root {
+  background: #78A300;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 2px 30px;
+  color: #000;
+}
+.btn-fee .add-btn-root {
+  background: #78A300;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 5px 23px;
+  color: #000;
+  font-size: 16px;
+}
+.btn-fee .add-btn-root:hover,
+.add-account .add-btn-root:hover {
+  text-decoration: none;
+}
+.add-account p {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  border-bottom-style: dotted;
+}
+button.add-btn-root {
+  background: #78A300;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 3px 20px;
+  color: #000;
+  font-size: 16px;
+}
+button.add-btn-root:hover {
+  background: #78A300;
+  border: 1px solid #000;
+  color: #333;
+  text-decoration: none;
+}
+form.wallet-bank-form {
+  max-width: 500px;
+  width: 100%;
+  .form-row{
+    select {
+      margin-bottom: 1rem;
+    }
+  }
+  label {
+    font-size: 14px;
+  }
+  .form-row:last-child {
+    margin: 20px 0;
+    text-align: right;
+  }
+  a.cancel-btn-txt {
+    padding-right: 10px;
+  }
+  .payout-for-eu {
+    display: none;
+  }
+}
+form#example-form {
+  .form-row {
+    select.stripe-sensitive {
+      display: inline-block;
+      width: 70px;
+    }
+  }
+  .card-cancel {
+    text-align: right;
+    a {
+      padding-right: 20px;
+    }
+  }
+}
+.remove-option {
+  float: right;
+  i{
+    padding-right: 20px;
+    font-size: 16px;
+    color: #72BB53;
+  }
+  .remove-btn-root {
+    background: #ff6624;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 4px 30px;
+    color: #000;
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+.unverified-txt {
+  i {
+    color: red;
+  }
+}
+.btn-fee.coinbase-details {
+  li {
+    list-style: none;
+    margin-bottom: 20px;
+    text-align: right;
+    span {
+      padding-right: 18px;
+      font-size: 16px;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  section.my-wallet {
+    margin-left: 0;
+    padding: 20px;
+  }
+}
+.unverified_cls{
+  display: inline-block;
+}
+.unverified_cls + a {
+  font-size: 14px;
+  margin-left: 6px;
+  color: #6363ff;
+  text-decoration: underline;
+}
+.unverified_cls + a:visited {
+  color: #6363ff;
+}
+.withdraw-btn{
+  background-color: #92D36E;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 4px 30px;
+  color: #000 !important;
+  font-size: 14px;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+}
+.conf-withdraw{
+  color: #2F6CE5 !important;
+}
+.setup-btn{
+  background: #78A300;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 5px 23px;
+  color: #000 !important;
+  font-size: 16px;
+}
+.setup-btn:hover{
+  text-decoration: none;
+}
+
+.hold-balance{
+  font-size: 16px;
+  margin-top: 8px;
+}
+.add_color{
+  color: #1464F6;
+}
+
+.tooltips {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltips .tooltiptext {
+  visibility: hidden;
+  width: 250px;
+  background-color: #D3D3D3;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px;
+  position: absolute;
+  z-index: 1;
+  font-size: 16px;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -125px;
+  border: 1px solid black;
+}
+
+.tooltips .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+.tooltips:hover .tooltiptext {
+   visibility: visible;
+}
+
+button.disabled{
+  background: #ff6624;
+  color: black;
+  border-color: black;
+}
+
+button.disabled:hover{
+  background: #ff6624 !important;
+  color: black !important;
+  border: 1px solid black !important;
+}
+
+#taskDoModal .modal-default__content {
+  padding: 10px 20px;
+}
+#taskDoModal .modal-do-task__row {
+    font-size: 16px;
+}
+#taskDoModal .modal-do-task__row._description {
+    margin-bottom: 30px;
+}
+#taskDoModal .modal-do-task__row._task_budget,
+#taskDoModal .modal-do-task__row._fee_apply {
+    border-bottom: 1px solid lightgrey;
+}
+#taskDoModal span {
+    font-weight: 200;
+}
+#taskDoModal span.translation_missing {
+    font-weight: 600;
+}
+#taskDoModal .modal-do-task__subtitle {
+    text-align: left;
+}
+.checkbox-input {
+    margin-bottom: 14px;
+}
+.checkbox-input label {
+    font-size: 14px;
+}
+#taskDoModal .modal-do-task__wrapper._border-bottom {
+    border: none;
+}
+.to-do-apply {
+  background: #000;
+  color: #fff;
+  opacity: .4;
+  pointer-events: none;
+}
+.green_color{
+  color: #289b00
+}
+.grey_color{
+  color: #415256
+}
+.aqua_color{
+  color: #009799
+}
+
+.table-info {
+  background-color: #b5eaf5 !important; //It is overwritten by the other css table
+}
+.note-free {
+  color: white;
+  background-color: #2fb56e;
+  border-radius: 999rem;
+  width: 60px;
+  display: inline-block;
+  text-align:center;
+}
+.dr-card {
+  color: #337ab7 !important;
+  text-decoration: underline;
+}

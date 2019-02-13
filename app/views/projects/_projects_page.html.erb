@@ -1,0 +1,7 @@
+<% @featured_projects.each do |project| %>
+  <%= render partial: 'projects_page_box', locals: { project: project } %>
+<% end %>
+
+<div id="ajaxLoading" class="hidden-div">
+  <%= image_tag "loading.gif" %>
+</div>

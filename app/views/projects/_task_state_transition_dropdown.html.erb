@@ -1,0 +1,139 @@
+<div class='dropdown task-state-transition-dropdown'>
+  <button class="btn btn-theme-green dropdown-toggle transition-state-dropdown" data-toggle="dropdown" role="button" id="state-transition-menu">
+    <span class="user-dropdown__name"><%= t(".#{task.state}")%></span>
+    <i class="fa fa-chevron-down"></i>
+  </button>
+  <ul class="dropdown-menu state-transition-list" role="menu" aria-labelledby="state-transition-menu">
+
+    <!-- Suggested to Funding -->
+    <% if can? :accept, task %>
+      <li role="presentation">
+        <a class="transition-state" role="menuitem" tabindex="-1" href="javascript:void(0)" id="approveTaskPopover" tabindex="0" data-trigger="focus" data-placement="top">
+          <div class='source-state'>
+            <span><%= t('.accept_task') %></span>
+          </div>
+          <div class='target-state'>
+            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            <span><%= t('.funding_sourcing') %></span>
+          </div>
+        </a>
+      </li>
+    <% end %>
+
+    <!-- Reject to Suggested-->
+    <% if can? :reject, task %>
+      <li role="presentation">
+        <a class="transition-state" role="menuitem" tabindex="-1" href="javascript:void(0)" id="rejectTaskPopover" tabindex="0" data-trigger="focus" data-placement="top">
+          <div class='source-state'>
+            <span><%= t('.reject_task') %></span>
+          </div>
+          <div class='target-state'>
+            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            <span><%= t('.suggested_task') %></span>
+          </div>
+        </a>
+
+        <!-- Confirm reject popover -->
+        <div id="rejectTaskPopoverTitle" class="hidden">
+          <b><%= t('commons.are_you_sure') %></b>
+        </div>
+        <div id="rejectTaskPopoverContent" class="hidden">
+          <div class="popover-content">
+            <p><%= t('projects.task_details.reject_task_description_html') %></p>
+            <div class="approve-btns mt10">
+              <%= link_to reject_task_path(@task.id), :method => :put, class: 'approve-btn', title: 'approve' do %>
+                <i class="fa fa-check"></i>
+                <%= t('projects.task_details.reject_funding_task') %>
+              <% end %>
+              <a class="approve-btn _close-modal" title="cancel">
+                <%= t('commons.no') %>
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+    <% end %>
+
+    <!-- Stop task back to Funding -->
+    <% if can? :cancel, task %>
+      <li role="presentation">
+        <a class="transition-state" role="menuitem" tabindex="-1" href="javascript:void(0)" id="cancelTaskPopover" tabindex="0" data-trigger="focus" data-placement="top">
+          <div class='source-state'>
+            <span><%= t('.stop_task') %></span>
+          </div>
+          <div class='target-state'>
+            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            <span><%= t('.funding_sourcing') %></span>
+          </div>
+        </a>
+
+        <!-- Confirm cancel popover -->
+        <div id="cancelTaskPopoverTitle" class="hidden">
+          <b><%= t('commons.are_you_sure') %></b>
+        </div>
+        <div id="cancelTaskPopoverContent" class="hidden">
+          <div class="popover-content">
+            <p><%= t('projects.task_details.cancel_task_description_html') %></p>
+            <div class="approve-btns mt10">
+              <%= link_to cancel_task_path(@task.id), :method => :put, class: 'approve-btn', title: 'approve' do %>
+                <i class="fa fa-check"></i>
+                <%= t('projects.task_details.cancel_doing_task') %>
+              <% end %>
+              <a class="approve-btn _close-modal" title="cancel">
+                <%= t('commons.no') %>
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+    <% end %>
+
+    <!-- Submit for review to In Review -->
+    <% if can? :reviewing, task %>
+      <li role="presentation">
+        <a class="transition-state" href="<%= reviewing_task_path(task.id) %>" data-method="put" role="menuitem" tabindex="-1">
+          <div class='source-state'>
+            <span><%= t('.submit_review') %></span>
+          </div>
+          <div class='target-state'>
+            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            <span><%= t('.inreview') %></span>
+          </div>
+        </a>
+      </li>
+    <% end %>
+
+    <!-- Request changes back to In Progress -->
+    <% if can? :back_doing, task %>
+      <li role="presentation">
+        <a class="transition-state" role="menuitem" tabindex="-1" href="<%= request_change_task_path(task.id) %>" data-method="put">
+          <div class='source-state'>
+            <span><%= t('.request_changes') %></span>
+          </div>
+          <div class='target-state'>
+            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            <span><%= t('.inprogress') %></span>
+          </div>
+        </a>
+      </li>
+    <% end %>
+
+    <!-- Mark as Completed to Success -->
+    <% if can? :completed, task %>
+      <li role="presentation">
+        <a class="transition-state" href="<%= completed_task_path(task.id) %>" data-method="put" data-confirm="<%= t('projects.task_details.mark_completed_confirmation') %>" role="menuitem" tabindex="-1">
+          <div class='source-state'>
+            <span><%= t('.mark_as_completed') %></span>
+          </div>
+          <div class='target-state'>
+            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            <span><%= t('.success') %></span>
+          </div>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<script type="text/javascript">
+  tasks.handleStateDropdown();
+</script>

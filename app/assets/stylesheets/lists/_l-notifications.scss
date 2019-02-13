@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Libre+Franklin');
+
+.l-notifications {
+  list-style: none;
+  margin: 0;
+  &__item {
+    margin-bottom: 20px;
+  }
+}
